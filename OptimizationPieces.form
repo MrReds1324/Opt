@@ -1,0 +1,1609 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Form version="1.0" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Properties>
+<Property name="name" type="java.lang.String" value="frame2" />
+</Properties>
+<Events></Events>
+<Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/><SubComponents>
+<Component class="javax.swing.JButton" name="bp">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Bonus Potential" />
+<Property name="label" type="java.lang.String" value="Bonus Potential" />
+<Property name="text" type="java.lang.String" value="Bonus Potential" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[123,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[123,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[123,26]"/>
+</Property>
+</Properties>
+<Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bpActionPerformed_FormGen"/>
+</Events>
+</Component>
+<Component class="javax.swing.JButton" name="no_3lbp">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="No 3 Line Att Bpot" />
+<Property name="label" type="java.lang.String" value="No 3 Line Att Bpot" />
+<Property name="text" type="java.lang.String" value="No 3 Line Att Bpot" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[134,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[134,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[134,26]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="no_3lbp1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="No 3 Line Att" />
+<Property name="label" type="java.lang.String" value="No 3 Line Att" />
+<Property name="text" type="java.lang.String" value="No 3 Line Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[119,23]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[105,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[119,23]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Weapon Bonus Potential" />
+<Property name="label" type="java.lang.String" value="Weapon Bonus Potential" />
+<Property name="text" type="java.lang.String" value="Weapon Bonus Potential" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[173,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[173,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[173,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secbpSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Secondary Bonus Potential" />
+<Property name="label" type="java.lang.String" value="Secondary Bonus Potential" />
+<Property name="text" type="java.lang.String" value="Secondary Bonus Potential" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[187,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[187,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[187,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="secbpSelectActionPerformed_FormGen"/>
+</Events>
+</Component>
+<Component class="javax.swing.JButton" name="embbpSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Emblem Bonus Potential" />
+<Property name="label" type="java.lang.String" value="Emblem Bonus Potential" />
+<Property name="text" type="java.lang.String" value="Emblem Bonus Potential" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[172,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[172,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[172,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpAtt1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpBoss1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpIed1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="wepbpInp1">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpAtt2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpBoss2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpIed2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="wepbpInp2">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpAtt3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpBoss3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepbpIed3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="wepbpInp3">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secbpAtt1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secbpBoss1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="jButton54">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="secbpInp1">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secbpAtt2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secbpBoss2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="jButton48">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="secbpInp2">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secbpAtt3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secbpBoss3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="jButton52">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="secbpInp3">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embbpAtt1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embbpIed1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="embbpInp1">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embbpAtt2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embbpIed2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="embbpInp2">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embbpAtt3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embbpIed3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="embbpInp3">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="calculate">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Calculate" />
+<Property name="label" type="java.lang.String" value="Calculate" />
+<Property name="text" type="java.lang.String" value="Calculate" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[87,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[87,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[87,26]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="clearInp">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Clear Inputs" />
+<Property name="label" type="java.lang.String" value="Clear Inputs" />
+<Property name="text" type="java.lang.String" value="Clear Inputs" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[102,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[102,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[102,26]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepAtt1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepBoss1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepIed1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="wepInp1">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Weapon" />
+<Property name="label" type="java.lang.String" value="Weapon" />
+<Property name="text" type="java.lang.String" value="Weapon" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[81,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[81,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[81,26]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepAtt2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepBoss2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepIed2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="wepInp2">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepAtt3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepBoss3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepIed3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="wepInp3">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Secondary" />
+<Property name="label" type="java.lang.String" value="Secondary" />
+<Property name="text" type="java.lang.String" value="Secondary" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[95,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[95,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[95,26]"/>
+</Property>
+</Properties>
+<Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="secSelectActionPerformed_FormGen"/>
+</Events>
+</Component>
+<Component class="javax.swing.JButton" name="embSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Emblem" />
+<Property name="label" type="java.lang.String" value="Emblem" />
+<Property name="text" type="java.lang.String" value="Emblem" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[80,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[80,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[80,26]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secAtt1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secBoss1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="jButton18">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="secInp1">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secAtt2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secBoss2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="jButton12">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="secInp2">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secAtt3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secBoss3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="jButton16">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="secInp3">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embAtt1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embIed1">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embAtt2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embIed2">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="embInp2">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embAtt3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="embIed3">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="embInp3">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="embInp1">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepAtt4">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepBoss4">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepIed4">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="wepNebSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Weapon Nebulite" />
+<Property name="label" type="java.lang.String" value="Weapon Nebulite" />
+<Property name="text" type="java.lang.String" value="Weapon Nebulite" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[130,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[130,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[130,26]"/>
+</Property>
+</Properties>
+<Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wepNebSelectActionPerformed_FormGen"/>
+</Events>
+</Component>
+<Component class="javax.swing.JTextField" name="wepInp4">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secNebSelect">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Secondary Nebulite" />
+<Property name="label" type="java.lang.String" value="Secondary Nebulite" />
+<Property name="text" type="java.lang.String" value="Secondary Nebulite" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[144,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[144,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[144,26]"/>
+</Property>
+</Properties>
+<Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="secNebSelectActionPerformed_FormGen"/>
+</Events>
+</Component>
+<Component class="javax.swing.JTextField" name="secInp4">
+<Properties>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secAtt4">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Att" />
+<Property name="label" type="java.lang.String" value="Att" />
+<Property name="text" type="java.lang.String" value="Att" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[50,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="secBoss4">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="label" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="text" type="java.lang.String" value="Boss&#47;Dmg" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[92,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="jButton17">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="IED" />
+<Property name="label" type="java.lang.String" value="IED" />
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[52,26]"/>
+</Property>
+<Property name="enabled" type="boolean" value="false" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel2">
+<Properties>
+<Property name="text" type="java.lang.String" value="BOSS" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[29,14]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[29,14]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[29,14]"/>
+</Property>
+<Property name="font" type="java.awt.Font" 
+editor="org.netbeans.beaninfo.editors.FontEditor">
+<Font  name="Tahoma" size="11" style="1"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="boss">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[25,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="165" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel1">
+<Properties>
+<Property name="text" type="java.lang.String" value="DMG" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[26,14]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[26,14]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[26,14]"/>
+</Property>
+<Property name="font" type="java.awt.Font" 
+editor="org.netbeans.beaninfo.editors.FontEditor">
+<Font  name="Tahoma" size="11" style="1"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="dmg">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[25,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="190" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel4">
+<Properties>
+<Property name="text" type="java.lang.String" value="ATT" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[22,14]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[22,14]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[22,14]"/>
+</Property>
+<Property name="font" type="java.awt.Font" 
+editor="org.netbeans.beaninfo.editors.FontEditor">
+<Font  name="Tahoma" size="11" style="1"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel3">
+<Properties>
+<Property name="text" type="java.lang.String" value="IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[19,14]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[19,14]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[19,14]"/>
+</Property>
+<Property name="font" type="java.awt.Font" 
+editor="org.netbeans.beaninfo.editors.FontEditor">
+<Font  name="Tahoma" size="11" style="1"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="ied">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[35,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="92.72" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="att">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[18,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="42" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="weplvl">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="lvl 160&#43; Weapon" />
+<Property name="label" type="java.lang.String" value="lvl 160&#43; Weapon" />
+<Property name="text" type="java.lang.String" value="lvl 160&#43; Weapon" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[127,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[127,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[127,26]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="seclvl">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="lvl 160&#43; Secondary" />
+<Property name="label" type="java.lang.String" value="lvl 160&#43; Secondary" />
+<Property name="text" type="java.lang.String" value="lvl 160&#43; Secondary" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[141,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[141,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[141,26]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JButton" name="kannaClass">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Kanna Class" />
+<Property name="label" type="java.lang.String" value="Kanna Class" />
+<Property name="text" type="java.lang.String" value="Kanna Class" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[105,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[105,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[105,26]"/>
+</Property>
+</Properties>
+<Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kannaClassActionPerformed_FormGen"/>
+</Events>
+</Component>
+<Component class="javax.swing.JButton" name="zeroClass">
+<Properties>
+<Property name="actionCommand" type="java.lang.String" value="Zero Class" />
+<Property name="label" type="java.lang.String" value="Zero Class" />
+<Property name="text" type="java.lang.String" value="Zero Class" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[95,26]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[95,26]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[95,26]"/>
+</Property>
+</Properties>
+<Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zeroClassActionPerformed_FormGen"/>
+<EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="zeroClassStateChanged_FormGen"/>
+</Events>
+</Component>
+<Component class="javax.swing.JTextField" name="bnebvalue">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[18,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="25" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="iednebvalue">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[18,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="21" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel5">
+<Properties>
+<Property name="text" type="java.lang.String" value="Boss Nebulite Value" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[113,16]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[113,16]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[113,16]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel6">
+<Properties>
+<Property name="text" type="java.lang.String" value="IED Nebulite Value" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[102,16]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[102,16]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[102,16]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="legion">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[18,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="80" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel7">
+<Properties>
+<Property name="text" type="java.lang.String" value="Legion Points for Boss and IED" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[173,16]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[173,16]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[173,16]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JTextField" name="monDef">
+<Properties>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[25,20]"/>
+</Property>
+<Property name="text" type="java.lang.String" value="300" />
+</Properties>
+<Events></Events>
+</Component>
+<Component class="javax.swing.JLabel" name="jLabel8">
+<Properties>
+<Property name="text" type="java.lang.String" value="Monster Defense Amount" />
+<Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[144,16]"/>
+</Property>
+<Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[144,16]"/>
+</Property>
+<Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<Dimension value="[144,16]"/>
+</Property>
+</Properties>
+<Events></Events>
+</Component>
+</SubComponents>
+</Form>
