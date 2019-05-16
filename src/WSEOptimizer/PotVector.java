@@ -17,12 +17,12 @@ public class PotVector implements Comparable {
     //The Potential Objects for each item in WSE
     public Potentials wep, sec, emb, wepb, secb, embb = null;
     //The Nebs_U Object holding the nebulite and union information 
-    public Union nebu = new Union(0, 0);
+    public Union union = new Union(0, 0);
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
     public double att, boss, ied, calc;
 
     //Constructor to create PotVector without Bonus Potential
-    PotVector(Potentials wep, Potentials sec, Potentials emb, double att, double boss, double ied, double calc, Union neb) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, double att, double boss, double ied, double calc, Union union) {
         this.wep = wep;
         this.sec = sec;
         this.emb = emb;
@@ -30,7 +30,7 @@ public class PotVector implements Comparable {
         this.boss = boss;
         this.ied = ied;
         this.calc = calc;
-        this.nebu = neb;
+        this.union = union;
     }
 
     //Constructor to create PotVectors with Bonus Potential 
@@ -45,12 +45,12 @@ public class PotVector implements Comparable {
         this.boss = boss;
         this.ied = ied;
         this.calc = calc;
-        this.nebu = neb;
+        this.union = neb;
     }
 
     //Returns the Nebs_U Object stored in this Object
-    public Union getNebs() {
-        return this.nebu;
+    public Union getUnion() {
+        return this.union;
     }
 
     //Returns the Potentials Object of the weapon stored in this Object
@@ -112,7 +112,7 @@ public class PotVector implements Comparable {
             x += "--Bonus Potential--\n";
             x += "Wep:\n" + this.getWepb().toString() + "Sec:\n" + this.getSecb().toString() + "Emb:\n" + this.getEmbb().toString() + "\n";
         }
-        x += this.getNebs().toString();
+        x += this.getUnion().toString();
         return x;
     }
 
@@ -126,7 +126,7 @@ public class PotVector implements Comparable {
         hash = 53 * hash + Objects.hashCode(this.wepb);
         hash = 53 * hash + Objects.hashCode(this.secb);
         hash = 53 * hash + Objects.hashCode(this.embb);
-        hash = 53 * hash + Objects.hashCode(this.nebu);
+        hash = 53 * hash + Objects.hashCode(this.union);
         return hash;
     }
 
@@ -139,10 +139,10 @@ public class PotVector implements Comparable {
             PotVector comp = (PotVector) o;
             //If bonus pots are not null then use it in equals
             if (wepb != null && secb != null && embb != null) {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && nebu.equals(comp.getNebs()) && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb());
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion()) && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb());
             } //Else do not as you will get IndexOutOfBounds exception
             else {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && nebu.equals(comp.getNebs());
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion());
             }
         }
     }

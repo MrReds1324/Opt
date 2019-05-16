@@ -368,18 +368,18 @@ public class WSEBuilder {
             for (PotVector mpot : main_temp) {
                 for (PotVector bpot : bonus_temp) {
                     //Calculate new IED
-                    double iedt = (1 - ((1 - baseIED) * mpot.getWep().cied() * mpot.getSec().cied() * mpot.getEmb().cied() * mpot.getNebs().cied() * bpot.getWep().cied() * bpot.getSec().cied() * bpot.getEmb().cied()));
+                    double iedt = (1 - ((1 - baseIED) * mpot.getWep().cied() * mpot.getSec().cied() * mpot.getEmb().cied() * mpot.getUnion().cied() * bpot.getWep().cied() * bpot.getSec().cied() * bpot.getEmb().cied()));
                     //Calculate new ATT
                     double attt = 1 + baseAtt + mpot.getWep().catt() + mpot.getSec().catt() + mpot.getEmb().catt() + bpot.getWep().catt() + bpot.getSec().catt() + bpot.getEmb().catt();
                     //Calculate new BOSS
-                    double bosst = 1 + baseDamage + baseBoss + mpot.getWep().cboss() + mpot.getSec().cboss() + mpot.getEmb().cboss() + mpot.getNebs().cboss() + bpot.getWep().cboss() + bpot.getSec().cboss() + bpot.getEmb().cboss();
+                    double bosst = 1 + baseDamage + baseBoss + mpot.getWep().cboss() + mpot.getSec().cboss() + mpot.getEmb().cboss() + mpot.getUnion().cboss() + bpot.getWep().cboss() + bpot.getSec().cboss() + bpot.getEmb().cboss();
                     //Calculates the multiplier
                     double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                     if (pt == null) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getNebs());
+                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion());
                     }
                     if (calct >= pt.getCalc()) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getNebs());
+                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion());
                     }
                 }
             }

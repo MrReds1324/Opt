@@ -1706,7 +1706,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 double calc_base = ((1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
                 String fd = String.format("%.3f", (pt.getCalc() / calc_base - 1) * 100);
                 String s = "----Legion----\n";
-                s += pt.getNebs().legionString();
+                s += pt.getUnion().legionString();
                 s += "\n----------------------------------------------";
                 s += "\n" + fd + "% Final Damage";
                 fd_Legion.setText(s);
