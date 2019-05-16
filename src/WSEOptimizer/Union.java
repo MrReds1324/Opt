@@ -1,4 +1,4 @@
-package optimizationpieces;
+package WSEOptimizer;
 
 import java.util.Arrays;
 

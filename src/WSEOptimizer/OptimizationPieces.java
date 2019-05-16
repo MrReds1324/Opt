@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package optimizationpieces;
+package WSEOptimizer;
 
 import java.util.ArrayList;
+import WSEOptimizer.Constants.ItemType;
+import WSEOptimizer.Constants.PotConfig;
+import WSEOptimizer.Constants.ClassType;
 
 /**
  *
@@ -13,12 +16,11 @@ import java.util.ArrayList;
  */
 public class OptimizationPieces extends javax.swing.JFrame {
 
-    private boolean no_3lAtt; //Keeps track if we want to calculate with or without 3 lines of attack
-    private boolean no_3lbpAtt; //Keeps track if we want to calculate with or without 3 lines of attack for bonus potential
+    private PotConfig no_3lAtt; //Keeps track if we want to calculate with or without 3 lines of attack
+    private PotConfig no_3lbpAtt; //Keeps track if we want to calculate with or without 3 lines of attack for bonus potential
     private boolean sec_lvl; //Keeps track if we want to calculate with a higher level secondary than normal
     private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
-    private boolean kanna;  //Keeps track of the kanna class, it has special properties to account for
-    private boolean zero;   //Keeps track of the Zero class, it has special properties to account for
+    private ClassType classType;  //Keeps track of the class type
     //These keep track of which buttons are selected for which input field
     //0 = none selected, 1 = att, 2 = boss/dmg, 3 = ied
     private int wepInp1_butSel;
@@ -47,26 +49,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private double ied_base;
     private double dmg_base;
     private double boss_base;
-     private double pdr;
+    private double pdr;
     private int legionVal;
-    //Sets up the matrices for the potentials, nebs and legion
-    //Att, IED, BOSS
-    private final int[][] legcombs = new int[][]{
-        {0, 0, 1},
-        {0, 1, 0},
-        {1, 0, 0}};
-    //Att, IED, BOSS
-    private final int[][] ucombs = new int[][]{
-        {2, 0, 0},
-        {0, 2, 0},
-        {0, 0, 2},
-        {1, 1, 0},
-        {1, 0, 1},
-        {0, 1, 1}};
-    //IED, BOSS
-    private final int[][] lcombs = new int[][]{
-        {0, 0},
-        {0, 0}};
     //Variables for saving the base stats for final damage calculation
     private double att_baseS;
     private double boss_baseS;
@@ -1323,7 +1307,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             jPanel1.setVisible(true);
             jPanel2.setVisible(false);
             wepbpSelect.setEnabled(true);
-            if (zero == false) {
+            if (classType != ClassType.ZERO) {
                 secbpSelect.setEnabled(true);
             }
             embbpSelect.setEnabled(true);
@@ -1348,27 +1332,26 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private void kannaClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kannaClassActionPerformed
         if (kannaClass.isSelected()) {
             zeroClass.setEnabled(false);
-            this.kanna = true;
+            this.classType = ClassType.KANNA;
         } else {
-
-            this.kanna = false;
+            this.classType = ClassType.NOCLASS;
             zeroClass.setEnabled(true);
         }
     }//GEN-LAST:event_kannaClassActionPerformed
 
     private void no_3lActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_3lActionPerformed
         if (no_3l.isSelected()) {
-            this.no_3lAtt = true;
+            this.no_3lAtt = PotConfig.NO3LINE;
         } else {
-            this.no_3lAtt = false;
+            this.no_3lAtt = PotConfig.DEFAULT;
         }
     }//GEN-LAST:event_no_3lActionPerformed
 
     private void no_3lbpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_3lbpActionPerformed
         if (no_3lbp.isSelected()) {
-            this.no_3lbpAtt = true;
+            this.no_3lbpAtt = PotConfig.NO3LINE;
         } else {
-            this.no_3lbpAtt = false;
+            this.no_3lbpAtt = PotConfig.DEFAULT;
         }
     }//GEN-LAST:event_no_3lbpActionPerformed
 
@@ -1385,19 +1368,19 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 this.legionVal = Integer.parseInt(legion.getText());
                 //Sets up legion values
                 if (legionVal > 40) {
-                    lcombs[0][0] = 40;
-                    lcombs[0][1] = Math.min(legionVal - 40, 40);
-                    lcombs[1][0] = Math.min(legionVal - 40, 40);
-                    lcombs[1][1] = 40;
+                    WSEBuilder.lcombs[0][0] = 40;
+                    WSEBuilder.lcombs[0][1] = Math.min(legionVal - 40, 40);
+                    WSEBuilder.lcombs[1][0] = Math.min(legionVal - 40, 40);
+                    WSEBuilder.lcombs[1][1] = 40;
                 } else {
-                    lcombs[0][0] = legionVal;
-                    lcombs[0][1] = 0;
-                    lcombs[1][1] = legionVal;
-                    lcombs[1][0] = 0;
+                    WSEBuilder.lcombs[0][0] = legionVal;
+                    WSEBuilder.lcombs[0][1] = 0;
+                    WSEBuilder.lcombs[1][1] = legionVal;
+                    WSEBuilder.lcombs[1][0] = 0;
                 }
                 //Sets up a scaling value for weapon inputs if the class selected was Zero
                 double zero_scale = 1;
-                if (this.zero == true) {
+                if (this.classType == ClassType.ZERO) {
                     zero_scale = 2;
                 }
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
@@ -1643,18 +1626,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
             PotVector pt;
             if (!bp.isSelected()) {
                 if (soulSelect.isSelected()) {
-                    pt = reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
+                    pt = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
                 } else {
-                    this.att_base += 3.0 / 100;
-                    PotVector temp1 = reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
-                    this.att_base -= 3.0 / 100;
-
-                    this.boss_base += 7.0 / 100;
-                    PotVector temp2 = reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
-                    this.boss_base -= 7.0 / 100;
-
-                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - 7.0 / 100)));
-                    PotVector temp3 = reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
+                    PotVector temp1 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
+                    PotVector temp2 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
+                    PotVector temp3 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
 
                     if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
                         wepInp5.setText("3% ATT");
@@ -1669,19 +1645,12 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 }
             } else {
                 if (soulSelect.isSelected()) {
-                    pt = nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
+                    pt = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
                 } else {
-                    this.att_base += 3.0 / 100;
-                    PotVector temp1 = nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
-                    this.att_base -= 3.0 / 100;
-
-                    this.boss_base += 7.0 / 100;
-                    PotVector temp2 = nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
-                    this.boss_base -= 7.0 / 100;
-
-                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - 7.0 / 100)));
-                    PotVector temp3 = nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.wep_lvl, this.sec_lvl);
-
+                    PotVector temp1 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
+                    PotVector temp2 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
+                    PotVector temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base,  (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
+                            
                     if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
                         wepInp5.setText("3% ATT");
                         pt = temp1;
@@ -1862,14 +1831,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
             seclvl.setEnabled(false);
             secSelect.setEnabled(false);
             secSelect.setSelected(false);
+            secbpSelect.setEnabled(false);
+            secbpSelect.setSelected(false);
             setSecondaryEnabled(false);
-            this.zero = true;
+            setSecondaryBPEnabled(false);
+            this.classType = ClassType.ZERO;
         } else {
             kannaClass.setEnabled(true);
             secSelect.setEnabled(true);
-
             seclvl.setEnabled(true);
-            this.zero = false;
+            secbpSelect.setEnabled(true);
+            this.classType = ClassType.NOCLASS;
         }
     }//GEN-LAST:event_zeroClassActionPerformed
 
@@ -2356,370 +2328,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fd_LegionPropertyChange
 
-    public PotVector reb_opt(double d, double b, double a, double i, boolean sw_abs, boolean sec160) {
-        PotVector pt = null;
-        int n3l = 0;
-        if (this.no_3lAtt == true) {
-            n3l = 2;
-        }
-        //Carries out the optimization beginning with Emblem to find the perfect configuration
-        for (int[] legcomb : legcombs) {
-            for (int[] ucomb : ucombs) {
-                //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                Potentials etemp;
-                if (embSelect.isSelected()) {
-                    etemp = new Potentials(0, 0, 0, 0, 0, 0, false);
-                } else {
-                    etemp = new Potentials(legcomb[0], legcomb[1], legcomb[2], ucomb[0], ucomb[1], ucomb[2], false);
-                }
-                if (etemp.feasible(1 + n3l)) {
-                    for (int[] legcomb1 : legcombs) {
-                        for (int[] ucomb1 : ucombs) {
-                            //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                            Potentials wtemp;
-                            if (wepSelect.isSelected()) {
-                                wtemp = new Potentials(0, 0, 0, 0, 0, 0, sw_abs);
-                            } else {
-                                wtemp = new Potentials(legcomb1[0], legcomb1[1], legcomb1[2], ucomb1[0], ucomb1[1], ucomb1[2], sw_abs);
-                            }
-                            if (wtemp.feasible(0 + n3l)) {
-                                //If the Zero class is selected skip the Secondary weapon as the weapon counts for both
-                                if (this.zero == true) {
-                                    Potentials stemp = wtemp;
-
-                                    for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
-                                        //Calculate new IED
-                                        double iedt = (1 - ((1 - this.ied_base) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
-                                        //Calculate new ATT
-                                        double attt = 1 + a + etemp.catt() + stemp.catt() + wtemp.catt();
-                                        //Calculate new BOSS
-                                        double bosst = 1 + d + b + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
-                                        //Calculates the multiplier
-                                        double calct = (attt * bosst * (1 - (this.pdr * (1 - iedt))));
-                                        //If the max potential vector is null then we make this one the max vector
-                                        if (pt == null) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - d - 1, iedt, calct, nebu);
-                                        } //If the current vector is better than the max vector replace it
-                                        else if (calct >= pt.getCalc()) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - d - 1, iedt, calct, nebu);
-                                        }
-                                    }
-
-                                } //If Kanna is Selected
-                                else if (this.kanna == true) {
-                                    //Secondary fan only recognizes Magic Att%
-                                    Potentials stemp = new Potentials(1, 0, 0, 2, 0, 0, sec160);
-                                    if (secSelect.isSelected()) {
-                                        stemp = new Potentials(0, 0, 0, 0, 0, 0, sec160);
-                                    }
-
-                                    for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
-                                        //Calculate new IED
-                                        double iedt = (1 - ((1 - this.ied_base) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
-                                        //Calculate new ATT
-                                        double attt = 1 + a + etemp.catt() + stemp.catt() + wtemp.catt();
-                                        //Calculate new BOSS
-                                        double bosst = 1 + d + b + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
-                                        //Calculates the multiplier
-                                        double calct = (attt * bosst * (1 - (this.pdr * (1 - iedt))));
-                                        //Make a PotVector to contain our new configuration
-                                        //If the max potential vector is null then we make this one the max vector
-                                        if (pt == null) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - d - 1, iedt, calct, nebu);
-                                        } //If the current vector is better than the max vector replace it
-                                        else if (calct >= pt.getCalc()) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - d - 1, iedt, calct, nebu);
-                                        }
-                                    }
-
-                                } //Else do the Secondary Weapon
-                                else {
-                                    for (int[] legcomb2 : legcombs) {
-                                        for (int[] ucomb2 : ucombs) {
-                                            //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                                            Potentials stemp;
-                                            if (secSelect.isSelected()) {
-                                                stemp = new Potentials(0, 0, 0, 0, 0, 0, false);
-                                            } else {
-                                                stemp = new Potentials(legcomb2[0], legcomb2[1], legcomb2[2], ucomb2[0], ucomb2[1], ucomb2[2], sec160);
-                                            }
-                                            if (stemp.feasible(0 + n3l)) {
-
-                                                for (int[] union1 : lcombs) {
-                                                    Union nebu = new Union(union1[0], union1[1]);
-                                                    //Calculate new IED
-                                                    double iedt = (1 - ((1 - this.ied_base) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
-                                                    //Calculate new ATT
-                                                    double attt = 1 + a + etemp.catt() + stemp.catt() + wtemp.catt();
-                                                    //Calculate new BOSS
-                                                    double bosst = 1 + d + b + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
-                                                    //Calculates the multiplier
-                                                    double calct = (attt * bosst * (1 - (this.pdr * (1 - iedt))));
-                                                    //Make a PotVector to contain our new configuration
-                                                    //If the max potential vector is null then we make this one the max vector
-                                                    if (pt == null) {
-                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - d - 1, iedt, calct, nebu);
-                                                    } //If the current vector is better than the max vector replace it
-                                                    else if (calct >= pt.getCalc()) {
-                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - d - 1, iedt, calct, nebu);
-                                                    }
-                                                }
-
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return pt;
-    }
-
-    public PotVector nreb_opt(double dmg, double boss, double att, double ied, boolean sw_abs, boolean sec160) {
-        //If changed is true (the input values have changed) then delete the old Potvector and recalculate the configurations
-        ArrayList<PotVector> main_temp = new ArrayList<>();
-        ArrayList<PotVector> bonus_temp = new ArrayList<>();
-        PotVector pt = null;
-
-        int n3l = 0;
-        if (this.no_3lAtt == true) {
-            n3l = 2;
-        }
-        int n3lb = 0;
-        if (this.no_3lbpAtt == true) {
-            n3lb = 2;
-        }
-
-        //Carries out the optimization beginning with Emblem to find the perfect configuration
-        for (int[] legcomb : legcombs) {
-            for (int[] ucomb : ucombs) {
-                //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                Potentials etemp;
-                if (embSelect.isSelected()) {
-                    etemp = new Potentials(0, 0, 0, 0, 0, 0, false);
-                } else {
-                    etemp = new Potentials(legcomb[0], legcomb[1], legcomb[2], ucomb[0], ucomb[1], ucomb[2], false);
-                }
-                if (etemp.feasible(1 + n3l)) {
-                    for (int[] legcomb1 : legcombs) {
-                        for (int[] ucomb1 : ucombs) {
-                            //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                            Potentials wtemp;
-                            if (wepSelect.isSelected()) {
-                                wtemp = new Potentials(0, 0, 0, 0, 0, 0, sw_abs);
-                            } else {
-                                wtemp = new Potentials(legcomb1[0], legcomb1[1], legcomb1[2], ucomb1[0], ucomb1[1], ucomb1[2], sw_abs);
-                            }
-                            if (wtemp.feasible(0 + n3l)) {
-                                //If the Zero class is selected skip the Secondary weapon as the weapon counts for both
-                                if (this.zero == true) {
-                                    Potentials stemp = wtemp;
-
-                                    for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
-                                        //Calculate new IED
-                                        double iedt = (1 - ((1 - ied) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
-                                        //Calculate new ATT
-                                        double attt = 1 + att + etemp.catt() + stemp.catt() + wtemp.catt();
-                                        //Calculate new BOSS
-                                        double bosst = 1 + dmg + boss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
-                                        //Calculates the multiplier
-                                        double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                        //Make a PotVector to contain our new configuration
-                                        PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - dmg - 1, iedt, calct, nebu);
-                                        //Add the configuration to the WSE array if it does not exist
-                                        if (!main_temp.contains(ptm)) {
-                                            main_temp.add(ptm);
-                                        }
-                                    }
-
-                                } //If the Kanna class is selected
-                                else if (this.kanna == true) {
-                                    //Secondary fan only recognizes Magic Att%
-                                    Potentials stemp = new Potentials(1, 0, 0, 2, 0, 0, sec160);
-                                    if (secSelect.isSelected()) {
-                                        stemp = new Potentials(0, 0, 0, 0, 0, 0, sec160);
-                                    }
-
-                                    for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
-                                        //Calculate new IED
-                                        double iedt = (1 - ((1 - ied) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
-                                        //Calculate new ATT
-                                        double attt = 1 + att + etemp.catt() + stemp.catt() + wtemp.catt();
-                                        //Calculate new BOSS
-                                        double bosst = 1 + dmg + boss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
-                                        //Calculates the multiplier
-                                        double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                        //Make a PotVector to contain our new configuration
-                                        PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - dmg - 1, iedt, calct, nebu);
-                                        //Add the configuration to the WSE array if it does not exist
-                                        if (!main_temp.contains(ptm)) {
-                                            main_temp.add(ptm);
-                                        }
-                                    }
-
-                                } //Else do the Secondary Weapon
-                                else {
-                                    for (int[] legcomb2 : legcombs) {
-                                        for (int[] ucomb2 : ucombs) {
-                                            //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                                            Potentials stemp;
-                                            if (secSelect.isSelected()) {
-                                                stemp = new Potentials(0, 0, 0, 0, 0, 0, false);
-                                            } else {
-                                                stemp = new Potentials(legcomb2[0], legcomb2[1], legcomb2[2], ucomb2[0], ucomb2[1], ucomb2[2], sec160);
-                                            }
-                                            if (stemp.feasible(0 + n3l)) {
-
-                                                for (int[] union1 : lcombs) {
-                                                    Union nebu = new Union(union1[0], union1[1]);
-                                                    //Calculate new IED
-                                                    double iedt = (1 - ((1 - ied) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
-                                                    //Calculate new ATT
-                                                    double attt = 1 + att + etemp.catt() + stemp.catt() + wtemp.catt();
-                                                    //Calculate new BOSS
-                                                    double bosst = 1 + dmg + boss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
-                                                    //Calculates the multiplier
-                                                    double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                                    //Make a PotVector to contain our new configuration
-                                                    PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - dmg - 1, iedt, calct, nebu);
-                                                    //Add the configuration to the WSE array if it does not exist
-                                                    if (!main_temp.contains(ptm)) {
-                                                        main_temp.add(ptm);
-                                                    }
-
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        for (int[] legcomb : legcombs) {
-            for (int[] ucomb : ucombs) {
-                //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                Potentials etempb;
-                if (embbpSelect.isSelected()) {
-                    etempb = new Potentials(0, 0, 0, 0, 0, 0, false, true);
-                } else {
-                    etempb = new Potentials(legcomb[0], legcomb[1], legcomb[2], ucomb[0], ucomb[1], ucomb[2], false, true);
-                }
-                if (etempb.feasible(1 + n3lb)) {
-                    for (int[] legcomb1 : legcombs) {
-                        for (int[] ucomb1 : ucombs) {
-                            //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                            Potentials wtempb;
-                            if (wepbpSelect.isSelected()) {
-                                wtempb = new Potentials(0, 0, 0, 0, 0, 0, sw_abs, true);
-                            } else {
-                                wtempb = new Potentials(legcomb1[0], legcomb1[1], legcomb1[2], ucomb1[0], ucomb1[1], ucomb1[2], sw_abs, true);
-                            }
-                            if (wtempb.feasible(0 + n3lb)) {
-                                //If the Zero class is selected skip the Secondary weapon weapon bonus pot as the weapon counts for both
-                                if (this.zero == true) {
-                                    Potentials stempb = wtempb;
-                                    //Calculate new IED
-                                    double iedt = (1 - ((1 - ied) * etempb.cied() * stempb.cied() * wtempb.cied()));
-                                    //Calculate new ATT
-                                    double attt = 1 + att + etempb.catt() + stempb.catt() + wtempb.catt();
-                                    //Calculate new BOSS
-                                    double bosst = 1 + dmg + boss + etempb.cboss() + stempb.cboss() + wtempb.cboss();
-                                    //Calculates the multiplier
-                                    double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                    //Make a PotVector to contain our new configuration
-                                    PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - dmg - 1, iedt, calct, new Union(0, 0));
-                                    //Add the configuration to the WSE array if it does not exist
-                                    if (!bonus_temp.contains(ptb)) {
-                                        bonus_temp.add(ptb);
-                                    }
-                                }
-                                //If the Kanna class is selected
-                                if (this.kanna == true) {
-                                    //Secondary fan only recognizes Magic Att%
-                                    Potentials stempb = new Potentials(1, 0, 0, 2, 0, 0, sec160, true);
-                                    if (secbpSelect.isSelected()) {
-                                        stempb = new Potentials(0, 0, 0, 0, 0, 0, sec160, true);
-                                    }
-                                    //Calculate new IED
-                                    double iedt = (1 - ((1 - ied) * etempb.cied() * stempb.cied() * wtempb.cied()));
-                                    //Calculate new ATT
-                                    double attt = 1 + att + etempb.catt() + stempb.catt() + wtempb.catt();
-                                    //Calculate new BOSS
-                                    double bosst = 1 + dmg + boss + etempb.cboss() + stempb.cboss() + wtempb.cboss();
-                                    //Calculates the multiplier
-                                    double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                    //Make a PotVector to contain our new configuration
-                                    PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - dmg - 1, iedt, calct, new Union(0, 0));
-                                    //Add the configuration to the WSE array if it does not exist
-                                    if (!bonus_temp.contains(ptb)) {
-                                        bonus_temp.add(ptb);
-                                    }
-                                }//Else do the Secondary Weapon bonus pot
-                                else {
-                                    for (int[] legcomb2 : legcombs) {
-                                        for (int[] ucomb2 : ucombs) {
-                                            //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                                            Potentials stempb;
-                                            if (secbpSelect.isSelected()) {
-                                                stempb = new Potentials(0, 0, 0, 0, 0, 0, false, true);
-                                            } else {
-                                                stempb = new Potentials(legcomb2[0], legcomb2[1], legcomb2[2], ucomb2[0], ucomb2[1], ucomb2[2], sec160, true);
-                                            }
-                                            if (stempb.feasible(0 + n3lb)) {
-                                                //Calculate new IED
-                                                double iedt = (1 - ((1 - ied) * etempb.cied() * stempb.cied() * wtempb.cied()));
-                                                //Calculate new ATT
-                                                double attt = 1 + att + etempb.catt() + stempb.catt() + wtempb.catt();
-                                                //Calculate new BOSS
-                                                double bosst = 1 + dmg + boss + etempb.cboss() + stempb.cboss() + wtempb.cboss();
-                                                //Calculates the multiplier
-                                                double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                                //Make a PotVector to contain our new configuration
-                                                PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - dmg - 1, iedt, calct, new Union(0, 0));
-                                                //Add the configuration to the WSE array if it does not exist
-                                                if (!bonus_temp.contains(ptb)) {
-                                                    bonus_temp.add(ptb);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            for (PotVector mpot : main_temp) {
-                for (PotVector bpot : bonus_temp) {
-                    //Calculate new IED
-                    double iedt = (1 - ((1 - ied) * mpot.getWep().cied() * mpot.getSec().cied() * mpot.getEmb().cied() * mpot.getNebs().cied() * bpot.getWep().cied() * bpot.getSec().cied() * bpot.getEmb().cied()));
-                    //Calculate new ATT
-                    double attt = 1 + att + mpot.getWep().catt() + mpot.getSec().catt() + mpot.getEmb().catt() + bpot.getWep().catt() + bpot.getSec().catt() + bpot.getEmb().catt();
-                    //Calculate new BOSS
-                    double bosst = 1 + dmg + boss + mpot.getWep().cboss() + mpot.getSec().cboss() + mpot.getEmb().cboss() + mpot.getNebs().cboss() + bpot.getWep().cboss() + bpot.getSec().cboss() + bpot.getEmb().cboss();
-                    //Calculates the multiplier
-                    double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                    if (pt == null) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - dmg - 1, iedt, calct, mpot.getNebs());
-                    }
-                    if (calct >= pt.getCalc()) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - dmg - 1, iedt, calct, mpot.getNebs());
-                    }
-                }
-            }
-        }
-        return pt;
-    }
+    
 
     public void setEmblemEnabled(boolean b) {
         embInp1.setEnabled(b);
