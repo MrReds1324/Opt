@@ -8,6 +8,7 @@ package WSEOptimizer;
 import WSEOptimizer.Constants.PotConfig;
 import WSEOptimizer.Constants.ClassType;
 import WSEOptimizer.Constants.PotType;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -1763,63 +1764,27 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_seclvlActionPerformed
 
     private void wepAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt1ActionPerformed
-        if (wepAtt1.isSelected()) {
-            this.wepInp1_butSel = PotType.ATT;
-            wepBoss1.setSelected(false);
-            wepIed1.setSelected(false);
-        } else {
-            this.wepInp1_butSel = PotType.DEFAULT;
-        }
+        this.wepInp1_butSel = buttonSelectAndDisable(wepAtt1, wepBoss1, wepIed1, PotType.ATT);
     }//GEN-LAST:event_wepAtt1ActionPerformed
 
     private void wepAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt2ActionPerformed
-        if (wepAtt2.isSelected()) {
-            this.wepInp2_butSel = PotType.ATT;
-            wepBoss2.setSelected(false);
-            wepIed2.setSelected(false);
-        } else {
-            this.wepInp2_butSel = PotType.DEFAULT;
-        }
+        this.wepInp2_butSel = buttonSelectAndDisable(wepAtt2, wepBoss2, wepIed2, PotType.ATT);
     }//GEN-LAST:event_wepAtt2ActionPerformed
 
     private void wepAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt3ActionPerformed
-        if (wepAtt3.isSelected()) {
-            this.wepInp3_butSel = PotType.ATT;
-            wepBoss3.setSelected(false);
-            wepIed3.setSelected(false);
-        } else {
-            this.wepInp3_butSel = PotType.DEFAULT;
-        }
+        this.wepInp3_butSel = buttonSelectAndDisable(wepAtt3, wepBoss3, wepIed3, PotType.ATT);
     }//GEN-LAST:event_wepAtt3ActionPerformed
 
     private void secAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secAtt1ActionPerformed
-        if (secAtt1.isSelected()) {
-            this.secInp1_butSel = PotType.ATT;
-            secBoss1.setSelected(false);
-            secIed1.setSelected(false);
-        } else {
-            this.secInp1_butSel = PotType.DEFAULT;
-        }
+        this.secInp1_butSel = buttonSelectAndDisable(secAtt1, secBoss1, secIed1, PotType.ATT);
     }//GEN-LAST:event_secAtt1ActionPerformed
 
     private void secAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secAtt2ActionPerformed
-        if (secAtt2.isSelected()) {
-            this.secInp2_butSel = PotType.ATT;
-            secBoss2.setSelected(false);
-            secIed2.setSelected(false);
-        } else {
-            this.secInp2_butSel = PotType.DEFAULT;
-        }
+        this.secInp2_butSel = buttonSelectAndDisable(secAtt2, secBoss2, secIed2, PotType.ATT);
     }//GEN-LAST:event_secAtt2ActionPerformed
 
     private void secAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secAtt3ActionPerformed
-        if (secAtt3.isSelected()) {
-            this.secInp3_butSel = PotType.ATT;
-            secBoss3.setSelected(false);
-            secIed3.setSelected(false);
-        } else {
-            this.secInp3_butSel = PotType.DEFAULT;
-        }
+        this.secInp3_butSel = buttonSelectAndDisable(secAtt3, secBoss3, secIed3, PotType.ATT);
     }//GEN-LAST:event_secAtt3ActionPerformed
 
     private void zeroClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeroClassActionPerformed
@@ -1843,177 +1808,75 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_zeroClassActionPerformed
 
     private void embAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embAtt1ActionPerformed
-        if (embAtt1.isSelected()) {
-            this.embInp1_butSel = PotType.ATT;
-            embIed1.setSelected(false);
-        } else {
-            this.embInp1_butSel = PotType.DEFAULT;
-        }
+        this.embInp1_butSel = buttonSelectAndDisable(embAtt1, embIed1, null, PotType.ATT);
     }//GEN-LAST:event_embAtt1ActionPerformed
 
     private void embAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embAtt2ActionPerformed
-        if (embAtt2.isSelected()) {
-            this.embInp2_butSel = PotType.ATT;
-            embIed2.setSelected(false);
-        } else {
-            this.embInp2_butSel = PotType.DEFAULT;
-        }
+        this.embInp2_butSel = buttonSelectAndDisable(embAtt2, embIed2, null, PotType.ATT);
     }//GEN-LAST:event_embAtt2ActionPerformed
 
     private void embAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embAtt3ActionPerformed
-        if (embAtt3.isSelected()) {
-            this.embInp3_butSel = PotType.ATT;
-            embIed3.setSelected(false);
-        } else {
-            this.embInp3_butSel = PotType.DEFAULT;
-        }
+        this.embInp3_butSel = buttonSelectAndDisable(embAtt3, embIed3, null, PotType.ATT);
     }//GEN-LAST:event_embAtt3ActionPerformed
 
     private void wepBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss1ActionPerformed
-        if (wepBoss1.isSelected()) {
-            this.wepInp1_butSel = PotType.BOSS;
-            wepAtt1.setSelected(false);
-            wepIed1.setSelected(false);
-        } else {
-            this.wepInp1_butSel = PotType.DEFAULT;
-        }
+        this.wepInp1_butSel = buttonSelectAndDisable(wepBoss1, wepAtt1, wepIed1, PotType.BOSS);
     }//GEN-LAST:event_wepBoss1ActionPerformed
 
     private void wepBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss2ActionPerformed
-        if (wepBoss2.isSelected()) {
-            this.wepInp2_butSel = PotType.BOSS;
-            wepAtt2.setSelected(false);
-            wepIed2.setSelected(false);
-        } else {
-            this.wepInp2_butSel = PotType.DEFAULT;
-        }
+        this.wepInp2_butSel = buttonSelectAndDisable(wepBoss2, wepAtt2, wepIed2, PotType.BOSS);
     }//GEN-LAST:event_wepBoss2ActionPerformed
 
     private void wepBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss3ActionPerformed
-        if (wepBoss3.isSelected()) {
-            this.wepInp3_butSel = PotType.BOSS;
-            wepAtt3.setSelected(false);
-            wepIed3.setSelected(false);
-        } else {
-            this.wepInp3_butSel = PotType.DEFAULT;
-        }
+        this.wepInp3_butSel = buttonSelectAndDisable(wepBoss3, wepAtt3, wepIed3, PotType.BOSS);
     }//GEN-LAST:event_wepBoss3ActionPerformed
 
     private void wepIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed1ActionPerformed
-        if (wepIed1.isSelected()) {
-            this.wepInp1_butSel = PotType.IED;
-            wepAtt1.setSelected(false);
-            wepBoss1.setSelected(false);
-        } else {
-            this.wepInp1_butSel = PotType.DEFAULT;
-        }
+        this.wepInp1_butSel = buttonSelectAndDisable(wepIed1, wepAtt1, wepBoss1, PotType.IED);
     }//GEN-LAST:event_wepIed1ActionPerformed
 
     private void wepIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed2ActionPerformed
-        if (wepIed2.isSelected()) {
-            this.wepInp2_butSel = PotType.IED;
-            wepAtt2.setSelected(false);
-            wepBoss2.setSelected(false);
-        } else {
-            this.wepInp2_butSel = PotType.DEFAULT;
-        }
+        this.wepInp2_butSel = buttonSelectAndDisable(wepIed2, wepAtt2, wepBoss2, PotType.IED);
     }//GEN-LAST:event_wepIed2ActionPerformed
 
     private void wepIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed3ActionPerformed
-        if (wepIed3.isSelected()) {
-            this.wepInp3_butSel = PotType.IED;
-            wepAtt3.setSelected(false);
-            wepBoss3.setSelected(false);
-        } else {
-            this.wepInp3_butSel = PotType.DEFAULT;
-        }
+        this.wepInp3_butSel = buttonSelectAndDisable(wepIed3, wepAtt3, wepBoss3, PotType.IED);
     }//GEN-LAST:event_wepIed3ActionPerformed
 
     private void secBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secBoss1ActionPerformed
-        if (secBoss1.isSelected()) {
-            this.secInp1_butSel = PotType.BOSS;
-            secAtt1.setSelected(false);
-            secIed1.setSelected(false);
-        } else {
-            this.secInp1_butSel = PotType.DEFAULT;
-        }
+        this.secInp1_butSel = buttonSelectAndDisable(secBoss1, secAtt1, secIed1, PotType.BOSS);
     }//GEN-LAST:event_secBoss1ActionPerformed
 
     private void secBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secBoss2ActionPerformed
-        if (secBoss2.isSelected()) {
-            this.secInp2_butSel = PotType.BOSS;
-            secAtt2.setSelected(false);
-            secIed2.setSelected(false);
-        } else {
-            this.secInp2_butSel = PotType.DEFAULT;
-        }
+        this.secInp2_butSel = buttonSelectAndDisable(secBoss2, secAtt2, secIed2, PotType.BOSS);
     }//GEN-LAST:event_secBoss2ActionPerformed
 
     private void secBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secBoss3ActionPerformed
-        if (secBoss3.isSelected()) {
-            this.secInp3_butSel = PotType.BOSS;
-            secAtt3.setSelected(false);
-            secIed3.setSelected(false);
-        } else {
-            this.secInp3_butSel = PotType.DEFAULT;
-        }
+        this.secInp3_butSel = buttonSelectAndDisable(secBoss3, secAtt3, secIed3, PotType.BOSS);
     }//GEN-LAST:event_secBoss3ActionPerformed
 
     private void secIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secIed1ActionPerformed
-        if (secIed1.isSelected()) {
-            this.secInp1_butSel = PotType.IED;
-            secAtt1.setSelected(false);
-            secBoss1.setSelected(false);
-        } else {
-            this.secInp1_butSel = PotType.DEFAULT;
-        }
+        this.secInp1_butSel = buttonSelectAndDisable(secIed1, secAtt1, secBoss1, PotType.IED);
     }//GEN-LAST:event_secIed1ActionPerformed
 
     private void secIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secIed2ActionPerformed
-        if (secIed2.isSelected()) {
-            this.secInp2_butSel = PotType.IED;
-            secAtt2.setSelected(false);
-            secBoss2.setSelected(false);
-        } else {
-            this.secInp2_butSel = PotType.DEFAULT;
-        }
+        this.secInp2_butSel = buttonSelectAndDisable(secIed2, secAtt2, secBoss2, PotType.IED);
     }//GEN-LAST:event_secIed2ActionPerformed
 
     private void secIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secIed3ActionPerformed
-        if (secIed3.isSelected()) {
-            this.secInp3_butSel = PotType.IED;
-            secAtt3.setSelected(false);
-            secBoss3.setSelected(false);
-        } else {
-            this.secInp3_butSel = PotType.DEFAULT;
-        }
+        this.secInp3_butSel = buttonSelectAndDisable(secIed3, secAtt3, secBoss3, PotType.IED);
     }//GEN-LAST:event_secIed3ActionPerformed
 
     private void embIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embIed1ActionPerformed
-        if (embIed1.isSelected()) {
-            this.embInp1_butSel = PotType.IED;
-            embAtt1.setSelected(false);
-        } else {
-            this.embInp1_butSel = PotType.DEFAULT;
-        }
+        this.embInp1_butSel = buttonSelectAndDisable(embIed1, embAtt1, null, PotType.IED);
     }//GEN-LAST:event_embIed1ActionPerformed
 
     private void embIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embIed2ActionPerformed
-        if (embIed2.isSelected()) {
-            this.embInp2_butSel = PotType.IED;
-            embAtt2.setSelected(false);
-        } else {
-            this.embInp2_butSel = PotType.DEFAULT;
-        }
+        this.embInp2_butSel = buttonSelectAndDisable(embIed2, embAtt2, null, PotType.IED);
     }//GEN-LAST:event_embIed2ActionPerformed
 
     private void embIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embIed3ActionPerformed
-        if (embIed3.isSelected()) {
-            this.embInp3_butSel = PotType.IED;
-            embAtt3.setSelected(false);
-        } else {
-            this.embInp3_butSel = PotType.DEFAULT;
-        }
+        this.embInp3_butSel = buttonSelectAndDisable(embIed3, embAtt3, null, PotType.IED);
     }//GEN-LAST:event_embIed3ActionPerformed
 
     private void weplvlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weplvlActionPerformed
@@ -2029,34 +1892,15 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_soulSelectActionPerformed
 
     private void wepAtt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt5ActionPerformed
-        if (wepAtt5.isSelected()) {
-            wepBoss5.setSelected(false);
-            wepIed5.setSelected(false);
-            this.wepInp5_butSel = PotType.ATT;
-        } else {
-            this.wepInp5_butSel = PotType.DEFAULT;
-        }
-
+        this.wepInp5_butSel = buttonSelectAndDisable(wepAtt5, wepIed5, wepBoss5, PotType.ATT);
     }//GEN-LAST:event_wepAtt5ActionPerformed
 
     private void wepBoss5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss5ActionPerformed
-        if (wepBoss5.isSelected()) {
-            wepAtt5.setSelected(false);
-            wepIed5.setSelected(false);
-            this.wepInp5_butSel = PotType.BOSS;
-        } else {
-            this.wepInp5_butSel = PotType.DEFAULT;
-        }
+        this.wepInp5_butSel = buttonSelectAndDisable(wepBoss5, wepAtt5, wepIed5, PotType.BOSS);
     }//GEN-LAST:event_wepBoss5ActionPerformed
 
     private void wepIed5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed5ActionPerformed
-        if (wepIed5.isSelected()) {
-            wepBoss5.setSelected(false);
-            wepAtt5.setSelected(false);
-            this.wepInp5_butSel = PotType.IED;
-        } else {
-            this.wepInp5_butSel = PotType.DEFAULT;
-        }
+        this.wepInp5_butSel = buttonSelectAndDisable(wepIed5, wepBoss5, wepAtt5, PotType.IED);
     }//GEN-LAST:event_wepIed5ActionPerformed
 
     private void fd_LegionBPPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fd_LegionBPPropertyChange
@@ -2064,192 +1908,79 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_fd_LegionBPPropertyChange
 
     private void embbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt2ActionPerformed
-        if (embbpAtt2.isSelected()) {
-            this.embbpInp2_butSel = PotType.ATT;
-            embbpIed2.setSelected(false);
-        } else {
-            this.embbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.embbpInp2_butSel = buttonSelectAndDisable(embbpAtt2, embbpIed2, null, PotType.ATT);
     }//GEN-LAST:event_embbpAtt2ActionPerformed
 
     private void secbpIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpIed1ActionPerformed
-        if (secbpIed1.isSelected()) {
-            this.secbpInp1_butSel = PotType.IED;
-            secbpAtt1.setSelected(false);
-            secbpBoss1.setSelected(false);
-        } else {
-            this.secbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp1_butSel = buttonSelectAndDisable(secbpIed1, secbpBoss1, secbpAtt1, PotType.IED);
     }//GEN-LAST:event_secbpIed1ActionPerformed
 
     private void secbpBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpBoss1ActionPerformed
-        if (secbpBoss1.isSelected()) {
-            this.secbpInp1_butSel = PotType.BOSS;
-            secbpAtt1.setSelected(false);
-            secbpIed1.setSelected(false);
-        } else {
-            this.secbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp1_butSel = buttonSelectAndDisable(secbpBoss1, secbpAtt1, secbpIed1,PotType.BOSS);
     }//GEN-LAST:event_secbpBoss1ActionPerformed
 
     private void secbpIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpIed3ActionPerformed
-        if (secbpIed3.isSelected()) {
-            this.secbpInp3_butSel = PotType.IED;
-            secbpAtt3.setSelected(false);
-            secbpBoss3.setSelected(false);
-        } else {
-            this.secbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp3_butSel = buttonSelectAndDisable(secbpIed3, secbpBoss3, secbpAtt3,PotType.IED);
     }//GEN-LAST:event_secbpIed3ActionPerformed
 
     private void secbpAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpAtt1ActionPerformed
-        if (secbpAtt1.isSelected()) {
-            this.secbpInp1_butSel = PotType.ATT;
-            secbpBoss1.setSelected(false);
-            secbpIed1.setSelected(false);
-        } else {
-            this.secbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp1_butSel = buttonSelectAndDisable(secbpAtt1, secbpBoss1, secbpIed1, PotType.ATT);
     }//GEN-LAST:event_secbpAtt1ActionPerformed
 
     private void secbpBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpBoss3ActionPerformed
-        if (secbpBoss3.isSelected()) {
-            this.secbpInp3_butSel = PotType.BOSS;
-            secbpAtt3.setSelected(false);
-            secbpIed3.setSelected(false);
-        } else {
-            this.secbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp3_butSel = buttonSelectAndDisable(secbpBoss3, secbpAtt3, secbpIed3, PotType.BOSS);
     }//GEN-LAST:event_secbpBoss3ActionPerformed
 
     private void secbpAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpAtt3ActionPerformed
-        if (secbpAtt3.isSelected()) {
-            this.secbpInp3_butSel = PotType.ATT;
-            secbpBoss3.setSelected(false);
-            secbpIed3.setSelected(false);
-        } else {
-            this.secbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp3_butSel = buttonSelectAndDisable(secbpAtt3, secbpBoss3, secbpIed3, PotType.ATT);
     }//GEN-LAST:event_secbpAtt3ActionPerformed
 
     private void secbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpIed2ActionPerformed
-        if (secbpIed2.isSelected()) {
-            this.secbpInp2_butSel = PotType.IED;
-            secbpAtt2.setSelected(false);
-            secbpBoss2.setSelected(false);
-        } else {
-            this.secbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp2_butSel = buttonSelectAndDisable(secbpIed2, secbpAtt2, secbpBoss2, PotType.IED);
     }//GEN-LAST:event_secbpIed2ActionPerformed
 
     private void secbpBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpBoss2ActionPerformed
-        if (secbpBoss2.isSelected()) {
-            this.secbpInp2_butSel = PotType.BOSS;
-            secbpAtt2.setSelected(false);
-            secbpIed2.setSelected(false);
-        } else {
-            this.secbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp2_butSel = buttonSelectAndDisable(secbpBoss2, secbpAtt2, secbpIed2, PotType.BOSS);
     }//GEN-LAST:event_secbpBoss2ActionPerformed
 
     private void secbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpAtt2ActionPerformed
-        if (secbpAtt2.isSelected()) {
-            this.secbpInp2_butSel = PotType.ATT;
-            secbpBoss2.setSelected(false);
-            secbpIed2.setSelected(false);
-        } else {
-            this.secbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.secbpInp2_butSel = buttonSelectAndDisable(secbpAtt2, secbpBoss2, secbpIed2, PotType.ATT);
     }//GEN-LAST:event_secbpAtt2ActionPerformed
 
     private void wepbpIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpIed1ActionPerformed
-        if (wepbpIed1.isSelected()) {
-            this.wepbpInp1_butSel = PotType.IED;
-            wepbpAtt1.setSelected(false);
-            wepbpBoss1.setSelected(false);
-        } else {
-            this.wepbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp1_butSel = buttonSelectAndDisable(wepbpIed1, wepbpAtt1, wepbpBoss1, PotType.IED);
     }//GEN-LAST:event_wepbpIed1ActionPerformed
 
     private void wepbpBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpBoss1ActionPerformed
-        if (wepbpBoss1.isSelected()) {
-            this.wepbpInp1_butSel = PotType.BOSS;
-            wepbpAtt1.setSelected(false);
-            wepbpIed1.setSelected(false);
-        } else {
-            this.wepbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp1_butSel = buttonSelectAndDisable(wepbpBoss1, wepbpAtt1, wepbpIed1, PotType.BOSS);
     }//GEN-LAST:event_wepbpBoss1ActionPerformed
 
     private void wepbpIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpIed3ActionPerformed
-        if (wepbpIed3.isSelected()) {
-            this.wepbpInp3_butSel = PotType.IED;
-            wepbpAtt3.setSelected(false);
-            wepbpBoss3.setSelected(false);
-        } else {
-            this.wepbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp3_butSel = buttonSelectAndDisable(wepbpIed3, wepbpAtt3, wepbpBoss3, PotType.IED);
     }//GEN-LAST:event_wepbpIed3ActionPerformed
 
     private void wepbpAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpAtt1ActionPerformed
-        if (wepbpAtt1.isSelected()) {
-            this.wepbpInp1_butSel = PotType.ATT;
-            wepbpBoss1.setSelected(false);
-            wepbpIed1.setSelected(false);
-        } else {
-            this.wepbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp1_butSel = buttonSelectAndDisable(wepbpAtt1, wepbpBoss1, wepbpIed1, PotType.ATT);
     }//GEN-LAST:event_wepbpAtt1ActionPerformed
 
     private void wepbpBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpBoss3ActionPerformed
-        if (wepbpBoss3.isSelected()) {
-            this.wepbpInp3_butSel = PotType.BOSS;
-            wepbpAtt3.setSelected(false);
-            wepbpIed3.setSelected(false);
-        } else {
-            this.wepbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp3_butSel = buttonSelectAndDisable(wepbpBoss3, wepbpAtt3, wepbpIed3, PotType.BOSS);
     }//GEN-LAST:event_wepbpBoss3ActionPerformed
 
     private void wepbpAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpAtt3ActionPerformed
-        if (wepbpAtt3.isSelected()) {
-            this.wepbpInp3_butSel = PotType.ATT;
-            wepbpBoss3.setSelected(false);
-            wepbpIed3.setSelected(false);
-        } else {
-            this.wepbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp3_butSel = buttonSelectAndDisable(wepbpAtt3, wepbpBoss3, wepbpIed3, PotType.ATT);
     }//GEN-LAST:event_wepbpAtt3ActionPerformed
 
     private void wepbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpIed2ActionPerformed
-        if (wepbpIed2.isSelected()) {
-            this.wepbpInp2_butSel = PotType.IED;
-            wepbpAtt2.setSelected(false);
-            wepbpBoss2.setSelected(false);
-        } else {
-            this.wepbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp2_butSel = buttonSelectAndDisable(wepbpIed2, wepbpAtt2, wepbpBoss2, PotType.IED);
     }//GEN-LAST:event_wepbpIed2ActionPerformed
 
     private void wepbpBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpBoss2ActionPerformed
-        if (wepbpBoss2.isSelected()) {
-            this.wepbpInp2_butSel = PotType.BOSS;
-            wepbpAtt2.setSelected(false);
-            wepbpIed2.setSelected(false);
-        } else {
-            this.wepbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp2_butSel = buttonSelectAndDisable(wepbpBoss2, wepbpAtt2, wepbpIed2, PotType.BOSS);
     }//GEN-LAST:event_wepbpBoss2ActionPerformed
 
     private void wepbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpAtt2ActionPerformed
-        if (wepbpAtt2.isSelected()) {
-            this.wepbpInp2_butSel = PotType.ATT;
-            wepbpBoss2.setSelected(false);
-            wepbpIed2.setSelected(false);
-        } else {
-            this.wepbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.wepbpInp2_butSel = buttonSelectAndDisable(wepbpAtt2, wepbpBoss2, wepbpIed2, PotType.ATT);
     }//GEN-LAST:event_wepbpAtt2ActionPerformed
 
     private void secbpSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpSelectActionPerformed
@@ -2277,48 +2008,23 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_wepbpSelectActionPerformed
 
     private void embbpIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed1ActionPerformed
-        if (embbpIed1.isSelected()) {
-            this.embbpInp1_butSel = PotType.IED;
-            embbpAtt1.setSelected(false);
-        } else {
-            this.embbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.embbpInp1_butSel = buttonSelectAndDisable(embbpIed1, embbpAtt1, null, PotType.IED);
     }//GEN-LAST:event_embbpIed1ActionPerformed
 
     private void embbpIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed3ActionPerformed
-        if (embbpIed3.isSelected()) {
-            this.embbpInp3_butSel = PotType.IED;
-            embbpAtt3.setSelected(false);
-        } else {
-            this.embbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.embbpInp3_butSel = buttonSelectAndDisable(embbpIed3, embbpAtt3, null, PotType.IED);
     }//GEN-LAST:event_embbpIed3ActionPerformed
 
     private void embbpAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt1ActionPerformed
-        if (embbpAtt1.isSelected()) {
-            this.embbpInp1_butSel = PotType.ATT;
-            embbpIed1.setSelected(false);
-        } else {
-            this.embbpInp1_butSel = PotType.DEFAULT;
-        }
+        this.embbpInp1_butSel = buttonSelectAndDisable(embbpAtt1, embbpIed1, null, PotType.ATT);
     }//GEN-LAST:event_embbpAtt1ActionPerformed
 
     private void embbpAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt3ActionPerformed
-        if (embbpAtt3.isSelected()) {
-            this.embbpInp3_butSel = PotType.ATT;
-            embbpIed3.setSelected(false);
-        } else {
-            this.embbpInp3_butSel = PotType.DEFAULT;
-        }
+        this.embbpInp3_butSel = buttonSelectAndDisable(embbpAtt3, embbpIed3, null, PotType.ATT);
     }//GEN-LAST:event_embbpAtt3ActionPerformed
 
     private void embbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed2ActionPerformed
-        if (embbpIed2.isSelected()) {
-            this.embbpInp2_butSel = PotType.IED;
-            embbpAtt2.setSelected(false);
-        } else {
-            this.embbpInp2_butSel = PotType.DEFAULT;
-        }
+        this.embbpInp2_butSel = buttonSelectAndDisable(embbpIed2, embbpAtt2, null, PotType.IED);
     }//GEN-LAST:event_embbpIed2ActionPerformed
 
     private void fd_LegionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fd_LegionPropertyChange
@@ -2424,7 +2130,21 @@ public class OptimizationPieces extends javax.swing.JFrame {
         this.dmg_baseS = this.dmg_base;
         this.ied_baseS = this.ied_base;
     }
-
+    
+    private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
+        if (selector.isSelected()) {
+            if(disabler1 != null){
+                disabler1.setSelected(false);
+            }
+            if(disabler2 != null){
+                disabler2.setSelected(false);
+            }
+            return potType;
+        } else {
+            return PotType.DEFAULT;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
