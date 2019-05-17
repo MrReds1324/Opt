@@ -1631,13 +1631,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     PotVector temp3 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.IED);
 
                     if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
-                        wepInp5.setText("3% ATT");
                         pt = temp1;
                     } else if (temp2.getCalc() >= temp1.getCalc() && temp2.getCalc() >= temp3.getCalc()) {
-                        wepInp5.setText("7% BOSS");
                         pt = temp2;
                     } else {
-                        wepInp5.setText("7% IED");
                         pt = temp3;
                     }
                 }
@@ -1650,65 +1647,38 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     PotVector temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base,  (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.IED);
                             
                     if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
-                        wepInp5.setText("3% ATT");
                         pt = temp1;
                     } else if (temp2.getCalc() >= temp1.getCalc() && temp2.getCalc() >= temp3.getCalc()) {
-                        wepInp5.setText("7% BOSS");
                         pt = temp2;
                     } else {
-                        wepInp5.setText("7% IED");
                         pt = temp3;
                     }
                 }
             }
             if (pt != null) {
                 if (!wepSelect.isSelected()) {
-                    wepInp1.setText(pt.getWep().legline());
-                    String[] wepu = pt.getWep().uline().split(":");
-                    wepInp2.setText(wepu[0]);
-                    wepInp3.setText(wepu[1]);
+                    ItemPrinter.printItem(wepInp1, wepInp2, wepInp3, pt.getWep());
                 }
                 if (!secSelect.isSelected()) {
-                    secInp1.setText(pt.getSec().legline());
-                    String[] secu = pt.getSec().uline().split(":");
-                    secInp2.setText(secu[0]);
-                    secInp3.setText(secu[1]);
+                    ItemPrinter.printItem(secInp1, secInp2, secInp3, pt.getSec());
                 }
                 if (!embSelect.isSelected()) {
-                    embInp1.setText(pt.getEmb().legline());
-                    String[] embu = pt.getEmb().uline().split(":");
-                    embInp2.setText(embu[0]);
-                    embInp3.setText(embu[1]);
+                    ItemPrinter.printItem(embInp1, embInp2, embInp3, pt.getEmb());
                 }
                 if (!wepbpSelect.isSelected() && bp.isSelected()) {
-                    wepbpInp1.setText(pt.getWepb().legline());
-                    //System.out.println(pt.getWepb().uline());
-                    String[] wepu = pt.getWepb().uline().split(":");
-                    wepbpInp2.setText(wepu[0]);
-                    wepbpInp3.setText(wepu[1]);
+                    ItemPrinter.printItem(wepbpInp1, wepbpInp2, wepbpInp3, pt.getWepb());
                 }
                 if (!secbpSelect.isSelected() && bp.isSelected()) {
-                    secbpInp1.setText(pt.getSecb().legline());
-                    //System.out.println(pt.getSecb().uline());
-                    String[] secu = pt.getSecb().uline().split(":");
-                    secbpInp2.setText(secu[0]);
-                    secbpInp3.setText(secu[1]);
+                    ItemPrinter.printItem(secbpInp1, secbpInp2, secbpInp3, pt.getSecb());
                 }
                 if (!embbpSelect.isSelected() && bp.isSelected()) {
-                    embbpInp1.setText(pt.getEmbb().legline());
-                    //System.out.println(pt.getEmbb().uline());
-                    String[] embu = pt.getEmbb().uline().split(":");
-                    embbpInp2.setText(embu[0]);
-                    embbpInp3.setText(embu[1]);
+                    ItemPrinter.printItem(embbpInp1, embbpInp2, embbpInp3, pt.getEmbb());
                 }
-                double calc_base = ((1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
-                String fd = String.format("%.3f", (pt.getCalc() / calc_base - 1) * 100);
-                String s = "----Legion----\n";
-                s += pt.getUnion().legionString();
-                s += "\n----------------------------------------------";
-                s += "\n" + fd + "% Final Damage";
-                fd_Legion.setText(s);
-                fd_LegionBP.setText(s);
+                if(!soulSelect.isSelected()){
+                    ItemPrinter.printSoul(wepInp5, pt.getSoul());
+                }
+                double calcBase = ((1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
+                ItemPrinter.printLegionAndFD(fd_Legion, fd_LegionBP, calcBase, pt);
             } else {
                 System.out.println("Something went terribly wrong and the vector was null!");
             }
