@@ -825,11 +825,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         fd_LegionBP.setColumns(20);
         fd_LegionBP.setRows(5);
         fd_LegionBP.setEnabled(false);
-        fd_LegionBP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fd_LegionBPPropertyChange(evt);
-            }
-        });
         jScrollPane1.setViewportView(fd_LegionBP);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -980,11 +975,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         fd_Legion.setColumns(20);
         fd_Legion.setRows(5);
         fd_Legion.setEnabled(false);
-        fd_Legion.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fd_LegionPropertyChange(evt);
-            }
-        });
         jScrollPane2.setViewportView(fd_Legion);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1873,10 +1863,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         this.wepInp5_butSel = buttonSelectAndDisable(wepIed5, wepBoss5, wepAtt5, PotType.IED);
     }//GEN-LAST:event_wepIed5ActionPerformed
 
-    private void fd_LegionBPPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fd_LegionBPPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fd_LegionBPPropertyChange
-
     private void embbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt2ActionPerformed
         this.embbpInp2_butSel = buttonSelectAndDisable(embbpAtt2, embbpIed2, null, PotType.ATT);
     }//GEN-LAST:event_embbpAtt2ActionPerformed
@@ -1995,13 +1981,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void embbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed2ActionPerformed
         this.embbpInp2_butSel = buttonSelectAndDisable(embbpIed2, embbpAtt2, null, PotType.IED);
-    }//GEN-LAST:event_embbpIed2ActionPerformed
-
-    private void fd_LegionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fd_LegionPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fd_LegionPropertyChange
-
-    
+    }//GEN-LAST:event_embbpIed2ActionPerformed 
 
     public void setEmblemEnabled(boolean b) {
         embInp1.setEnabled(b);
