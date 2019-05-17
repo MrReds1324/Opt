@@ -366,6 +366,8 @@ public class WSEBuilder {
                     }
                 }
             }
+        }
+            System.out.println("Running Final Combination Check on: " + main_temp.size() * bonus_temp.size() + " Combinations");
             for (PotVector mpot : main_temp) {
                 for (PotVector bpot : bonus_temp) {
                     //Calculate new IED
@@ -384,7 +386,6 @@ public class WSEBuilder {
                     }
                 }
             }
-        }
         return pt;
     }
 }
