@@ -166,6 +166,7 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -292,133 +293,157 @@
                   <Component id="weplvl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="seclvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="boss" alignment="3" max="32767" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
-                  <Component id="legion" alignment="3" max="32767" attributes="0"/>
-                  <Component id="jLabel7" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="kannaClass" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="att" alignment="3" max="32767" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" max="32767" attributes="0"/>
-                  <Component id="monDef" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="zeroClass" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ied" alignment="3" max="32767" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bp" alignment="3" max="32767" attributes="0"/>
-                  <Component id="no_3lbp" alignment="3" max="32767" attributes="0"/>
-                  <Component id="no_3l" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jSeparator1" pref="12" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="calculate" alignment="3" max="32767" attributes="0"/>
-                  <Component id="clearInp" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="wepSelect" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="wepInp1" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="wepAtt1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="wepBoss1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="wepIed1" alignment="3" max="32767" attributes="0"/>
+                          <Component id="seclvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="boss" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="wepInp2" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="wepAtt2" alignment="3" max="32767" attributes="0"/>
-                          <Component id="wepBoss2" alignment="3" max="32767" attributes="0"/>
-                          <Component id="wepIed2" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="wepInp3" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="wepAtt3" alignment="3" max="32767" attributes="0"/>
-                          <Component id="wepBoss3" alignment="3" max="32767" attributes="0"/>
-                          <Component id="wepIed3" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="embSelect" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                              <Component id="embInp3" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="kannaClass" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="att" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="jLabel4" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="zeroClass" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ied" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="bp" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="no_3lbp" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="no_3l" alignment="3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      <Component id="jSeparator1" pref="12" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="calculate" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="clearInp" alignment="3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="wepSelect" max="32767" attributes="0"/>
+                                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                              <Component id="wepInp1" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="wepAtt1" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="wepBoss1" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="wepIed1" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Component id="wepInp2" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="wepAtt2" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="wepBoss2" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="wepIed2" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Component id="wepInp3" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="wepAtt3" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="wepBoss3" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="wepIed3" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="embSelect" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                                                      <Component id="embInp3" max="32767" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                                      <Component id="embInp2" max="32767" attributes="0"/>
+                                                      <EmptySpace min="106" pref="106" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="secSelect" max="32767" attributes="0"/>
+                                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="secInp1" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="embInp1" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="secAtt1" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="secBoss1" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="secIed1" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="embAtt1" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="embIed1" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Component id="secInp2" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="secAtt2" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="secBoss2" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="secIed2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="embAtt2" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="embIed2" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Component id="secInp3" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="secAtt3" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="secBoss3" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="secIed3" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="embAtt3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="embIed3" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="soulSelect" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="wepInp5" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="wepAtt5" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="wepBoss5" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="wepIed5" alignment="3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="monDef" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="embInp2" max="32767" attributes="0"/>
-                              <EmptySpace min="106" pref="106" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="legion" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel7" alignment="3" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="secSelect" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="secInp1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embInp1" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="secAtt1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secBoss1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secIed1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embAtt1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embIed1" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="secInp2" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="secAtt2" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secBoss2" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secIed2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="embAtt2" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embIed2" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="secInp3" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="secAtt3" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secBoss3" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secIed3" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embAtt3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="embIed3" alignment="3" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="soulSelect" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="wepInp5" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="wepAtt5" alignment="3" max="32767" attributes="0"/>
-                  <Component id="wepBoss5" alignment="3" max="32767" attributes="0"/>
-                  <Component id="wepIed5" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -1410,9 +1435,6 @@
                     <Property name="rows" type="int" value="5"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="fd_LegionBPPropertyChange"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1459,9 +1481,6 @@
                     <Property name="rows" type="int" value="5"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="fd_LegionPropertyChange"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1469,5 +1488,20 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
   </SubComponents>
 </Form>
