@@ -1634,8 +1634,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 } else {
                     PotVector temp1 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.ATT);
                     PotVector temp2 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.BOSS);
-                    PotVector temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base,  (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.IED);
-                            
+                    PotVector temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.IED);
+
                     if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
                         pt = temp1;
                     } else if (temp2.getCalc() >= temp1.getCalc() && temp2.getCalc() >= temp3.getCalc()) {
@@ -1664,7 +1664,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 if (!embbpSelect.isSelected() && bp.isSelected()) {
                     ItemPrinter.printItem(embbpInp1, embbpInp2, embbpInp3, pt.getEmbb());
                 }
-                if(!soulSelect.isSelected()){
+                if (!soulSelect.isSelected()) {
                     ItemPrinter.printSoul(wepInp5, pt.getSoul());
                 }
                 double calcBase = ((1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
@@ -1872,11 +1872,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_secbpIed1ActionPerformed
 
     private void secbpBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpBoss1ActionPerformed
-        this.secbpInp1_butSel = buttonSelectAndDisable(secbpBoss1, secbpAtt1, secbpIed1,PotType.BOSS);
+        this.secbpInp1_butSel = buttonSelectAndDisable(secbpBoss1, secbpAtt1, secbpIed1, PotType.BOSS);
     }//GEN-LAST:event_secbpBoss1ActionPerformed
 
     private void secbpIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpIed3ActionPerformed
-        this.secbpInp3_butSel = buttonSelectAndDisable(secbpIed3, secbpBoss3, secbpAtt3,PotType.IED);
+        this.secbpInp3_butSel = buttonSelectAndDisable(secbpIed3, secbpBoss3, secbpAtt3, PotType.IED);
     }//GEN-LAST:event_secbpIed3ActionPerformed
 
     private void secbpAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpAtt1ActionPerformed
@@ -1979,9 +1979,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         this.embbpInp3_butSel = buttonSelectAndDisable(embbpAtt3, embbpIed3, null, PotType.ATT);
     }//GEN-LAST:event_embbpAtt3ActionPerformed
 
-    private void embbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed2ActionPerformed
+    private void embbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {
         this.embbpInp2_butSel = buttonSelectAndDisable(embbpIed2, embbpAtt2, null, PotType.IED);
-    }//GEN-LAST:event_embbpIed2ActionPerformed 
+    }
 
     public void setEmblemEnabled(boolean b) {
         embInp1.setEnabled(b);
@@ -2080,13 +2080,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
         this.dmg_baseS = this.dmg_base;
         this.ied_baseS = this.ied_base;
     }
-    
+
     private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
         if (selector.isSelected()) {
-            if(disabler1 != null){
+            if (disabler1 != null) {
                 disabler1.setSelected(false);
             }
-            if(disabler2 != null){
+            if (disabler2 != null) {
                 disabler2.setSelected(false);
             }
             return potType;
@@ -2094,7 +2094,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             return PotType.DEFAULT;
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */

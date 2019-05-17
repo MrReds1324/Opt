@@ -180,7 +180,7 @@ public class Potentials {
         if (sw_abs == true) {
             scale = 1;
         }
-        
+
         String s = "";
         for (int i = 0; i < upot.length; i++) {
             for (int j = 0; j < upot[i]; j++) {

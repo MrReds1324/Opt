@@ -10,6 +10,7 @@ package WSEOptimizer;
  * @author ryanb
  */
 public class Constants {
+
     public enum PotConfig {
         NO3LINE, DEFAULT;
     }
@@ -21,8 +22,8 @@ public class Constants {
     public enum ItemType {
         WEPSEC, EMB;
     }
-    
-    public enum PotType{
+
+    public enum PotType {
         DEFAULT, ATT, BOSS, IED;
     }
 }

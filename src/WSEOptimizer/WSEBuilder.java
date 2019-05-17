@@ -16,7 +16,7 @@ import WSEOptimizer.Constants.PotType;
  * @author ryanb
  */
 public class WSEBuilder {
-    
+
     //Sets up the matrices for the potentials, nebs and legion
     //Att, IED, BOSS
     public static int[][] legcombs = new int[][]{
@@ -35,7 +35,7 @@ public class WSEBuilder {
     public static int[][] lcombs = new int[][]{
         {0, 0},
         {0, 0}};
-    
+
     public static PotVector reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soul) {
         PotVector pt = null;
         //Carries out the optimization beginning with Emblem to find the perfect configuration
@@ -367,25 +367,25 @@ public class WSEBuilder {
                 }
             }
         }
-            System.out.println("Running Final Combination Check on: " + main_temp.size() * bonus_temp.size() + " Combinations");
-            for (PotVector mpot : main_temp) {
-                for (PotVector bpot : bonus_temp) {
-                    //Calculate new IED
-                    double iedt = (1 - ((1 - baseIED) * mpot.getWep().cied() * mpot.getSec().cied() * mpot.getEmb().cied() * mpot.getUnion().cied() * bpot.getWep().cied() * bpot.getSec().cied() * bpot.getEmb().cied()));
-                    //Calculate new ATT
-                    double attt = 1 + baseAtt + mpot.getWep().catt() + mpot.getSec().catt() + mpot.getEmb().catt() + bpot.getWep().catt() + bpot.getSec().catt() + bpot.getEmb().catt();
-                    //Calculate new BOSS
-                    double bosst = 1 + baseDamage + baseBoss + mpot.getWep().cboss() + mpot.getSec().cboss() + mpot.getEmb().cboss() + mpot.getUnion().cboss() + bpot.getWep().cboss() + bpot.getSec().cboss() + bpot.getEmb().cboss();
-                    //Calculates the multiplier
-                    double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                    if (pt == null) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
-                    }
-                    if (calct >= pt.getCalc()) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
-                    }
+        System.out.println("Running Final Combination Check on: " + main_temp.size() * bonus_temp.size() + " Combinations");
+        for (PotVector mpot : main_temp) {
+            for (PotVector bpot : bonus_temp) {
+                //Calculate new IED
+                double iedt = (1 - ((1 - baseIED) * mpot.getWep().cied() * mpot.getSec().cied() * mpot.getEmb().cied() * mpot.getUnion().cied() * bpot.getWep().cied() * bpot.getSec().cied() * bpot.getEmb().cied()));
+                //Calculate new ATT
+                double attt = 1 + baseAtt + mpot.getWep().catt() + mpot.getSec().catt() + mpot.getEmb().catt() + bpot.getWep().catt() + bpot.getSec().catt() + bpot.getEmb().catt();
+                //Calculate new BOSS
+                double bosst = 1 + baseDamage + baseBoss + mpot.getWep().cboss() + mpot.getSec().cboss() + mpot.getEmb().cboss() + mpot.getUnion().cboss() + bpot.getWep().cboss() + bpot.getSec().cboss() + bpot.getEmb().cboss();
+                //Calculates the multiplier
+                double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
+                if (pt == null) {
+                    pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
+                }
+                if (calct >= pt.getCalc()) {
+                    pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
                 }
             }
+        }
         return pt;
     }
 }

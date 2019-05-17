@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class Union {
 
-     private final int uied;
+    private final int uied;
     private final int ub;
     //Double values of each potential
     public double vals = 0.01; //values used for ied and nebs
@@ -21,8 +21,8 @@ public class Union {
 
     //Calculates the ied added by the union and nebulites
     public double cied() {
-            return (1 - (this.uied * vals));
-            }
+        return (1 - (this.uied * vals));
+    }
 
     //Calculates the boss added by the union and nebulites
     public double cboss() {
@@ -49,7 +49,6 @@ public class Union {
         return hash;
     }
 
-   
     public String legionString() {
         String s = this.uied + "% IED\n";
         s += this.ub + "% BOSS";

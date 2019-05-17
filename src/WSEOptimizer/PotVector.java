@@ -106,8 +106,8 @@ public class PotVector implements Comparable {
     public double getCalc() {
         return this.calc;
     }
-    
-    public PotType getSoul(){
+
+    public PotType getSoul() {
         return this.soul;
     }
 
