@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import WSEOptimizer.Constants.ItemType;
 import WSEOptimizer.Constants.PotConfig;
 import WSEOptimizer.Constants.ClassType;
+import WSEOptimizer.Constants.PotType;
 
 /**
  *
@@ -35,7 +36,7 @@ public class WSEBuilder {
         {0, 0},
         {0, 0}};
     
-    public static PotVector reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected) {
+    public static PotVector reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soul) {
         PotVector pt = null;
         //Carries out the optimization beginning with Emblem to find the perfect configuration
         for (int[] legcomb : legcombs) {
@@ -63,21 +64,21 @@ public class WSEBuilder {
                                     Potentials stemp = wtemp;
 
                                     for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
+                                        Union union = new Union(union1[0], union1[1]);
                                         //Calculate new IED
-                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
+                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * union.cied()));
                                         //Calculate new ATT
                                         double attt = 1 + baseAtt + etemp.catt() + stemp.catt() + wtemp.catt();
                                         //Calculate new BOSS
-                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
+                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                         //Calculates the multiplier
                                         double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                         //If the max potential vector is null then we make this one the max vector
                                         if (pt == null) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                         } //If the current vector is better than the max vector replace it
                                         else if (calct >= pt.getCalc()) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                         }
                                     }
 
@@ -90,22 +91,22 @@ public class WSEBuilder {
                                     }
 
                                     for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
+                                        Union union = new Union(union1[0], union1[1]);
                                         //Calculate new IED
-                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
+                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * union.cied()));
                                         //Calculate new ATT
                                         double attt = 1 + baseAtt + etemp.catt() + stemp.catt() + wtemp.catt();
                                         //Calculate new BOSS
-                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
+                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                         //Calculates the multiplier
                                         double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                         //Make a PotVector to contain our new configuration
                                         //If the max potential vector is null then we make this one the max vector
                                         if (pt == null) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                         } //If the current vector is better than the max vector replace it
                                         else if (calct >= pt.getCalc()) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                         }
                                     }
 
@@ -123,22 +124,22 @@ public class WSEBuilder {
                                             if (stemp.feasible(ItemType.WEPSEC, potConfig)) {
 
                                                 for (int[] union1 : lcombs) {
-                                                    Union nebu = new Union(union1[0], union1[1]);
+                                                    Union union = new Union(union1[0], union1[1]);
                                                     //Calculate new IED
-                                                    double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
+                                                    double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * union.cied()));
                                                     //Calculate new ATT
                                                     double attt = 1 + baseAtt + etemp.catt() + stemp.catt() + wtemp.catt();
                                                     //Calculate new BOSS
-                                                    double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
+                                                    double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                                     //Calculates the multiplier
                                                     double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                                     //Make a PotVector to contain our new configuration
                                                     //If the max potential vector is null then we make this one the max vector
                                                     if (pt == null) {
-                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                                     } //If the current vector is better than the max vector replace it
                                                     else if (calct >= pt.getCalc()) {
-                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                                     }
                                                 }
 
@@ -155,7 +156,7 @@ public class WSEBuilder {
         return pt;
     }
 
-    public static PotVector nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected) {
+    public static PotVector nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soul) {
         //If changed is true (the input values have changed) then delete the old Potvector and recalculate the configurations
         ArrayList<PotVector> main_temp = new ArrayList<>();
         ArrayList<PotVector> bonus_temp = new ArrayList<>();
@@ -187,17 +188,17 @@ public class WSEBuilder {
                                     Potentials stemp = wtemp;
 
                                     for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
+                                        Union union = new Union(union1[0], union1[1]);
                                         //Calculate new IED
-                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
+                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * union.cied()));
                                         //Calculate new ATT
                                         double attt = 1 + baseAtt + etemp.catt() + stemp.catt() + wtemp.catt();
                                         //Calculate new BOSS
-                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
+                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                         //Calculates the multiplier
                                         double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                         //Make a PotVector to contain our new configuration
-                                        PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                        PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                         //Add the configuration to the WSE array if it does not exist
                                         if (!main_temp.contains(ptm)) {
                                             main_temp.add(ptm);
@@ -213,17 +214,17 @@ public class WSEBuilder {
                                     }
 
                                     for (int[] union1 : lcombs) {
-                                        Union nebu = new Union(union1[0], union1[1]);
+                                        Union union = new Union(union1[0], union1[1]);
                                         //Calculate new IED
-                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
+                                        double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * union.cied()));
                                         //Calculate new ATT
                                         double attt = 1 + baseAtt + etemp.catt() + stemp.catt() + wtemp.catt();
                                         //Calculate new BOSS
-                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
+                                        double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                         //Calculates the multiplier
                                         double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                         //Make a PotVector to contain our new configuration
-                                        PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                        PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                         //Add the configuration to the WSE array if it does not exist
                                         if (!main_temp.contains(ptm)) {
                                             main_temp.add(ptm);
@@ -244,17 +245,17 @@ public class WSEBuilder {
                                             if (stemp.feasible(ItemType.WEPSEC, mainConfig)) {
 
                                                 for (int[] union1 : lcombs) {
-                                                    Union nebu = new Union(union1[0], union1[1]);
+                                                    Union union = new Union(union1[0], union1[1]);
                                                     //Calculate new IED
-                                                    double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * nebu.cied()));
+                                                    double iedt = (1 - ((1 - baseIED) * etemp.cied() * stemp.cied() * wtemp.cied() * union.cied()));
                                                     //Calculate new ATT
                                                     double attt = 1 + baseAtt + etemp.catt() + stemp.catt() + wtemp.catt();
                                                     //Calculate new BOSS
-                                                    double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + nebu.cboss();
+                                                    double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                                     //Calculates the multiplier
                                                     double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                                     //Make a PotVector to contain our new configuration
-                                                    PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, nebu);
+                                                    PotVector ptm = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
                                                     //Add the configuration to the WSE array if it does not exist
                                                     if (!main_temp.contains(ptm)) {
                                                         main_temp.add(ptm);
@@ -303,7 +304,7 @@ public class WSEBuilder {
                                     //Calculates the multiplier
                                     double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                     //Make a PotVector to contain our new configuration
-                                    PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - baseDamage - 1, iedt, calct, new Union(0, 0));
+                                    PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - baseDamage - 1, iedt, calct, new Union(0, 0), null);
                                     //Add the configuration to the WSE array if it does not exist
                                     if (!bonus_temp.contains(ptb)) {
                                         bonus_temp.add(ptb);
@@ -325,7 +326,7 @@ public class WSEBuilder {
                                     //Calculates the multiplier
                                     double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                     //Make a PotVector to contain our new configuration
-                                    PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - baseDamage - 1, iedt, calct, new Union(0, 0));
+                                    PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - baseDamage - 1, iedt, calct, new Union(0, 0), null);
                                     //Add the configuration to the WSE array if it does not exist
                                     if (!bonus_temp.contains(ptb)) {
                                         bonus_temp.add(ptb);
@@ -351,7 +352,7 @@ public class WSEBuilder {
                                                 //Calculates the multiplier
                                                 double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                                                 //Make a PotVector to contain our new configuration
-                                                PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - baseDamage - 1, iedt, calct, new Union(0, 0));
+                                                PotVector ptb = new PotVector(wtempb, stempb, etempb, attt - 1, bosst - baseDamage - 1, iedt, calct, new Union(0, 0), null);
                                                 //Add the configuration to the WSE array if it does not exist
                                                 if (!bonus_temp.contains(ptb)) {
                                                     bonus_temp.add(ptb);
@@ -376,10 +377,10 @@ public class WSEBuilder {
                     //Calculates the multiplier
                     double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                     if (pt == null) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion());
+                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
                     }
                     if (calct >= pt.getCalc()) {
-                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion());
+                        pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
                     }
                 }
             }

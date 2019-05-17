@@ -5,10 +5,9 @@
  */
 package WSEOptimizer;
 
-import java.util.ArrayList;
-import WSEOptimizer.Constants.ItemType;
 import WSEOptimizer.Constants.PotConfig;
 import WSEOptimizer.Constants.ClassType;
+import WSEOptimizer.Constants.PotType;
 
 /**
  *
@@ -22,28 +21,26 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
     private ClassType classType;  //Keeps track of the class type
     //These keep track of which buttons are selected for which input field
-    //0 = none selected, 1 = att, 2 = boss/dmg, 3 = ied
-    private int wepInp1_butSel;
-    private int wepInp2_butSel;
-    private int wepInp3_butSel;
-    private int wepInp5_butSel;
-    private int secInp1_butSel;
-    private int secInp2_butSel;
-    private int secInp3_butSel;
-    private int wepbpInp1_butSel;
-    private int wepbpInp2_butSel;
-    private int wepbpInp3_butSel;
-    private int secbpInp1_butSel;
-    private int secbpInp2_butSel;
-    private int secbpInp3_butSel;
+    private PotType wepInp1_butSel;
+    private PotType wepInp2_butSel;
+    private PotType wepInp3_butSel;
+    private PotType wepInp5_butSel;
+    private PotType secInp1_butSel;
+    private PotType secInp2_butSel;
+    private PotType secInp3_butSel;
+    private PotType wepbpInp1_butSel;
+    private PotType wepbpInp2_butSel;
+    private PotType wepbpInp3_butSel;
+    private PotType secbpInp1_butSel;
+    private PotType secbpInp2_butSel;
+    private PotType secbpInp3_butSel;
     //These keep track of which buttons are selected for which input field
-    //0 = none selected, 1 = att, 2 = ied
-    private int embInp1_butSel;
-    private int embInp2_butSel;
-    private int embInp3_butSel;
-    private int embbpInp1_butSel;
-    private int embbpInp2_butSel;
-    private int embbpInp3_butSel;
+    private PotType embInp1_butSel;
+    private PotType embInp2_butSel;
+    private PotType embInp3_butSel;
+    private PotType embbpInp1_butSel;
+    private PotType embbpInp2_butSel;
+    private PotType embbpInp3_butSel;
     //These fields keep track of the values inserted into the input text fields
     private double att_base;
     private double ied_base;
@@ -1386,11 +1383,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp1.getText().equals("") && wepInp1_butSel != 0) {
+                    if (!wepInp1.getText().equals("") && wepInp1_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp1.getText()) / 100;
-                        if (wepInp1_butSel == 1) {
+                        if (wepInp1_butSel == PotType.ATT) {
                             this.att_base += wepInp * zero_scale;
-                        } else if (wepInp1_butSel == 2) {
+                        } else if (wepInp1_butSel == PotType.BOSS) {
                             this.boss_base += wepInp * zero_scale;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
@@ -1400,11 +1397,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp2.getText().equals("") && wepInp2_butSel != 0) {
+                    if (!wepInp2.getText().equals("") && wepInp2_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp2.getText()) / 100;
-                        if (wepInp2_butSel == 1) {
+                        if (wepInp2_butSel == PotType.ATT) {
                             this.att_base += wepInp * zero_scale;
-                        } else if (wepInp2_butSel == 2) {
+                        } else if (wepInp2_butSel == PotType.BOSS) {
                             this.boss_base += wepInp * zero_scale;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
@@ -1414,11 +1411,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp3.getText().equals("") && wepInp3_butSel != 0) {
+                    if (!wepInp3.getText().equals("") && wepInp3_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp3.getText()) / 100;
-                        if (wepInp3_butSel == 1) {
+                        if (wepInp3_butSel == PotType.ATT) {
                             this.att_base += wepInp * zero_scale;
-                        } else if (wepInp3_butSel == 2) {
+                        } else if (wepInp3_butSel == PotType.BOSS) {
                             this.boss_base += wepInp * zero_scale;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
@@ -1431,33 +1428,33 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
                 if (secSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp1.getText().equals("") && secInp1_butSel != 0) {
+                    if (!secInp1.getText().equals("") && secInp1_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp1.getText()) / 100;
-                        if (secInp1_butSel == 1) {
+                        if (secInp1_butSel == PotType.ATT) {
                             this.att_base += secInp;
-                        } else if (secInp1_butSel == 2) {
+                        } else if (secInp1_butSel == PotType.BOSS) {
                             this.boss_base += secInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp2.getText().equals("") && secInp2_butSel != 0) {
+                    if (!secInp2.getText().equals("") && secInp2_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp2.getText()) / 100;
-                        if (secInp2_butSel == 1) {
+                        if (secInp2_butSel == PotType.ATT) {
                             this.att_base += secInp;
-                        } else if (secInp2_butSel == 2) {
+                        } else if (secInp2_butSel == PotType.BOSS) {
                             this.boss_base += secInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp3.getText().equals("") && secInp3_butSel != 0) {
+                    if (!secInp3.getText().equals("") && secInp3_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp3.getText()) / 100;
-                        if (secInp3_butSel == 1) {
+                        if (secInp3_butSel == PotType.ATT) {
                             this.att_base += secInp;
-                        } else if (secInp3_butSel == 2) {
+                        } else if (secInp3_butSel == PotType.BOSS) {
                             this.boss_base += secInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
@@ -1467,27 +1464,27 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
                 if (embSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp1.getText().equals("") && embInp1_butSel != 0) {
+                    if (!embInp1.getText().equals("") && embInp1_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp1.getText()) / 100;
-                        if (embInp1_butSel == 1) {
+                        if (embInp1_butSel == PotType.ATT) {
                             this.att_base += embInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp2.getText().equals("") && embInp2_butSel != 0) {
+                    if (!embInp2.getText().equals("") && embInp2_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp2.getText()) / 100;
-                        if (embInp2_butSel == 1) {
+                        if (embInp2_butSel == PotType.ATT) {
                             this.att_base += embInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp3.getText().equals("") && embInp3_butSel != 0) {
+                    if (!embInp3.getText().equals("") && embInp3_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp3.getText()) / 100;
-                        if (embInp3_butSel == 1) {
+                        if (embInp3_butSel == PotType.ATT) {
                             this.att_base += embInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
@@ -1498,11 +1495,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp1.getText().equals("") && wepbpInp1_butSel != 0) {
+                    if (!wepbpInp1.getText().equals("") && wepbpInp1_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp1.getText()) / 100;
-                        if (wepbpInp1_butSel == 1) {
+                        if (wepbpInp1_butSel == PotType.ATT) {
                             this.att_base += wepInp * zero_scale;
-                        } else if (wepbpInp1_butSel == 2) {
+                        } else if (wepbpInp1_butSel == PotType.BOSS) {
                             this.boss_base += wepInp * zero_scale;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
@@ -1512,11 +1509,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp2.getText().equals("") && wepbpInp2_butSel != 0) {
+                    if (!wepbpInp2.getText().equals("") && wepbpInp2_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp2.getText()) / 100;
-                        if (wepbpInp2_butSel == 1) {
+                        if (wepbpInp2_butSel == PotType.ATT) {
                             this.att_base += wepInp * zero_scale;
-                        } else if (wepbpInp2_butSel == 2) {
+                        } else if (wepbpInp2_butSel == PotType.BOSS) {
                             this.boss_base += wepInp * zero_scale;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
@@ -1526,11 +1523,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp3.getText().equals("") && wepbpInp3_butSel != 0) {
+                    if (!wepbpInp3.getText().equals("") && wepbpInp3_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp3.getText()) / 100;
-                        if (wepbpInp3_butSel == 1) {
+                        if (wepbpInp3_butSel == PotType.ATT) {
                             this.att_base += wepInp * zero_scale;
-                        } else if (wepbpInp3_butSel == 2) {
+                        } else if (wepbpInp3_butSel == PotType.BOSS) {
                             this.boss_base += wepInp * zero_scale;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
@@ -1543,33 +1540,33 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
                 if (secbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp1.getText().equals("") && secbpInp1_butSel != 0) {
+                    if (!secbpInp1.getText().equals("") && secbpInp1_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp1.getText()) / 100;
-                        if (secbpInp1_butSel == 1) {
+                        if (secbpInp1_butSel == PotType.ATT) {
                             this.att_base += secInp;
-                        } else if (secbpInp1_butSel == 2) {
+                        } else if (secbpInp1_butSel == PotType.BOSS) {
                             this.boss_base += secInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp2.getText().equals("") && secbpInp2_butSel != 0) {
+                    if (!secbpInp2.getText().equals("") && secbpInp2_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp2.getText()) / 100;
-                        if (secbpInp2_butSel == 1) {
+                        if (secbpInp2_butSel == PotType.ATT) {
                             this.att_base += secInp;
-                        } else if (secbpInp2_butSel == 2) {
+                        } else if (secbpInp2_butSel == PotType.BOSS) {
                             this.boss_base += secInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp3.getText().equals("") && secbpInp3_butSel != 0) {
+                    if (!secbpInp3.getText().equals("") && secbpInp3_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp3.getText()) / 100;
-                        if (secbpInp3_butSel == 1) {
+                        if (secbpInp3_butSel == PotType.ATT) {
                             this.att_base += secInp;
-                        } else if (secbpInp3_butSel == 2) {
+                        } else if (secbpInp3_butSel == PotType.BOSS) {
                             this.boss_base += secInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
@@ -1579,27 +1576,27 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
                 if (embbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp1.getText().equals("") && embbpInp1_butSel != 0) {
+                    if (!embbpInp1.getText().equals("") && embbpInp1_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp1.getText()) / 100;
-                        if (embbpInp1_butSel == 1) {
+                        if (embbpInp1_butSel == PotType.ATT) {
                             this.att_base += embInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp2.getText().equals("") && embbpInp2_butSel != 0) {
+                    if (!embbpInp2.getText().equals("") && embbpInp2_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp2.getText()) / 100;
-                        if (embbpInp2_butSel == 1) {
+                        if (embbpInp2_butSel == PotType.ATT) {
                             this.att_base += embInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp3.getText().equals("") && embbpInp3_butSel != 0) {
+                    if (!embbpInp3.getText().equals("") && embbpInp3_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp3.getText()) / 100;
-                        if (embbpInp3_butSel == 1) {
+                        if (embbpInp3_butSel == PotType.ATT) {
                             this.att_base += embInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
@@ -1609,11 +1606,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the soul is sleceted go through and pull all the inputs and add them to the base values
                 if (soulSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp5.getText().equals("") && wepInp5_butSel != 0) {
+                    if (!wepInp5.getText().equals("") && wepInp5_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp5.getText()) / 100;
-                        if (wepInp5_butSel == 1) {
+                        if (wepInp5_butSel == PotType.ATT) {
                             this.att_base += wepInp;
-                        } else if (wepInp5_butSel == 2) {
+                        } else if (wepInp5_butSel == PotType.BOSS) {
                             this.boss_base += wepInp;
                         } else {
                             this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
@@ -1626,11 +1623,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
             PotVector pt;
             if (!bp.isSelected()) {
                 if (soulSelect.isSelected()) {
-                    pt = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
+                    pt = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel);
                 } else {
-                    PotVector temp1 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
-                    PotVector temp2 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
-                    PotVector temp3 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected());
+                    PotVector temp1 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.ATT);
+                    PotVector temp2 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.BOSS);
+                    PotVector temp3 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.IED);
 
                     if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
                         wepInp5.setText("3% ATT");
@@ -1645,11 +1642,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 }
             } else {
                 if (soulSelect.isSelected()) {
-                    pt = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
+                    pt = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel);
                 } else {
-                    PotVector temp1 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
-                    PotVector temp2 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
-                    PotVector temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base,  (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected());
+                    PotVector temp1 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.ATT);
+                    PotVector temp2 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.BOSS);
+                    PotVector temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base,  (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.IED);
                             
                     if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
                         wepInp5.setText("3% ATT");
@@ -1767,61 +1764,61 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void wepAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt1ActionPerformed
         if (wepAtt1.isSelected()) {
-            this.wepInp1_butSel = 1;
+            this.wepInp1_butSel = PotType.ATT;
             wepBoss1.setSelected(false);
             wepIed1.setSelected(false);
         } else {
-            this.wepInp1_butSel = 0;
+            this.wepInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepAtt1ActionPerformed
 
     private void wepAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt2ActionPerformed
         if (wepAtt2.isSelected()) {
-            this.wepInp2_butSel = 1;
+            this.wepInp2_butSel = PotType.ATT;
             wepBoss2.setSelected(false);
             wepIed2.setSelected(false);
         } else {
-            this.wepInp2_butSel = 0;
+            this.wepInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepAtt2ActionPerformed
 
     private void wepAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt3ActionPerformed
         if (wepAtt3.isSelected()) {
-            this.wepInp3_butSel = 1;
+            this.wepInp3_butSel = PotType.ATT;
             wepBoss3.setSelected(false);
             wepIed3.setSelected(false);
         } else {
-            this.wepInp3_butSel = 0;
+            this.wepInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepAtt3ActionPerformed
 
     private void secAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secAtt1ActionPerformed
         if (secAtt1.isSelected()) {
-            this.secInp1_butSel = 1;
+            this.secInp1_butSel = PotType.ATT;
             secBoss1.setSelected(false);
             secIed1.setSelected(false);
         } else {
-            this.secInp1_butSel = 0;
+            this.secInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secAtt1ActionPerformed
 
     private void secAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secAtt2ActionPerformed
         if (secAtt2.isSelected()) {
-            this.secInp2_butSel = 1;
+            this.secInp2_butSel = PotType.ATT;
             secBoss2.setSelected(false);
             secIed2.setSelected(false);
         } else {
-            this.secInp2_butSel = 0;
+            this.secInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secAtt2ActionPerformed
 
     private void secAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secAtt3ActionPerformed
         if (secAtt3.isSelected()) {
-            this.secInp3_butSel = 1;
+            this.secInp3_butSel = PotType.ATT;
             secBoss3.setSelected(false);
             secIed3.setSelected(false);
         } else {
-            this.secInp3_butSel = 0;
+            this.secInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secAtt3ActionPerformed
 
@@ -1847,175 +1844,175 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void embAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embAtt1ActionPerformed
         if (embAtt1.isSelected()) {
-            this.embInp1_butSel = 1;
+            this.embInp1_butSel = PotType.ATT;
             embIed1.setSelected(false);
         } else {
-            this.embInp1_butSel = 0;
+            this.embInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embAtt1ActionPerformed
 
     private void embAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embAtt2ActionPerformed
         if (embAtt2.isSelected()) {
-            this.embInp2_butSel = 1;
+            this.embInp2_butSel = PotType.ATT;
             embIed2.setSelected(false);
         } else {
-            this.embInp2_butSel = 0;
+            this.embInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embAtt2ActionPerformed
 
     private void embAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embAtt3ActionPerformed
         if (embAtt3.isSelected()) {
-            this.embInp3_butSel = 1;
+            this.embInp3_butSel = PotType.ATT;
             embIed3.setSelected(false);
         } else {
-            this.embInp3_butSel = 0;
+            this.embInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embAtt3ActionPerformed
 
     private void wepBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss1ActionPerformed
         if (wepBoss1.isSelected()) {
-            this.wepInp1_butSel = 2;
+            this.wepInp1_butSel = PotType.BOSS;
             wepAtt1.setSelected(false);
             wepIed1.setSelected(false);
         } else {
-            this.wepInp1_butSel = 0;
+            this.wepInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepBoss1ActionPerformed
 
     private void wepBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss2ActionPerformed
         if (wepBoss2.isSelected()) {
-            this.wepInp2_butSel = 2;
+            this.wepInp2_butSel = PotType.BOSS;
             wepAtt2.setSelected(false);
             wepIed2.setSelected(false);
         } else {
-            this.wepInp2_butSel = 0;
+            this.wepInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepBoss2ActionPerformed
 
     private void wepBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss3ActionPerformed
         if (wepBoss3.isSelected()) {
-            this.wepInp3_butSel = 2;
+            this.wepInp3_butSel = PotType.BOSS;
             wepAtt3.setSelected(false);
             wepIed3.setSelected(false);
         } else {
-            this.wepInp3_butSel = 0;
+            this.wepInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepBoss3ActionPerformed
 
     private void wepIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed1ActionPerformed
         if (wepIed1.isSelected()) {
-            this.wepInp1_butSel = 3;
+            this.wepInp1_butSel = PotType.IED;
             wepAtt1.setSelected(false);
             wepBoss1.setSelected(false);
         } else {
-            this.wepInp1_butSel = 0;
+            this.wepInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepIed1ActionPerformed
 
     private void wepIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed2ActionPerformed
         if (wepIed2.isSelected()) {
-            this.wepInp2_butSel = 3;
+            this.wepInp2_butSel = PotType.IED;
             wepAtt2.setSelected(false);
             wepBoss2.setSelected(false);
         } else {
-            this.wepInp2_butSel = 0;
+            this.wepInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepIed2ActionPerformed
 
     private void wepIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed3ActionPerformed
         if (wepIed3.isSelected()) {
-            this.wepInp3_butSel = 3;
+            this.wepInp3_butSel = PotType.IED;
             wepAtt3.setSelected(false);
             wepBoss3.setSelected(false);
         } else {
-            this.wepInp3_butSel = 0;
+            this.wepInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepIed3ActionPerformed
 
     private void secBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secBoss1ActionPerformed
         if (secBoss1.isSelected()) {
-            this.secInp1_butSel = 2;
+            this.secInp1_butSel = PotType.BOSS;
             secAtt1.setSelected(false);
             secIed1.setSelected(false);
         } else {
-            this.secInp1_butSel = 0;
+            this.secInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secBoss1ActionPerformed
 
     private void secBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secBoss2ActionPerformed
         if (secBoss2.isSelected()) {
-            this.secInp2_butSel = 2;
+            this.secInp2_butSel = PotType.BOSS;
             secAtt2.setSelected(false);
             secIed2.setSelected(false);
         } else {
-            this.secInp2_butSel = 0;
+            this.secInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secBoss2ActionPerformed
 
     private void secBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secBoss3ActionPerformed
         if (secBoss3.isSelected()) {
-            this.secInp3_butSel = 2;
+            this.secInp3_butSel = PotType.BOSS;
             secAtt3.setSelected(false);
             secIed3.setSelected(false);
         } else {
-            this.secInp3_butSel = 0;
+            this.secInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secBoss3ActionPerformed
 
     private void secIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secIed1ActionPerformed
         if (secIed1.isSelected()) {
-            this.secInp1_butSel = 3;
+            this.secInp1_butSel = PotType.IED;
             secAtt1.setSelected(false);
             secBoss1.setSelected(false);
         } else {
-            this.secInp1_butSel = 0;
+            this.secInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secIed1ActionPerformed
 
     private void secIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secIed2ActionPerformed
         if (secIed2.isSelected()) {
-            this.secInp2_butSel = 3;
+            this.secInp2_butSel = PotType.IED;
             secAtt2.setSelected(false);
             secBoss2.setSelected(false);
         } else {
-            this.secInp2_butSel = 0;
+            this.secInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secIed2ActionPerformed
 
     private void secIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secIed3ActionPerformed
         if (secIed3.isSelected()) {
-            this.secInp3_butSel = 3;
+            this.secInp3_butSel = PotType.IED;
             secAtt3.setSelected(false);
             secBoss3.setSelected(false);
         } else {
-            this.secInp3_butSel = 0;
+            this.secInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secIed3ActionPerformed
 
     private void embIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embIed1ActionPerformed
         if (embIed1.isSelected()) {
-            this.embInp1_butSel = 2;
+            this.embInp1_butSel = PotType.IED;
             embAtt1.setSelected(false);
         } else {
-            this.embInp1_butSel = 0;
+            this.embInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embIed1ActionPerformed
 
     private void embIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embIed2ActionPerformed
         if (embIed2.isSelected()) {
-            this.embInp2_butSel = 2;
+            this.embInp2_butSel = PotType.IED;
             embAtt2.setSelected(false);
         } else {
-            this.embInp2_butSel = 0;
+            this.embInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embIed2ActionPerformed
 
     private void embIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embIed3ActionPerformed
         if (embIed3.isSelected()) {
-            this.embInp3_butSel = 2;
+            this.embInp3_butSel = PotType.IED;
             embAtt3.setSelected(false);
         } else {
-            this.embInp3_butSel = 0;
+            this.embInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embIed3ActionPerformed
 
@@ -2035,9 +2032,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         if (wepAtt5.isSelected()) {
             wepBoss5.setSelected(false);
             wepIed5.setSelected(false);
-            this.wepInp5_butSel = 1;
+            this.wepInp5_butSel = PotType.ATT;
         } else {
-            this.wepInp5_butSel = 0;
+            this.wepInp5_butSel = PotType.DEFAULT;
         }
 
     }//GEN-LAST:event_wepAtt5ActionPerformed
@@ -2046,9 +2043,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         if (wepBoss5.isSelected()) {
             wepAtt5.setSelected(false);
             wepIed5.setSelected(false);
-            this.wepInp5_butSel = 2;
+            this.wepInp5_butSel = PotType.BOSS;
         } else {
-            this.wepInp5_butSel = 0;
+            this.wepInp5_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepBoss5ActionPerformed
 
@@ -2056,9 +2053,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         if (wepIed5.isSelected()) {
             wepBoss5.setSelected(false);
             wepAtt5.setSelected(false);
-            this.wepInp5_butSel = 3;
+            this.wepInp5_butSel = PotType.IED;
         } else {
-            this.wepInp5_butSel = 0;
+            this.wepInp5_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepIed5ActionPerformed
 
@@ -2068,190 +2065,190 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void embbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt2ActionPerformed
         if (embbpAtt2.isSelected()) {
-            this.embbpInp2_butSel = 1;
+            this.embbpInp2_butSel = PotType.ATT;
             embbpIed2.setSelected(false);
         } else {
-            this.embbpInp2_butSel = 0;
+            this.embbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embbpAtt2ActionPerformed
 
     private void secbpIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpIed1ActionPerformed
         if (secbpIed1.isSelected()) {
-            this.secbpInp1_butSel = 3;
+            this.secbpInp1_butSel = PotType.IED;
             secbpAtt1.setSelected(false);
             secbpBoss1.setSelected(false);
         } else {
-            this.secbpInp1_butSel = 0;
+            this.secbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpIed1ActionPerformed
 
     private void secbpBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpBoss1ActionPerformed
         if (secbpBoss1.isSelected()) {
-            this.secbpInp1_butSel = 2;
+            this.secbpInp1_butSel = PotType.BOSS;
             secbpAtt1.setSelected(false);
             secbpIed1.setSelected(false);
         } else {
-            this.secbpInp1_butSel = 0;
+            this.secbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpBoss1ActionPerformed
 
     private void secbpIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpIed3ActionPerformed
         if (secbpIed3.isSelected()) {
-            this.secbpInp3_butSel = 3;
+            this.secbpInp3_butSel = PotType.IED;
             secbpAtt3.setSelected(false);
             secbpBoss3.setSelected(false);
         } else {
-            this.secbpInp3_butSel = 0;
+            this.secbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpIed3ActionPerformed
 
     private void secbpAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpAtt1ActionPerformed
         if (secbpAtt1.isSelected()) {
-            this.secbpInp1_butSel = 1;
+            this.secbpInp1_butSel = PotType.ATT;
             secbpBoss1.setSelected(false);
             secbpIed1.setSelected(false);
         } else {
-            this.secbpInp1_butSel = 0;
+            this.secbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpAtt1ActionPerformed
 
     private void secbpBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpBoss3ActionPerformed
         if (secbpBoss3.isSelected()) {
-            this.secbpInp3_butSel = 2;
+            this.secbpInp3_butSel = PotType.BOSS;
             secbpAtt3.setSelected(false);
             secbpIed3.setSelected(false);
         } else {
-            this.secbpInp3_butSel = 0;
+            this.secbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpBoss3ActionPerformed
 
     private void secbpAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpAtt3ActionPerformed
         if (secbpAtt3.isSelected()) {
-            this.secbpInp3_butSel = 1;
+            this.secbpInp3_butSel = PotType.ATT;
             secbpBoss3.setSelected(false);
             secbpIed3.setSelected(false);
         } else {
-            this.secbpInp3_butSel = 0;
+            this.secbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpAtt3ActionPerformed
 
     private void secbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpIed2ActionPerformed
         if (secbpIed2.isSelected()) {
-            this.secbpInp2_butSel = 3;
+            this.secbpInp2_butSel = PotType.IED;
             secbpAtt2.setSelected(false);
             secbpBoss2.setSelected(false);
         } else {
-            this.secbpInp2_butSel = 0;
+            this.secbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpIed2ActionPerformed
 
     private void secbpBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpBoss2ActionPerformed
         if (secbpBoss2.isSelected()) {
-            this.secbpInp2_butSel = 2;
+            this.secbpInp2_butSel = PotType.BOSS;
             secbpAtt2.setSelected(false);
             secbpIed2.setSelected(false);
         } else {
-            this.secbpInp2_butSel = 0;
+            this.secbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpBoss2ActionPerformed
 
     private void secbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpAtt2ActionPerformed
         if (secbpAtt2.isSelected()) {
-            this.secbpInp2_butSel = 1;
+            this.secbpInp2_butSel = PotType.ATT;
             secbpBoss2.setSelected(false);
             secbpIed2.setSelected(false);
         } else {
-            this.secbpInp2_butSel = 0;
+            this.secbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_secbpAtt2ActionPerformed
 
     private void wepbpIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpIed1ActionPerformed
         if (wepbpIed1.isSelected()) {
-            this.wepbpInp1_butSel = 3;
+            this.wepbpInp1_butSel = PotType.IED;
             wepbpAtt1.setSelected(false);
             wepbpBoss1.setSelected(false);
         } else {
-            this.wepbpInp1_butSel = 0;
+            this.wepbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpIed1ActionPerformed
 
     private void wepbpBoss1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpBoss1ActionPerformed
         if (wepbpBoss1.isSelected()) {
-            this.wepbpInp1_butSel = 2;
+            this.wepbpInp1_butSel = PotType.BOSS;
             wepbpAtt1.setSelected(false);
             wepbpIed1.setSelected(false);
         } else {
-            this.wepbpInp1_butSel = 0;
+            this.wepbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpBoss1ActionPerformed
 
     private void wepbpIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpIed3ActionPerformed
         if (wepbpIed3.isSelected()) {
-            this.wepbpInp3_butSel = 3;
+            this.wepbpInp3_butSel = PotType.IED;
             wepbpAtt3.setSelected(false);
             wepbpBoss3.setSelected(false);
         } else {
-            this.wepbpInp3_butSel = 0;
+            this.wepbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpIed3ActionPerformed
 
     private void wepbpAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpAtt1ActionPerformed
         if (wepbpAtt1.isSelected()) {
-            this.wepbpInp1_butSel = 1;
+            this.wepbpInp1_butSel = PotType.ATT;
             wepbpBoss1.setSelected(false);
             wepbpIed1.setSelected(false);
         } else {
-            this.wepbpInp1_butSel = 0;
+            this.wepbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpAtt1ActionPerformed
 
     private void wepbpBoss3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpBoss3ActionPerformed
         if (wepbpBoss3.isSelected()) {
-            this.wepbpInp3_butSel = 2;
+            this.wepbpInp3_butSel = PotType.BOSS;
             wepbpAtt3.setSelected(false);
             wepbpIed3.setSelected(false);
         } else {
-            this.wepbpInp3_butSel = 0;
+            this.wepbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpBoss3ActionPerformed
 
     private void wepbpAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpAtt3ActionPerformed
         if (wepbpAtt3.isSelected()) {
-            this.wepbpInp3_butSel = 1;
+            this.wepbpInp3_butSel = PotType.ATT;
             wepbpBoss3.setSelected(false);
             wepbpIed3.setSelected(false);
         } else {
-            this.wepbpInp3_butSel = 0;
+            this.wepbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpAtt3ActionPerformed
 
     private void wepbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpIed2ActionPerformed
         if (wepbpIed2.isSelected()) {
-            this.wepbpInp2_butSel = 3;
+            this.wepbpInp2_butSel = PotType.IED;
             wepbpAtt2.setSelected(false);
             wepbpBoss2.setSelected(false);
         } else {
-            this.wepbpInp2_butSel = 0;
+            this.wepbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpIed2ActionPerformed
 
     private void wepbpBoss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpBoss2ActionPerformed
         if (wepbpBoss2.isSelected()) {
-            this.wepbpInp2_butSel = 2;
+            this.wepbpInp2_butSel = PotType.BOSS;
             wepbpAtt2.setSelected(false);
             wepbpIed2.setSelected(false);
         } else {
-            this.wepbpInp2_butSel = 0;
+            this.wepbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpBoss2ActionPerformed
 
     private void wepbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpAtt2ActionPerformed
         if (wepbpAtt2.isSelected()) {
-            this.wepbpInp2_butSel = 1;
+            this.wepbpInp2_butSel = PotType.ATT;
             wepbpBoss2.setSelected(false);
             wepbpIed2.setSelected(false);
         } else {
-            this.wepbpInp2_butSel = 0;
+            this.wepbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_wepbpAtt2ActionPerformed
 
@@ -2281,46 +2278,46 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void embbpIed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed1ActionPerformed
         if (embbpIed1.isSelected()) {
-            this.embbpInp1_butSel = 2;
+            this.embbpInp1_butSel = PotType.IED;
             embbpAtt1.setSelected(false);
         } else {
-            this.embbpInp1_butSel = 0;
+            this.embbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embbpIed1ActionPerformed
 
     private void embbpIed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed3ActionPerformed
         if (embbpIed3.isSelected()) {
-            this.embbpInp3_butSel = 2;
+            this.embbpInp3_butSel = PotType.IED;
             embbpAtt3.setSelected(false);
         } else {
-            this.embbpInp3_butSel = 0;
+            this.embbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embbpIed3ActionPerformed
 
     private void embbpAtt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt1ActionPerformed
         if (embbpAtt1.isSelected()) {
-            this.embbpInp1_butSel = 1;
+            this.embbpInp1_butSel = PotType.ATT;
             embbpIed1.setSelected(false);
         } else {
-            this.embbpInp1_butSel = 0;
+            this.embbpInp1_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embbpAtt1ActionPerformed
 
     private void embbpAtt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt3ActionPerformed
         if (embbpAtt3.isSelected()) {
-            this.embbpInp3_butSel = 1;
+            this.embbpInp3_butSel = PotType.ATT;
             embbpIed3.setSelected(false);
         } else {
-            this.embbpInp3_butSel = 0;
+            this.embbpInp3_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embbpAtt3ActionPerformed
 
     private void embbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpIed2ActionPerformed
         if (embbpIed2.isSelected()) {
-            this.embbpInp2_butSel = 2;
+            this.embbpInp2_butSel = PotType.IED;
             embbpAtt2.setSelected(false);
         } else {
-            this.embbpInp2_butSel = 0;
+            this.embbpInp2_butSel = PotType.DEFAULT;
         }
     }//GEN-LAST:event_embbpIed2ActionPerformed
 

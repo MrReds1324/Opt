@@ -6,6 +6,7 @@
 package WSEOptimizer;
 
 import java.util.Objects;
+import WSEOptimizer.Constants.PotType;
 
 /**
  *
@@ -20,9 +21,10 @@ public class PotVector implements Comparable {
     public Union union = new Union(0, 0);
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
     public double att, boss, ied, calc;
+    public PotType soul;
 
     //Constructor to create PotVector without Bonus Potential
-    PotVector(Potentials wep, Potentials sec, Potentials emb, double att, double boss, double ied, double calc, Union union) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, double att, double boss, double ied, double calc, Union union, PotType soul) {
         this.wep = wep;
         this.sec = sec;
         this.emb = emb;
@@ -31,10 +33,11 @@ public class PotVector implements Comparable {
         this.ied = ied;
         this.calc = calc;
         this.union = union;
+        this.soul = soul;
     }
 
     //Constructor to create PotVectors with Bonus Potential 
-    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, double att, double boss, double ied, double calc, Union neb) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, double att, double boss, double ied, double calc, Union union, PotType soul) {
         this.wep = wep;
         this.sec = sec;
         this.emb = emb;
@@ -45,7 +48,8 @@ public class PotVector implements Comparable {
         this.boss = boss;
         this.ied = ied;
         this.calc = calc;
-        this.union = neb;
+        this.union = union;
+        this.soul = soul;
     }
 
     //Returns the Nebs_U Object stored in this Object
@@ -102,6 +106,10 @@ public class PotVector implements Comparable {
     public double getCalc() {
         return this.calc;
     }
+    
+    public PotType getSoul(){
+        return this.soul;
+    }
 
     //The ToString of this class (prints the att, boss, ied and then the configuration of the WSE items along with the nebulite and union configuration)
     @Override
@@ -120,13 +128,14 @@ public class PotVector implements Comparable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.wep);
-        hash = 53 * hash + Objects.hashCode(this.sec);
-        hash = 53 * hash + Objects.hashCode(this.emb);
-        hash = 53 * hash + Objects.hashCode(this.wepb);
-        hash = 53 * hash + Objects.hashCode(this.secb);
-        hash = 53 * hash + Objects.hashCode(this.embb);
-        hash = 53 * hash + Objects.hashCode(this.union);
+        hash = 33 * hash + Objects.hashCode(this.wep);
+        hash = 33 * hash + Objects.hashCode(this.sec);
+        hash = 33 * hash + Objects.hashCode(this.emb);
+        hash = 33 * hash + Objects.hashCode(this.wepb);
+        hash = 33 * hash + Objects.hashCode(this.secb);
+        hash = 33 * hash + Objects.hashCode(this.embb);
+        hash = 33 * hash + Objects.hashCode(this.union);
+        hash = 33 * hash + Objects.hashCode(this.soul);
         return hash;
     }
 
@@ -139,10 +148,10 @@ public class PotVector implements Comparable {
             PotVector comp = (PotVector) o;
             //If bonus pots are not null then use it in equals
             if (wepb != null && secb != null && embb != null) {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion()) && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb());
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion()) && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb()) && soul == comp.getSoul();
             } //Else do not as you will get IndexOutOfBounds exception
             else {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion());
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion()) && soul == comp.getSoul();
             }
         }
     }

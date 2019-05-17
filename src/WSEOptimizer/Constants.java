@@ -21,4 +21,8 @@ public class Constants {
     public enum ItemType {
         WEPSEC, EMB;
     }
+    
+    public enum PotType{
+        DEFAULT, ATT, BOSS, IED;
+    }
 }
