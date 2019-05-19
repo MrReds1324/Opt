@@ -1651,6 +1651,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     System.out.println("Something went terribly wrong and the vector was null!");
                 }
             } catch (Exception e) {
+                System.out.println(e.toString());
                 fd_Legion.setText("ERROR OCCURED: REDO INPUTS");
                 fd_LegionBP.setText("ERROR OCCURED: REDO INPUTS");
             }
