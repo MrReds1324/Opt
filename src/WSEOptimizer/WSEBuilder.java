@@ -40,6 +40,7 @@ public class WSEBuilder {
         {0, 0},
         {0, 0}};
 
+    @SuppressWarnings("unchecked")
     public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soul, int numberOfOptions) {
         List<PotVector> potVectorList = new ArrayList();
         //Carries out the optimization beginning with Emblem to find the perfect configuration
@@ -153,6 +154,7 @@ public class WSEBuilder {
         return potVectorList.subList(0, numberOfOptions + 1);
     }
 
+    @SuppressWarnings("unchecked")
     public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soul, int numberOfOptions) {
         //If changed is true (the input values have changed) then delete the old Potvector and recalculate the configurations
         ArrayList<PotVector> main_temp = new ArrayList();

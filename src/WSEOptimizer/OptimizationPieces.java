@@ -21,32 +21,31 @@ import javax.swing.JToggleButton;
  */
 public class OptimizationPieces extends javax.swing.JFrame {
 
-    private PotConfig no_3lAtt; //Keeps track if we want to calculate with or without 3 lines of attack
-    private PotConfig no_3lbpAtt; //Keeps track if we want to calculate with or without 3 lines of attack for bonus potential
+    private PotConfig no_3lAtt = PotConfig.DEFAULT; //Keeps track if we want to calculate with or without 3 lines of attack
+    private PotConfig no_3lbpAtt = PotConfig.DEFAULT; //Keeps track if we want to calculate with or without 3 lines of attack for bonus potential
     private boolean sec_lvl; //Keeps track if we want to calculate with a higher level secondary than normal
     private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
-    private ClassType classType;  //Keeps track of the class type
+    private ClassType classType = ClassType.NOCLASS;  //Keeps track of the class type
     //These keep track of which buttons are selected for which input field
-    private PotType wepInp1_butSel;
-    private PotType wepInp2_butSel;
-    private PotType wepInp3_butSel;
-    private PotType wepInp5_butSel;
-    private PotType secInp1_butSel;
-    private PotType secInp2_butSel;
-    private PotType secInp3_butSel;
-    private PotType wepbpInp1_butSel;
-    private PotType wepbpInp2_butSel;
-    private PotType wepbpInp3_butSel;
-    private PotType secbpInp1_butSel;
-    private PotType secbpInp2_butSel;
-    private PotType secbpInp3_butSel;
-    //These keep track of which buttons are selected for which input field
-    private PotType embInp1_butSel;
-    private PotType embInp2_butSel;
-    private PotType embInp3_butSel;
-    private PotType embbpInp1_butSel;
-    private PotType embbpInp2_butSel;
-    private PotType embbpInp3_butSel;
+    private PotType wepInp1_butSel = PotType.DEFAULT;
+    private PotType wepInp2_butSel = PotType.DEFAULT;
+    private PotType wepInp3_butSel = PotType.DEFAULT;
+    private PotType wepInp5_butSel = PotType.DEFAULT;
+    private PotType secInp1_butSel = PotType.DEFAULT;
+    private PotType secInp2_butSel = PotType.DEFAULT;
+    private PotType secInp3_butSel = PotType.DEFAULT;
+    private PotType wepbpInp1_butSel = PotType.DEFAULT;
+    private PotType wepbpInp2_butSel = PotType.DEFAULT;
+    private PotType wepbpInp3_butSel = PotType.DEFAULT;
+    private PotType secbpInp1_butSel = PotType.DEFAULT;
+    private PotType secbpInp2_butSel = PotType.DEFAULT;
+    private PotType secbpInp3_butSel = PotType.DEFAULT;
+    private PotType embInp1_butSel = PotType.DEFAULT;
+    private PotType embInp2_butSel = PotType.DEFAULT;
+    private PotType embInp3_butSel = PotType.DEFAULT;
+    private PotType embbpInp1_butSel = PotType.DEFAULT;
+    private PotType embbpInp2_butSel = PotType.DEFAULT;
+    private PotType embbpInp3_butSel = PotType.DEFAULT;
     //These fields keep track of the values inserted into the input text fields
     private double att_base;
     private double ied_base;
@@ -62,6 +61,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     //Variable for saving number of additional options
     private int numberOfOptions;
     //Keeps track of the map we use to build the list for our combo box
+    @SuppressWarnings("unchecked")
     Map<String, PotVector> comboBoxMap = new LinkedHashMap();
 
     /**
@@ -1314,8 +1314,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         );
 
         pack();
-        DefaultComboBoxModel<String> comboModel = new DefaultComboBoxModel();
-        wseOptions.setModel(comboModel);
+        wseOptions.setModel(new DefaultComboBoxModel());
         setSize(618, 715);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1381,6 +1380,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_no_3lbpActionPerformed
 
+    @SuppressWarnings("unchecked")
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
         if (calculate.isSelected()) {
             //Disable the combobox

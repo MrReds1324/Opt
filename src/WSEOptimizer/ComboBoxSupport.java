@@ -18,7 +18,7 @@ import javax.swing.DefaultComboBoxModel;
 public class ComboBoxSupport {
 
     public static Map<String, PotVector> buildComboBoxMap(List<PotVector> wseList1) {
-        LinkedHashMap<String, PotVector> builderMap = new LinkedHashMap();
+        LinkedHashMap<String, PotVector> builderMap = new LinkedHashMap<String,PotVector>();
         PotVector max = wseList1.get(0);
         for (int i = 0; i < wseList1.size(); i++) {
             double percentFD = ((wseList1.get(i).getCalc() / max.getCalc() - 1) * 100);
@@ -28,6 +28,7 @@ public class ComboBoxSupport {
         return builderMap;
     }
     
+    @SuppressWarnings("unchecked")
     public static DefaultComboBoxModel<String> buildComboBoxItems(Map<String, PotVector> itemMapping){
         return new DefaultComboBoxModel(itemMapping.keySet().toArray());
     }
