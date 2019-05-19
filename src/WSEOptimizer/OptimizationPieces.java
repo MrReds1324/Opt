@@ -80,23 +80,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jTextField11 = new javax.swing.JTextField();
-        jButton28 = new javax.swing.JToggleButton();
-        jButton29 = new javax.swing.JToggleButton();
-        jButton30 = new javax.swing.JToggleButton();
-        jTextField12 = new javax.swing.JTextField();
-        jButton31 = new javax.swing.JToggleButton();
-        jTextField13 = new javax.swing.JTextField();
-        jButton32 = new javax.swing.JToggleButton();
-        jButton33 = new javax.swing.JToggleButton();
-        jButton34 = new javax.swing.JToggleButton();
-        jButton35 = new javax.swing.JToggleButton();
-        jButton36 = new javax.swing.JToggleButton();
-        embAtt5 = new javax.swing.JToggleButton();
-        embIed5 = new javax.swing.JToggleButton();
         dmg = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -206,34 +189,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wseOptions = new javax.swing.JComboBox<>();
         numOptions = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenuItem2.setText("jMenuItem2");
-
-        jMenu1.setText("jMenu1");
-
-        jButton28.setText("Att");
-
-        jButton29.setText("Boss/Dmg");
-
-        jButton30.setText("IED");
-
-        jButton31.setText("Att");
-
-        jButton32.setText("Boss/Dmg");
-
-        jButton33.setText("Att");
-
-        jButton34.setText("IED");
-
-        jButton35.setText("Boss/Dmg");
-
-        jButton36.setText("IED");
-
-        embAtt5.setText("Att");
-
-        embIed5.setText("IED");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
@@ -1312,7 +1267,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pack();        
+        pack();
         wseOptions.setModel(new DefaultComboBoxModel());
         setSize(618, 715);
     }// </editor-fold>//GEN-END:initComponents
@@ -2199,11 +2154,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton embAtt1;
     private javax.swing.JToggleButton embAtt2;
     private javax.swing.JToggleButton embAtt3;
-    private javax.swing.JToggleButton embAtt5;
     private javax.swing.JToggleButton embIed1;
     private javax.swing.JToggleButton embIed2;
     private javax.swing.JToggleButton embIed3;
-    private javax.swing.JToggleButton embIed5;
     private javax.swing.JTextField embInp1;
     private javax.swing.JTextField embInp2;
     private javax.swing.JTextField embInp3;
@@ -2221,15 +2174,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextArea fd_Legion;
     private javax.swing.JTextArea fd_LegionBP;
     private javax.swing.JTextField ied;
-    private javax.swing.JToggleButton jButton28;
-    private javax.swing.JToggleButton jButton29;
-    private javax.swing.JToggleButton jButton30;
-    private javax.swing.JToggleButton jButton31;
-    private javax.swing.JToggleButton jButton32;
-    private javax.swing.JToggleButton jButton33;
-    private javax.swing.JToggleButton jButton34;
-    private javax.swing.JToggleButton jButton35;
-    private javax.swing.JToggleButton jButton36;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -2238,17 +2182,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JToggleButton kannaClass;
     private javax.swing.JTextField monDef;
     private javax.swing.JToggleButton no_3l;
