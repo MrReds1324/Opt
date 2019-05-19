@@ -95,7 +95,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         jButton34 = new javax.swing.JToggleButton();
         jButton35 = new javax.swing.JToggleButton();
         jButton36 = new javax.swing.JToggleButton();
-        embInp5 = new javax.swing.JTextField();
         embAtt5 = new javax.swing.JToggleButton();
         embIed5 = new javax.swing.JToggleButton();
         dmg = new javax.swing.JTextField();
@@ -113,7 +112,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         zeroClass = new javax.swing.JToggleButton();
         no_3lbp = new javax.swing.JToggleButton();
         jLabel7 = new javax.swing.JLabel();
-        legion = new javax.swing.JTextField();
+        union = new javax.swing.JTextField();
         no_3l = new javax.swing.JToggleButton();
         wepSelect = new javax.swing.JToggleButton();
         secSelect = new javax.swing.JToggleButton();
@@ -155,11 +154,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         monDef = new javax.swing.JTextField();
         calculate = new javax.swing.JToggleButton();
         clearInp = new javax.swing.JToggleButton();
-        wepInp5 = new javax.swing.JTextField();
+        wepInp4 = new javax.swing.JTextField();
         soulSelect = new javax.swing.JToggleButton();
-        wepAtt5 = new javax.swing.JToggleButton();
-        wepBoss5 = new javax.swing.JToggleButton();
-        wepIed5 = new javax.swing.JToggleButton();
+        wepAtt4 = new javax.swing.JToggleButton();
+        wepBoss4 = new javax.swing.JToggleButton();
+        wepIed4 = new javax.swing.JToggleButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
@@ -305,7 +304,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         jLabel7.setText("Legion Points for Boss and IED");
 
-        legion.setText("80");
+        union.setText("80");
 
         no_3l.setText("No 3 Line Att");
         no_3l.setMaximumSize(new java.awt.Dimension(119, 23));
@@ -558,14 +557,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
 
-        clearInp.setText("Clear Inputs");
+        clearInp.setText("Reset");
         clearInp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearInpActionPerformed(evt);
             }
         });
 
-        wepInp5.setEnabled(false);
+        wepInp4.setEnabled(false);
 
         soulSelect.setText("Soul");
         soulSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -574,27 +573,27 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
 
-        wepAtt5.setText("Att");
-        wepAtt5.setEnabled(false);
-        wepAtt5.addActionListener(new java.awt.event.ActionListener() {
+        wepAtt4.setText("Att");
+        wepAtt4.setEnabled(false);
+        wepAtt4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepAtt5ActionPerformed(evt);
+                wepAtt4ActionPerformed(evt);
             }
         });
 
-        wepBoss5.setText("Boss/Dmg");
-        wepBoss5.setEnabled(false);
-        wepBoss5.addActionListener(new java.awt.event.ActionListener() {
+        wepBoss4.setText("Boss/Dmg");
+        wepBoss4.setEnabled(false);
+        wepBoss4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepBoss5ActionPerformed(evt);
+                wepBoss4ActionPerformed(evt);
             }
         });
 
-        wepIed5.setText("IED");
-        wepIed5.setEnabled(false);
-        wepIed5.addActionListener(new java.awt.event.ActionListener() {
+        wepIed4.setText("IED");
+        wepIed4.setEnabled(false);
+        wepIed4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepIed5ActionPerformed(evt);
+                wepIed4ActionPerformed(evt);
             }
         });
 
@@ -1050,7 +1049,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(wepInp5)
+                        .addComponent(wepInp4)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(soulSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1087,7 +1086,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(legion, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(union, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel7))
                                     .addGroup(layout.createSequentialGroup()
@@ -1182,11 +1181,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                                                 .addComponent(embIed1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(wepAtt5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(wepAtt4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepBoss5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(wepBoss4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepIed5, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(wepIed4, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -1208,7 +1207,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(legion)
+                        .addComponent(union)
                         .addComponent(jLabel7))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(kannaClass)
@@ -1304,16 +1303,16 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(soulSelect)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(wepInp5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(wepInp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(wepAtt5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(wepBoss5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(wepIed5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(wepAtt4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(wepBoss4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(wepIed4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pack();
+        pack();        
         wseOptions.setModel(new DefaultComboBoxModel());
         setSize(618, 715);
     }// </editor-fold>//GEN-END:initComponents
@@ -1397,7 +1396,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 this.ied_base = Double.parseDouble(ied.getText()) / 100;
                 this.pdr = Double.parseDouble(monDef.getText()) / 100;
                 saveBase();
-                this.legionVal = Integer.parseInt(legion.getText());
+                this.legionVal = Integer.parseInt(union.getText());
                 //Sets up legion values
                 if (legionVal > 40) {
                     WSEBuilder.lcombs[0][0] = 40;
@@ -1641,8 +1640,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the soul is sleceted go through and pull all the inputs and add them to the base values
                 if (soulSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp5.getText().equals("") && wepInp5_butSel != PotType.DEFAULT) {
-                        double wepInp = Double.parseDouble(wepInp5.getText()) / 100;
+                    if (!wepInp4.getText().equals("") && wepInp5_butSel != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(wepInp4.getText()) / 100;
                         if (wepInp5_butSel == PotType.ATT) {
                             this.att_base += wepInp;
                         } else if (wepInp5_butSel == PotType.BOSS) {
@@ -1726,7 +1725,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             embbpInp1.setText("");
             embbpInp2.setText("");
             embbpInp3.setText("");
-            wepInp5.setText("");
+            wepInp4.setText("");
             clearInp.setSelected(false);
         }
     }//GEN-LAST:event_clearInpActionPerformed
@@ -1879,17 +1878,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_soulSelectActionPerformed
 
-    private void wepAtt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt5ActionPerformed
-        this.wepInp5_butSel = buttonSelectAndDisable(wepAtt5, wepIed5, wepBoss5, PotType.ATT);
-    }//GEN-LAST:event_wepAtt5ActionPerformed
+    private void wepAtt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepAtt4ActionPerformed
+        this.wepInp5_butSel = buttonSelectAndDisable(wepAtt4, wepIed4, wepBoss4, PotType.ATT);
+    }//GEN-LAST:event_wepAtt4ActionPerformed
 
-    private void wepBoss5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss5ActionPerformed
-        this.wepInp5_butSel = buttonSelectAndDisable(wepBoss5, wepAtt5, wepIed5, PotType.BOSS);
-    }//GEN-LAST:event_wepBoss5ActionPerformed
+    private void wepBoss4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepBoss4ActionPerformed
+        this.wepInp5_butSel = buttonSelectAndDisable(wepBoss4, wepAtt4, wepIed4, PotType.BOSS);
+    }//GEN-LAST:event_wepBoss4ActionPerformed
 
-    private void wepIed5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed5ActionPerformed
-        this.wepInp5_butSel = buttonSelectAndDisable(wepIed5, wepBoss5, wepAtt5, PotType.IED);
-    }//GEN-LAST:event_wepIed5ActionPerformed
+    private void wepIed4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepIed4ActionPerformed
+        this.wepInp5_butSel = buttonSelectAndDisable(wepIed4, wepBoss4, wepAtt4, PotType.IED);
+    }//GEN-LAST:event_wepIed4ActionPerformed
 
     private void embbpAtt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpAtt2ActionPerformed
         this.embbpInp2_butSel = buttonSelectAndDisable(embbpAtt2, embbpIed2, null, PotType.ATT);
@@ -2102,10 +2101,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }
 
     public void setSoulEnabled(boolean b) {
-        wepInp5.setEnabled(b);
-        wepAtt5.setEnabled(b);
-        wepBoss5.setEnabled(b);
-        wepIed5.setEnabled(b);
+        wepInp4.setEnabled(b);
+        wepAtt4.setEnabled(b);
+        wepBoss4.setEnabled(b);
+        wepIed4.setEnabled(b);
     }
 
     private void saveBase() {
@@ -2135,7 +2134,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             ItemPrinter.printItem(embbpInp1, embbpInp2, embbpInp3, potVector.getEmbb());
         }
         if (!soulSelect.isSelected()) {
-            ItemPrinter.printSoul(wepInp5, potVector.getSoul());
+            ItemPrinter.printSoul(wepInp4, potVector.getSoul());
         }
         double calcBase = ((1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
         ItemPrinter.printLegionAndFD(fd_Legion, fd_LegionBP, calcBase, potVector);
@@ -2208,7 +2207,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField embInp1;
     private javax.swing.JTextField embInp2;
     private javax.swing.JTextField embInp3;
-    private javax.swing.JTextField embInp5;
     private javax.swing.JToggleButton embSelect;
     private javax.swing.JToggleButton embbpAtt1;
     private javax.swing.JToggleButton embbpAtt2;
@@ -2252,7 +2250,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JToggleButton kannaClass;
-    private javax.swing.JTextField legion;
     private javax.swing.JTextField monDef;
     private javax.swing.JToggleButton no_3l;
     private javax.swing.JToggleButton no_3lbp;
@@ -2285,22 +2282,23 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton secbpSelect;
     private javax.swing.JToggleButton seclvl;
     private javax.swing.JToggleButton soulSelect;
+    private javax.swing.JTextField union;
     private javax.swing.JToggleButton wepAtt1;
     private javax.swing.JToggleButton wepAtt2;
     private javax.swing.JToggleButton wepAtt3;
-    private javax.swing.JToggleButton wepAtt5;
+    private javax.swing.JToggleButton wepAtt4;
     private javax.swing.JToggleButton wepBoss1;
     private javax.swing.JToggleButton wepBoss2;
     private javax.swing.JToggleButton wepBoss3;
-    private javax.swing.JToggleButton wepBoss5;
+    private javax.swing.JToggleButton wepBoss4;
     private javax.swing.JToggleButton wepIed1;
     private javax.swing.JToggleButton wepIed2;
     private javax.swing.JToggleButton wepIed3;
-    private javax.swing.JToggleButton wepIed5;
+    private javax.swing.JToggleButton wepIed4;
     private javax.swing.JTextField wepInp1;
     private javax.swing.JTextField wepInp2;
     private javax.swing.JTextField wepInp3;
-    private javax.swing.JTextField wepInp5;
+    private javax.swing.JTextField wepInp4;
     private javax.swing.JToggleButton wepSelect;
     private javax.swing.JToggleButton wepbpAtt1;
     private javax.swing.JToggleButton wepbpAtt2;

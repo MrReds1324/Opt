@@ -72,8 +72,6 @@
         <Property name="text" type="java.lang.String" value="IED"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="embInp5">
-    </Component>
     <Component class="javax.swing.JToggleButton" name="embAtt5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Att"/>
@@ -113,7 +111,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="wepInp5" max="32767" attributes="0"/>
+                      <Component id="wepInp4" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -157,7 +155,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="legion" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="union" min="-2" pref="39" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -278,11 +276,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="wepAtt5" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="wepAtt4" min="-2" pref="200" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="wepBoss5" max="32767" attributes="0"/>
+                      <Component id="wepBoss4" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="wepIed5" min="-2" pref="194" max="-2" attributes="0"/>
+                      <Component id="wepIed4" min="-2" pref="194" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -310,7 +308,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="legion" alignment="3" max="32767" attributes="0"/>
+                      <Component id="union" alignment="3" max="32767" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -428,11 +426,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="soulSelect" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="wepInp5" min="-2" max="-2" attributes="0"/>
+              <Component id="wepInp4" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="wepAtt5" alignment="3" max="32767" attributes="0"/>
-                  <Component id="wepBoss5" alignment="3" max="32767" attributes="0"/>
-                  <Component id="wepIed5" alignment="3" max="32767" attributes="0"/>
+                  <Component id="wepAtt4" alignment="3" max="32767" attributes="0"/>
+                  <Component id="wepBoss4" alignment="3" max="32767" attributes="0"/>
+                  <Component id="wepIed4" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
@@ -547,7 +545,7 @@
         <Property name="text" type="java.lang.String" value="Legion Points for Boss and IED"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="legion">
+    <Component class="javax.swing.JTextField" name="union">
       <Properties>
         <Property name="text" type="java.lang.String" value="80"/>
       </Properties>
@@ -874,13 +872,13 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="clearInp">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Clear Inputs"/>
+        <Property name="text" type="java.lang.String" value="Reset"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearInpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="wepInp5">
+    <Component class="javax.swing.JTextField" name="wepInp4">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -893,31 +891,31 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="soulSelectActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="wepAtt5">
+    <Component class="javax.swing.JToggleButton" name="wepAtt4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Att"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wepAtt5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wepAtt4ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="wepBoss5">
+    <Component class="javax.swing.JToggleButton" name="wepBoss4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Boss/Dmg"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wepBoss5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wepBoss4ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="wepIed5">
+    <Component class="javax.swing.JToggleButton" name="wepIed4">
       <Properties>
         <Property name="text" type="java.lang.String" value="IED"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wepIed5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wepIed4ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
