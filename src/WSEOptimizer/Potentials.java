@@ -103,10 +103,10 @@ public class Potentials {
     //If x == 0 then treat it as a wep or secondary, else if x == 1 then treat it as an emblem
     public boolean feasible(ItemType itemType, PotConfig potConfig) {
         //No piece should have more than 2 lines of boss or ied
-        if (itemType == ItemType.WEPSEC && potConfig == PotConfig.DEFAULT && (legpot[1] + upot[1] == 3 || legpot[2] + upot[2] == 3)) {
+        if (itemType == ItemType.WEPSEC && (legpot[1] + upot[1] == 3 || legpot[2] + upot[2] == 3)) {
             return false;
         } //Emblem should not have any boss lines
-        else if (itemType == ItemType.EMB && potConfig == PotConfig.DEFAULT && ((legpot[2] > 0 || upot[2] > 0))) {
+        else if (itemType == ItemType.EMB && ((legpot[2] > 0 || upot[2] > 0))) {
             return false;
         } //No 3 lines option for bpots (they can get really expensive)
         else if (itemType == ItemType.WEPSEC && potConfig == PotConfig.NO3LINE && (legpot[0] + upot[0] == 3 || legpot[1] + upot[1] == 3 || legpot[2] + upot[2] == 3)) {

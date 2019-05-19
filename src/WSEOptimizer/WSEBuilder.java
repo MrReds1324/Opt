@@ -10,6 +10,10 @@ import WSEOptimizer.Constants.ItemType;
 import WSEOptimizer.Constants.PotConfig;
 import WSEOptimizer.Constants.ClassType;
 import WSEOptimizer.Constants.PotType;
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -36,8 +40,8 @@ public class WSEBuilder {
         {0, 0},
         {0, 0}};
 
-    public static PotVector reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soul) {
-        PotVector pt = null;
+    public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soul, int numberOfOptions) {
+        List<PotVector> potVectorList = new ArrayList();
         //Carries out the optimization beginning with Emblem to find the perfect configuration
         for (int[] legcomb : legcombs) {
             for (int[] ucomb : ucombs) {
@@ -73,12 +77,10 @@ public class WSEBuilder {
                                         double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                         //Calculates the multiplier
                                         double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                        //If the max potential vector is null then we make this one the max vector
-                                        if (pt == null) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
-                                        } //If the current vector is better than the max vector replace it
-                                        else if (calct >= pt.getCalc()) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
+                                        //Add the potVector to the list
+                                        PotVector temp = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
+                                        if (!potVectorList.contains(temp)) {
+                                            potVectorList.add(temp);
                                         }
                                     }
 
@@ -100,13 +102,10 @@ public class WSEBuilder {
                                         double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                         //Calculates the multiplier
                                         double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                        //Make a PotVector to contain our new configuration
-                                        //If the max potential vector is null then we make this one the max vector
-                                        if (pt == null) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
-                                        } //If the current vector is better than the max vector replace it
-                                        else if (calct >= pt.getCalc()) {
-                                            pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
+                                        //Add the potVector to the list
+                                        PotVector temp = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
+                                        if (!potVectorList.contains(temp)) {
+                                            potVectorList.add(temp);
                                         }
                                     }
 
@@ -133,16 +132,12 @@ public class WSEBuilder {
                                                     double bosst = 1 + baseDamage + baseBoss + etemp.cboss() + stemp.cboss() + wtemp.cboss() + union.cboss();
                                                     //Calculates the multiplier
                                                     double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                                                    //Make a PotVector to contain our new configuration
-                                                    //If the max potential vector is null then we make this one the max vector
-                                                    if (pt == null) {
-                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
-                                                    } //If the current vector is better than the max vector replace it
-                                                    else if (calct >= pt.getCalc()) {
-                                                        pt = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
+                                                    //Add the potVector to the list
+                                                    PotVector temp = new PotVector(wtemp, stemp, etemp, attt - 1, bosst - baseDamage - 1, iedt, calct, union, soul);
+                                                    if (!potVectorList.contains(temp)) {
+                                                        potVectorList.add(temp);
                                                     }
                                                 }
-
                                             }
                                         }
                                     }
@@ -153,14 +148,17 @@ public class WSEBuilder {
                 }
             }
         }
-        return pt;
+        //Build the list of the top number of potVectors
+        Collections.sort(potVectorList);
+        return potVectorList.subList(0, numberOfOptions + 1);
     }
 
-    public static PotVector nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soul) {
+    public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soul, int numberOfOptions) {
         //If changed is true (the input values have changed) then delete the old Potvector and recalculate the configurations
-        ArrayList<PotVector> main_temp = new ArrayList<>();
-        ArrayList<PotVector> bonus_temp = new ArrayList<>();
-        PotVector pt = null;
+        ArrayList<PotVector> main_temp = new ArrayList();
+        ArrayList<PotVector> bonus_temp = new ArrayList();
+        Hashtable<Integer, PotVector> potVectorHashTracker = new Hashtable(2500000);
+        ArrayList<PotVector> potVectorList = new ArrayList();
 
         //Carries out the optimization beginning with Emblem to find the perfect configuration
         for (int[] legcomb : legcombs) {
@@ -367,7 +365,7 @@ public class WSEBuilder {
                 }
             }
         }
-        System.out.println("Running Final Combination Check on: " + main_temp.size() * bonus_temp.size() + " Combinations");
+        //Combines both main and bonus pots to generate all combinations of the two
         for (PotVector mpot : main_temp) {
             for (PotVector bpot : bonus_temp) {
                 //Calculate new IED
@@ -378,14 +376,17 @@ public class WSEBuilder {
                 double bosst = 1 + baseDamage + baseBoss + mpot.getWep().cboss() + mpot.getSec().cboss() + mpot.getEmb().cboss() + mpot.getUnion().cboss() + bpot.getWep().cboss() + bpot.getSec().cboss() + bpot.getEmb().cboss();
                 //Calculates the multiplier
                 double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
-                if (pt == null) {
-                    pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
-                }
-                if (calct >= pt.getCalc()) {
-                    pt = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
-                }
+                PotVector temp = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
+                //Adds the potVector to the hashtable for easier elminiation of duplicates
+                potVectorHashTracker.put(temp.hashCode(), temp);
             }
         }
-        return pt;
+        //Loops through the entries in the hashtable and each potVector to the list for sorting
+        for(Map.Entry<Integer, PotVector> entry: potVectorHashTracker.entrySet()){
+            potVectorList.add(entry.getValue());
+        }
+        //Sorts then returns only the values we want
+        Collections.sort(potVectorList);
+        return potVectorList.subList(0, numberOfOptions + 1);
     }
 }

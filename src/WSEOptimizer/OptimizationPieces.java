@@ -8,6 +8,11 @@ package WSEOptimizer;
 import WSEOptimizer.Constants.PotConfig;
 import WSEOptimizer.Constants.ClassType;
 import WSEOptimizer.Constants.PotType;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JToggleButton;
 
 /**
@@ -54,6 +59,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private double boss_baseS;
     private double dmg_baseS;
     private double ied_baseS;
+    //Variable for saving number of additional options
+    private int numberOfOptions;
+    //Keeps track of the map we use to build the list for our combo box
+    Map<String, PotVector> comboBoxMap = new LinkedHashMap();
 
     /**
      * Creates new form OptimizationPieces
@@ -1022,6 +1031,12 @@ public class OptimizationPieces extends javax.swing.JFrame {
         );
 
         wseOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        wseOptions.setEnabled(false);
+        wseOptions.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                wseOptionsItemStateChanged(evt);
+            }
+        });
 
         numOptions.setText("10");
 
@@ -1191,21 +1206,23 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(wseOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kannaClass)
-                    .addComponent(att)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(legion)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(kannaClass)
+                        .addComponent(att)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zeroClass)
-                    .addComponent(ied)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(monDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8)))
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(zeroClass)
+                        .addComponent(ied)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1297,6 +1314,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         );
 
         pack();
+        DefaultComboBoxModel<String> comboModel = new DefaultComboBoxModel();
+        wseOptions.setModel(comboModel);
+        setSize(618, 715);
     }// </editor-fold>//GEN-END:initComponents
 
     private void secSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secSelectActionPerformed
@@ -1363,8 +1383,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
         if (calculate.isSelected()) {
+            //Disable the combobox
+            wseOptions.setEnabled(false);
             //Determine the inputs from the text fields
             try {
+                this.numberOfOptions = Integer.parseInt(numOptions.getText());
+                if (this.numberOfOptions < 0) {
+                    this.numberOfOptions = 0;
+                }
                 this.att_base = Double.parseDouble(att.getText()) / 100;
                 this.boss_base = Double.parseDouble(boss.getText()) / 100;
                 this.dmg_base = Double.parseDouble(dmg.getText()) / 100;
@@ -1626,72 +1652,56 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                 }
+
+                PotVector pt;
+                if (!bp.isSelected()) {
+                    if (soulSelect.isSelected()) {
+                        List<PotVector> simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
+                        pt = simpleWSE.get(0);
+                    } else {
+                        List<PotVector> temp1 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.ATT, numberOfOptions);
+                        List<PotVector> temp2 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.BOSS, numberOfOptions);
+                        List<PotVector> temp3 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.IED, numberOfOptions);
+
+                        temp1.addAll(temp2);
+                        temp1.addAll(temp3);
+                        Collections.sort(temp1);
+                        temp1 = temp1.subList(0, this.numberOfOptions + 1);
+                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(temp1);
+                        pt = temp1.get(0);
+                    }
+                } else {
+                    if (soulSelect.isSelected()) {
+                        List<PotVector> simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
+                        pt = simpleWSE.get(0);
+                    } else {
+                        List<PotVector> temp1 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.ATT, numberOfOptions);
+                        List<PotVector> temp2 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.BOSS, numberOfOptions);
+                        List<PotVector> temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.IED, numberOfOptions);
+
+                        temp1.addAll(temp2);
+                        temp1.addAll(temp3);
+                        Collections.sort(temp1);
+                        temp1 = temp1.subList(0, this.numberOfOptions + 1);
+                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(temp1);
+                        pt = temp1.get(0);
+                    }
+                }
+                if (pt != null) {
+                    outputPotVector(pt);
+                    wseOptions.setEnabled(true);
+                    wseOptions.setModel(ComboBoxSupport.buildComboBoxItems(comboBoxMap));
+                } else {
+                    System.out.println("Something went terribly wrong and the vector was null!");
+                }
             } catch (Exception e) {
-                System.out.println("Redo Inputs");
+                fd_Legion.setText("ERROR OCCURED: REDO INPUTS");
+                fd_LegionBP.setText("ERROR OCCURED: REDO INPUTS");
             }
-            PotVector pt;
-            if (!bp.isSelected()) {
-                if (soulSelect.isSelected()) {
-                    pt = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel);
-                } else {
-                    PotVector temp1 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.ATT);
-                    PotVector temp2 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.BOSS);
-                    PotVector temp3 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.IED);
-
-                    if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
-                        pt = temp1;
-                    } else if (temp2.getCalc() >= temp1.getCalc() && temp2.getCalc() >= temp3.getCalc()) {
-                        pt = temp2;
-                    } else {
-                        pt = temp3;
-                    }
-                }
-            } else {
-                if (soulSelect.isSelected()) {
-                    pt = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel);
-                } else {
-                    PotVector temp1 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.ATT);
-                    PotVector temp2 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.BOSS);
-                    PotVector temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.IED);
-
-                    if (temp1.getCalc() >= temp2.getCalc() && temp1.getCalc() >= temp3.getCalc()) {
-                        pt = temp1;
-                    } else if (temp2.getCalc() >= temp1.getCalc() && temp2.getCalc() >= temp3.getCalc()) {
-                        pt = temp2;
-                    } else {
-                        pt = temp3;
-                    }
-                }
-            }
-            if (pt != null) {
-                if (!wepSelect.isSelected()) {
-                    ItemPrinter.printItem(wepInp1, wepInp2, wepInp3, pt.getWep());
-                }
-                if (!secSelect.isSelected()) {
-                    ItemPrinter.printItem(secInp1, secInp2, secInp3, pt.getSec());
-                }
-                if (!embSelect.isSelected()) {
-                    ItemPrinter.printItem(embInp1, embInp2, embInp3, pt.getEmb());
-                }
-                if (!wepbpSelect.isSelected() && bp.isSelected()) {
-                    ItemPrinter.printItem(wepbpInp1, wepbpInp2, wepbpInp3, pt.getWepb());
-                }
-                if (!secbpSelect.isSelected() && bp.isSelected()) {
-                    ItemPrinter.printItem(secbpInp1, secbpInp2, secbpInp3, pt.getSecb());
-                }
-                if (!embbpSelect.isSelected() && bp.isSelected()) {
-                    ItemPrinter.printItem(embbpInp1, embbpInp2, embbpInp3, pt.getEmbb());
-                }
-                if (!soulSelect.isSelected()) {
-                    ItemPrinter.printSoul(wepInp5, pt.getSoul());
-                }
-                double calcBase = ((1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
-                ItemPrinter.printLegionAndFD(fd_Legion, fd_LegionBP, calcBase, pt);
-            } else {
-                System.out.println("Something went terribly wrong and the vector was null!");
-            }
-            calculate.setSelected(false);
         }
+        calculate.setSelected(false);
     }//GEN-LAST:event_calculateActionPerformed
 
     private void clearInpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearInpActionPerformed
@@ -1997,6 +2007,12 @@ public class OptimizationPieces extends javax.swing.JFrame {
         this.embbpInp3_butSel = buttonSelectAndDisable(embbpAtt3, embbpIed3, null, PotType.ATT);
     }//GEN-LAST:event_embbpAtt3ActionPerformed
 
+    private void wseOptionsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wseOptionsItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            outputPotVector(this.comboBoxMap.get(wseOptions.getSelectedItem().toString()));
+        }
+    }//GEN-LAST:event_wseOptionsItemStateChanged
+
     private void embbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {
         this.embbpInp2_butSel = buttonSelectAndDisable(embbpIed2, embbpAtt2, null, PotType.IED);
     }
@@ -2097,6 +2113,32 @@ public class OptimizationPieces extends javax.swing.JFrame {
         this.boss_baseS = this.boss_base;
         this.dmg_baseS = this.dmg_base;
         this.ied_baseS = this.ied_base;
+    }
+
+    private void outputPotVector(PotVector potVector) {
+        if (!wepSelect.isSelected()) {
+            ItemPrinter.printItem(wepInp1, wepInp2, wepInp3, potVector.getWep());
+        }
+        if (!secSelect.isSelected()) {
+            ItemPrinter.printItem(secInp1, secInp2, secInp3, potVector.getSec());
+        }
+        if (!embSelect.isSelected()) {
+            ItemPrinter.printItem(embInp1, embInp2, embInp3, potVector.getEmb());
+        }
+        if (!wepbpSelect.isSelected() && bp.isSelected()) {
+            ItemPrinter.printItem(wepbpInp1, wepbpInp2, wepbpInp3, potVector.getWepb());
+        }
+        if (!secbpSelect.isSelected() && bp.isSelected()) {
+            ItemPrinter.printItem(secbpInp1, secbpInp2, secbpInp3, potVector.getSecb());
+        }
+        if (!embbpSelect.isSelected() && bp.isSelected()) {
+            ItemPrinter.printItem(embbpInp1, embbpInp2, embbpInp3, potVector.getEmbb());
+        }
+        if (!soulSelect.isSelected()) {
+            ItemPrinter.printSoul(wepInp5, potVector.getSoul());
+        }
+        double calcBase = ((1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
+        ItemPrinter.printLegionAndFD(fd_Legion, fd_LegionBP, calcBase, potVector);
     }
 
     private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
