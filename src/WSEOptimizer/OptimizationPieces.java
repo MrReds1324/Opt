@@ -194,7 +194,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         setTitle("WSE Optimization");
         setResizable(false);
 
-        dmg.setText("190");
+        dmg.setText("247");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("DMG");
@@ -208,11 +208,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("ATT");
 
-        boss.setText("165");
+        boss.setText("215");
 
         att.setText("39");
 
-        ied.setText("92.72");
+        ied.setText("93.71");
 
         bp.setText("Bonus Potential");
         bp.addActionListener(new java.awt.event.ActionListener() {
