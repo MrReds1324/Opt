@@ -151,7 +151,12 @@ public class WSEBuilder {
         }
         //Build the list of the top number of potVectors
         Collections.sort(potVectorList);
-        return potVectorList.subList(0, numberOfOptions + 1);
+        if(potVectorList.size() >= numberOfOptions + 1){
+            return potVectorList.subList(0, numberOfOptions + 1);
+        }
+        else{
+            return potVectorList;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -389,6 +394,11 @@ public class WSEBuilder {
         }
         //Sorts then returns only the values we want
         Collections.sort(potVectorList);
-        return potVectorList.subList(0, numberOfOptions + 1);
+        if(potVectorList.size() >= numberOfOptions + 1){
+            return potVectorList.subList(0, numberOfOptions + 1);
+        }
+        else{
+            return potVectorList;
+        }
     }
 }

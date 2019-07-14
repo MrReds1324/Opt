@@ -1621,7 +1621,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         temp1.addAll(temp2);
                         temp1.addAll(temp3);
                         Collections.sort(temp1);
-                        temp1 = temp1.subList(0, this.numberOfOptions + 1);
+                        if(temp1.size() >= this.numberOfOptions + 1){
+                            temp1 = temp1.subList(0, this.numberOfOptions + 1);
+                        }
                         this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(temp1);
                         pt = temp1.get(0);
                     }
@@ -1638,7 +1640,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         temp1.addAll(temp2);
                         temp1.addAll(temp3);
                         Collections.sort(temp1);
-                        temp1 = temp1.subList(0, this.numberOfOptions + 1);
+                        if(temp1.size() >= this.numberOfOptions + 1){
+                            temp1 = temp1.subList(0, this.numberOfOptions + 1);
+                        }
                         this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(temp1);
                         pt = temp1.get(0);
                     }
@@ -1651,6 +1655,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     System.out.println("Something went terribly wrong and the vector was null!");
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println(e.toString());
                 fd_Legion.setText("ERROR OCCURED: REDO INPUTS");
                 fd_LegionBP.setText("ERROR OCCURED: REDO INPUTS");
