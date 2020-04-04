@@ -82,39 +82,39 @@ public class WSEBuilder {
                     } else {
                         wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                     }
-                    //If the Zero class is selected skip the Secondary weapon as the weapon counts for both
-                    if (classType == ClassType.ZERO) {
-                        legionAndAdd(potVectorList, wtemp, wtemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                    } //If Kanna is Selected
-                    else if (classType == ClassType.KANNA) {
-                        //Secondary fan only recognizes Magic Att%
-                        Potentials stemp = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160);
-                        if (secSelected) {
-                            stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160);
-                        }
-                        legionAndAdd(potVectorList, wtemp, stemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                    } //Else do the Secondary Weapon
-                    else {
-                        for (PotType[] sec : secondary) {
-                            //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                            Potentials stemp;
+                    switch (classType) {
+                        case ZERO:
+                            legionAndAdd(potVectorList, wtemp, wtemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                            break;
+                        case KANNA:
+                            //Secondary fan only recognizes Magic Att%
+                            Potentials stemp = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160);
                             if (secSelected) {
-                                stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
-                            } else {
-                                stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
+                                stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160);
                             }
                             legionAndAdd(potVectorList, wtemp, stemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                        }
+                            break;
+                        default:
+                            for (PotType[] sec : secondary) {
+                                //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
+                                if (secSelected) {
+                                    stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
+                                } else {
+                                    stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
+                                }
+                                legionAndAdd(potVectorList, wtemp, stemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                            }
+                            break;
                     }
                 }
             }
             //Sorts then shrinks the list to reduce memory overhead
             Collections.sort(potVectorList);
             if(potVectorList.size() >= numberOfOptions + 1){
-                potVectorList = new ArrayList<PotVector>(potVectorList.subList(0, numberOfOptions + 1));
+                potVectorList = new ArrayList<>(potVectorList.subList(0, numberOfOptions + 1));
             }
             else if(potVectorList.size() >= 100){
-                potVectorList = new ArrayList<PotVector>(potVectorList.subList(0, 100));
+                potVectorList = new ArrayList<>(potVectorList.subList(0, 100));
             }
         }
         return potVectorList;
@@ -146,43 +146,42 @@ public class WSEBuilder {
                 } else {
                     wtempb = new Potentials(wep[0], wep[1], wep[2], sw_abs, true);
                 }
-                //If the Zero class is selected skip the Secondary weapon weapon bonus pot as the weapon counts for both
-                if (classType == ClassType.ZERO) {
-                    Potentials stempb = wtempb;
-                    //Add the potVector to the list
-                    PotVector ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
-                    ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                    //Add the configuration to the WSE array if it does not exist
-                    bonus_temp.add(ptb);
-                }
-                //If the Kanna class is selected
-                if (classType == ClassType.KANNA) {
-                    //Secondary fan only recognizes Magic Att%
-                    Potentials stempb = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160, true);
-                    if (secbpSelected) {
-                        stempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160, true);
-                    }
-                   //Add the potVector to the list
-                    PotVector ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
-                    ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                    //Add the configuration to the WSE array if it does not exist
-                    bonus_temp.add(ptb);
-                }//Else do the Secondary Weapon bonus pot
-                else {
-                    for (PotType[] sec : secondary) {
-                        //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                        Potentials stempb;
-                        if (secbpSelected) {
-                            stempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false, true);
-                        } else {
-                            stempb = new Potentials(sec[0], sec[1], sec[2], sec160, true);
-                        }
+                switch (classType){
+                    case ZERO:
+                        Potentials stempb = wtempb;
                         //Add the potVector to the list
                         PotVector ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
                         ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
                         //Add the configuration to the WSE array if it does not exist
                         bonus_temp.add(ptb);
-                    }
+                        break;
+                    case KANNA:
+                        //Secondary fan only recognizes Magic Att%
+                        stempb = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160, true);
+                        if (secbpSelected) {
+                            stempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160, true);
+                        }
+                        //Add the potVector to the list
+                        ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
+                        ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                        //Add the configuration to the WSE array if it does not exist
+                        bonus_temp.add(ptb);
+                        break;
+                    default:
+                        for (PotType[] sec : secondary) {
+                            //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
+                            if (secbpSelected) {
+                                stempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false, true);
+                            } else {
+                                stempb = new Potentials(sec[0], sec[1], sec[2], sec160, true);
+                            }
+                            //Add the potVector to the list
+                            ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
+                            ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                            //Add the configuration to the WSE array if it does not exist
+                            bonus_temp.add(ptb);
+                        }
+                        break;
                 }
             }
         }
@@ -203,29 +202,29 @@ public class WSEBuilder {
                 } else {
                     wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                 }
-                //If the Zero class is selected skip the Secondary weapon as the weapon counts for both
-                if (classType == ClassType.ZERO) {
-                    legionAndAdd(main_temp, wtemp, wtemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                } //If the Kanna class is selected
-                else if (classType == ClassType.KANNA) {
-                    //Secondary fan only recognizes Magic Att%
-                    Potentials stemp = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160);
-                    if (secSelected) {
-                        stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160);
-                    }
-                    legionAndAdd(main_temp, wtemp, stemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                } //Else do the Secondary Weapon
-                else {
-                    for (PotType[] sec : secondary) {
-                        //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                        Potentials stemp;
+                switch (classType) {
+                    case ZERO:
+                        legionAndAdd(main_temp, wtemp, wtemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                        break;
+                    case KANNA:
+                        //Secondary fan only recognizes Magic Att%
+                        Potentials stemp = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160);
                         if (secSelected) {
-                            stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
-                        } else {
-                            stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                        }
+                            stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160);
+                        }   
                         legionAndAdd(main_temp, wtemp, stemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
-                    }
+                        break;
+                    default:
+                        for (PotType[] sec : secondary) {
+                            //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
+                            if (secSelected) {
+                                stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
+                            } else {
+                                stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
+                            }
+                            legionAndAdd(main_temp, wtemp, stemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                        }
+                        break;
                 }
             }
         }
@@ -243,10 +242,10 @@ public class WSEBuilder {
             //Sorts then shrinks the list to reduce memory overhead
             Collections.sort(potVectorList);
             if(potVectorList.size() >= numberOfOptions + 1){
-                potVectorList = new ArrayList<PotVector>(potVectorList.subList(0, numberOfOptions + 1));
+                potVectorList = new ArrayList<>(potVectorList.subList(0, numberOfOptions + 1));
             }
             else if(potVectorList.size() >= 100){
-                potVectorList = new ArrayList<PotVector>(potVectorList.subList(0, 100));
+                potVectorList = new ArrayList<>(potVectorList.subList(0, 100));
             }
         }
         return potVectorList;
