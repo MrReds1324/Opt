@@ -6,7 +6,6 @@
 package WSEOptimizer;
 
 import java.util.ArrayList;
-import WSEOptimizer.Constants.ItemType;
 import WSEOptimizer.Constants.PotConfig;
 import WSEOptimizer.Constants.ClassType;
 import WSEOptimizer.Constants.PotType;
