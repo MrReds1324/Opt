@@ -6,9 +6,7 @@
 package WSEOptimizer;
 
 import java.util.Arrays;
-import WSEOptimizer.Constants.ItemType;
-import WSEOptimizer.Constants.PotConfig;
-import WSEOptimizer.Constants.PotType;
+import WSEOptimizer.Constants.*;
 
 /**
  *
@@ -68,28 +66,14 @@ public class Potentials {
         bpot = bp;
     }
 
-    //Double values of each potential
-    public double lied = 0.40;  //Legendary IED value
-    public double uied = 0.30;  //Unique IED value
-    public double lboss = 0.40; //Legendary Boss value
-    public double uboss = 0.30; //Unique Boss value
-    public double latt = 0.12;  //Legendary Att value (will add 0.01 when 160+ wep is used)
-    public double uatt = 0.09;  //Unique Att value (will add 0.01 when 160+ wep is used)
-
-    //Double values of bpot
-    public double blied = 0.05;  //Legendary IED value
-    public double buied = 0.04;  //Unique IED value
-    public double blboss = 0.18; //Legendary Boss value
-    public double buboss = 0.12; //Unique Boss value
-
     //Computes and returns the IED added by the given potential of this item
     public double cied() {
         //If bpot is false then treat it as a normal potential
         if (bpot == false) {
-            return (Math.pow(1 - lied, legpot[1]) * Math.pow(1 - uied, upot[1]));
+            return (Math.pow(1 - Constants.LIED, legpot[1]) * Math.pow(1 - Constants.UIED, upot[1]));
         } //Else treat it as a bpot
         else {
-            return (Math.pow(1 - blied, legpot[1]) * Math.pow(1 - buied, upot[1]));
+            return (Math.pow(1 - Constants.BLIED, legpot[1]) * Math.pow(1 - Constants.BUIED, upot[1]));
         }
     }
 
@@ -99,17 +83,17 @@ public class Potentials {
         if (sw_abs == true) {
             scale = 1;
         }
-        return (legpot[0] * (latt + 0.01 * scale) + upot[0] * (uatt + 0.01 * scale));
+        return (legpot[0] * (Constants.LATT + 0.01 * scale) + upot[0] * (Constants.UATT + 0.01 * scale));
     }
 
     //Computes and returns the boss damage added by the given potential of this item
     public double cboss() {
         //If bpot is false then treat it as a normal potential
         if (bpot == false) {
-            return (legpot[2] * lboss + upot[2] * uboss);
+            return (legpot[2] * Constants.LBOSS + upot[2] * Constants.UBOSS);
         } //Else treat it as a bpot
         else {
-            return (legpot[2] * blboss + upot[2] * buboss);
+            return (legpot[2] * Constants.BLBOSS + upot[2] * Constants.BUBOSS);
         }
     }
 
@@ -176,19 +160,19 @@ public class Potentials {
         String s = "";
         if (this.bpot == false) {
             if (legpot[0] == 1) {
-                s += "" + (this.latt + (0.01 * scale)) * 100 + "% ATT\n";
+                s += "" + (Constants.LATT + (0.01 * scale)) * 100 + "% ATT\n";
             } else if (legpot[1] == 1) {
-                s += "" + this.lied * 100 + "% IED\n";
+                s += "" + Constants.LIED * 100 + "% IED\n";
             } else {
-                s += "" + this.lboss * 100 + "% BOSS\n";
+                s += "" + Constants.LBOSS * 100 + "% BOSS\n";
             }
         } else {
             if (legpot[0] == 1) {
-                s += "" + (this.latt + (0.01 * scale)) * 100 + "% ATT\n";
+                s += "" + (Constants.LATT + (0.01 * scale)) * 100 + "% ATT\n";
             } else if (legpot[1] == 1) {
-                s += "" + this.blied * 100 + "% IED\n";
+                s += "" + Constants.BLIED * 100 + "% IED\n";
             } else {
-                s += "" + this.blboss * 100 + "% BOSS\n";
+                s += "" + Constants.BLBOSS * 100 + "% BOSS\n";
             }
         }
         return s;
@@ -205,19 +189,19 @@ public class Potentials {
             for (int j = 0; j < upot[i]; j++) {
                 if (this.bpot == false) {
                     if (i == 0) {
-                        s += "" + (this.uatt + (0.01 * scale)) * 100 + "% ATT:";
+                        s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
                     } else if (i == 1) {
-                        s += "" + this.uied * 100 + "% IED:";
+                        s += "" + Constants.UIED * 100 + "% IED:";
                     } else {
-                        s += "" + this.uboss * 100 + "% BOSS:";
+                        s += "" + Constants.UBOSS * 100 + "% BOSS:";
                     }
                 } else {
                     if (i == 0) {
-                        s += "" + (this.uatt + (0.01 * scale)) * 100 + "% ATT:";
+                        s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
                     } else if (i == 1) {
-                        s += "" + this.buied * 100 + "% IED:";
+                        s += "" + Constants.BUIED * 100 + "% IED:";
                     } else {
-                        s += "" + this.buboss * 100 + "% BOSS:";
+                        s += "" + Constants.BUBOSS * 100 + "% BOSS:";
                     }
                 }
             }

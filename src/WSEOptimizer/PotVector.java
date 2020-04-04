@@ -6,7 +6,7 @@
 package WSEOptimizer;
 
 import java.util.Objects;
-import WSEOptimizer.Constants.PotType;
+import WSEOptimizer.Constants.*;
 
 /**
  *
@@ -16,7 +16,7 @@ public class PotVector implements Comparable {
 
     //Declares our public variables for use in our PotVector
     //The Potential Objects for each item in WSE
-    public Potentials wep, sec, emb, wepb, secb, embb = null;
+    public Potentials wep, sec, emb, wepb, secb, embb;
     //The Nebs_U Object holding the nebulite and union information 
     public Union union = new Union(0, 0);
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
@@ -24,30 +24,18 @@ public class PotVector implements Comparable {
     public PotType soul;
 
     //Constructor to create PotVector without Bonus Potential
-    PotVector(Potentials wep, Potentials sec, Potentials emb, double att, double boss, double ied, double calc, Union union, PotType soul) {
-        this.wep = wep;
-        this.sec = sec;
-        this.emb = emb;
-        this.att = att;
-        this.boss = boss;
-        this.ied = ied;
-        this.calc = calc;
-        this.union = union;
-        this.soul = soul;
+    PotVector(Potentials wep, Potentials sec, Potentials emb, Union union, PotType soul) {
+        this(wep, sec, emb, null, null, null, union, soul);
     }
 
     //Constructor to create PotVectors with Bonus Potential 
-    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, double att, double boss, double ied, double calc, Union union, PotType soul) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, Union union, PotType soul) {
         this.wep = wep;
         this.sec = sec;
         this.emb = emb;
         this.wepb = wepb;
         this.secb = secb;
         this.embb = embb;
-        this.att = att;
-        this.boss = boss;
-        this.ied = ied;
-        this.calc = calc;
         this.union = union;
         this.soul = soul;
     }
@@ -109,6 +97,41 @@ public class PotVector implements Comparable {
 
     public PotType getSoul() {
         return this.soul;
+    }
+    
+    public double calculcateMultiplier(double baseATT, double baseDMG, double baseBOSS, double baseIED, double pdr){
+        // wep, sec, emb, wepb, secb, embb
+        //Calculate new IED
+        double iedt;
+        if (soul == PotType.IED){
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * union.cied() * Constants.SIED));
+        }
+        else{
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * union.cied()));
+        }
+        //Calculate new ATT
+        double attt = 1 + baseATT + emb.catt() + sec.catt() + wep.catt();
+        if (soul == PotType.ATT){
+            attt += Constants.SATT;
+        }
+        //Calculate new BOSS
+        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + union.cboss();
+        if (soul == PotType.BOSS){
+            bosst += Constants.SBOSS;
+        }
+        if (wepb != null && secb != null && embb != null){
+            iedt = (1 - ((1 - iedt) * embb.cied() * secb.cied() * wepb.cied()));
+            //Calculate new ATT
+            attt += embb.catt() + secb.catt() + wepb.catt();
+            //Calculate new BOSS
+            bosst += embb.cboss() + secb.cboss() + wepb.cboss();
+        }
+        this.att = attt - 1;
+        this.boss = bosst - baseDMG - 1;
+        this.ied = iedt;
+        //Calculates the multiplier
+        this.calc = (attt * bosst * (1 - (pdr * (1 - iedt))));
+        return this.calc;
     }
 
     //The ToString of this class (prints the att, boss, ied and then the configuration of the WSE items along with the nebulite and union configuration)
