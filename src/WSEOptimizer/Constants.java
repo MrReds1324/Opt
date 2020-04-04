@@ -5,6 +5,8 @@
  */
 package WSEOptimizer;
 
+import java.util.Arrays;
+
 /**
  *
  * @author ryanb
@@ -46,5 +48,45 @@ public class Constants {
     public static final double SATT = 0.03;
     public static final double SBOSS = 0.07;
     public static final double SIED = 0.07;
+    
+    public static final PotType[][] weapon = new PotType[][]{
+        // ATT Legendary line then two Unique lines
+        {PotType.ATT, PotType.ATT, PotType.ATT},
+        {PotType.ATT, PotType.ATT, PotType.BOSS},
+        {PotType.ATT, PotType.ATT, PotType.IED},
+        {PotType.ATT, PotType.BOSS, PotType.BOSS},
+        {PotType.ATT, PotType.IED, PotType.IED},
+        {PotType.ATT, PotType.IED, PotType.BOSS},
+        // BOSS Legendary line then two Unique lines
+        {PotType.BOSS, PotType.BOSS, PotType.ATT},
+        {PotType.BOSS, PotType.BOSS, PotType.IED},
+        {PotType.BOSS, PotType.ATT, PotType.ATT},
+        {PotType.BOSS, PotType.IED, PotType.IED},
+        {PotType.BOSS, PotType.IED, PotType.ATT},
+        // IED Legendary line then two Unique lines
+        {PotType.IED, PotType.IED, PotType.BOSS},
+        {PotType.IED, PotType.IED, PotType.ATT},
+        {PotType.IED, PotType.BOSS, PotType.BOSS},
+        {PotType.IED, PotType.ATT, PotType.ATT},
+        {PotType.IED, PotType.ATT, PotType.BOSS}};
+    
+    public static final PotType[][] weaponNo3LineAtt = Arrays.copyOfRange(weapon, 1, -1);
+    
+    public static final PotType[][] secondary = weapon;
+    
+    public static final PotType[][] secondaryNo3LineAtt = weaponNo3LineAtt;
+    
+    public static final PotType[][] emblem = new PotType[][]{
+        // ATT Legendary line then two Unique lines
+        {PotType.ATT, PotType.ATT, PotType.ATT},
+        {PotType.ATT, PotType.ATT, PotType.IED},
+        {PotType.ATT, PotType.IED, PotType.IED},
+        // IED Legendary line then two Unique lines
+        {PotType.IED, PotType.IED, PotType.ATT},
+        {PotType.IED, PotType.ATT, PotType.ATT}};
+    
+    public static final PotType[][] emblemNo3LineAtt = Arrays.copyOfRange(emblem, 1, -1);
+    
+    public static final PotType[] souls = new PotType[]{PotType.ATT, PotType.BOSS, PotType.IED};
     
 }
