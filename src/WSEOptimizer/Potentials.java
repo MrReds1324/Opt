@@ -8,6 +8,7 @@ package WSEOptimizer;
 import java.util.Arrays;
 import WSEOptimizer.Constants.ItemType;
 import WSEOptimizer.Constants.PotConfig;
+import WSEOptimizer.Constants.PotType;
 
 /**
  *
@@ -22,14 +23,42 @@ public class Potentials {
 
     //Constructor for an item in the WSE (leg att, leg ied, leg boss, un att, un ied, un boss, lvl 150 or 160+ wep)
     //Note that you will have to manually check if an items potential are feasible with the feasible method based on what item you are creating
-    Potentials(int a, int b, int c, int d, int e, int f, boolean sw) {
-        legpot[0] = a;  //Att Legendary Line
-        legpot[1] = b;  //IED Legendary Line
-        legpot[2] = c;  //Boss Legendary Line
-
-        upot[0] = d;    //Att Unique Line
-        upot[1] = e;    //IED Unique Line
-        upot[2] = f;    //Boss Unique Line
+    Potentials(PotType legendaryLine, PotType uniqueLine1, PotType uniqueLine2, boolean sw) {
+        switch(legendaryLine) {
+            case ATT:
+                legpot[0] = 1;
+                break;
+            case IED:
+                legpot[1] = 1;
+                break;
+            case BOSS:
+                legpot[2] = 1;
+                break;
+          }
+        
+        switch(uniqueLine1) {
+            case ATT:
+                upot[0] = 1;
+                break;
+            case IED:
+                upot[1] = 1;
+                break;
+            case BOSS:
+                upot[2] = 1;
+                break;
+          }
+        
+        switch(uniqueLine2) {
+            case ATT:
+                upot[0] += 1;
+                break;
+            case IED:
+                upot[1] += 1;
+                break;
+            case BOSS:
+                upot[2] += 1;
+                break;
+          }
         //Tracks if the weapon is lvl 160+
         sw_abs = sw;
     }
