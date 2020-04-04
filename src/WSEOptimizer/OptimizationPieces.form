@@ -292,38 +292,32 @@
                           <Component id="wepIed3" alignment="3" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="embSelect" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                              <Component id="embInp3" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="embSelect" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="embInp2" max="32767" attributes="0"/>
-                              <EmptySpace min="106" pref="106" max="-2" attributes="0"/>
+                              <Component id="embInp2" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="secSelect" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="secInp1" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="embInp1" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="secAtt1" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="secBoss1" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="secIed1" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="embAtt1" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="embIed1" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="secInp2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="secSelect" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="secInp1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embInp1" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="secAtt1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secBoss1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="secIed1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embAtt1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="embIed1" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="secInp2" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="secAtt2" alignment="3" max="32767" attributes="0"/>
@@ -332,8 +326,11 @@
                           <Component id="embAtt2" alignment="3" max="32767" attributes="0"/>
                           <Component id="embIed2" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="secInp3" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="secInp3" pref="32" max="32767" attributes="0"/>
+                          <Component id="embInp3" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="secAtt3" alignment="3" max="32767" attributes="0"/>
