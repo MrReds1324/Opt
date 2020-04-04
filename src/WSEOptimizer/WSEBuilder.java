@@ -20,21 +20,38 @@ import java.util.Map;
  * @author ryanb
  */
 public class WSEBuilder {
+   
+    //Sets up the matrices for the potentials, and legion
+    public static PotType[][] weapon, secondary = new PotType[][]{
+        // ATT Legendary line then two Unique lines
+        {PotType.ATT, PotType.ATT, PotType.ATT},
+        {PotType.ATT, PotType.ATT, PotType.BOSS},
+        {PotType.ATT, PotType.ATT, PotType.IED},
+        {PotType.ATT, PotType.BOSS, PotType.BOSS},
+        {PotType.ATT, PotType.IED, PotType.IED},
+        {PotType.ATT, PotType.IED, PotType.BOSS},
+        // BOSS Legendary line then two Unique lines
+        {PotType.BOSS, PotType.BOSS, PotType.ATT},
+        {PotType.BOSS, PotType.BOSS, PotType.IED},
+        {PotType.BOSS, PotType.ATT, PotType.ATT},
+        {PotType.BOSS, PotType.IED, PotType.IED},
+        {PotType.BOSS, PotType.IED, PotType.ATT},
+        // IED Legendary line then two Unique lines
+        {PotType.IED, PotType.IED, PotType.BOSS},
+        {PotType.IED, PotType.IED, PotType.ATT},
+        {PotType.IED, PotType.BOSS, PotType.BOSS},
+        {PotType.IED, PotType.ATT, PotType.ATT},
+        {PotType.IED, PotType.ATT, PotType.BOSS}};
+    
+    public static PotType[][] emblem = new PotType[][]{
+        // ATT Legendary line then two Unique lines
+        {PotType.ATT, PotType.ATT, PotType.ATT},
+        {PotType.ATT, PotType.ATT, PotType.IED},
+        {PotType.ATT, PotType.IED, PotType.IED},
+        // IED Legendary line then two Unique lines
+        {PotType.IED, PotType.IED, PotType.ATT},
+        {PotType.IED, PotType.ATT, PotType.ATT}};
 
-    //Sets up the matrices for the potentials, nebs and legion
-    //Att, IED, BOSS
-    public static int[][] legcombs = new int[][]{
-        {0, 0, 1},
-        {0, 1, 0},
-        {1, 0, 0}};
-    //Att, IED, BOSS
-    public static int[][] ucombs = new int[][]{
-        {2, 0, 0},
-        {0, 2, 0},
-        {0, 0, 2},
-        {1, 1, 0},
-        {1, 0, 1},
-        {0, 1, 1}};
     //IED, BOSS
     public static int[][] lcombs = new int[][]{
         {0, 0},
