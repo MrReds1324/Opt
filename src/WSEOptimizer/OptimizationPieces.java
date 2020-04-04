@@ -192,6 +192,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
+        setPreferredSize(new java.awt.Dimension(618, 715));
         setResizable(false);
 
         dmg.setText("247");
@@ -953,7 +954,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 115, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(8, 8, 8)
@@ -984,7 +985,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        wseOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        wseOptions.setModel(new DefaultComboBoxModel());
         wseOptions.setEnabled(false);
         wseOptions.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1268,8 +1269,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         );
 
         pack();
-        wseOptions.setModel(new DefaultComboBoxModel());
-        setSize(618, 715);
     }// </editor-fold>//GEN-END:initComponents
 
     private void secSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secSelectActionPerformed
