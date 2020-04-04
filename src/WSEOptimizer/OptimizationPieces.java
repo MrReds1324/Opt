@@ -1604,45 +1604,22 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 }
 
                 PotVector pt;
+                List<PotVector> simpleWSE;
                 if (!bp.isSelected()) {
                     if (soulSelect.isSelected()) {
-                        List<PotVector> simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
-                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
-                        pt = simpleWSE.get(0);
+                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
-                        List<PotVector> temp1 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.ATT, numberOfOptions);
-                        List<PotVector> temp2 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.BOSS, numberOfOptions);
-                        List<PotVector> temp3 = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.IED, numberOfOptions);
-
-                        temp1.addAll(temp2);
-                        temp1.addAll(temp3);
-                        Collections.sort(temp1);
-                        if(temp1.size() >= this.numberOfOptions + 1){
-                            temp1 = temp1.subList(0, this.numberOfOptions + 1);
-                        }
-                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(temp1);
-                        pt = temp1.get(0);
+                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 } else {
                     if (soulSelect.isSelected()) {
-                        List<PotVector> simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
-                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
-                        pt = simpleWSE.get(0);
+                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
-                        List<PotVector> temp1 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.ATT, numberOfOptions);
-                        List<PotVector> temp2 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base + (7.0 / 100), this.att_base, this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.BOSS, numberOfOptions);
-                        List<PotVector> temp3 = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, (1 - ((1 - this.ied_base) * (1 - 7.0 / 100))), this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.IED, numberOfOptions);
-
-                        temp1.addAll(temp2);
-                        temp1.addAll(temp3);
-                        Collections.sort(temp1);
-                        if(temp1.size() >= this.numberOfOptions + 1){
-                            temp1 = temp1.subList(0, this.numberOfOptions + 1);
-                        }
-                        this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(temp1);
-                        pt = temp1.get(0);
+                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base + (3.0 / 100), this.ied_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 }
+                this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
+                pt = simpleWSE.get(0);
                 if (pt != null) {
                     outputPotVector(pt);
                     wseOptions.setEnabled(true);

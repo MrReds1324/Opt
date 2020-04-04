@@ -99,7 +99,7 @@ public class PotVector implements Comparable {
         return this.soul;
     }
     
-    public double calculcateMultiplier(double baseATT, double baseDMG, double baseBOSS, double baseIED, double pdr){
+    public double calculcateMultiplier(double baseATT, double baseBOSS, double baseDMG, double baseIED, double pdr){
         // wep, sec, emb, wepb, secb, embb
         //Calculate new IED
         double iedt;
