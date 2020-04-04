@@ -166,7 +166,6 @@ public class WSEBuilder {
         //If changed is true (the input values have changed) then delete the old Potvector and recalculate the configurations
         ArrayList<PotVector> main_temp = new ArrayList();
         ArrayList<PotVector> bonus_temp = new ArrayList();
-        Hashtable<Integer, PotVector> potVectorHashTracker = new Hashtable(2500000);
         ArrayList<PotVector> potVectorList = new ArrayList();
 
         //Carries out the optimization beginning with Emblem to find the perfect configuration
@@ -361,13 +360,9 @@ public class WSEBuilder {
                 //Calculates the multiplier
                 double calct = (attt * bosst * (1 - (pdr * (1 - iedt))));
                 PotVector temp = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), attt - 1, bosst - baseDamage - 1, iedt, calct, mpot.getUnion(), mpot.getSoul());
-                //Adds the potVector to the hashtable for easier elminiation of duplicates
-                potVectorHashTracker.put(temp.hashCode(), temp);
+                //Adds the potVector to the array list
+                potVectorList.add(temp);
             }
-        }
-        //Loops through the entries in the hashtable and each potVector to the list for sorting
-        for(Map.Entry<Integer, PotVector> entry: potVectorHashTracker.entrySet()){
-            potVectorList.add(entry.getValue());
         }
         //Sorts then returns only the values we want
         Collections.sort(potVectorList);
