@@ -21,9 +21,13 @@ public class Potentials {
     private boolean sw_abs = false;
     public boolean bpot = false;
 
-    //Constructor for an item in the WSE (leg att, leg ied, leg boss, un att, un ied, un boss, lvl 150 or 160+ wep)
-    //Note that you will have to manually check if an items potential are feasible with the feasible method based on what item you are creating
+    //Constructor for an item in the WSE (potential types for legendary and unique lines, lvl 150 or 160+ wep)
     Potentials(PotType legendaryLine, PotType uniqueLine1, PotType uniqueLine2, boolean sw) {
+        this(legendaryLine, uniqueLine1, uniqueLine2, sw, false);
+    }
+
+    //Constructor for an items bpot in the WSE (potential types for legendary and unique lines,, lvl 150 or 160+ wep, and if it is a bpot)
+    Potentials(PotType legendaryLine, PotType uniqueLine1, PotType uniqueLine2, boolean sw, boolean bp) {
         switch(legendaryLine) {
             case ATT:
                 legpot[0] = 1;
@@ -60,20 +64,6 @@ public class Potentials {
                 break;
           }
         //Tracks if the weapon is lvl 160+
-        sw_abs = sw;
-    }
-
-    //Constructor for an items bpot in the WSE (leg att, leg ied, leg boss, un att, un ied, un boss, lvl 150 or 160+ wep, and if it is a bpot)
-    //Note that you will have to manually check if an items potential are feasible with the feasible method based on what item you are creating
-    Potentials(int a, int b, int c, int d, int e, int f, boolean sw, boolean bp) {
-        legpot[0] = a;  //Att Legendary Line
-        legpot[1] = b;  //IED Legendary Line
-        legpot[2] = c;  //Boss Legendary Line
-
-        upot[0] = d;    //Att Unique Line
-        upot[1] = e;    //IED Unique Line
-        upot[2] = f;    //Boss Unique Line
-        //Tracks if the weapon is lvl 160+ and if it is the bonus potential
         sw_abs = sw;
         bpot = bp;
     }
