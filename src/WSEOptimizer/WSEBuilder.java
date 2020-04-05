@@ -145,8 +145,7 @@ public class WSEBuilder {
                 switch (classType){
                     case ZERO:
                         //Add the potVector to the list
-                        PotVector ptb = new PotVector(wtempb, wtempb, etempb, new int[]{0, 0}, null);
-                        ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                        PotVector ptb = new PotVector(wtempb, wtempb, etempb, null, null, null);
                         //Add the configuration to the WSE array if it does not exist
                         bonus_temp.add(ptb);
                         break;
@@ -154,8 +153,7 @@ public class WSEBuilder {
                         //Secondary fan only recognizes Magic Att%
                         Potentials stempb = new Potentials(secondaryBp[0][0], secondaryBp[0][1], secondaryBp[0][2], sec160, true);
                         //Add the potVector to the list
-                        ptb = new PotVector(wtempb, stempb, etempb, new int[]{0, 0}, null);
-                        ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                        ptb = new PotVector(wtempb, stempb, etempb, null, null, null);
                         //Add the configuration to the WSE array if it does not exist
                         bonus_temp.add(ptb);
                         break;
@@ -164,8 +162,7 @@ public class WSEBuilder {
                             //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                             stempb = new Potentials(sec[0], sec[1], sec[2], sec160, true);
                             //Add the potVector to the list
-                            ptb = new PotVector(wtempb, stempb, etempb, new int[]{0, 0}, null);
-                            ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
+                            ptb = new PotVector(wtempb, stempb, etempb, null, null, null);
                             //Add the configuration to the WSE array if it does not exist
                             bonus_temp.add(ptb);
                         }
@@ -204,7 +201,7 @@ public class WSEBuilder {
         for (PotType soul : souls){
             for (PotVector mpot : main_temp) {
                 for (PotVector bpot : bonus_temp) {
-                    PotVector temp = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), mpot.getLegion(), soul);
+                    PotVector temp = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), mpot.getLegion(), new int[]{0, 0, 0, 0}, soul);
                     temp.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
                     //Adds the potVector to the array list
                     potVectorList.add(temp);
@@ -228,14 +225,14 @@ public class WSEBuilder {
         // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
         if (lcombs[0][0] == lcombs[0][1]){
             //Add the potVector to the list
-            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, lcombs[0], soul);
+            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, lcombs[0], new int[]{0, 0, 0, 0}, soul);
             temp.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
             potContainer.add(temp);
         }
         else{
             for (int[] legion : lcombs) {
                 //Add the potVector to the list
-                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, legion, soul);
+                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, legion, new int[]{0, 0, 0, 0}, soul);
                 temp.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
                 potContainer.add(temp);
             }
