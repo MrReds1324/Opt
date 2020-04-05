@@ -53,8 +53,10 @@ public class WSEBuilder {
         switch (soulSelected){
             case DEFAULT:
                 souls = Constants.souls;
+                break;
             default:
                 souls = new PotType[]{soulSelected};
+                break;
         }
         
         List<PotVector> potVectorList = new ArrayList();
@@ -150,8 +152,10 @@ public class WSEBuilder {
         switch (soulSelected){
             case DEFAULT:
                 souls = Constants.souls;
+                break;
             default:
                 souls = new PotType[]{soulSelected};
+                break;
         }
         
         //If changed is true (the input values have changed) then delete the old Potvector and recalculate the configurations

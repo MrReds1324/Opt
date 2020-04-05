@@ -23,12 +23,18 @@ public class ItemPrinter {
     }
 
     public static void printSoul(JTextField output, PotType soulType) {
-        if (soulType == PotType.ATT) {
-            output.setText("3% ATT");
-        } else if (soulType == PotType.BOSS) {
-            output.setText("7% BOSS");
-        } else if (soulType == PotType.IED) {
-            output.setText("7% IED");
+        switch (soulType) {
+            case ATT:
+                output.setText("3% ATT");
+                break;
+            case BOSS:
+                output.setText("7% BOSS");
+                break;
+            case IED:
+                output.setText("7% IED");
+                break;
+            default:
+                break;
         }
     }
 
