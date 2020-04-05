@@ -34,6 +34,8 @@ public class WSEBuilder {
 
     @SuppressWarnings("unchecked")
     public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soulSelected, int numberOfOptions) {
+        //Start time of the method
+        long startTime = System.nanoTime();
         //Sets up the matrices for the potentials, and legion
         switch (potConfig){
             case NO3LINE:
@@ -109,11 +111,15 @@ public class WSEBuilder {
                 potVectorList = new ArrayList<>(potVectorList.subList(0, 100));
             }
         }
+        long endTime = System.nanoTime();
+        System.out.println("Execution time in seconds : " + (endTime - startTime) / 1000000000.0);
         return potVectorList;
     }
 
     @SuppressWarnings("unchecked")
     public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions) {
+        //Start time of the method
+        long startTime = System.nanoTime();
         //Sets up the matrices for the potentials, and legion
         switch (mainConfig){
             case NO3LINE:
@@ -271,6 +277,8 @@ public class WSEBuilder {
                 potVectorList = new ArrayList<>(potVectorList.subList(0, 100));
             }
         }
+        long endTime = System.nanoTime();
+        System.out.println("Execution time in seconds : " + (endTime - startTime) / 1000000000.0);
         return potVectorList;
     }
    
