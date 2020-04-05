@@ -39,14 +39,10 @@ public class WSEBuilder {
         //Sets up the matrices for the potentials, and legion
         switch (potConfig){
             case NO3LINE:
-                weapon = Constants.weaponNo3LineAtt;
-                secondary = Constants.secondaryNo3LineAtt;
-                emblem = Constants.emblemNo3LineAtt;
+                setupMainGenerationSpace(Constants.weaponNo3LineAtt, Constants.secondaryNo3LineAtt, Constants.emblemNo3LineAtt, wepSelected, secSelected, embSelected, classType);
                 break;
             default:
-                weapon = Constants.weapon;
-                secondary = Constants.secondary;
-                emblem = Constants.emblem;
+                setupMainGenerationSpace(Constants.weapon, Constants.secondary, Constants.emblem, wepSelected, secSelected, embSelected, classType);
                 break;
         }
         
@@ -64,40 +60,23 @@ public class WSEBuilder {
         for (PotType soul : souls){
             for (PotType[] emb : emblem) {
                 //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                Potentials etemp;
-                if (embSelected) {
-                    etemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
-                } else {
-                    etemp = new Potentials(emb[0], emb[1], emb[2], false);
-                }
+                Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
                 for (PotType[] wep : weapon) {
                     //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                    Potentials wtemp;
-                    if (wepSelected) {
-                        wtemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sw_abs);
-                    } else {
-                        wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
-                    }
+                    Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                     switch (classType) {
                         case ZERO:
                             legionAndAdd(potVectorList, wtemp, wtemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
                             break;
                         case KANNA:
                             //Secondary fan only recognizes Magic Att%
-                            Potentials stemp = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160);
-                            if (secSelected) {
-                                stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160);
-                            }
+                            Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
                             legionAndAdd(potVectorList, wtemp, stemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
                             break;
                         default:
                             for (PotType[] sec : secondary) {
                                 //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                                if (secSelected) {
-                                    stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
-                                } else {
-                                    stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                                }
+                                stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
                                 legionAndAdd(potVectorList, wtemp, stemp, etemp, soul, baseAtt, baseBoss, baseDamage, baseIED, pdr);
                             }
                             break;
@@ -125,27 +104,19 @@ public class WSEBuilder {
         //Sets up the matrices for the potentials, and legion
         switch (mainConfig){
             case NO3LINE:
-                weapon = Constants.weaponNo3LineAtt;
-                secondary = Constants.secondaryNo3LineAtt;
-                emblem = Constants.emblemNo3LineAtt;
+                setupMainGenerationSpace(Constants.weaponNo3LineAtt, Constants.secondaryNo3LineAtt, Constants.emblemNo3LineAtt, wepSelected, secSelected, embSelected, classType);
                 break;
             default:
-                weapon = Constants.weapon;
-                secondary = Constants.secondary;
-                emblem = Constants.emblem;
+                setupMainGenerationSpace(Constants.weapon, Constants.secondary, Constants.emblem, wepSelected, secSelected, embSelected, classType);
                 break;
         }
         
         switch (bpConfig){
             case NO3LINE:
-                weaponBp = Constants.weaponNo3LineAtt;
-                secondaryBp = Constants.secondaryNo3LineAtt;
-                emblemBp = Constants.emblemNo3LineAtt;
+                setupBonusGenerationSpace(Constants.weaponNo3LineAtt, Constants.secondaryNo3LineAtt, Constants.emblemNo3LineAtt, wepbpSelected, secbpSelected, embbpSelected, classType);
                 break;
             default:
-                weaponBp = Constants.weapon;
-                secondaryBp = Constants.secondary;
-                emblemBp = Constants.emblem;
+                setupBonusGenerationSpace(Constants.weapon, Constants.secondary, Constants.emblem, wepbpSelected, secbpSelected, embbpSelected, classType);
                 break;
         }
         
@@ -165,35 +136,21 @@ public class WSEBuilder {
 
         for (PotType[] emb : emblemBp) {
             //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-            Potentials etempb;
-            if (embbpSelected) {
-                etempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false, true);
-            } else {
-                etempb = new Potentials(emb[0], emb[1], emb[2], false, true);
-            }
+            Potentials etempb = new Potentials(emb[0], emb[1], emb[2], false, true);
             for (PotType[] wep : weaponBp) {
                 //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                Potentials wtempb;
-                if (wepbpSelected) {
-                    wtempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sw_abs, true);
-                } else {
-                    wtempb = new Potentials(wep[0], wep[1], wep[2], sw_abs, true);
-                }
+                Potentials wtempb = new Potentials(wep[0], wep[1], wep[2], sw_abs, true);
                 switch (classType){
                     case ZERO:
-                        Potentials stempb = wtempb;
                         //Add the potVector to the list
-                        PotVector ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
+                        PotVector ptb = new PotVector(wtempb, wtempb, etempb, new Union(0, 0), null);
                         ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
                         //Add the configuration to the WSE array if it does not exist
                         bonus_temp.add(ptb);
                         break;
                     case KANNA:
                         //Secondary fan only recognizes Magic Att%
-                        stempb = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160, true);
-                        if (secbpSelected) {
-                            stempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160, true);
-                        }
+                        Potentials stempb = new Potentials(secondaryBp[0][0], secondaryBp[0][1], secondaryBp[0][2], sec160, true);
                         //Add the potVector to the list
                         ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
                         ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
@@ -203,11 +160,7 @@ public class WSEBuilder {
                     default:
                         for (PotType[] sec : secondaryBp) {
                             //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                            if (secbpSelected) {
-                                stempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false, true);
-                            } else {
-                                stempb = new Potentials(sec[0], sec[1], sec[2], sec160, true);
-                            }
+                            stempb = new Potentials(sec[0], sec[1], sec[2], sec160, true);
                             //Add the potVector to the list
                             ptb = new PotVector(wtempb, stempb, etempb, new Union(0, 0), null);
                             ptb.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
@@ -221,40 +174,23 @@ public class WSEBuilder {
         //Carries out the optimization beginning with Emblem to find the perfect configuration
         for (PotType[] emb : emblem) {
             //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-            Potentials etemp;
-            if (embSelected) {
-                etemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
-            } else {
-                etemp = new Potentials(emb[0], emb[1], emb[2], false);
-            }
+            Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
             for (PotType[] wep : weapon) {
                 //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                Potentials wtemp;
-                if (wepSelected) {
-                    wtemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sw_abs);
-                } else {
-                    wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
-                }
+                Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                 switch (classType) {
                     case ZERO:
                         legionAndAdd(main_temp, wtemp, wtemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
                         break;
                     case KANNA:
                         //Secondary fan only recognizes Magic Att%
-                        Potentials stemp = new Potentials(PotType.ATT, PotType.ATT, PotType.ATT, sec160);
-                        if (secSelected) {
-                            stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, sec160);
-                        }   
+                        Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);  
                         legionAndAdd(main_temp, wtemp, stemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
                         break;
                     default:
                         for (PotType[] sec : secondary) {
                             //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                            if (secSelected) {
-                                stemp = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false);
-                            } else {
-                                stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                            }
+                            stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
                             legionAndAdd(main_temp, wtemp, stemp, etemp, PotType.DEFAULT, baseAtt, baseBoss, baseDamage, baseIED, pdr);
                         }
                         break;
@@ -303,6 +239,58 @@ public class WSEBuilder {
                 temp.calculcateMultiplier(baseAtt, baseBoss, baseDamage, baseIED, pdr);
                 potContainer.add(temp);
             }
+        }
+    }
+    
+    public static void setupMainGenerationSpace(PotType[][] weapons, PotType[][] secondaries, PotType[][] emblems, boolean wepSel, boolean secSel, boolean embSel, ClassType classType){
+        if (wepSel){
+            weapon = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+        }
+        else{
+            weapon = weapons; 
+        }
+        
+        if (secSel){
+            secondary = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+        }
+        else if (classType == ClassType.KANNA){
+            secondary = new PotType[][]{{PotType.ATT, PotType.ATT, PotType.ATT}};
+        }
+        else{
+            secondary = secondaries; 
+        }
+        
+        if (embSel){
+            emblem = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+        }
+        else{
+            emblem = emblems; 
+        }
+    }
+    
+    public static void setupBonusGenerationSpace(PotType[][] weaponsbp, PotType[][] secondariesbp, PotType[][] emblemsbp, boolean wepbpSel, boolean secbpSel, boolean embbpSel, ClassType classType){
+        if (wepbpSel){
+            weaponBp = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+        }
+        else{
+            weaponBp = weaponsbp; 
+        }
+        
+        if (secbpSel){
+            secondaryBp = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+        }
+        else if (classType == ClassType.KANNA){
+            secondaryBp = new PotType[][]{{PotType.ATT, PotType.ATT, PotType.ATT}};
+        }
+        else{
+            secondaryBp = secondariesbp; 
+        }
+        
+        if (embbpSel){
+            emblemBp = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+        }
+        else{
+            emblemBp = emblemsbp; 
         }
     }
    
