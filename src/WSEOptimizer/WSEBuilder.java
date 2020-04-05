@@ -6,9 +6,7 @@
 package WSEOptimizer;
 
 import java.util.ArrayList;
-import WSEOptimizer.Constants.PotConfig;
-import WSEOptimizer.Constants.ClassType;
-import WSEOptimizer.Constants.PotType;
+import WSEOptimizer.Constants.*;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,40 +17,16 @@ import java.util.List;
 public class WSEBuilder {
    
     //Sets up the matrices for the potentials, and legion
-    public static PotType[][] weapon = new PotType[][]{
-        // ATT Legendary line then two Unique lines
-        {PotType.ATT, PotType.ATT, PotType.ATT},
-        {PotType.ATT, PotType.ATT, PotType.BOSS},
-        {PotType.ATT, PotType.ATT, PotType.IED},
-        {PotType.ATT, PotType.BOSS, PotType.BOSS},
-        {PotType.ATT, PotType.IED, PotType.IED},
-        {PotType.ATT, PotType.IED, PotType.BOSS},
-        // BOSS Legendary line then two Unique lines
-        {PotType.BOSS, PotType.BOSS, PotType.ATT},
-        {PotType.BOSS, PotType.BOSS, PotType.IED},
-        {PotType.BOSS, PotType.ATT, PotType.ATT},
-        {PotType.BOSS, PotType.IED, PotType.IED},
-        {PotType.BOSS, PotType.IED, PotType.ATT},
-        // IED Legendary line then two Unique lines
-        {PotType.IED, PotType.IED, PotType.BOSS},
-        {PotType.IED, PotType.IED, PotType.ATT},
-        {PotType.IED, PotType.BOSS, PotType.BOSS},
-        {PotType.IED, PotType.ATT, PotType.ATT},
-        {PotType.IED, PotType.ATT, PotType.BOSS}};
+    private static PotType[][] weapon;
+    private static PotType[][] secondary;
+    private static PotType[][] emblem;
     
-    public static PotType[][] secondary = weapon;
+    private static PotType[][] weaponBp;
+    private static PotType[][] secondaryBp;
+    private static PotType[][] emblemBp;
     
-    public static PotType[][] emblem = new PotType[][]{
-        // ATT Legendary line then two Unique lines
-        {PotType.ATT, PotType.ATT, PotType.ATT},
-        {PotType.ATT, PotType.ATT, PotType.IED},
-        {PotType.ATT, PotType.IED, PotType.IED},
-        // IED Legendary line then two Unique lines
-        {PotType.IED, PotType.IED, PotType.ATT},
-        {PotType.IED, PotType.ATT, PotType.ATT}};
+    private static PotType[] souls;
     
-    public static PotType[] souls = new PotType[]{PotType.ATT, PotType.BOSS, PotType.IED};
-
     //IED, BOSS
     public static int[][] lcombs = new int[][]{
         {0, 0},
@@ -60,9 +34,27 @@ public class WSEBuilder {
 
     @SuppressWarnings("unchecked")
     public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soulSelected, int numberOfOptions) {
-        if (soulSelected != PotType.DEFAULT){
-            souls = new PotType[]{soulSelected};
+        //Sets up the matrices for the potentials, and legion
+        switch (potConfig){
+            case NO3LINE:
+                weapon = Constants.weaponNo3LineAtt;
+                secondary = Constants.secondaryNo3LineAtt;
+                emblem = Constants.emblemNo3LineAtt;
+                break;
+            default:
+                weapon = Constants.weapon;
+                secondary = Constants.secondary;
+                emblem = Constants.emblem;
+                break;
         }
+        
+        switch (soulSelected){
+            case DEFAULT:
+                souls = Constants.souls;
+            default:
+                souls = new PotType[]{soulSelected};
+        }
+        
         List<PotVector> potVectorList = new ArrayList();
         //Carries out the optimization beginning with Emblem to find the perfect configuration
         for (PotType soul : souls){
@@ -122,15 +114,46 @@ public class WSEBuilder {
 
     @SuppressWarnings("unchecked")
     public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIED, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions) {
-        if (soulSelected != PotType.DEFAULT){
-            souls = new PotType[]{soulSelected};
+        //Sets up the matrices for the potentials, and legion
+        switch (mainConfig){
+            case NO3LINE:
+                weapon = Constants.weaponNo3LineAtt;
+                secondary = Constants.secondaryNo3LineAtt;
+                emblem = Constants.emblemNo3LineAtt;
+                break;
+            default:
+                weapon = Constants.weapon;
+                secondary = Constants.secondary;
+                emblem = Constants.emblem;
+                break;
         }
+        
+        switch (bpConfig){
+            case NO3LINE:
+                weaponBp = Constants.weaponNo3LineAtt;
+                secondaryBp = Constants.secondaryNo3LineAtt;
+                emblemBp = Constants.emblemNo3LineAtt;
+                break;
+            default:
+                weaponBp = Constants.weapon;
+                secondaryBp = Constants.secondary;
+                emblemBp = Constants.emblem;
+                break;
+        }
+        
+        switch (soulSelected){
+            case DEFAULT:
+                souls = Constants.souls;
+            default:
+                souls = new PotType[]{soulSelected};
+        }
+        
         //If changed is true (the input values have changed) then delete the old Potvector and recalculate the configurations
         ArrayList<PotVector> main_temp = new ArrayList();
         ArrayList<PotVector> bonus_temp = new ArrayList();
         ArrayList<PotVector> potVectorList = new ArrayList();
 
-        for (PotType[] emb : emblem) {
+        for (PotType[] emb : emblemBp) {
             //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
             Potentials etempb;
             if (embbpSelected) {
@@ -138,7 +161,7 @@ public class WSEBuilder {
             } else {
                 etempb = new Potentials(emb[0], emb[1], emb[2], false, true);
             }
-            for (PotType[] wep : weapon) {
+            for (PotType[] wep : weaponBp) {
                 //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                 Potentials wtempb;
                 if (wepbpSelected) {
@@ -168,7 +191,7 @@ public class WSEBuilder {
                         bonus_temp.add(ptb);
                         break;
                     default:
-                        for (PotType[] sec : secondary) {
+                        for (PotType[] sec : secondaryBp) {
                             //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                             if (secbpSelected) {
                                 stempb = new Potentials(PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT, false, true);
