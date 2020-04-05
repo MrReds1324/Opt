@@ -17,32 +17,32 @@ public class PotVector implements Comparable {
     //Declares our public variables for use in our PotVector
     //The Potential Objects for each item in WSE
     public Potentials wep, sec, emb, wepb, secb, embb;
-    //The Nebs_U Object holding the nebulite and union information 
-    public Union union = new Union(0, 0);
+    //The Legion array holding BOSS/IED 
+    public int[] legion = new int[]{0, 0};
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
     public double att, boss, ied, calc;
     public PotType soul;
 
     //Constructor to create PotVector without Bonus Potential
-    PotVector(Potentials wep, Potentials sec, Potentials emb, Union union, PotType soul) {
-        this(wep, sec, emb, null, null, null, union, soul);
+    PotVector(Potentials wep, Potentials sec, Potentials emb, int[] legion, PotType soul) {
+        this(wep, sec, emb, null, null, null, legion, soul);
     }
 
     //Constructor to create PotVectors with Bonus Potential 
-    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, Union union, PotType soul) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, int[] legion, PotType soul) {
         this.wep = wep;
         this.sec = sec;
         this.emb = emb;
         this.wepb = wepb;
         this.secb = secb;
         this.embb = embb;
-        this.union = union;
+        this.legion = legion;
         this.soul = soul;
     }
 
-    //Returns the Nebs_U Object stored in this Object
-    public Union getUnion() {
-        return this.union;
+    //Returns Legion array stored in this Object
+    public int[] getLegion() {
+        return this.legion;
     }
 
     //Returns the Potentials Object of the weapon stored in this Object
@@ -104,10 +104,10 @@ public class PotVector implements Comparable {
         //Calculate new IED
         double iedt;
         if (soul == PotType.IED){
-            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * union.cied() * Constants.SIED));
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - legion[1]) * (1 - Constants.SIED)));
         }
         else{
-            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * union.cied()));
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - legion[1])));
         }
         //Calculate new ATT
         double attt = 1 + baseATT + emb.catt() + sec.catt() + wep.catt();
@@ -115,7 +115,7 @@ public class PotVector implements Comparable {
             attt += Constants.SATT;
         }
         //Calculate new BOSS
-        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + union.cboss();
+        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + legion[0];
         if (soul == PotType.BOSS){
             bosst += Constants.SBOSS;
         }
@@ -139,12 +139,18 @@ public class PotVector implements Comparable {
     public String toString() {
         String x = String.format("ATT: %.0f%% BOSS: %.0f%% IED: %.2f%%\n", this.getAtt() * 100, this.getBoss() * 100, this.getIed() * 100);
         x += "Wep:\n" + this.getWep().toString() + "Sec:\n" + this.getSec().toString() + "Emb:\n" + this.getEmb().toString() + "\n";
-        if ((wepb != null && secb != null && embb != null) && wepb.getBpot() == true && secb.getBpot() == true && embb.getBpot() == true) {
+        if ((wepb != null && secb != null && embb != null) && wepb.getBpot() && secb.getBpot() && embb.getBpot()) {
             x += "--Bonus Potential--\n";
             x += "Wep:\n" + this.getWepb().toString() + "Sec:\n" + this.getSecb().toString() + "Emb:\n" + this.getEmbb().toString() + "\n";
         }
-        x += this.getUnion().toString();
+        x += this.legionString();
         return x;
+    }
+    
+    public String legionString() {
+        String s = legion[1] + "% IED\n";
+        s += legion[0] + "% BOSS";
+        return s;
     }
 
     //The hashCode of this class for storage in more complicated data structures
@@ -157,7 +163,7 @@ public class PotVector implements Comparable {
         hash = 33 * hash + Objects.hashCode(this.wepb);
         hash = 33 * hash + Objects.hashCode(this.secb);
         hash = 33 * hash + Objects.hashCode(this.embb);
-        hash = 33 * hash + Objects.hashCode(this.union);
+        hash = 33 * hash + Objects.hashCode(this.legion);
         hash = 33 * hash + Objects.hashCode(this.soul);
         return hash;
     }
@@ -171,10 +177,10 @@ public class PotVector implements Comparable {
             PotVector comp = (PotVector) o;
             //If bonus pots are not null then use it in equals
             if (wepb != null && secb != null && embb != null) {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion()) && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb()) && soul == comp.getSoul();
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && legion.equals(comp.getLegion()) && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb()) && soul == comp.getSoul();
             } //Else do not as you will get IndexOutOfBounds exception
             else {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && union.equals(comp.getUnion()) && soul == comp.getSoul();
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && legion.equals(comp.getLegion()) && soul == comp.getSoul();
             }
         }
     }

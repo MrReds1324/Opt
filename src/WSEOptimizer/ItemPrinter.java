@@ -41,7 +41,7 @@ public class ItemPrinter {
     public static void printLegionAndFD(JTextArea legion, JTextArea legionBP, double baseCalc, PotVector potVector) {
         String fd = String.format("%.3f", (potVector.getCalc() / baseCalc - 1) * 100);
         String s = "----Legion----\n";
-        s += potVector.getUnion().legionString();
+        s += potVector.legionString();
         s += "\n----------------------------------------------";
         s += "\n" + fd + "% Final Damage";
         legion.setText(s);
