@@ -19,17 +19,19 @@ public class PotVector implements Comparable {
     public Potentials wep, sec, emb, wepb, secb, embb;
     //The Legion array holding BOSS/IED 
     public int[] legion = new int[]{0, 0};
+    //The Hyper Stats array holding Crit Damage/Boss Damage/Damage/IED
+    public int[] hyperStats = new int[]{0, 0, 0, 0};
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
     public double att, boss, ied, calc;
     public PotType soul;
 
     //Constructor to create PotVector without Bonus Potential
-    PotVector(Potentials wep, Potentials sec, Potentials emb, int[] legion, PotType soul) {
-        this(wep, sec, emb, null, null, null, legion, soul);
+    PotVector(Potentials wep, Potentials sec, Potentials emb, int[] legion, int[] hyperStats, PotType soul) {
+        this(wep, sec, emb, null, null, null, legion, hyperStats, soul);
     }
 
     //Constructor to create PotVectors with Bonus Potential 
-    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, int[] legion, PotType soul) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, int[] legion, int[] hyperStats, PotType soul) {
         this.wep = wep;
         this.sec = sec;
         this.emb = emb;
@@ -37,6 +39,7 @@ public class PotVector implements Comparable {
         this.secb = secb;
         this.embb = embb;
         this.legion = legion;
+        this.hyperStats = hyperStats;
         this.soul = soul;
     }
 
