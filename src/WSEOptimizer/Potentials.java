@@ -188,20 +188,28 @@ public class Potentials {
         for (int i = 0; i < upot.length; i++) {
             for (int j = 0; j < upot[i]; j++) {
                 if (this.bpot == false) {
-                    if (i == 0) {
-                        s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
-                    } else if (i == 1) {
-                        s += "" + Constants.UIED * 100 + "% IED:";
-                    } else {
-                        s += "" + Constants.UBOSS * 100 + "% BOSS:";
+                    switch (i) {
+                        case 0:
+                            s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
+                            break;
+                        case 1:
+                            s += "" + Constants.UIED * 100 + "% IED:";
+                            break;
+                        default:
+                            s += "" + Constants.UBOSS * 100 + "% BOSS:";
+                            break;
                     }
                 } else {
-                    if (i == 0) {
-                        s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
-                    } else if (i == 1) {
-                        s += "" + Constants.BUIED * 100 + "% IED:";
-                    } else {
-                        s += "" + Constants.BUBOSS * 100 + "% BOSS:";
+                    switch (i) {
+                        case 0:
+                            s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
+                            break;
+                        case 1:
+                            s += "" + Constants.BUIED * 100 + "% IED:";
+                            break;
+                        default:
+                            s += "" + Constants.BUBOSS * 100 + "% BOSS:";
+                            break;
                     }
                 }
             }
