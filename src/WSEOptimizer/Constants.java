@@ -70,7 +70,7 @@ public class Constants {
         {PotType.IED, PotType.ATT, PotType.ATT},
         {PotType.IED, PotType.ATT, PotType.BOSS}};
     
-    public static final PotType[][] weaponNo3LineAtt = Arrays.copyOfRange(weapon, 1, -1);
+    public static final PotType[][] weaponNo3LineAtt = Arrays.copyOfRange(weapon, 1, weapon.length);
     
     public static final PotType[][] secondary = weapon;
     
@@ -85,7 +85,7 @@ public class Constants {
         {PotType.IED, PotType.IED, PotType.ATT},
         {PotType.IED, PotType.ATT, PotType.ATT}};
     
-    public static final PotType[][] emblemNo3LineAtt = Arrays.copyOfRange(emblem, 1, -1);
+    public static final PotType[][] emblemNo3LineAtt = Arrays.copyOfRange(emblem, 1, emblem.length);
     
     public static final PotType[] souls = new PotType[]{PotType.ATT, PotType.BOSS, PotType.IED};
     
