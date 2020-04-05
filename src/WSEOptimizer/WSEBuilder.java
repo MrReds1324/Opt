@@ -27,6 +27,8 @@ public class WSEBuilder {
     
     private static PotType[] souls;
     
+    private static ArrayList<int[]> hyperStats;
+    
     //IED, BOSS
     public static int[][] lcombs = new int[][]{
         {0, 0},
@@ -291,6 +293,43 @@ public class WSEBuilder {
         }
         else{
             emblemBp = emblemsbp; 
+        }
+    }
+    
+    public static void setupHyperStats(int totalAvailablePoints){
+        hyperStats = new ArrayList();
+        for (int cd = 0; cd <= 15; cd++){
+            int cdCost = Constants.hyperStatCosts[cd];
+            if (cdCost > totalAvailablePoints){
+                continue;
+            }
+            for (int bd = 0; bd <=15; bd++){
+                int bdCost = Constants.hyperStatCosts[bd];
+                if (bdCost + cdCost > totalAvailablePoints){
+                    continue;
+                }
+                for (int dd = 0; dd <= 15; dd++){
+                    int ddCost = Constants.hyperStatCosts[dd];
+                    if (ddCost + bdCost + cdCost > totalAvailablePoints){
+                        continue;
+                    }
+                    for (int ied = 15; ied >= 0; ied--){
+                        int iedCost = Constants.hyperStatCosts[ied];
+                        if (iedCost + ddCost + bdCost + cdCost > totalAvailablePoints){
+                            continue;
+                        }
+                        // If we can afford more levels then ignore
+                        int cur_available = totalAvailablePoints - (cdCost + bdCost + ddCost + iedCost);
+                        if ((cd + 1 <= 15 && (Constants.hyperStatCosts[cd + 1] - Constants.hyperStatCosts[cd]) <= cur_available) || (bd + 1 <= 15 && (Constants.hyperStatCosts[bd + 1] - Constants.hyperStatCosts[bd]) <= cur_available) || (dd + 1 <= 15 && (Constants.hyperStatCosts[dd + 1] - Constants.hyperStatCosts[dd]) <= cur_available)){
+                            break;
+                        }
+                        else{
+                            hyperStats.add(new int[]{cd, bd, dd, ied});
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
    

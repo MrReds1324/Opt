@@ -89,4 +89,6 @@ public class Constants {
     
     public static final PotType[] souls = new PotType[]{PotType.ATT, PotType.BOSS, PotType.IED};
     
+    public static final int[] hyperStatCosts = new int[]{0, 1, 3, 7, 15, 25, 40, 60, 85, 115, 150, 200, 265, 345, 440, 550};
+    
 }
