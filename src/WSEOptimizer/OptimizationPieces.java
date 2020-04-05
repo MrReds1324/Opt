@@ -1370,43 +1370,55 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepInp1.getText().equals("") && wepInp1_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp1.getText()) / 100;
-                        if (wepInp1_butSel == PotType.ATT) {
-                            this.att_base += wepInp * zero_scale;
-                        } else if (wepInp1_butSel == PotType.BOSS) {
-                            this.boss_base += wepInp * zero_scale;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            if (zero_scale == 2) {
+                        switch (wepInp1_butSel) {
+                            case ATT:
+                                this.att_base += wepInp * zero_scale;
+                                break;
+                            case BOSS:
+                                this.boss_base += wepInp * zero_scale;
+                                break;
+                            case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            }
+                                if (zero_scale == 2) {
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                }
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepInp2.getText().equals("") && wepInp2_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp2.getText()) / 100;
-                        if (wepInp2_butSel == PotType.ATT) {
-                            this.att_base += wepInp * zero_scale;
-                        } else if (wepInp2_butSel == PotType.BOSS) {
-                            this.boss_base += wepInp * zero_scale;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            if (zero_scale == 2) {
+                        switch (wepInp2_butSel) {
+                            case ATT:
+                                this.att_base += wepInp * zero_scale;
+                                break;
+                            case BOSS:
+                                this.boss_base += wepInp * zero_scale;
+                                break;
+                            case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            }
+                                if (zero_scale == 2) {
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                }
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepInp3.getText().equals("") && wepInp3_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp3.getText()) / 100;
-                        if (wepInp3_butSel == PotType.ATT) {
-                            this.att_base += wepInp * zero_scale;
-                        } else if (wepInp3_butSel == PotType.BOSS) {
-                            this.boss_base += wepInp * zero_scale;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            if (zero_scale == 2) {
+                        switch (wepInp3_butSel) {
+                            case ATT:
+                                this.att_base += wepInp * zero_scale;
+                                break;
+                            case BOSS:
+                                this.boss_base += wepInp * zero_scale;
+                                break;
+                            case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            }
+                                if (zero_scale == 2) {
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                }
+                                break;
                         }
                     }
                 }
@@ -1415,34 +1427,46 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secInp1.getText().equals("") && secInp1_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp1.getText()) / 100;
-                        if (secInp1_butSel == PotType.ATT) {
-                            this.att_base += secInp;
-                        } else if (secInp1_butSel == PotType.BOSS) {
-                            this.boss_base += secInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                        switch (secInp1_butSel) {
+                            case ATT:
+                                this.att_base += secInp;
+                                break;
+                            case BOSS:
+                                this.boss_base += secInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secInp2.getText().equals("") && secInp2_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp2.getText()) / 100;
-                        if (secInp2_butSel == PotType.ATT) {
-                            this.att_base += secInp;
-                        } else if (secInp2_butSel == PotType.BOSS) {
-                            this.boss_base += secInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                        switch (secInp2_butSel) {
+                            case ATT:
+                                this.att_base += secInp;
+                                break;
+                            case BOSS:
+                                this.boss_base += secInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secInp3.getText().equals("") && secInp3_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp3.getText()) / 100;
-                        if (secInp3_butSel == PotType.ATT) {
-                            this.att_base += secInp;
-                        } else if (secInp3_butSel == PotType.BOSS) {
-                            this.boss_base += secInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                        switch (secInp3_butSel) {
+                            case ATT:
+                                this.att_base += secInp;
+                                break;
+                            case BOSS:
+                                this.boss_base += secInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                                break;
                         }
                     }
                 }
@@ -1451,28 +1475,37 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embInp1.getText().equals("") && embInp1_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp1.getText()) / 100;
-                        if (embInp1_butSel == PotType.ATT) {
-                            this.att_base += embInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                        switch (embInp1_butSel){
+                            case ATT:
+                                this.att_base += embInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embInp2.getText().equals("") && embInp2_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp2.getText()) / 100;
-                        if (embInp2_butSel == PotType.ATT) {
-                            this.att_base += embInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                        switch (embInp2_butSel){
+                            case ATT:
+                                this.att_base += embInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embInp3.getText().equals("") && embInp3_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp3.getText()) / 100;
-                        if (embInp3_butSel == PotType.ATT) {
-                            this.att_base += embInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                        switch (embInp3_butSel){
+                            case ATT:
+                                this.att_base += embInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                                break;
                         }
                     }
                 }
@@ -1482,43 +1515,55 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepbpInp1.getText().equals("") && wepbpInp1_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp1.getText()) / 100;
-                        if (wepbpInp1_butSel == PotType.ATT) {
-                            this.att_base += wepInp * zero_scale;
-                        } else if (wepbpInp1_butSel == PotType.BOSS) {
-                            this.boss_base += wepInp * zero_scale;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            if (zero_scale == 2) {
+                        switch (wepbpInp1_butSel) {
+                            case ATT:
+                                this.att_base += wepInp * zero_scale;
+                                break;
+                            case BOSS:
+                                this.boss_base += wepInp * zero_scale;
+                                break;
+                            case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            }
+                                if (zero_scale == 2) {
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                }
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepbpInp2.getText().equals("") && wepbpInp2_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp2.getText()) / 100;
-                        if (wepbpInp2_butSel == PotType.ATT) {
-                            this.att_base += wepInp * zero_scale;
-                        } else if (wepbpInp2_butSel == PotType.BOSS) {
-                            this.boss_base += wepInp * zero_scale;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            if (zero_scale == 2) {
+                        switch (wepbpInp2_butSel) {
+                            case ATT:
+                                this.att_base += wepInp * zero_scale;
+                                break;
+                            case BOSS:
+                                this.boss_base += wepInp * zero_scale;
+                                break;
+                            case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            }
+                                if (zero_scale == 2) {
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                }
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepbpInp3.getText().equals("") && wepbpInp3_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp3.getText()) / 100;
-                        if (wepbpInp3_butSel == PotType.ATT) {
-                            this.att_base += wepInp * zero_scale;
-                        } else if (wepbpInp3_butSel == PotType.BOSS) {
-                            this.boss_base += wepInp * zero_scale;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            if (zero_scale == 2) {
+                        switch (wepbpInp3_butSel) {
+                            case ATT:
+                                this.att_base += wepInp * zero_scale;
+                                break;
+                            case BOSS:
+                                this.boss_base += wepInp * zero_scale;
+                                break;
+                            case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                            }
+                                if (zero_scale == 2) {
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                }
+                                break;
                         }
                     }
                 }
@@ -1527,34 +1572,46 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secbpInp1.getText().equals("") && secbpInp1_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp1.getText()) / 100;
-                        if (secbpInp1_butSel == PotType.ATT) {
-                            this.att_base += secInp;
-                        } else if (secbpInp1_butSel == PotType.BOSS) {
-                            this.boss_base += secInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                        switch (secbpInp1_butSel) {
+                            case ATT:
+                                this.att_base += secInp;
+                                break;
+                            case BOSS:
+                                this.boss_base += secInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secbpInp2.getText().equals("") && secbpInp2_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp2.getText()) / 100;
-                        if (secbpInp2_butSel == PotType.ATT) {
-                            this.att_base += secInp;
-                        } else if (secbpInp2_butSel == PotType.BOSS) {
-                            this.boss_base += secInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                        switch (secbpInp2_butSel) {
+                            case ATT:
+                                this.att_base += secInp;
+                                break;
+                            case BOSS:
+                                this.boss_base += secInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secbpInp3.getText().equals("") && secbpInp3_butSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp3.getText()) / 100;
-                        if (secbpInp3_butSel == PotType.ATT) {
-                            this.att_base += secInp;
-                        } else if (secbpInp3_butSel == PotType.BOSS) {
-                            this.boss_base += secInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                        switch (secbpInp3_butSel) {
+                            case ATT:
+                                this.att_base += secInp;
+                                break;
+                            case BOSS:
+                                this.boss_base += secInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
+                                break;
                         }
                     }
                 }
@@ -1563,28 +1620,37 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embbpInp1.getText().equals("") && embbpInp1_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp1.getText()) / 100;
-                        if (embbpInp1_butSel == PotType.ATT) {
-                            this.att_base += embInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                        switch (embbpInp1_butSel){
+                            case ATT:
+                                this.att_base += embInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embbpInp2.getText().equals("") && embbpInp2_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp2.getText()) / 100;
-                        if (embbpInp2_butSel == PotType.ATT) {
-                            this.att_base += embInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                        switch (embbpInp2_butSel){
+                            case ATT:
+                                this.att_base += embInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                                break;
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embbpInp3.getText().equals("") && embbpInp3_butSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp3.getText()) / 100;
-                        if (embbpInp3_butSel == PotType.ATT) {
-                            this.att_base += embInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                        switch (embbpInp3_butSel){
+                            case ATT:
+                                this.att_base += embInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
+                                break;
                         }
                     }
                 }
@@ -1593,12 +1659,16 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepInp4.getText().equals("") && wepInp5_butSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp4.getText()) / 100;
-                        if (wepInp5_butSel == PotType.ATT) {
-                            this.att_base += wepInp;
-                        } else if (wepInp5_butSel == PotType.BOSS) {
-                            this.boss_base += wepInp;
-                        } else {
-                            this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                        switch (wepInp5_butSel) {
+                            case ATT:
+                                this.att_base += wepInp;
+                                break;
+                            case BOSS:
+                                this.boss_base += wepInp;
+                                break;
+                            case IED:
+                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                break;
                         }
                     }
                 }
