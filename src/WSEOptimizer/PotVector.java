@@ -104,10 +104,10 @@ public class PotVector implements Comparable {
         //Calculate new IED
         double iedt;
         if (soul == PotType.IED){
-            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - legion[1]) * (1 - Constants.SIED)));
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - (legion[1] * 0.01)) * (1 - Constants.SIED)));
         }
         else{
-            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - legion[1])));
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - (legion[1] * 0.01))));
         }
         //Calculate new ATT
         double attt = 1 + baseATT + emb.catt() + sec.catt() + wep.catt();
@@ -115,7 +115,7 @@ public class PotVector implements Comparable {
             attt += Constants.SATT;
         }
         //Calculate new BOSS
-        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + legion[0];
+        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + (legion[0] * 0.01);
         if (soul == PotType.BOSS){
             bosst += Constants.SBOSS;
         }
@@ -177,10 +177,10 @@ public class PotVector implements Comparable {
             PotVector comp = (PotVector) o;
             //If bonus pots are not null then use it in equals
             if (wepb != null && secb != null && embb != null) {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && legion.equals(comp.getLegion()) && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb()) && soul == comp.getSoul();
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && legion == comp.getLegion() && wepb.equals(comp.getWepb()) && secb.equals(comp.getSecb()) && embb.equals(comp.getEmbb()) && soul == comp.getSoul();
             } //Else do not as you will get IndexOutOfBounds exception
             else {
-                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && legion.equals(comp.getLegion()) && soul == comp.getSoul();
+                return wep.equals(comp.getWep()) && sec.equals(comp.getSec()) && emb.equals(comp.getEmb()) && legion == comp.getLegion() && soul == comp.getSoul();
             }
         }
     }
