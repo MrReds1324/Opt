@@ -22,7 +22,7 @@ public class PotVector implements Comparable {
     //The Hyper Stats array holding Crit Damage/Boss Damage/Damage/IED
     public int[] hyperStats = new int[]{0, 0, 0, 0};
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
-    public double att, boss, ied, calc;
+    public double att, boss, ied, crit, calc;
     public PotType soul;
 
     //Constructor to create PotVector without Bonus Potential
@@ -102,15 +102,15 @@ public class PotVector implements Comparable {
         return this.soul;
     }
     
-    public double calculcateMultiplier(double baseATT, double baseBOSS, double baseDMG, double baseIED, double pdr){
+    public double calculcateMultiplier(double baseATT, double baseBOSS, double baseDMG, double baseIED, double baseCrit, double pdr){
         // wep, sec, emb, wepb, secb, embb
         //Calculate new IED
         double iedt;
         if (soul == PotType.IED){
-            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - (legion[1] * 0.01)) * (1 - Constants.SIED)));
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - Constants.hyperIed[hyperStats[3]]) * (1 - (legion[1] * 0.01)) * (1 - Constants.SIED)));
         }
         else{
-            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - (legion[1] * 0.01))));
+            iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * (1 - Constants.hyperIed[hyperStats[3]]) * (1 - (legion[1] * 0.01))));
         }
         //Calculate new ATT
         double attt = 1 + baseATT + emb.catt() + sec.catt() + wep.catt();
@@ -118,7 +118,7 @@ public class PotVector implements Comparable {
             attt += Constants.SATT;
         }
         //Calculate new BOSS
-        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + (legion[0] * 0.01);
+        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + Constants.hyperBossDmg[hyperStats[2]] + Constants.hyperDmg[hyperStats[1]] + (legion[0] * 0.01);
         if (soul == PotType.BOSS){
             bosst += Constants.SBOSS;
         }
@@ -129,11 +129,14 @@ public class PotVector implements Comparable {
             //Calculate new BOSS
             bosst += embb.cboss() + secb.cboss() + wepb.cboss();
         }
+        //Calculate new Crit Damage
+        double critt = 1 + 0.3 + baseCrit + Constants.hyperCritDmg[hyperStats[0]];
         this.att = attt - 1;
         this.boss = bosst - baseDMG - 1;
         this.ied = iedt;
+        this.crit = critt;
         //Calculates the multiplier
-        this.calc = (attt * bosst * (1 - (pdr * (1 - iedt))));
+        this.calc = (critt * attt * bosst * (1 - (pdr * (1 - iedt))));
         return this.calc;
     }
 
