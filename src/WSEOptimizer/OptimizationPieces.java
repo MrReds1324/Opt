@@ -799,6 +799,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         fd_LegionBP.setColumns(20);
         fd_LegionBP.setRows(5);
         fd_LegionBP.setEnabled(false);
+        fd_LegionBP.setPreferredSize(new java.awt.Dimension(164, 100));
         jScrollPane1.setViewportView(fd_LegionBP);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -940,8 +941,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                             .addComponent(embbpAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(embbpIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel2.setVisible(true);
@@ -949,6 +949,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         fd_Legion.setColumns(20);
         fd_Legion.setRows(5);
         fd_Legion.setEnabled(false);
+        fd_Legion.setPreferredSize(new java.awt.Dimension(164, 100));
         jScrollPane2.setViewportView(fd_Legion);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -963,10 +964,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 115, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(8, 8, 8)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(9, Short.MAX_VALUE)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
