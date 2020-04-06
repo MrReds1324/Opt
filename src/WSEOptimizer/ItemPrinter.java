@@ -38,16 +38,15 @@ public class ItemPrinter {
         }
     }
 
-    public static void printLegionHypersAndFD(JTextArea legion, JTextArea legionBP, double baseCalc, PotVector potVector) {
+    public static void printLegionHypersAndFD(JTextArea legion, JTextArea legionBP, double baseCalc, double time, PotVector potVector) {
         int[] hyperStats = potVector.getHypers();
         String[] legionStrings = potVector.legionStrings();
-        String finished = "";
-        String critDmg = " Points into Crit Damage";
-        finished += formattedConcat(String.format("%.3f", (potVector.getCalc() / baseCalc - 1) * 100) + "% Final Damage", "----Hypers----", 40);
-        finished += formattedConcat("----Legion----", hyperStats[0] + " Points into Crit Damage", 45);
-        finished += formattedConcat(legionStrings[0], hyperStats[1] + " Points into Boss Damage", 45);
-        finished += formattedConcat(legionStrings[1], hyperStats[2] + " Points into Damage", 42);
-        finished += formattedConcat("", hyperStats[3] + " Points into IED", 55);
+        String topLine = formattedConcat("----Hypers----", String.format("%.3f", (potVector.getCalc() / baseCalc - 1) * 100) + "% Final Damage", 67);
+        String finished = formattedConcat(topLine.substring(0, topLine.length()-1), String.format("In %.5f Seconds", time), 110);
+        finished += formattedConcat(String.format("%02d Points into Crit Damage", hyperStats[0]), "----Legion----", 65);
+        finished += formattedConcat(String.format("%02d Points into Boss Damage", hyperStats[1]), legionStrings[0], 65);
+        finished += formattedConcat(String.format("%02d Points into Damage", hyperStats[2]), legionStrings[1], 69);
+        finished += formattedConcat(String.format("%02d Points into IED", hyperStats[3]), "", 0);
 
         legion.setText(finished);
         legionBP.setText(finished);

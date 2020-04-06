@@ -53,8 +53,6 @@ public class WSEBuilder {
         options = numberOfOptions;
         
         setupHyperStats(hyperPoints);
-        //Start time of the method
-        long startTime = System.nanoTime();
         //Sets up the matrices for the potentials, and legion
         switch (potConfig){
             case NO3LINE:
@@ -105,8 +103,6 @@ public class WSEBuilder {
                 }
             }
         }
-        long endTime = System.nanoTime();
-        System.out.println("Execution time in seconds : " + (endTime - startTime) / 1000000000.0);
         return potVectorList;
     }
 
@@ -120,8 +116,6 @@ public class WSEBuilder {
         PDR = pdr;
         options = numberOfOptions;
         
-        //Start time of the method
-        long startTime = System.nanoTime();
         setupHyperStats(hyperPoints);
         //Sets up the matrices for the potentials, and legion
         switch (mainConfig){
@@ -238,9 +232,7 @@ public class WSEBuilder {
                 }  
             }
         }
-            long endTime = System.nanoTime();
-            System.out.println("Execution time in seconds : " + (endTime - startTime) / 1000000000.0);
-            return potVectorList;
+        return potVectorList;
     }
    
     public static ArrayList legionAndAddReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, int[] hyperStats, PotType soul, boolean reduce){

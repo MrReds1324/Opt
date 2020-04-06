@@ -8,7 +8,6 @@ package WSEOptimizer;
 import WSEOptimizer.Constants.PotConfig;
 import WSEOptimizer.Constants.ClassType;
 import WSEOptimizer.Constants.PotType;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,6 +65,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private double crit_base;
     private double crit_baseS;
     private int hyperPoints;
+    private double time;
 
     /**
      * Creates new form OptimizationPieces
@@ -1693,6 +1693,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
                 PotVector pt;
                 List<PotVector> simpleWSE;
+                //Start time of the method
+                long startTime = System.nanoTime();
                 if (!bp.isSelected()) {
                     if (soulSelect.isSelected()) {
                         simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
@@ -1706,6 +1708,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 }
+                long endTime = System.nanoTime();
+                this.time = (endTime - startTime) / 1000000000.0;
+                System.out.println("Execution time in seconds : " + this.time);
                 this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
                 pt = simpleWSE.get(0);
                 if (pt != null) {
@@ -2160,7 +2165,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             ItemPrinter.printSoul(wepInp4, potVector.getSoul());
         }
         double calcBase = ((1.3 + this.crit_baseS) * (1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
-        ItemPrinter.printLegionHypersAndFD(fd_Legion, fd_LegionBP, calcBase, potVector);
+        ItemPrinter.printLegionHypersAndFD(fd_Legion, fd_LegionBP, calcBase, this.time, potVector);
     }
 
     private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
