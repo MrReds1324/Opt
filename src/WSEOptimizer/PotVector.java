@@ -88,6 +88,11 @@ public class PotVector implements Comparable {
         return this.boss;
     }
 
+    //Returns the total crit damage this configuration would have
+    public double getCrit() {
+        return this.crit;
+    }
+    
     //Returns the total ignore enemy defense this configuration would have
     public double getIed() {
         return this.ied;
@@ -130,11 +135,11 @@ public class PotVector implements Comparable {
             bosst += embb.cboss() + secb.cboss() + wepb.cboss();
         }
         //Calculate new Crit Damage
-        double critt = 1 + 0.3 + baseCrit + Constants.hyperCritDmg[hyperStats[0]];
+        double critt = 1.3 + baseCrit + Constants.hyperCritDmg[hyperStats[0]];
         this.att = attt - 1;
         this.boss = bosst - baseDMG - 1;
         this.ied = iedt;
-        this.crit = critt;
+        this.crit = critt - 1.3;
         //Calculates the multiplier
         this.calc = (critt * attt * bosst * (1 - (pdr * (1 - iedt))));
         return this.calc;
@@ -143,7 +148,7 @@ public class PotVector implements Comparable {
     //The ToString of this class (prints the att, boss, ied and then the configuration of the WSE items along with the nebulite and union configuration)
     @Override
     public String toString() {
-        String x = String.format("ATT: %.0f%% BOSS: %.0f%% IED: %.2f%%\n", this.getAtt() * 100, this.getBoss() * 100, this.getIed() * 100);
+        String x = String.format("ATT: %.0f%% BOSS: %.0f%% IED: %.2f%% CRIT: %.2f%%\n", this.getAtt() * 100, this.getBoss() * 100, this.getIed() * 100, this.getCrit() * 100);
         x += "Wep:\n" + this.getWep().toString() + "Sec:\n" + this.getSec().toString() + "Emb:\n" + this.getEmb().toString() + "\n";
         if ((wepb != null && secb != null && embb != null) && wepb.getBpot() && secb.getBpot() && embb.getBpot()) {
             x += "--Bonus Potential--\n";
