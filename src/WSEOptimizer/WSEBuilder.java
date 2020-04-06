@@ -43,7 +43,7 @@ public class WSEBuilder {
     private static int options;
     
     @SuppressWarnings("unchecked")
-    public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soulSelected, int numberOfOptions) {
+    public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soulSelected, int numberOfOptions) {
         baseATT = baseAtt;
         baseBOSS = baseBoss;
         baseDMG = baseDamage;
@@ -51,7 +51,8 @@ public class WSEBuilder {
         baseCRIT = baseCrit;
         PDR = pdr;
         options = numberOfOptions;
-            
+        
+        setupHyperStats(hyperPoints);
         //Start time of the method
         long startTime = System.nanoTime();
         //Sets up the matrices for the potentials, and legion
@@ -73,31 +74,33 @@ public class WSEBuilder {
                 break;
         }
         
-        List<PotVector> potVectorList = new ArrayList();
+        ArrayList<PotVector> potVectorList = new ArrayList();
         //Carries out the optimization beginning with Emblem to find the perfect configuration
-        for (PotType soul : souls){
-            for (PotType[] emb : emblem) {
-                //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
-                for (PotType[] wep : weapon) {
+        for (int[] hyper: hyperStats){
+            for (PotType soul : souls){
+                for (PotType[] emb : emblem) {
                     //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                    Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
-                    switch (classType) {
-                        case ZERO:
-                            legionAndAddReduce(potVectorList, wtemp, wtemp, etemp, soul, true);
-                            break;
-                        case KANNA:
-                            //Secondary fan only recognizes Magic Att%
-                            Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
-                            legionAndAddReduce(potVectorList, wtemp, stemp, etemp, soul, true);
-                            break;
-                        default:
-                            for (PotType[] sec : secondary) {
-                                //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                                stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                                legionAndAddReduce(potVectorList, wtemp, stemp, etemp, soul, true);
-                            }
-                            break;
+                    Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
+                    for (PotType[] wep : weapon) {
+                        //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
+                        Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
+                        switch (classType) {
+                            case ZERO:
+                                potVectorList = legionAndAddReduce(potVectorList, wtemp, wtemp, etemp, hyper, soul, true);
+                                break;
+                            case KANNA:
+                                //Secondary fan only recognizes Magic Att%
+                                Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
+                                potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, hyper, soul, true);
+                                break;
+                            default:
+                                for (PotType[] sec : secondary) {
+                                    //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
+                                    stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
+                                    potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, hyper, soul, true);
+                                }
+                                break;
+                        }
                     }
                 }
             }
@@ -108,7 +111,7 @@ public class WSEBuilder {
     }
 
     @SuppressWarnings("unchecked")
-    public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions) {
+    public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions) {
         baseATT = baseAtt;
         baseBOSS = baseBoss;
         baseDMG = baseDamage;
@@ -119,6 +122,7 @@ public class WSEBuilder {
         
         //Start time of the method
         long startTime = System.nanoTime();
+        setupHyperStats(hyperPoints);
         //Sets up the matrices for the potentials, and legion
         switch (mainConfig){
             case NO3LINE:
@@ -195,18 +199,18 @@ public class WSEBuilder {
                 Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                 switch (classType) {
                     case ZERO:
-                        legionAndAddReduce(main_temp, wtemp, wtemp, etemp, PotType.DEFAULT, false);
+                        legionAndAddReduce(main_temp, wtemp, wtemp, etemp, new int[]{0, 0, 0, 0}, PotType.DEFAULT, false);
                         break;
                     case KANNA:
                         //Secondary fan only recognizes Magic Att%
                         Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);  
-                        legionAndAddReduce(main_temp, wtemp, stemp, etemp, PotType.DEFAULT, false);
+                        legionAndAddReduce(main_temp, wtemp, stemp, etemp, new int[]{0, 0, 0, 0}, PotType.DEFAULT, false);
                         break;
                     default:
                         for (PotType[] sec : secondary) {
                             //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                             stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                            legionAndAddReduce(main_temp, wtemp, stemp, etemp, PotType.DEFAULT, false);
+                            legionAndAddReduce(main_temp, wtemp, stemp, etemp, new int[]{0, 0, 0, 0}, PotType.DEFAULT, false);
                         }
                         break;
                 }
@@ -214,41 +218,43 @@ public class WSEBuilder {
         }
         
         //Combines both main and bonus pots to generate all combinations of the two
-        for (PotType soul : souls){
-            for (PotVector mpot : main_temp) {
-                for (PotVector bpot : bonus_temp) {
-                    PotVector temp = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), mpot.getLegion(), new int[]{0, 0, 0, 0}, soul);
-                    temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
-                    //Adds the potVector to the array list
-                    potVectorList.add(temp);
-                }
-            }
-            //Sorts then shrinks the list to reduce memory overhead
-            Collections.sort(potVectorList);
-            if(potVectorList.size() >= numberOfOptions + 1){
-                potVectorList = new ArrayList<>(potVectorList.subList(0, options + 1));
-            }
-            else if(potVectorList.size() >= 100){
-                potVectorList = new ArrayList<>(potVectorList.subList(0, 100));
+        for (int[] hyper : hyperStats){
+            for (PotType soul : souls){
+                for (PotVector mpot : main_temp) {
+                    for (PotVector bpot : bonus_temp) {
+                        PotVector temp = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), mpot.getLegion(), hyper, soul);
+                        temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
+                        //Adds the potVector to the array list
+                        potVectorList.add(temp);
+                    }
+                    //Sorts then shrinks the list to reduce memory overhead
+                    Collections.sort(potVectorList);
+                    if(potVectorList.size() >= numberOfOptions + 1){
+                        potVectorList = new ArrayList<>(potVectorList.subList(0, options + 1));
+                    }
+                    else if(potVectorList.size() >= 100){
+                        potVectorList = new ArrayList<>(potVectorList.subList(0, 100));
+                    }
+                }  
             }
         }
-        long endTime = System.nanoTime();
-        System.out.println("Execution time in seconds : " + (endTime - startTime) / 1000000000.0);
-        return potVectorList;
+            long endTime = System.nanoTime();
+            System.out.println("Execution time in seconds : " + (endTime - startTime) / 1000000000.0);
+            return potVectorList;
     }
    
-    public static void legionAndAddReduce(List potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, PotType soul, boolean reduce){
+    public static ArrayList legionAndAddReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, int[] hyperStats, PotType soul, boolean reduce){
         // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
         if (lcombs[0][0] == lcombs[0][1]){
             //Add the potVector to the list
-            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, lcombs[0], new int[]{0, 0, 0, 0}, soul);
+            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, lcombs[0], hyperStats, soul);
             temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
             potContainer.add(temp);
         }
         else{
             for (int[] legion : lcombs) {
                 //Add the potVector to the list
-                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, legion, new int[]{0, 0, 0, 0}, soul);
+                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, legion, hyperStats, soul);
                 temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
                 potContainer.add(temp);
             }
@@ -257,12 +263,13 @@ public class WSEBuilder {
             //Sorts then shrinks the list to reduce memory overhead
             Collections.sort(potContainer);
             if(potContainer.size() >= options + 1){
-                potContainer = new ArrayList<>(potContainer.subList(0, options + 1));
+                return new ArrayList<>(potContainer.subList(0, options + 1));
             }
             else if(potContainer.size() >= 100){
-                potContainer = new ArrayList<>(potContainer.subList(0, 100));
+                return new ArrayList<>(potContainer.subList(0, 100));
             }
         }
+        return potContainer;
     }
     
     public static void setupMainGenerationSpace(PotType[][] weapons, PotType[][] secondaries, PotType[][] emblems, boolean wepSel, boolean secSel, boolean embSel, ClassType classType){
@@ -351,6 +358,9 @@ public class WSEBuilder {
                     }
                 }
             }
+        }
+        if (hyperStats.isEmpty()){
+            hyperStats.add(new int[]{0, 0, 0, 0});
         }
     }
    

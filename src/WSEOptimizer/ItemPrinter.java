@@ -40,10 +40,12 @@ public class ItemPrinter {
 
     public static void printLegionAndFD(JTextArea legion, JTextArea legionBP, double baseCalc, PotVector potVector) {
         String fd = String.format("%.3f", (potVector.getCalc() / baseCalc - 1) * 100);
-        String s = "----Legion----\n";
-        s += potVector.legionString();
-        s += "\n----------------------------------------------";
-        s += "\n" + fd + "% Final Damage";
+        String s = fd + "% Final Damage";
+        s  +="\n----Legion----\n";
+        s += potVector.legionString() + "\n";
+        for (int i = 0; i < potVector.getHypers().length; i ++){
+            s += potVector.getHypers()[i] + "|";
+        }
         legion.setText(s);
         legionBP.setText(s);
     }

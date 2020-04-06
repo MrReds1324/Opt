@@ -87,7 +87,7 @@
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="union1" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="critDmgInp" min="-2" pref="39" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -214,7 +214,7 @@
                   <Component id="dmg" alignment="3" max="32767" attributes="0"/>
                   <Component id="weplvl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
-                  <Component id="union1" alignment="3" max="32767" attributes="0"/>
+                  <Component id="critDmgInp" alignment="3" max="32767" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                       <Component id="monDef" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1419,7 +1419,7 @@
         <Property name="text" type="java.lang.String" value="Additional Options"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="union1">
+    <Component class="javax.swing.JTextField" name="critDmgInp">
       <Properties>
         <Property name="text" type="java.lang.String" value="110"/>
       </Properties>

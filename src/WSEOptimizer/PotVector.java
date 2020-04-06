@@ -107,6 +107,10 @@ public class PotVector implements Comparable {
         return this.soul;
     }
     
+    public int[] getHypers(){
+        return this.hyperStats;
+    }
+    
     public double calculcateMultiplier(double baseATT, double baseBOSS, double baseDMG, double baseIED, double baseCrit, double pdr){
         // wep, sec, emb, wepb, secb, embb
         //Calculate new IED

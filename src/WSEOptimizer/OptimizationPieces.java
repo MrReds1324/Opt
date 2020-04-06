@@ -65,6 +65,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     Map<String, PotVector> comboBoxMap = new LinkedHashMap();
     private double crit_base;
     private double crit_baseS;
+    private int hyperPoints;
 
     /**
      * Creates new form OptimizationPieces
@@ -191,7 +192,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wseOptions = new javax.swing.JComboBox<>();
         numOptions = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        union1 = new javax.swing.JTextField();
+        critDmgInp = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         hyperStatsInp = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -1004,7 +1005,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         jLabel5.setText("Additional Options");
 
-        union1.setText("110");
+        critDmgInp.setText("110");
 
         jLabel9.setText("Critical Damage");
 
@@ -1067,7 +1068,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel7))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(union1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(critDmgInp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
@@ -1168,7 +1169,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     .addComponent(dmg)
                     .addComponent(weplvl)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(union1)
+                    .addComponent(critDmgInp)
                     .addComponent(jLabel9)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(monDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1362,7 +1363,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 this.boss_base = Double.parseDouble(boss.getText()) / 100;
                 this.dmg_base = Double.parseDouble(dmg.getText()) / 100;
                 this.ied_base = Double.parseDouble(ied.getText()) / 100;
+                this.crit_base = Double.parseDouble(critDmgInp.getText()) / 100;
                 this.pdr = Double.parseDouble(monDef.getText()) / 100;
+                this.hyperPoints = Integer.parseInt(hyperStatsInp.getText());
                 saveBase();
                 this.legionVal = Integer.parseInt(union.getText());
                 //Sets up legion values
@@ -1694,15 +1697,15 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 List<PotVector> simpleWSE;
                 if (!bp.isSelected()) {
                     if (soulSelect.isSelected()) {
-                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
-                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
+                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 } else {
                     if (soulSelect.isSelected()) {
-                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
-                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
+                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 }
                 this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
@@ -2217,6 +2220,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton bp;
     private javax.swing.JToggleButton calculate;
     private javax.swing.JToggleButton clearInp;
+    private javax.swing.JTextField critDmgInp;
     private javax.swing.JTextField dmg;
     private javax.swing.JToggleButton embAtt1;
     private javax.swing.JToggleButton embAtt2;
@@ -2291,7 +2295,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton seclvl;
     private javax.swing.JToggleButton soulSelect;
     private javax.swing.JTextField union;
-    private javax.swing.JTextField union1;
     private javax.swing.JToggleButton wepAtt1;
     private javax.swing.JToggleButton wepAtt2;
     private javax.swing.JToggleButton wepAtt3;
