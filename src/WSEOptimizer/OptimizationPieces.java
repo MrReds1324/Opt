@@ -1380,7 +1380,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                             case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
                                 if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
                                 }
                                 break;
                         }
@@ -1398,7 +1398,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                             case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
                                 if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
                                 }
                                 break;
                         }
@@ -1416,7 +1416,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                             case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
                                 if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
                                 }
                                 break;
                         }
@@ -1525,7 +1525,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                             case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
                                 if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
                                 }
                                 break;
                         }
@@ -1543,7 +1543,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                             case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
                                 if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
                                 }
                                 break;
                         }
@@ -1561,7 +1561,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                             case IED:
                                 this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
                                 if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
+                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
                                 }
                                 break;
                         }
