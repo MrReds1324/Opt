@@ -158,14 +158,14 @@ public class PotVector implements Comparable {
             x += "--Bonus Potential--\n";
             x += "Wep:\n" + this.getWepb().toString() + "Sec:\n" + this.getSecb().toString() + "Emb:\n" + this.getEmbb().toString() + "\n";
         }
-        x += this.legionString();
+        String[] strs = this.legionStrings();
+        x += strs[0] + "\n" + strs[1];
         return x;
     }
     
-    public String legionString() {
-        String s = legion[1] + "% IED\n";
-        s += legion[0] + "% BOSS";
-        return s;
+    public String[] legionStrings() {
+        String[] strs = new String[]{legion[1] + "% IED", legion[0] + "% BOSS"};
+        return strs;
     }
 
     //The hashCode of this class for storage in more complicated data structures

@@ -38,16 +38,27 @@ public class ItemPrinter {
         }
     }
 
-    public static void printLegionAndFD(JTextArea legion, JTextArea legionBP, double baseCalc, PotVector potVector) {
-        String fd = String.format("%.3f", (potVector.getCalc() / baseCalc - 1) * 100);
-        String s = fd + "% Final Damage";
-        s  +="\n----Legion----\n";
-        s += potVector.legionString() + "\n";
-        for (int i = 0; i < potVector.getHypers().length; i ++){
-            s += potVector.getHypers()[i] + "|";
+    public static void printLegionHypersAndFD(JTextArea legion, JTextArea legionBP, double baseCalc, PotVector potVector) {
+        int[] hyperStats = potVector.getHypers();
+        String[] legionStrings = potVector.legionStrings();
+        String finished = "";
+        String critDmg = " Points into Crit Damage";
+        finished += formattedConcat(String.format("%.3f", (potVector.getCalc() / baseCalc - 1) * 100) + "% Final Damage", "----Hypers----", 40);
+        finished += formattedConcat("----Legion----", hyperStats[0] + " Points into Crit Damage", 45);
+        finished += formattedConcat(legionStrings[0], hyperStats[1] + " Points into Boss Damage", 45);
+        finished += formattedConcat(legionStrings[1], hyperStats[2] + " Points into Damage", 42);
+        finished += formattedConcat("", hyperStats[3] + " Points into IED", 55);
+
+        legion.setText(finished);
+        legionBP.setText(finished);
+    }
+    
+    private static String formattedConcat(String beginning, String ending, int length){
+        int dif = length - beginning.length();
+        for (int i = 0; i <= dif; i++){
+            beginning += " ";
         }
-        legion.setText(s);
-        legionBP.setText(s);
+        return beginning + ending + "\n";
     }
 
 }

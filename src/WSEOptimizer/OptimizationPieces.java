@@ -2162,7 +2162,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             ItemPrinter.printSoul(wepInp4, potVector.getSoul());
         }
         double calcBase = ((1.3 + this.crit_baseS) * (1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
-        ItemPrinter.printLegionAndFD(fd_Legion, fd_LegionBP, calcBase, potVector);
+        ItemPrinter.printLegionHypersAndFD(fd_Legion, fd_LegionBP, calcBase, potVector);
     }
 
     private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
