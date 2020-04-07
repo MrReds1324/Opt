@@ -30,7 +30,7 @@ public class WSEBuilder {
     private static ArrayList<int[]> hyperStats;
     
     //IED, BOSS
-    public static ArrayList<int[]> lcombs;
+    private static ArrayList<int[]> lcombs;
     
     private static double baseATT;
     private static double baseBOSS;
@@ -40,8 +40,12 @@ public class WSEBuilder {
     private static double PDR;
     private static int options;
     
+    public static javax.swing.JTextArea progressOutput;
+    private static long counter = 0;
+    
     @SuppressWarnings("unchecked")
     public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soulSelected, int numberOfOptions) {
+        counter = 0;
         baseATT = baseAtt;
         baseBOSS = baseBoss;
         baseDMG = baseDamage;
@@ -73,6 +77,7 @@ public class WSEBuilder {
         }
         
         ArrayList<PotVector> potVectorList = new ArrayList();
+        long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * lcombs.size();
         //Carries out the optimization beginning with Emblem to find the perfect configuration
         for (int[] hyper: hyperStats){
             for (PotType soul : souls){
@@ -102,12 +107,14 @@ public class WSEBuilder {
                     }
                 }
             }
+            System.out.println(String.format("%.3f%% Completed", (double)counter/totalGenerationSpace * 100));
         }
         return potVectorList;
     }
 
     @SuppressWarnings("unchecked")
     public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions) {
+        counter = 0;
         baseATT = baseAtt;
         baseBOSS = baseBoss;
         baseDMG = baseDamage;
@@ -212,7 +219,7 @@ public class WSEBuilder {
                 }
             }
         }
-        
+        long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * emblemBp.length * weaponBp.length * secondaryBp.length * lcombs.size();
         //Combines both main and bonus pots to generate all combinations of the two
         for (int[] hyper : hyperStats){
             for (PotType soul : souls){
@@ -222,6 +229,7 @@ public class WSEBuilder {
                     }
                 }  
             }
+            System.out.println(String.format("%.3f%% Completed", (double)counter/totalGenerationSpace * 100));
         }
         return potVectorList;
     }
@@ -229,6 +237,7 @@ public class WSEBuilder {
     public static ArrayList legionAndAddReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
         // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
         if (lcombs.size() == 1){
+            counter++;
             //Add the potVector to the list
             PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, lcombs.get(0), hyperStats, soul);
             temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
@@ -236,6 +245,7 @@ public class WSEBuilder {
         }
         else{
             for (int[] legion : lcombs){
+                counter++;
                 //Add the potVector to the list
                 PotVector temp = new PotVector(wepTemp, secTemp, embTemp, legion, hyperStats, soul);
                 temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
@@ -261,7 +271,7 @@ public class WSEBuilder {
             weapon = weapons; 
         }
         
-        if (secSel){
+        if (secSel || classType == ClassType.ZERO){
             secondary = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else if (classType == ClassType.KANNA){
@@ -287,7 +297,7 @@ public class WSEBuilder {
             weaponBp = weaponsbp; 
         }
         
-        if (secbpSel){
+        if (secbpSel || classType == ClassType.ZERO){
             secondaryBp = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else if (classType == ClassType.KANNA){

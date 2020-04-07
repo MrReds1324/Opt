@@ -1686,12 +1686,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //Start time of the method
                 long startTime = System.nanoTime();
                 if (!bp.isSelected()) {
+                    WSEBuilder.progressOutput = fd_Legion;
                     if (soulSelect.isSelected()) {
                         simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
                         simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 } else {
+                    WSEBuilder.progressOutput = fd_LegionBP; 
                     if (soulSelect.isSelected()) {
                         simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
