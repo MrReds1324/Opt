@@ -202,7 +202,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(618, 715));
         setResizable(false);
 
-        dmg.setText("247");
+        dmg.setText("214");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("DMG");
@@ -216,11 +216,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("ATT");
 
-        boss.setText("215");
+        boss.setText("170");
 
         att.setText("39");
 
-        ied.setText("93.71");
+        ied.setText("91.83");
 
         bp.setText("Bonus Potential");
         bp.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +265,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Legion Points Boss, IED, Crit Damage");
+        jLabel7.setText("Legion Points for Boss, IED, Crit Damage");
 
         union.setText("120");
 
@@ -1003,11 +1003,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         jLabel5.setText("Additional Options");
 
-        critDmgInp.setText("110");
+        critDmgInp.setText("90");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setLabelFor(critDmgInp);
         jLabel9.setText("Critical Damage");
 
-        hyperStatsInp.setText("1266");
+        hyperStatsInp.setText("1091");
 
         jLabel11.setLabelFor(hyperStatsInp);
         jLabel11.setText("Hyper Points for Boss, Damage, IED, Crit Damage");
