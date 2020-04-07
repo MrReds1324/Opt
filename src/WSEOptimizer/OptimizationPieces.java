@@ -265,7 +265,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Legion Points Boss/IED");
+        jLabel7.setText("Legion Points Boss, IED, Crit Damage");
 
         union.setText("120");
 
@@ -1010,7 +1010,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         hyperStatsInp.setText("1266");
 
         jLabel11.setLabelFor(hyperStatsInp);
-        jLabel11.setText("Hyper Stats to be allocated");
+        jLabel11.setText("Hyper Points for Boss, Damage, IED, Crit Damage");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

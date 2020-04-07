@@ -456,7 +456,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Legion Points Boss/IED"/>
+        <Property name="text" type="java.lang.String" value="Legion Points Boss, IED, Crit Damage"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="union">
@@ -1440,7 +1440,7 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="hyperStatsInp"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Hyper Stats to be allocated"/>
+        <Property name="text" type="java.lang.String" value="Hyper Points for Boss, Damage, IED, Crit Damage"/>
       </Properties>
     </Component>
   </SubComponents>
