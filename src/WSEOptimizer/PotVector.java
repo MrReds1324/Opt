@@ -17,8 +17,8 @@ public class PotVector implements Comparable {
     //Declares our public variables for use in our PotVector
     //The Potential Objects for each item in WSE
     public Potentials wep, sec, emb, wepb, secb, embb;
-    //The Legion array holding BOSS/IED 
-    public int[] legion = new int[]{0, 0};
+    //The Legion array holding BOSS/IED/Crit Damage 
+    public int[] legion = new int[]{0, 0, 0};
     //The Hyper Stats array holding Crit Damage/Boss Damage/Damage/IED
     public int[] hyperStats = new int[]{0, 0, 0, 0};
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
@@ -139,7 +139,7 @@ public class PotVector implements Comparable {
             bosst += embb.cboss() + secb.cboss() + wepb.cboss();
         }
         //Calculate new Crit Damage
-        double critt = 1.3 + baseCrit + Constants.hyperCritDmg[hyperStats[0]];
+        double critt = 1.3 + baseCrit + (legion[2] * 0.005) + Constants.hyperCritDmg[hyperStats[0]];
         this.att = attt - 1;
         this.boss = bosst - baseDMG - 1;
         this.ied = iedt;
@@ -164,7 +164,7 @@ public class PotVector implements Comparable {
     }
     
     public String[] legionStrings() {
-        String[] strs = new String[]{legion[1] + "% IED", legion[0] + "% BOSS"};
+        String[] strs = new String[]{legion[1] + "% IED", legion[0] + "% BOSS", (legion[2] * 0.5) + "% Crit Damage"};
         return strs;
     }
 

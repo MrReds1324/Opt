@@ -46,7 +46,7 @@ public class ItemPrinter {
         finished += formattedConcat(String.format("%02d Points into Crit Damage", hyperStats[0]), "----Legion----", 65);
         finished += formattedConcat(String.format("%02d Points into Boss Damage", hyperStats[1]), legionStrings[0], 65);
         finished += formattedConcat(String.format("%02d Points into Damage", hyperStats[2]), legionStrings[1], 69);
-        finished += formattedConcat(String.format("%02d Points into IED", hyperStats[3]), "", 0);
+        finished += formattedConcat(String.format("%02d Points into IED", hyperStats[3]), legionStrings[2], 69);
 
         legion.setText(finished);
         legionBP.setText(finished);

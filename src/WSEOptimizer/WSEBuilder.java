@@ -30,9 +30,7 @@ public class WSEBuilder {
     private static ArrayList<int[]> hyperStats;
     
     //IED, BOSS
-    public static int[][] lcombs = new int[][]{
-        {0, 0},
-        {0, 0}};
+    public static ArrayList<int[]> lcombs;
     
     private static double baseATT;
     private static double baseBOSS;
@@ -43,7 +41,7 @@ public class WSEBuilder {
     private static int options;
     
     @SuppressWarnings("unchecked")
-    public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soulSelected, int numberOfOptions) {
+    public static List<PotVector> reb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, PotConfig potConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, PotType soulSelected, int numberOfOptions) {
         baseATT = baseAtt;
         baseBOSS = baseBoss;
         baseDMG = baseDamage;
@@ -51,6 +49,8 @@ public class WSEBuilder {
         baseCRIT = baseCrit;
         PDR = pdr;
         options = numberOfOptions;
+        
+        setupLegion(legionPoints);
         
         setupHyperStats(hyperPoints);
         //Sets up the matrices for the potentials, and legion
@@ -84,18 +84,18 @@ public class WSEBuilder {
                         Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                         switch (classType) {
                             case ZERO:
-                                potVectorList = legionAndAddReduce(potVectorList, wtemp, wtemp, etemp, hyper, soul, true);
+                                potVectorList = legionAndAddReduce(potVectorList, wtemp, wtemp, etemp, null, null, null, hyper, soul);
                                 break;
                             case KANNA:
                                 //Secondary fan only recognizes Magic Att%
                                 Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
-                                potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, hyper, soul, true);
+                                potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, null, null, null, hyper, soul);
                                 break;
                             default:
                                 for (PotType[] sec : secondary) {
                                     //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                                     stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                                    potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, hyper, soul, true);
+                                    potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, null, null, null, hyper, soul);
                                 }
                                 break;
                         }
@@ -107,7 +107,7 @@ public class WSEBuilder {
     }
 
     @SuppressWarnings("unchecked")
-    public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions) {
+    public static List<PotVector> nreb_opt(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions) {
         baseATT = baseAtt;
         baseBOSS = baseBoss;
         baseDMG = baseDamage;
@@ -115,6 +115,8 @@ public class WSEBuilder {
         baseCRIT = baseCrit;
         PDR = pdr;
         options = numberOfOptions;
+        
+        setupLegion(legionPoints);
         
         setupHyperStats(hyperPoints);
         //Sets up the matrices for the potentials, and legion
@@ -193,18 +195,18 @@ public class WSEBuilder {
                 Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                 switch (classType) {
                     case ZERO:
-                        legionAndAddReduce(main_temp, wtemp, wtemp, etemp, new int[]{0, 0, 0, 0}, PotType.DEFAULT, false);
+                        main_temp.add(new PotVector(wtemp, wtemp, etemp, new int[]{0, 0, 0}, new int[]{0, 0, 0, 0}, PotType.DEFAULT));
                         break;
                     case KANNA:
                         //Secondary fan only recognizes Magic Att%
-                        Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);  
-                        legionAndAddReduce(main_temp, wtemp, stemp, etemp, new int[]{0, 0, 0, 0}, PotType.DEFAULT, false);
+                        Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
+                        main_temp.add(new PotVector(wtemp, stemp, etemp, new int[]{0, 0, 0}, new int[]{0, 0, 0, 0}, PotType.DEFAULT));
                         break;
                     default:
                         for (PotType[] sec : secondary) {
                             //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                             stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                            legionAndAddReduce(main_temp, wtemp, stemp, etemp, new int[]{0, 0, 0, 0}, PotType.DEFAULT, false);
+                            main_temp.add(new PotVector(wtemp, stemp, etemp, new int[]{0, 0, 0}, new int[]{0, 0, 0, 0}, PotType.DEFAULT));
                         }
                         break;
                 }
@@ -216,18 +218,7 @@ public class WSEBuilder {
             for (PotType soul : souls){
                 for (PotVector mpot : main_temp) {
                     for (PotVector bpot : bonus_temp) {
-                        PotVector temp = new PotVector(mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), mpot.getLegion(), hyper, soul);
-                        temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
-                        //Adds the potVector to the array list
-                        potVectorList.add(temp);
-                    }
-                    //Sorts then shrinks the list to reduce memory overhead
-                    Collections.sort(potVectorList);
-                    if(potVectorList.size() >= numberOfOptions + 1){
-                        potVectorList = new ArrayList<>(potVectorList.subList(0, options + 1));
-                    }
-                    else if(potVectorList.size() >= 100){
-                        potVectorList = new ArrayList<>(potVectorList.subList(0, 100));
+                        potVectorList = legionAndAddReduce(potVectorList, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, soul);
                     }
                 }  
             }
@@ -235,31 +226,29 @@ public class WSEBuilder {
         return potVectorList;
     }
    
-    public static ArrayList legionAndAddReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, int[] hyperStats, PotType soul, boolean reduce){
+    public static ArrayList legionAndAddReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
         // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
-        if (lcombs[0][0] == lcombs[0][1]){
+        if (lcombs.size() == 1){
             //Add the potVector to the list
-            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, lcombs[0], hyperStats, soul);
+            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, lcombs.get(0), hyperStats, soul);
             temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
             potContainer.add(temp);
         }
         else{
-            for (int[] legion : lcombs) {
+            for (int[] legion : lcombs){
                 //Add the potVector to the list
                 PotVector temp = new PotVector(wepTemp, secTemp, embTemp, legion, hyperStats, soul);
                 temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
                 potContainer.add(temp);
             }
         }
-        if (reduce){
-            //Sorts then shrinks the list to reduce memory overhead
-            Collections.sort(potContainer);
-            if(potContainer.size() >= options + 1){
-                return new ArrayList<>(potContainer.subList(0, options + 1));
-            }
-            else if(potContainer.size() >= 100){
-                return new ArrayList<>(potContainer.subList(0, 100));
-            }
+        //Sorts then shrinks the list to reduce memory overhead
+        Collections.sort(potContainer);
+        if(potContainer.size() >= options + 1){
+            return new ArrayList<>(potContainer.subList(0, options + 1));
+        }
+        else if(potContainer.size() >= 100){
+            return new ArrayList<>(potContainer.subList(0, 100));
         }
         return potContainer;
     }
@@ -353,6 +342,76 @@ public class WSEBuilder {
         }
         if (hyperStats.isEmpty()){
             hyperStats.add(new int[]{0, 0, 0, 0});
+        }
+    }
+    
+    public static void setupLegion(int legionPoints){
+        lcombs = new ArrayList();
+        if (legionPoints <= 0){
+            lcombs.add(new int[]{0, 0, 0});
+        }
+        else if (legionPoints >= 120){
+            lcombs.add(new int[]{40, 40, 40});
+        }
+        else if (legionPoints >= 80){
+            int third = legionPoints - 80;
+            int second = legionPoints - third - 40;
+            int first = legionPoints - second - third;
+            for(int i = 0; 0 < 40-third; i++){
+                third += 1;
+                second -= 1;
+                lcombs.add(new int[]{first, second, third});
+            }
+            for(int i = 0; 0 < 40-second; i++){
+                second += 1;
+                first -= 1;
+                lcombs.add(new int[]{first, second, third});
+            }
+            for(int i = 0; 0 < 40-first; i++){
+                third -= 1;
+                first += 1;
+                lcombs.add(new int[]{first, second, third});
+            }
+        }
+        else if (legionPoints >= 40){
+            int first = legionPoints - 40;
+            int second = legionPoints - first;
+            int third = legionPoints - second - first;
+            for(int i = 0; 0 < 40-third; i++){
+                third += 1;
+                second -= 1;
+                lcombs.add(new int[]{first, second, third});
+            }
+            for(int i = 0; 0 < 40-first; i++){
+                third -= 1;
+                first += 1;
+                lcombs.add(new int[]{first, second, third});
+            }
+            for(int i = 0; 0 < 40-second; i++){
+                second += 1;
+                first -= 1;
+                lcombs.add(new int[]{first, second, third});
+            }
+        }
+        else{
+            int first = legionPoints;
+            int second = 0;
+            int third = 0;
+            for(int i = 0; 0 < legionPoints; i++){
+                second++;
+                first--;
+                lcombs.add(new int[]{first, second, third});
+            }
+            for(int i = 0; 0 < legionPoints; i++){
+                third++;
+                second--;
+                lcombs.add(new int[]{first, second, third});
+            }
+            for(int i = 0; 0 < legionPoints; i++){
+                third--;
+                first++;
+                lcombs.add(new int[]{first, second, third});
+            }
         }
     }
    

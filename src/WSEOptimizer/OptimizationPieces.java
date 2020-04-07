@@ -267,7 +267,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         jLabel7.setText("Legion Points Boss/IED");
 
-        union.setText("80");
+        union.setText("120");
 
         no_3l.setText("No 3 Line Att");
         no_3l.setMaximumSize(new java.awt.Dimension(119, 23));
@@ -1366,18 +1366,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 this.hyperPoints = Integer.parseInt(hyperStatsInp.getText());
                 saveBase();
                 this.legionVal = Integer.parseInt(union.getText());
-                //Sets up legion values
-                if (legionVal > 40) {
-                    WSEBuilder.lcombs[0][0] = 40;
-                    WSEBuilder.lcombs[0][1] = Math.min(legionVal - 40, 40);
-                    WSEBuilder.lcombs[1][0] = Math.min(legionVal - 40, 40);
-                    WSEBuilder.lcombs[1][1] = 40;
-                } else {
-                    WSEBuilder.lcombs[0][0] = legionVal;
-                    WSEBuilder.lcombs[0][1] = 0;
-                    WSEBuilder.lcombs[1][1] = legionVal;
-                    WSEBuilder.lcombs[1][0] = 0;
-                }
                 //Sets up a scaling value for weapon inputs if the class selected was Zero
                 double zero_scale = 1;
                 if (this.classType == ClassType.ZERO) {
@@ -1697,15 +1685,15 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 long startTime = System.nanoTime();
                 if (!bp.isSelected()) {
                     if (soulSelect.isSelected()) {
-                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
-                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
+                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 } else {
                     if (soulSelect.isSelected()) {
-                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
                     } else {
-                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
+                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
                     }
                 }
                 long endTime = System.nanoTime();

@@ -461,7 +461,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="union">
       <Properties>
-        <Property name="text" type="java.lang.String" value="80"/>
+        <Property name="text" type="java.lang.String" value="120"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="no_3l">
