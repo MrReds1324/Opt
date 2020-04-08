@@ -127,7 +127,7 @@ public class PotVector implements Comparable {
             attt += Constants.SATT;
         }
         //Calculate new BOSS
-        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + Constants.hyperBossDmg[hyperStats[2]] + Constants.hyperDmg[hyperStats[1]] + (legion[0] * 0.01);
+        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + Constants.hyperBossDmg[hyperStats[1]] + Constants.hyperDmg[hyperStats[2]] + (legion[0] * 0.01);
         if (soul == PotType.BOSS){
             bosst += Constants.SBOSS;
         }
