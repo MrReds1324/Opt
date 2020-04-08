@@ -247,18 +247,18 @@ public class WSEBuilder {
             for (int[] legion : lcombs){
                 counter++;
                 //Add the potVector to the list
-                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, legion, hyperStats, soul);
+                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion, hyperStats, soul);
                 temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
                 potContainer.add(temp);
             }
         }
         //Sorts then shrinks the list to reduce memory overhead
         Collections.sort(potContainer);
-        if(potContainer.size() >= options + 1){
+        if(options >= 0 && potContainer.size() >= options + 1){
             return new ArrayList<>(potContainer.subList(0, options + 1));
         }
-        else if(potContainer.size() >= 100){
-            return new ArrayList<>(potContainer.subList(0, 100));
+        else if(potContainer.size() >= 10){
+            return new ArrayList<>(potContainer.subList(0, 10));
         }
         return potContainer;
     }
