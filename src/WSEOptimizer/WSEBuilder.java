@@ -257,8 +257,8 @@ public class WSEBuilder {
         if(options >= 0 && potContainer.size() >= options + 1){
             return new ArrayList<>(potContainer.subList(0, options + 1));
         }
-        else if(potContainer.size() >= 10){
-            return new ArrayList<>(potContainer.subList(0, 10));
+        else if(potContainer.size() >= 25){
+            return new ArrayList<>(potContainer.subList(0, 25));
         }
         return potContainer;
     }
@@ -317,6 +317,7 @@ public class WSEBuilder {
     
     public static void setupHyperStats(int totalAvailablePoints){
         hyperStats = new ArrayList();
+        totalAvailablePoints = totalAvailablePoints > 1266 ?  totalAvailablePoints : 1266;
         for (int cd = 0; cd <= 15; cd++){
             int cdCost = Constants.hyperStatCosts[cd];
             if (cdCost > totalAvailablePoints){
