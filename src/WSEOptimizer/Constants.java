@@ -29,6 +29,10 @@ public class Constants {
         DEFAULT, ATT, BOSS, IED;
     }
     
+    public enum Server {
+        REBOOT, NONREBOOT;
+    }
+    
     //Double values of each potential
     public static final double LIED = 0.40;  //Legendary IED value
     public static final double UIED = 0.30;  //Unique IED value

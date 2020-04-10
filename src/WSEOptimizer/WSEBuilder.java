@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import WSEOptimizer.Constants.*;
 import java.util.Collections;
 import java.util.List;
-
 /**
  *
  * @author ryanb
@@ -75,41 +74,54 @@ public class WSEBuilder {
                 souls = new PotType[]{soulSelected};
                 break;
         }
-        
+        ArrayList<WSEOptimizationThread> threads = new ArrayList();
         ArrayList<PotVector> potVectorList = new ArrayList();
         long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * lcombs.size();
         //Carries out the optimization beginning with Emblem to find the perfect configuration
         for (int[] hyper: hyperStats){
-            for (PotType soul : souls){
-                for (PotType[] emb : emblem) {
-                    //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                    Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
-                    for (PotType[] wep : weapon) {
-                        //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                        Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
-                        switch (classType) {
-                            case ZERO:
-                                potVectorList = legionAndAddReduce(potVectorList, wtemp, wtemp, etemp, null, null, null, hyper, soul);
-                                break;
-                            case KANNA:
-                                //Secondary fan only recognizes Magic Att%
-                                Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
-                                potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, null, null, null, hyper, soul);
-                                break;
-                            default:
-                                for (PotType[] sec : secondary) {
-                                    //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                                    stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                                    potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, null, null, null, hyper, soul);
-                                }
-                                break;
-                        }
-                    }
-                }
-            }
-            System.out.println(String.format("%.3f%% Completed", (double)counter/totalGenerationSpace * 100));
+            threads.add(new WSEOptimizationThread(hyper, weapon, secondary, emblem, souls, classType, sw_abs, sec160, Server.REBOOT));
+//            for (PotType soul : souls){
+//                for (PotType[] emb : emblem) {
+//                    //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
+//                    Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
+//                    for (PotType[] wep : weapon) {
+//                        //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
+//                        Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
+//                        switch (classType) {
+//                            case ZERO:
+//                                potVectorList = legionAndAddReduce(potVectorList, wtemp, wtemp, etemp, null, null, null, hyper, soul);
+//                                break;
+//                            case KANNA:
+//                                //Secondary fan only recognizes Magic Att%
+//                                Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
+//                                potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, null, null, null, hyper, soul);
+//                                break;
+//                            default:
+//                                for (PotType[] sec : secondary) {
+//                                    //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
+//                                    stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
+//                                    potVectorList = legionAndAddReduce(potVectorList, wtemp, stemp, etemp, null, null, null, hyper, soul);
+//                                }
+//                                break;
+//                        }
+//                    }
+//                }
+//            }
+//            System.out.println(String.format("%.3f%% Completed", (double)counter/totalGenerationSpace * 100));
         }
-        return potVectorList;
+        
+        for (WSEOptimizationThread thread : threads){
+            thread.start();
+        }
+        for (WSEOptimizationThread thread : threads){
+            try {
+                thread.join();
+                potVectorList.addAll(thread.getPotVectors());
+            } catch (InterruptedException ex) {
+                System.out.println(ex.toString());
+            }
+        }
+        return reduce(potVectorList);
     }
 
     @SuppressWarnings("unchecked")
@@ -219,19 +231,33 @@ public class WSEBuilder {
                 }
             }
         }
+        
+        ArrayList<WSEOptimizationThread> threads = new ArrayList();
         long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * emblemBp.length * weaponBp.length * secondaryBp.length * lcombs.size();
         //Combines both main and bonus pots to generate all combinations of the two
         for (int[] hyper : hyperStats){
-            for (PotType soul : souls){
-                for (PotVector mpot : main_temp) {
-                    for (PotVector bpot : bonus_temp) {
-                        potVectorList = legionAndAddReduce(potVectorList, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, soul);
-                    }
-                }  
-            }
-            System.out.println(String.format("%.3f%% Completed", (double)counter/totalGenerationSpace * 100));
+            threads.add(new WSEOptimizationThread(hyper, main_temp, bonus_temp, souls, Server.NONREBOOT));
+//            for (PotType soul : souls){
+//                for (PotVector mpot : main_temp) {
+//                    for (PotVector bpot : bonus_temp) {
+//                        potVectorList = legionAndAddReduce(potVectorList, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, soul);
+//                    }
+//                }  
+//            }
+//            System.out.println(String.format("%.3f%% Completed", (double)counter/totalGenerationSpace * 100));
         }
-        return potVectorList;
+        for (WSEOptimizationThread thread : threads){
+            thread.start();
+        }
+        for (WSEOptimizationThread thread : threads){
+            try {
+                thread.join();
+                potVectorList.addAll(thread.getPotVectors());
+            } catch (InterruptedException ex) {
+                System.out.println(ex.toString());
+            }
+        }
+        return reduce(potVectorList);
     }
    
     public static ArrayList legionAndAddReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
@@ -245,13 +271,16 @@ public class WSEBuilder {
         }
         else{
             for (int[] legion : lcombs){
-                counter++;
                 //Add the potVector to the list
                 PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion, hyperStats, soul);
                 temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
                 potContainer.add(temp);
             }
         }
+        return reduce(potContainer);
+    }
+    
+    public static ArrayList reduce(ArrayList potContainer){
         //Sorts then shrinks the list to reduce memory overhead
         Collections.sort(potContainer);
         if(options >= 0 && potContainer.size() >= options + 1){
@@ -317,7 +346,7 @@ public class WSEBuilder {
     
     public static void setupHyperStats(int totalAvailablePoints){
         hyperStats = new ArrayList();
-        totalAvailablePoints = totalAvailablePoints > 1266 ?  totalAvailablePoints : 1266;
+        totalAvailablePoints = totalAvailablePoints > 1266 ?  1266 : totalAvailablePoints;
         for (int cd = 0; cd <= 15; cd++){
             int cdCost = Constants.hyperStatCosts[cd];
             if (cdCost > totalAvailablePoints){
