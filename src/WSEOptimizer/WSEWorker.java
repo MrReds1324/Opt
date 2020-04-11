@@ -45,7 +45,7 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
 
     public WSEWorker(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, 
             PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, 
-            boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions, Server server){
+            boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, boolean soulSelected, int numberOfOptions, Server server){
         this.baseDMG = baseDamage;
         this.baseBOSS = baseBoss;
         this.baseATT = baseAtt;
@@ -58,8 +58,8 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
         this.secondary = WSEHelpers.setupSecondaryGenerationSpace(secSelected, mainConfig, classType);
         this.emblem = WSEHelpers.setupEmblemGenerationSpace(embSelected, mainConfig);
         this.weaponBp = WSEHelpers.setupWeaponGenerationSpace(wepbpSelected, bpConfig);
-        this.secondary = WSEHelpers.setupSecondaryGenerationSpace(secbpSelected, bpConfig, classType);
-        this.emblem = WSEHelpers.setupEmblemGenerationSpace(embbpSelected, bpConfig);
+        this.secondaryBp = WSEHelpers.setupSecondaryGenerationSpace(secbpSelected, bpConfig, classType);
+        this.emblemBp = WSEHelpers.setupEmblemGenerationSpace(embbpSelected, bpConfig);
         this.souls = WSEHelpers.setupSoulsGenerationSpace(soulSelected);
         this.options = numberOfOptions;
         this.server = server;
@@ -76,9 +76,10 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 ArrayList<PotVector> potVectorList = new ArrayList();
                 //Carries out the optimization beginning with Emblem to find the perfect configuration
                 for (int[] hyper: hyperStats){
-                    threads.add(new WSEOptimizationThread(hyper, legion, weapon, secondary, emblem, souls, classType, baseDMG, baseBOSS, baseATT, baseIED, baseCRIT, PDR, sw_abs, sec160, options, Server.REBOOT));
+                    threads.add(new WSEOptimizationThread(hyper, legion, weapon, secondary, emblem, souls, classType, baseDMG, baseBOSS, baseATT, baseIED, 
+                            baseCRIT, PDR, sw_abs, sec160, options, Server.REBOOT));
                 }
-                System.out.println();
+                System.out.println("RUNNING");
                 for (WSEOptimizationThread thread : threads){
                     thread.start();
                 }
@@ -159,7 +160,7 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 }
 
                 threads = new ArrayList();
-                long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * emblemBp.length * weaponBp.length * secondaryBp.length * lcombs.size();
+//                long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * emblemBp.length * weaponBp.length * secondaryBp.length * lcombs.size();
                 //Combines both main and bonus pots to generate all combinations of the two
                 for (int[] hyper : hyperStats){
                     threads.add(new WSEOptimizationThread(hyper, legion, main_temp, bonus_temp, souls, baseDMG, baseBOSS, baseATT, baseIED, baseCRIT, PDR, options, Server.NONREBOOT));
