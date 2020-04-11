@@ -2,12 +2,13 @@ package WSEOptimizer;
 
 import java.util.ArrayList;
 import WSEOptimizer.Constants.*;
+import java.util.concurrent.Callable;
 
 /**
  *
  * @author ryan
  */
-public class WSEOptimizationThread  extends Thread {
+public class WSEOptimizationThread implements Callable {
     private int[] hyper;
     private PotType[][] weapon;
     private PotType[][] secondary;
@@ -73,7 +74,7 @@ public class WSEOptimizationThread  extends Thread {
     }
     
     @Override
-    public void run() { 
+    public ArrayList<PotVector> call() { 
         try {
             reducedOptimize = new ArrayList();
             switch(this.server){
@@ -119,12 +120,10 @@ public class WSEOptimizationThread  extends Thread {
         }   
         catch (Exception e) { 
             // Throwing an exception 
-            System.out.println (e.toString()); 
-        } 
-    }
-    
-    public ArrayList<PotVector> getPotVectors(){
-        return this.reducedOptimize;
+            System.out.println (e.toString());
+            return reducedOptimize;
+        }
+        return reducedOptimize;
     }
     
     public ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
