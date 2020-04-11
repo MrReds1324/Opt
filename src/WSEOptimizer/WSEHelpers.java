@@ -8,7 +8,6 @@ package WSEOptimizer;
 import java.util.ArrayList;
 import WSEOptimizer.Constants.*;
 import java.util.Collections;
-import java.util.List;
 /**
  *
  * @author ryanb
@@ -27,12 +26,12 @@ public class WSEHelpers {
         return potContainer;
     }
     
-    public static PotType[] setupSoulsGenerationSpace(PotType soulSelected){
-    switch (soulSelected){
-            case DEFAULT:
-                return Constants.souls;
-            default:
-                return new PotType[]{soulSelected};
+    public static PotType[] setupSoulsGenerationSpace(boolean sel){
+        if (sel){
+            return new PotType[]{PotType.DEFAULT};
+        }
+        else{
+            return Constants.souls;
         }
     }
     
