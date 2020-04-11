@@ -49,6 +49,7 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
     private int options;
     private Server server;
     
+    private int progress = 0;
     private ExecutorService pool;
 
     public WSEWorker(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, 
@@ -80,7 +81,6 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
     protected ArrayList<PotVector> doInBackground() throws Exception {
         switch(server){
             case REBOOT:
-                setProgress(0);
                 Collection<Callable<ArrayList<PotVector>>> threads = new ArrayList();
                 ArrayList<PotVector> potVectorList = new ArrayList();
                 //Carries out the optimization beginning with Emblem to find the perfect configuration
@@ -95,17 +95,31 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 }
                 pool.shutdown();
                 while (!pool.isTerminated()){
-                    
+                    if(isCancelled()){
+                        pool.shutdownNow();
+                        return null;
+                    }
+                    else{
+                        int count = 0;
+                        for (Future<ArrayList<PotVector>> thread : allResults){
+                            if (thread.isDone()){
+                                count++;
+                            }
+                        }
+                        int newProgress = (int)Math.round((count * 1.0)/(allResults.size()*1.0) * 100);
+                        if (newProgress != progress){
+                            setProgress(newProgress);
+                            progress = newProgress;
+                            Thread.sleep(1000);
+                        }
+                    }
                 }
                 //All Workers should be finished
                 for (Future<ArrayList<PotVector>> threadResult: allResults){
                     potVectorList.addAll(threadResult.get());
                 }
-                    
-                setProgress(100);
                 return WSEHelpers.reduce(potVectorList, options);
             case NONREBOOT:
-                setProgress(0);
                 ArrayList<PotVector> main_temp = new ArrayList();
                 ArrayList<PotVector> bonus_temp = new ArrayList();
                 potVectorList = new ArrayList();
@@ -185,7 +199,24 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 }
                 pool.shutdown();
                 while (!pool.isTerminated()){
-                    
+                    if(isCancelled()){
+                        pool.shutdownNow();
+                        return null;
+                    }
+                    else{
+                        int count = 0;
+                        for (Future<ArrayList<PotVector>> thread : allResults){
+                            if (thread.isDone()){
+                                count++;
+                            }
+                        }
+                        int newProgress = (int)Math.round((count * 1.0)/(allResults.size()*1.0) * 100);
+                        if (newProgress != progress){
+                            setProgress(newProgress);
+                            progress = newProgress;
+                            Thread.sleep(1000);
+                        }
+                    }
                 }
                 //All Workers should be finished
                 for (Future<ArrayList<PotVector>> threadResult: allResults){
