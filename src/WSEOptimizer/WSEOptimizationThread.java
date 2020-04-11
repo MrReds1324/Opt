@@ -34,7 +34,8 @@ public class WSEOptimizationThread  extends Thread {
     
     public ArrayList<PotVector> reducedOptimize;
     
-    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, PotType[][] weapon, PotType[][] secondary, PotType[][] emblem, PotType[] souls, ClassType classType, boolean sw_abs, boolean sec160, Server server){
+    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, PotType[][] weapon, PotType[][] secondary, PotType[][] emblem, PotType[] souls, ClassType classType,
+            double baseDMG, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, boolean sw_abs, boolean sec160, int options, Server server){
         this.hyper = hyper;
         this.legion = legion;
         this.weapon = weapon;
@@ -42,17 +43,32 @@ public class WSEOptimizationThread  extends Thread {
         this.emblem = emblem;
         this.souls = souls;
         this.classType = classType;
+        this.baseDMG = baseDMG;
+        this.baseBOSS = baseBoss;
+        this.baseATT = baseAtt;
+        this.baseIED = baseIed;
+        this.baseCRIT = baseCrit;
+        this.PDR = pdr;
         this.sw_abs = sw_abs;
         this.sec160 = sec160;
+        this.options = options;
         this.server = server;
     }
     
-    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, PotType[] souls, Server server){
+    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, PotType[] souls,
+            double baseDMG, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int options, Server server){
         this.hyper = hyper;
         this.legion = legion;
         this.mainPots = mainPots;
         this.bonusPots = bonusPots;
         this.souls = souls;
+        this.baseDMG = baseDMG;
+        this.baseBOSS = baseBoss;
+        this.baseATT = baseAtt;
+        this.baseIED = baseIed;
+        this.baseCRIT = baseCrit;
+        this.PDR = pdr;
+        this.options = options;
         this.server = server;
     }
     
