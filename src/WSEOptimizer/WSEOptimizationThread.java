@@ -105,6 +105,8 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
                                     }
                                 }
                             }
+                            //Makes the thread interruptable
+                            Thread.sleep(1);
                         }
                     break;
                 case NONREBOOT:
@@ -113,13 +115,15 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
                             for (PotVector bpot : this.bonusPots) {
                                 reducedOptimize = legionAndReduce(reducedOptimize, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, soul);
                             }
+                            //Makes the thread interruptable
+                            Thread.sleep(1);
                         }  
                     }
                     break;
                 }
         }   
         catch (Exception e) { 
-            // Throwing an exception 
+            // Throwing an exception
             return reducedOptimize;
         }
         return reducedOptimize;
