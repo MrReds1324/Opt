@@ -8,6 +8,12 @@ package WSEOptimizer;
 import java.util.ArrayList;
 import javax.swing.SwingWorker;
 import WSEOptimizer.Constants.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  *
@@ -42,6 +48,8 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
     private boolean sw_abs;
     private int options;
     private Server server;
+    
+    private ExecutorService pool;
 
     public WSEWorker(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, 
             PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, 
@@ -72,28 +80,32 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
     protected ArrayList<PotVector> doInBackground() throws Exception {
         switch(server){
             case REBOOT:
-                ArrayList<WSEOptimizationThread> threads = new ArrayList();
+                setProgress(0);
+                Collection<Callable<ArrayList<PotVector>>> threads = new ArrayList();
                 ArrayList<PotVector> potVectorList = new ArrayList();
                 //Carries out the optimization beginning with Emblem to find the perfect configuration
                 for (int[] hyper: hyperStats){
                     threads.add(new WSEOptimizationThread(hyper, legion, weapon, secondary, emblem, souls, classType, baseDMG, baseBOSS, baseATT, baseIED, 
                             baseCRIT, PDR, sw_abs, sec160, options, Server.REBOOT));
                 }
-                System.out.println("RUNNING");
-                for (WSEOptimizationThread thread : threads){
-                    thread.start();
+                pool = Executors.newFixedThreadPool(4);
+                List<Future<ArrayList<PotVector>>> allResults = new ArrayList();
+                for (Callable<ArrayList<PotVector>> thread : threads){
+                    allResults.add(pool.submit(thread));
                 }
-                for (WSEOptimizationThread thread : threads){
-                    try {
-                        thread.join();
-                        potVectorList.addAll(thread.getPotVectors());
-                    } catch (InterruptedException ex) {
-                        System.out.println(ex.toString());
-                    }
+                pool.shutdown();
+                while (!pool.isTerminated()){
+                    
                 }
+                //All Workers should be finished
+                for (Future<ArrayList<PotVector>> threadResult: allResults){
+                    potVectorList.addAll(threadResult.get());
+                }
+                    
                 setProgress(100);
                 return WSEHelpers.reduce(potVectorList, options);
             case NONREBOOT:
+                setProgress(0);
                 ArrayList<PotVector> main_temp = new ArrayList();
                 ArrayList<PotVector> bonus_temp = new ArrayList();
                 potVectorList = new ArrayList();
@@ -160,21 +172,24 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 }
 
                 threads = new ArrayList();
-//                long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * emblemBp.length * weaponBp.length * secondaryBp.length * lcombs.size();
+                long totalGenerationSpace = hyperStats.size() * souls.length * emblem.length * weapon.length * secondary.length * emblemBp.length * weaponBp.length * secondaryBp.length * legion.size();
+                long workerGenerationSpace = souls.length * emblem.length * weapon.length * secondary.length * emblemBp.length * weaponBp.length * secondaryBp.length * legion.size();
                 //Combines both main and bonus pots to generate all combinations of the two
                 for (int[] hyper : hyperStats){
                     threads.add(new WSEOptimizationThread(hyper, legion, main_temp, bonus_temp, souls, baseDMG, baseBOSS, baseATT, baseIED, baseCRIT, PDR, options, Server.NONREBOOT));
                 }
-                for (WSEOptimizationThread thread : threads){
-                    thread.start();
+                pool = Executors.newFixedThreadPool(4);
+                allResults = new ArrayList();
+                for (Callable<ArrayList<PotVector>> thread : threads){
+                    allResults.add(pool.submit(thread));
                 }
-                for (WSEOptimizationThread thread : threads){
-                    try {
-                        thread.join();
-                        potVectorList.addAll(thread.getPotVectors());
-                    } catch (InterruptedException ex) {
-                        System.out.println(ex.toString());
-                    }
+                pool.shutdown();
+                while (!pool.isTerminated()){
+                    
+                }
+                //All Workers should be finished
+                for (Future<ArrayList<PotVector>> threadResult: allResults){
+                    potVectorList.addAll(threadResult.get());
                 }
                 return WSEHelpers.reduce(potVectorList, options);
             }
