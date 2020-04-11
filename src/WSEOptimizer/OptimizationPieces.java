@@ -76,43 +76,45 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private ArrayList<PotVector> generatedWSE;
     //Variables related to the worker and listening to its progress and state
     private WSEWorker worker;
-    private PropertyChangeListener listener = 
-                               new PropertyChangeListener() {
+    private PropertyChangeListener listener = new PropertyChangeListener() {
         @Override
         public void propertyChange(PropertyChangeEvent event) {
-            String eventName = event.getPropertyName();
-            switch (eventName) {
-                        case "state":
-                            switch (worker.getState()) {
-                                case DONE:
-                                    try {
-                                        generatedWSE = worker.get();
-                                    } catch (InterruptedException ex) {
-                                        System.out.println(ex.toString());
-                                    } catch (ExecutionException ex) {
-                                        System.out.println(ex.toString());
-                                    }
-                                    long endTime = System.nanoTime();
-                                    time = (endTime - startTime) / 1000000000.0;
-                                    System.out.println("Execution time in seconds : " + time);
-                                    comboBoxMap = ComboBoxSupport.buildComboBoxMap(generatedWSE);
-                                    selectedPotVector = generatedWSE.get(0);
-                                    if (selectedPotVector != null) {
-                                        outputPotVector(selectedPotVector);
-                                        wseOptions.setEnabled(true);
-                                        wseOptions.setModel(ComboBoxSupport.buildComboBoxItems(comboBoxMap));
-                                    } else {
-                                        System.out.println("Something went terribly wrong and the vector was null!");
-                                    }
-                                    break;
-
-                            }
-                            break;
-                        case "progress":
-                            fd_Legion.setText(String.format("%d%% Done", worker.getProgress()));
-                            fd_LegionBP.setText(String.format("%d%% Done", worker.getProgress()));
-                            break;
-                    }
+            if (event.getPropertyName().equals("state")){
+                switch (worker.getState()) {
+                    case DONE:
+                        calculate.setEnabled(true);
+                        if (!worker.isCancelled()){
+                            try {
+                                generatedWSE = worker.get();
+                                } catch (InterruptedException ex) {
+                                    System.out.println(ex.toString());
+                                } catch (ExecutionException ex) {
+                                    System.out.println(ex.toString());
+                                }
+                                long endTime = System.nanoTime();
+                                time = (endTime - startTime) / 1000000000.0;
+                                System.out.println("Execution time in seconds : " + time);
+                                comboBoxMap = ComboBoxSupport.buildComboBoxMap(generatedWSE);
+                                selectedPotVector = generatedWSE.get(0);
+                                if (selectedPotVector != null) {
+                                    outputPotVector(selectedPotVector);
+                                    wseOptions.setEnabled(true);
+                                    wseOptions.setModel(ComboBoxSupport.buildComboBoxItems(comboBoxMap));
+                                } else {
+                                    System.out.println("Something went terribly wrong and the vector was null!");
+                                }
+                        }
+                        else{
+                            fd_Legion.setText("Optimization cancelled");
+                            fd_LegionBP.setText("Optimization cancelled");
+                        }
+                        break;
+                }
+            }
+            if (event.getPropertyName().equals("progress")) {
+                fd_Legion.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
+                fd_LegionBP.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
+            }
         }
     };
 
@@ -569,7 +571,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
 
-        clearInp.setText("Reset");
+        clearInp.setText("Reset/Cancel");
         clearInp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearInpActionPerformed(evt);
@@ -1745,11 +1747,12 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 fd_LegionBP.setText("ERROR OCCURED: REDO INPUTS");
             }
         }
+        calculate.setEnabled(false);
         calculate.setSelected(false);
     }//GEN-LAST:event_calculateActionPerformed
 
     private void clearInpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearInpActionPerformed
-        if (clearInp.isSelected()) {
+        if (clearInp.isSelected() && (worker.isDone() || worker.isCancelled())) {
             wepInp1.setText("");
             wepInp2.setText("");
             wepInp3.setText("");
@@ -1771,8 +1774,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
             embbpInp2.setText("");
             embbpInp3.setText("");
             wepInp4.setText("");
-            clearInp.setSelected(false);
         }
+        else if (!worker.isDone()){
+            worker.cancel(true);
+        }
+        clearInp.setSelected(false);
     }//GEN-LAST:event_clearInpActionPerformed
 
     private void wepSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepSelectActionPerformed
