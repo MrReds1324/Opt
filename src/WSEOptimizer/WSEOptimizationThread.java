@@ -34,8 +34,9 @@ public class WSEOptimizationThread  extends Thread {
     
     public ArrayList<PotVector> reducedOptimize;
     
-    public WSEOptimizationThread(int[] hyper, PotType[][] weapon, PotType[][] secondary, PotType[][] emblem, PotType[] souls, ClassType classType, boolean sw_abs, boolean sec160, Server server){
+    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, PotType[][] weapon, PotType[][] secondary, PotType[][] emblem, PotType[] souls, ClassType classType, boolean sw_abs, boolean sec160, Server server){
         this.hyper = hyper;
+        this.legion = legion;
         this.weapon = weapon;
         this.secondary = secondary;
         this.emblem = emblem;
@@ -46,8 +47,9 @@ public class WSEOptimizationThread  extends Thread {
         this.server = server;
     }
     
-    public WSEOptimizationThread(int[] hyper, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, PotType[] souls, Server server){
+    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, PotType[] souls, Server server){
         this.hyper = hyper;
+        this.legion = legion;
         this.mainPots = mainPots;
         this.bonusPots = bonusPots;
         this.souls = souls;
@@ -58,7 +60,6 @@ public class WSEOptimizationThread  extends Thread {
     public void run() { 
         try {
             reducedOptimize = new ArrayList();
-            System.out.println("STARTING THREAD");
             switch(this.server){
                 case REBOOT:
                     for (PotType soul : souls){
@@ -88,6 +89,7 @@ public class WSEOptimizationThread  extends Thread {
                                 }
                             }
                         }
+                    break;
                 case NONREBOOT:
                     for (PotType soul : souls){
                         for (PotVector mpot : this.mainPots) {
@@ -96,6 +98,7 @@ public class WSEOptimizationThread  extends Thread {
                             }
                         }  
                     }
+                    break;
                 }
         }   
         catch (Exception e) { 
