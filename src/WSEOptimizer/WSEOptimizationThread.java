@@ -1,6 +1,5 @@
 package WSEOptimizer;
 
-import static WSEOptimizer.WSEBuilder.legionAndAddReduce;
 import java.util.ArrayList;
 import WSEOptimizer.Constants.*;
 
@@ -15,10 +14,20 @@ public class WSEOptimizationThread  extends Thread {
     private PotType[][] emblem;
     
     private PotType[] souls;
+    private ArrayList<int[]> legion;
+    
     private boolean sec160;
     private boolean sw_abs;
     private ClassType classType;
     private Server server;
+    
+    private double baseATT;
+    private double baseBOSS;
+    private double baseDMG;
+    private double baseIED;
+    private double baseCRIT;
+    private double PDR;
+    private int options;
     
     private ArrayList<PotVector> mainPots;
     private ArrayList<PotVector> bonusPots;
@@ -61,18 +70,18 @@ public class WSEOptimizationThread  extends Thread {
                                 Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                                 switch (classType) {
                                     case ZERO:
-                                        reducedOptimize = legionAndAddReduce(reducedOptimize, wtemp, wtemp, etemp, null, null, null, hyper, soul);
+                                        reducedOptimize = legionAndReduce(reducedOptimize, wtemp, wtemp, etemp, null, null, null, hyper, soul);
                                         break;
                                     case KANNA:
                                         //Secondary fan only recognizes Magic Att%
                                         Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
-                                        reducedOptimize = legionAndAddReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, soul);
+                                        reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, soul);
                                         break;
                                     default:
                                         for (PotType[] sec : secondary) {
                                             //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                                             stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                                            reducedOptimize = legionAndAddReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, soul);
+                                            reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, soul);
                                         }
                                         break;
                                     }
@@ -83,7 +92,7 @@ public class WSEOptimizationThread  extends Thread {
                     for (PotType soul : souls){
                         for (PotVector mpot : this.mainPots) {
                             for (PotVector bpot : this.bonusPots) {
-                                reducedOptimize = legionAndAddReduce(reducedOptimize, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, soul);
+                                reducedOptimize = legionAndReduce(reducedOptimize, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, soul);
                             }
                         }  
                     }
@@ -97,5 +106,24 @@ public class WSEOptimizationThread  extends Thread {
     
     public ArrayList<PotVector> getPotVectors(){
         return this.reducedOptimize;
+    }
+    
+    public ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
+        // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
+        if (legion.size() == 1){
+            //Add the potVector to the list
+            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion.get(0), hyperStats, soul);
+            temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
+            potContainer.add(temp);
+        }
+        else{
+            for (int[] legion : legion){
+                //Add the potVector to the list
+                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion, hyperStats, soul);
+                temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
+                potContainer.add(temp);
+            }
+        }
+        return WSEHelpers.reduce(potContainer, options);
     }
 } 
