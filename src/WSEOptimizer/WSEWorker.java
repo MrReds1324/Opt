@@ -16,28 +16,52 @@ import WSEOptimizer.Constants.*;
 public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVector>>{
     
     //Sets up the matrices for the potentials, and legion
-    private static PotType[][] weapon;
-    private static PotType[][] secondary;
-    private static PotType[][] emblem;
+    private PotType[][] weapon;
+    private PotType[][] secondary;
+    private PotType[][] emblem;
     
-    private static PotType[][] weaponBp;
-    private static PotType[][] secondaryBp;
-    private static PotType[][] emblemBp;
+    private PotType[][] weaponBp;
+    private PotType[][] secondaryBp;
+    private PotType[][] emblemBp;
     
-    private static PotType[] souls;
+    private PotType[] souls;
     
-    private static ArrayList<int[]> hyperStats;
+    private ArrayList<int[]> hyperStats;
     
     //IED, BOSS
-    private static ArrayList<int[]> lcombs;
+    private ArrayList<int[]> legion;
     
-    private static double baseATT;
-    private static double baseBOSS;
-    private static double baseDMG;
-    private static double baseIED;
-    private static double baseCRIT;
-    private static double PDR;
-    private static int options;
+    private double baseATT;
+    private double baseBOSS;
+    private double baseDMG;
+    private double baseIED;
+    private double baseCRIT;
+    private double PDR;
+    private int options;
+    private Server server;
+    
+    public WSEWorker(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, 
+            PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, 
+            boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, PotType soulSelected, int numberOfOptions, Server server){
+        this.baseDMG = baseDamage;
+        this.baseBOSS = baseBoss;
+        this.baseATT = baseAtt;
+        this.baseIED = baseIed;
+        this.baseCRIT = baseCrit;
+        this.PDR = pdr;
+        this.hyperStats = WSEHelpers.generateHyperStats(hyperPoints);
+        this.legion = WSEHelpers.generateLegion(legionPoints);
+        this.weapon = WSEHelpers.setupWeaponGenerationSpace(wepSelected, mainConfig);
+        this.secondary = WSEHelpers.setupSecondaryGenerationSpace(secSelected, mainConfig, classType);
+        this.emblem = WSEHelpers.setupEmblemGenerationSpace(embSelected, mainConfig);
+        this.weaponBp = WSEHelpers.setupWeaponGenerationSpace(wepbpSelected, bpConfig);
+        this.secondary = WSEHelpers.setupSecondaryGenerationSpace(secbpSelected, bpConfig, classType);
+        this.emblem = WSEHelpers.setupEmblemGenerationSpace(embbpSelected, bpConfig);
+        this.souls = WSEHelpers.setupSoulsGenerationSpace(soulSelected);
+        this.options = numberOfOptions;
+        this.server = server;
+    
+    }
 
     @Override
     protected ArrayList<PotVector> doInBackground() throws Exception {
