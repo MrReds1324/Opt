@@ -112,8 +112,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 }
             }
             if (event.getPropertyName().equals("progress")) {
-                fd_Legion.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
-                fd_LegionBP.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
+                if (!worker.isCancelled()){
+                    fd_Legion.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
+                    fd_LegionBP.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
+                }
             }
         }
     };
