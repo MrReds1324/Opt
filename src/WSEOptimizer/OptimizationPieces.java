@@ -5,12 +5,14 @@
  */
 package WSEOptimizer;
 
-import WSEOptimizer.Constants.PotConfig;
-import WSEOptimizer.Constants.ClassType;
-import WSEOptimizer.Constants.PotType;
+import WSEOptimizer.Constants.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JToggleButton;
 
@@ -65,7 +67,53 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private double crit_base;
     private double crit_baseS;
     private int hyperPoints;
+    //Variables for tracking execution time for the worker
     private double time;
+    private long startTime;
+    private long endTime;
+    //Variables for trakcing the final output
+    private PotVector selectedPotVector;
+    private ArrayList<PotVector> generatedWSE;
+    //Variables related to the worker and listening to its progress and state
+    private WSEWorker worker;
+    private PropertyChangeListener listener = 
+                               new PropertyChangeListener() {
+        @Override
+        public void propertyChange(PropertyChangeEvent event) {
+            String eventName = event.getPropertyName();
+            switch (eventName) {
+                        case "state":
+                            switch (worker.getState()) {
+                                case DONE:
+                                    try {
+                                        generatedWSE = worker.get();
+                                    } catch (InterruptedException ex) {
+                                        System.out.println();
+                                    } catch (ExecutionException ex) {
+                                        System.out.println();
+                                    }
+                                    long endTime = System.nanoTime();
+                                    time = (endTime - startTime) / 1000000000.0;
+                                    System.out.println("Execution time in seconds : " + time);
+                                    comboBoxMap = ComboBoxSupport.buildComboBoxMap(generatedWSE);
+                                    selectedPotVector = generatedWSE.get(0);
+                                    if (selectedPotVector != null) {
+                                        outputPotVector(selectedPotVector);
+                                        wseOptions.setEnabled(true);
+                                        wseOptions.setModel(ComboBoxSupport.buildComboBoxItems(comboBoxMap));
+                                    } else {
+                                        System.out.println("Something went terribly wrong and the vector was null!");
+                                    }
+                                    break;
+
+                            }
+                            break;
+                        case "progress":
+                            fd_Legion.setText(String.format("%d%% Done", worker.getProgress()));
+                            break;
+                    }
+        }
+    };
 
     /**
      * Creates new form OptimizationPieces
@@ -1681,37 +1729,35 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     }
                 }
 
-                PotVector pt;
-                List<PotVector> simpleWSE;
                 //Start time of the method
-                long startTime = System.nanoTime();
-                if (!bp.isSelected()) {
-                    WSEBuilder.progressOutput = fd_Legion;
-                    if (soulSelect.isSelected()) {
-                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
-                    } else {
-                        simpleWSE = WSEBuilder.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
-                    }
-                } else {
-                    WSEBuilder.progressOutput = fd_LegionBP; 
-                    if (soulSelect.isSelected()) {
-                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
-                    } else {
-                        simpleWSE = WSEBuilder.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
-                    }
-                }
-                long endTime = System.nanoTime();
-                this.time = (endTime - startTime) / 1000000000.0;
-                System.out.println("Execution time in seconds : " + this.time);
-                this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
-                pt = simpleWSE.get(0);
-                if (pt != null) {
-                    outputPotVector(pt);
-                    wseOptions.setEnabled(true);
-                    wseOptions.setModel(ComboBoxSupport.buildComboBoxItems(comboBoxMap));
-                } else {
-                    System.out.println("Something went terribly wrong and the vector was null!");
-                }
+                this.startTime = System.nanoTime();
+                worker = new WSEWorker(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions, Server.REBOOT);
+                worker.addPropertyChangeListener(listener);
+                worker.execute();
+//                if (!bp.isSelected()) {
+////                    WSEHelpers.progressOutput = fd_Legion;
+//                    if (soulSelect.isSelected()) {
+//                        simpleWSE = WSEHelpers.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+//                    } else {
+//                        simpleWSE = WSEHelpers.reb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
+//                    }
+//                } else {
+////                    WSEHelpers.progressOutput = fd_LegionBP; 
+//                    if (soulSelect.isSelected()) {
+//                        simpleWSE = WSEHelpers.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), wepInp5_butSel, numberOfOptions);
+//                    } else {
+//                        simpleWSE = WSEHelpers.nreb_opt(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), PotType.DEFAULT, numberOfOptions);
+//                    }
+//                }
+//                this.comboBoxMap = ComboBoxSupport.buildComboBoxMap(simpleWSE);
+//                pt = simpleWSE.get(0);
+//                if (pt != null) {
+//                    outputPotVector(pt);
+//                    wseOptions.setEnabled(true);
+//                    wseOptions.setModel(ComboBoxSupport.buildComboBoxItems(comboBoxMap));
+//                } else {
+//                    System.out.println("Something went terribly wrong and the vector was null!");
+//                }
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e.toString());
