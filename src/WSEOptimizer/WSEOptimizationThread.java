@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
  *
  * @author ryan
  */
-public class WSEOptimizationThread implements Callable {
+public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
     private int[] hyper;
     private PotType[][] weapon;
     private PotType[][] secondary;
@@ -120,13 +120,12 @@ public class WSEOptimizationThread implements Callable {
         }   
         catch (Exception e) { 
             // Throwing an exception 
-            System.out.println (e.toString());
             return reducedOptimize;
         }
         return reducedOptimize;
     }
     
-    public ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
+    private ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
         // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
         if (legion.size() == 1){
             //Add the potVector to the list
