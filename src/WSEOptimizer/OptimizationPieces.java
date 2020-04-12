@@ -105,7 +105,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
                                 }
                         }
                         else{
-                            fd_Legion.setText("Optimization cancelled");
                             fd_LegionBP.setText("Optimization cancelled");
                         }
                         break;
@@ -113,7 +112,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
             if (event.getPropertyName().equals("progress")) {
                 if (!worker.isCancelled()){
-                    fd_Legion.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
                     fd_LegionBP.setText(String.format("Optimizing... %d%% completed", worker.getProgress()));
                 }
             }
@@ -135,7 +133,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        inputPanel = new javax.swing.JPanel();
         dmg = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -153,9 +153,19 @@ public class OptimizationPieces extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         union = new javax.swing.JTextField();
         no_3l = new javax.swing.JToggleButton();
+        jLabel8 = new javax.swing.JLabel();
+        monDef = new javax.swing.JTextField();
+        calculate = new javax.swing.JToggleButton();
+        inputSeperator = new javax.swing.JSeparator();
+        clearInp = new javax.swing.JToggleButton();
+        wseOptions = new javax.swing.JComboBox<>();
+        numOptions = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        critDmgInp = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        hyperStatsInp = new javax.swing.JTextField();
         wepSelect = new javax.swing.JToggleButton();
-        secSelect = new javax.swing.JToggleButton();
-        embSelect = new javax.swing.JToggleButton();
         wepInp1 = new javax.swing.JTextField();
         wepAtt1 = new javax.swing.JToggleButton();
         wepBoss1 = new javax.swing.JToggleButton();
@@ -168,6 +178,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepAtt3 = new javax.swing.JToggleButton();
         wepBoss3 = new javax.swing.JToggleButton();
         wepIed3 = new javax.swing.JToggleButton();
+        secSelect = new javax.swing.JToggleButton();
         secInp2 = new javax.swing.JTextField();
         secAtt2 = new javax.swing.JToggleButton();
         secBoss2 = new javax.swing.JToggleButton();
@@ -180,6 +191,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secIed3 = new javax.swing.JToggleButton();
         secBoss1 = new javax.swing.JToggleButton();
         secIed1 = new javax.swing.JToggleButton();
+        embSelect = new javax.swing.JToggleButton();
         embInp2 = new javax.swing.JTextField();
         embAtt2 = new javax.swing.JToggleButton();
         embIed2 = new javax.swing.JToggleButton();
@@ -189,28 +201,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embAtt1 = new javax.swing.JToggleButton();
         embIed3 = new javax.swing.JToggleButton();
         embIed1 = new javax.swing.JToggleButton();
-        jLabel8 = new javax.swing.JLabel();
-        monDef = new javax.swing.JTextField();
-        calculate = new javax.swing.JToggleButton();
-        clearInp = new javax.swing.JToggleButton();
         wepInp4 = new javax.swing.JTextField();
         soulSelect = new javax.swing.JToggleButton();
-        wepAtt4 = new javax.swing.JToggleButton();
         wepBoss4 = new javax.swing.JToggleButton();
+        wepAtt4 = new javax.swing.JToggleButton();
         wepIed4 = new javax.swing.JToggleButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
-        embbpIed2 = new javax.swing.JToggleButton();
-        embbpInp3 = new javax.swing.JTextField();
-        embbpAtt3 = new javax.swing.JToggleButton();
-        embbpInp1 = new javax.swing.JTextField();
-        embbpAtt1 = new javax.swing.JToggleButton();
-        embbpIed3 = new javax.swing.JToggleButton();
-        embbpIed1 = new javax.swing.JToggleButton();
-        wepbpSelect = new javax.swing.JToggleButton();
-        embbpSelect = new javax.swing.JToggleButton();
-        secbpSelect = new javax.swing.JToggleButton();
         wepbpInp2 = new javax.swing.JTextField();
         wepbpAtt2 = new javax.swing.JToggleButton();
         wepbpBoss2 = new javax.swing.JToggleButton();
@@ -223,825 +218,283 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbpIed3 = new javax.swing.JToggleButton();
         wepbpBoss1 = new javax.swing.JToggleButton();
         wepbpIed1 = new javax.swing.JToggleButton();
+        wepbpSelect = new javax.swing.JToggleButton();
+        secbpSelect = new javax.swing.JToggleButton();
         secbpInp2 = new javax.swing.JTextField();
         secbpAtt2 = new javax.swing.JToggleButton();
         secbpBoss2 = new javax.swing.JToggleButton();
         secbpIed2 = new javax.swing.JToggleButton();
         secbpInp3 = new javax.swing.JTextField();
         secbpAtt3 = new javax.swing.JToggleButton();
-        secbpInp1 = new javax.swing.JTextField();
         secbpBoss3 = new javax.swing.JToggleButton();
-        secbpAtt1 = new javax.swing.JToggleButton();
         secbpIed3 = new javax.swing.JToggleButton();
+        secbpInp1 = new javax.swing.JTextField();
+        secbpAtt1 = new javax.swing.JToggleButton();
         secbpBoss1 = new javax.swing.JToggleButton();
         secbpIed1 = new javax.swing.JToggleButton();
+        embbpIed2 = new javax.swing.JToggleButton();
+        embbpInp3 = new javax.swing.JTextField();
+        embbpAtt3 = new javax.swing.JToggleButton();
+        embbpInp1 = new javax.swing.JTextField();
+        embbpAtt1 = new javax.swing.JToggleButton();
+        embbpIed3 = new javax.swing.JToggleButton();
+        embbpIed1 = new javax.swing.JToggleButton();
+        embbpSelect = new javax.swing.JToggleButton();
         embbpInp2 = new javax.swing.JTextField();
         embbpAtt2 = new javax.swing.JToggleButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
         fd_LegionBP = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        fd_Legion = new javax.swing.JTextArea();
-        wseOptions = new javax.swing.JComboBox<>();
-        numOptions = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        critDmgInp = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        hyperStatsInp = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
-        setPreferredSize(new java.awt.Dimension(618, 715));
+        setMaximumSize(new java.awt.Dimension(623, 800));
+        setMinimumSize(new java.awt.Dimension(623, 800));
+        setPreferredSize(new java.awt.Dimension(623, 800));
         setResizable(false);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        inputPanel.setLayout(new java.awt.GridBagLayout());
 
         dmg.setText("214");
+        dmg.setMaximumSize(new java.awt.Dimension(60, 23));
+        dmg.setMinimumSize(new java.awt.Dimension(60, 23));
+        dmg.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        inputPanel.add(dmg, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("BOSS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("IED");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("ATT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel4, gridBagConstraints);
 
         boss.setText("170");
+        boss.setMaximumSize(new java.awt.Dimension(60, 23));
+        boss.setMinimumSize(new java.awt.Dimension(60, 23));
+        boss.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        inputPanel.add(boss, gridBagConstraints);
 
         att.setText("39");
+        att.setMaximumSize(new java.awt.Dimension(60, 23));
+        att.setMinimumSize(new java.awt.Dimension(60, 23));
+        att.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        inputPanel.add(att, gridBagConstraints);
 
         ied.setText("91.83");
+        ied.setMaximumSize(new java.awt.Dimension(60, 23));
+        ied.setMinimumSize(new java.awt.Dimension(60, 23));
+        ied.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        inputPanel.add(ied, gridBagConstraints);
 
-        bp.setText("Bonus Potential");
+        bp.setText("Bonus Pot");
+        bp.setMaximumSize(new java.awt.Dimension(103, 23));
+        bp.setMinimumSize(new java.awt.Dimension(103, 23));
+        bp.setPreferredSize(new java.awt.Dimension(103, 23));
         bp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bpActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(bp, gridBagConstraints);
 
-        weplvl.setText("lvl 160+ Weapon");
+        weplvl.setText("lvl 160+ Wep");
+        weplvl.setMaximumSize(new java.awt.Dimension(103, 23));
+        weplvl.setMinimumSize(new java.awt.Dimension(103, 23));
+        weplvl.setPreferredSize(new java.awt.Dimension(103, 23));
         weplvl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 weplvlActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(weplvl, gridBagConstraints);
 
-        seclvl.setText("lvl 160+ Secondary");
+        seclvl.setText("lvl 160+ Sec");
+        seclvl.setMaximumSize(new java.awt.Dimension(103, 23));
+        seclvl.setMinimumSize(new java.awt.Dimension(103, 23));
+        seclvl.setPreferredSize(new java.awt.Dimension(103, 23));
         seclvl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seclvlActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(seclvl, gridBagConstraints);
 
         kannaClass.setText("Kanna Class");
+        kannaClass.setMaximumSize(new java.awt.Dimension(103, 23));
+        kannaClass.setMinimumSize(new java.awt.Dimension(103, 23));
+        kannaClass.setPreferredSize(new java.awt.Dimension(103, 23));
         kannaClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kannaClassActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(kannaClass, gridBagConstraints);
 
         zeroClass.setText("Zero Class");
+        zeroClass.setMaximumSize(new java.awt.Dimension(103, 23));
+        zeroClass.setMinimumSize(new java.awt.Dimension(103, 23));
+        zeroClass.setPreferredSize(new java.awt.Dimension(103, 23));
         zeroClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 zeroClassActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(zeroClass, gridBagConstraints);
 
-        no_3lbp.setText("No 3 Line Att Bpot");
+        no_3lbp.setText("No 3L Att BP");
         no_3lbp.setEnabled(false);
+        no_3lbp.setMaximumSize(new java.awt.Dimension(103, 23));
+        no_3lbp.setMinimumSize(new java.awt.Dimension(103, 23));
+        no_3lbp.setPreferredSize(new java.awt.Dimension(103, 23));
         no_3lbp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 no_3lbpActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(no_3lbp, gridBagConstraints);
 
-        jLabel7.setText("Legion Points for Boss, IED, Crit Damage");
+        jLabel7.setText("Legion Points for Boss, IED, Crit DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel7, gridBagConstraints);
 
         union.setText("120");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(union, gridBagConstraints);
 
-        no_3l.setText("No 3 Line Att");
-        no_3l.setMaximumSize(new java.awt.Dimension(119, 23));
-        no_3l.setMinimumSize(new java.awt.Dimension(119, 23));
+        no_3l.setText("No 3L Att");
+        no_3l.setMaximumSize(new java.awt.Dimension(103, 23));
+        no_3l.setMinimumSize(new java.awt.Dimension(103, 23));
+        no_3l.setPreferredSize(new java.awt.Dimension(103, 23));
         no_3l.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 no_3lActionPerformed(evt);
             }
         });
-
-        wepSelect.setText("Weapon");
-        wepSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepSelectActionPerformed(evt);
-            }
-        });
-
-        secSelect.setText("Secondary");
-        secSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secSelectActionPerformed(evt);
-            }
-        });
-
-        embSelect.setText("Emblem");
-        embSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embSelectActionPerformed(evt);
-            }
-        });
-
-        wepInp1.setEnabled(false);
-
-        wepAtt1.setText("Att");
-        wepAtt1.setEnabled(false);
-        wepAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepAtt1ActionPerformed(evt);
-            }
-        });
-
-        wepBoss1.setText("Boss/Dmg");
-        wepBoss1.setEnabled(false);
-        wepBoss1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepBoss1ActionPerformed(evt);
-            }
-        });
-
-        wepIed1.setText("IED");
-        wepIed1.setEnabled(false);
-        wepIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepIed1ActionPerformed(evt);
-            }
-        });
-
-        wepInp2.setEnabled(false);
-
-        wepAtt2.setText("Att");
-        wepAtt2.setEnabled(false);
-        wepAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepAtt2ActionPerformed(evt);
-            }
-        });
-
-        wepBoss2.setText("Boss/Dmg");
-        wepBoss2.setEnabled(false);
-        wepBoss2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepBoss2ActionPerformed(evt);
-            }
-        });
-
-        wepIed2.setText("IED");
-        wepIed2.setEnabled(false);
-        wepIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepIed2ActionPerformed(evt);
-            }
-        });
-
-        wepInp3.setEnabled(false);
-
-        wepAtt3.setText("Att");
-        wepAtt3.setEnabled(false);
-        wepAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepAtt3ActionPerformed(evt);
-            }
-        });
-
-        wepBoss3.setText("Boss/Dmg");
-        wepBoss3.setEnabled(false);
-        wepBoss3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepBoss3ActionPerformed(evt);
-            }
-        });
-
-        wepIed3.setText("IED");
-        wepIed3.setEnabled(false);
-        wepIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepIed3ActionPerformed(evt);
-            }
-        });
-
-        secInp2.setEnabled(false);
-
-        secAtt2.setText("Att");
-        secAtt2.setEnabled(false);
-        secAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secAtt2ActionPerformed(evt);
-            }
-        });
-
-        secBoss2.setText("Boss/Dmg");
-        secBoss2.setEnabled(false);
-        secBoss2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secBoss2ActionPerformed(evt);
-            }
-        });
-
-        secIed2.setText("IED");
-        secIed2.setEnabled(false);
-        secIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secIed2ActionPerformed(evt);
-            }
-        });
-
-        secInp3.setEnabled(false);
-
-        secAtt3.setText("Att");
-        secAtt3.setEnabled(false);
-        secAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secAtt3ActionPerformed(evt);
-            }
-        });
-
-        secInp1.setEnabled(false);
-
-        secBoss3.setText("Boss/Dmg");
-        secBoss3.setEnabled(false);
-        secBoss3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secBoss3ActionPerformed(evt);
-            }
-        });
-
-        secAtt1.setText("Att");
-        secAtt1.setEnabled(false);
-        secAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secAtt1ActionPerformed(evt);
-            }
-        });
-
-        secIed3.setText("IED");
-        secIed3.setEnabled(false);
-        secIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secIed3ActionPerformed(evt);
-            }
-        });
-
-        secBoss1.setText("Boss/Dmg");
-        secBoss1.setEnabled(false);
-        secBoss1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secBoss1ActionPerformed(evt);
-            }
-        });
-
-        secIed1.setText("IED");
-        secIed1.setEnabled(false);
-        secIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secIed1ActionPerformed(evt);
-            }
-        });
-
-        embInp2.setEnabled(false);
-
-        embAtt2.setText("Att");
-        embAtt2.setEnabled(false);
-        embAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embAtt2ActionPerformed(evt);
-            }
-        });
-
-        embIed2.setText("IED");
-        embIed2.setEnabled(false);
-        embIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embIed2ActionPerformed(evt);
-            }
-        });
-
-        embInp3.setEnabled(false);
-
-        embAtt3.setText("Att");
-        embAtt3.setEnabled(false);
-        embAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embAtt3ActionPerformed(evt);
-            }
-        });
-
-        embInp1.setEnabled(false);
-
-        embAtt1.setText("Att");
-        embAtt1.setEnabled(false);
-        embAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embAtt1ActionPerformed(evt);
-            }
-        });
-
-        embIed3.setText("IED");
-        embIed3.setEnabled(false);
-        embIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embIed3ActionPerformed(evt);
-            }
-        });
-
-        embIed1.setText("IED");
-        embIed1.setEnabled(false);
-        embIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embIed1ActionPerformed(evt);
-            }
-        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(no_3l, gridBagConstraints);
 
         jLabel8.setText("Monster Defense");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel8, gridBagConstraints);
 
         monDef.setText("300");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(monDef, gridBagConstraints);
 
         calculate.setText("Calculate");
+        calculate.setMaximumSize(new java.awt.Dimension(207, 23));
+        calculate.setMinimumSize(new java.awt.Dimension(207, 23));
+        calculate.setPreferredSize(new java.awt.Dimension(207, 23));
         calculate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(calculate, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(inputSeperator, gridBagConstraints);
 
         clearInp.setText("Reset/Cancel");
+        clearInp.setMaximumSize(new java.awt.Dimension(207, 23));
+        clearInp.setMinimumSize(new java.awt.Dimension(207, 23));
+        clearInp.setPreferredSize(new java.awt.Dimension(207, 23));
         clearInp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearInpActionPerformed(evt);
             }
         });
-
-        wepInp4.setEnabled(false);
-
-        soulSelect.setText("Soul");
-        soulSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                soulSelectActionPerformed(evt);
-            }
-        });
-
-        wepAtt4.setText("Att");
-        wepAtt4.setEnabled(false);
-        wepAtt4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepAtt4ActionPerformed(evt);
-            }
-        });
-
-        wepBoss4.setText("Boss/Dmg");
-        wepBoss4.setEnabled(false);
-        wepBoss4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepBoss4ActionPerformed(evt);
-            }
-        });
-
-        wepIed4.setText("IED");
-        wepIed4.setEnabled(false);
-        wepIed4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepIed4ActionPerformed(evt);
-            }
-        });
-
-        jPanel1.setVisible(false);
-
-        embbpIed2.setText("IED");
-        embbpIed2.setEnabled(false);
-        embbpIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpIed2ActionPerformed(evt);
-            }
-        });
-
-        embbpInp3.setEnabled(false);
-
-        embbpAtt3.setText("Att");
-        embbpAtt3.setEnabled(false);
-        embbpAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpAtt3ActionPerformed(evt);
-            }
-        });
-
-        embbpInp1.setEnabled(false);
-
-        embbpAtt1.setText("Att");
-        embbpAtt1.setEnabled(false);
-        embbpAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpAtt1ActionPerformed(evt);
-            }
-        });
-
-        embbpIed3.setText("IED");
-        embbpIed3.setEnabled(false);
-        embbpIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpIed3ActionPerformed(evt);
-            }
-        });
-
-        embbpIed1.setText("IED");
-        embbpIed1.setEnabled(false);
-        embbpIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpIed1ActionPerformed(evt);
-            }
-        });
-
-        wepbpSelect.setText("Weapon Bonus Potential");
-        wepbpSelect.setEnabled(false);
-        wepbpSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpSelectActionPerformed(evt);
-            }
-        });
-
-        embbpSelect.setText("Emblem Bonus Potential");
-        embbpSelect.setEnabled(false);
-        embbpSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpSelectActionPerformed(evt);
-            }
-        });
-
-        secbpSelect.setText("Secondary Bonus Potential");
-        secbpSelect.setEnabled(false);
-        secbpSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpSelectActionPerformed(evt);
-            }
-        });
-
-        wepbpInp2.setEnabled(false);
-
-        wepbpAtt2.setText("Att");
-        wepbpAtt2.setEnabled(false);
-        wepbpAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpAtt2ActionPerformed(evt);
-            }
-        });
-
-        wepbpBoss2.setText("Boss/Dmg");
-        wepbpBoss2.setEnabled(false);
-        wepbpBoss2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpBoss2ActionPerformed(evt);
-            }
-        });
-
-        wepbpIed2.setText("IED");
-        wepbpIed2.setEnabled(false);
-        wepbpIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpIed2ActionPerformed(evt);
-            }
-        });
-
-        wepbpInp3.setEnabled(false);
-
-        wepbpAtt3.setText("Att");
-        wepbpAtt3.setEnabled(false);
-        wepbpAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpAtt3ActionPerformed(evt);
-            }
-        });
-
-        wepbpInp1.setEnabled(false);
-
-        wepbpBoss3.setText("Boss/Dmg");
-        wepbpBoss3.setEnabled(false);
-        wepbpBoss3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpBoss3ActionPerformed(evt);
-            }
-        });
-
-        wepbpAtt1.setText("Att");
-        wepbpAtt1.setEnabled(false);
-        wepbpAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpAtt1ActionPerformed(evt);
-            }
-        });
-
-        wepbpIed3.setText("IED");
-        wepbpIed3.setEnabled(false);
-        wepbpIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpIed3ActionPerformed(evt);
-            }
-        });
-
-        wepbpBoss1.setText("Boss/Dmg");
-        wepbpBoss1.setEnabled(false);
-        wepbpBoss1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpBoss1ActionPerformed(evt);
-            }
-        });
-
-        wepbpIed1.setText("IED");
-        wepbpIed1.setEnabled(false);
-        wepbpIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpIed1ActionPerformed(evt);
-            }
-        });
-
-        secbpInp2.setEnabled(false);
-
-        secbpAtt2.setText("Att");
-        secbpAtt2.setEnabled(false);
-        secbpAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpAtt2ActionPerformed(evt);
-            }
-        });
-
-        secbpBoss2.setText("Boss/Dmg");
-        secbpBoss2.setEnabled(false);
-        secbpBoss2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpBoss2ActionPerformed(evt);
-            }
-        });
-
-        secbpIed2.setText("IED");
-        secbpIed2.setEnabled(false);
-        secbpIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpIed2ActionPerformed(evt);
-            }
-        });
-
-        secbpInp3.setEnabled(false);
-
-        secbpAtt3.setText("Att");
-        secbpAtt3.setEnabled(false);
-        secbpAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpAtt3ActionPerformed(evt);
-            }
-        });
-
-        secbpInp1.setEnabled(false);
-
-        secbpBoss3.setText("Boss/Dmg");
-        secbpBoss3.setEnabled(false);
-        secbpBoss3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpBoss3ActionPerformed(evt);
-            }
-        });
-
-        secbpAtt1.setText("Att");
-        secbpAtt1.setEnabled(false);
-        secbpAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpAtt1ActionPerformed(evt);
-            }
-        });
-
-        secbpIed3.setText("IED");
-        secbpIed3.setEnabled(false);
-        secbpIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpIed3ActionPerformed(evt);
-            }
-        });
-
-        secbpBoss1.setText("Boss/Dmg");
-        secbpBoss1.setEnabled(false);
-        secbpBoss1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpBoss1ActionPerformed(evt);
-            }
-        });
-
-        secbpIed1.setText("IED");
-        secbpIed1.setEnabled(false);
-        secbpIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpIed1ActionPerformed(evt);
-            }
-        });
-
-        embbpInp2.setEnabled(false);
-
-        embbpAtt2.setText("Att");
-        embbpAtt2.setEnabled(false);
-        embbpAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpAtt2ActionPerformed(evt);
-            }
-        });
-
-        fd_LegionBP.setColumns(20);
-        fd_LegionBP.setRows(5);
-        fd_LegionBP.setEnabled(false);
-        fd_LegionBP.setPreferredSize(new java.awt.Dimension(164, 100));
-        jScrollPane1.setViewportView(fd_LegionBP);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(wepbpSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(wepbpAtt1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepbpBoss1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepbpIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(wepbpInp2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(wepbpAtt2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepbpBoss2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(1, 1, 1)
-                        .addComponent(wepbpIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(wepbpAtt3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepbpBoss3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepbpIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(wepbpInp3)
-                    .addComponent(wepbpInp1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(secbpAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(secbpBoss3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(secbpIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(secbpAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(secbpBoss2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(secbpIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(secbpInp2)
-                    .addComponent(secbpInp3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(secbpAtt1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(secbpBoss1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(secbpIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(secbpInp1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(secbpSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(embbpAtt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(embbpIed1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(embbpAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(embbpIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(embbpInp2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(embbpAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(embbpIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(embbpInp3)
-                    .addComponent(embbpSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addComponent(embbpInp1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(wepbpSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(secbpSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(embbpSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(wepbpInp1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(wepbpAtt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepbpBoss1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepbpIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpAtt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpBoss1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepbpInp2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(wepbpAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepbpBoss2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepbpIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpBoss2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepbpInp3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(wepbpAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepbpBoss3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepbpIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(secbpInp1)
-                        .addGap(44, 44, 44)
-                        .addComponent(secbpInp2)
-                        .addGap(44, 44, 44)
-                        .addComponent(secbpInp3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(secbpBoss3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secbpAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(1, 1, 1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(embbpInp1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(embbpAtt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(embbpIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(embbpInp2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(embbpAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(embbpIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(embbpInp3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(embbpAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(embbpIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel2.setVisible(true);
-
-        fd_Legion.setColumns(20);
-        fd_Legion.setRows(5);
-        fd_Legion.setEnabled(false);
-        fd_Legion.setPreferredSize(new java.awt.Dimension(164, 100));
-        jScrollPane2.setViewportView(fd_Legion);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 115, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
-        );
-
-        jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 244, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(clearInp, gridBagConstraints);
 
         wseOptions.setModel(new DefaultComboBoxModel());
         wseOptions.setEnabled(false);
@@ -1051,291 +504,1171 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 wseOptionsItemStateChanged(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(wseOptions, gridBagConstraints);
 
         numOptions.setText("10");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(numOptions, gridBagConstraints);
 
         jLabel5.setText("Additional Options");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel5, gridBagConstraints);
 
         critDmgInp.setText("90");
+        critDmgInp.setMaximumSize(new java.awt.Dimension(60, 23));
+        critDmgInp.setMinimumSize(new java.awt.Dimension(60, 23));
+        critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        inputPanel.add(critDmgInp, gridBagConstraints);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setLabelFor(critDmgInp);
-        jLabel9.setText("Critical Damage");
-
-        hyperStatsInp.setText("1266");
+        jLabel9.setText("CRIT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel9, gridBagConstraints);
 
         jLabel11.setLabelFor(hyperStatsInp);
-        jLabel11.setText("Hyper Points for Boss, Damage, IED, Crit Damage");
+        jLabel11.setText("Hyper Points for Boss, DMG, IED, Crit DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(jLabel11, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(wepInp4)
-                    .addComponent(soulSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bp, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(no_3lbp, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(no_3l, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dmg)
-                            .addComponent(boss)
-                            .addComponent(ied)
-                            .addComponent(att, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(weplvl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(seclvl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kannaClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(zeroClass, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(numOptions, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                                    .addComponent(hyperStatsInp))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(wseOptions, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(union, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(critDmgInp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(monDef, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel8)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(calculate, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(clearInp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jSeparator1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(wepAtt1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wepBoss1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wepIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(wepAtt2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wepBoss2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wepIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(wepInp2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(wepAtt3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wepBoss3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wepIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(wepInp3)
-                            .addComponent(wepInp1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(wepSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(secAtt1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(secBoss1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(secIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(secInp1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(secAtt2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(secBoss2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(secIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(secInp2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(secAtt3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(secBoss3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(secIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(secInp3)
-                            .addComponent(secSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(embAtt2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(embIed2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(embInp3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(embInp2)
-                            .addComponent(embInp1)
-                            .addComponent(embSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(embAtt3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(embIed3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(embAtt1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(embIed1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(wepAtt4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepBoss4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepIed4, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(monDef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(dmg)
-                        .addComponent(weplvl)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(critDmgInp)
-                        .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(seclvl)
-                    .addComponent(boss)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(union)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kannaClass)
-                    .addComponent(att)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(hyperStatsInp)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zeroClass)
-                    .addComponent(ied)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(numOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(wseOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(no_3lbp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(no_3l, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(calculate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(clearInp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(wepSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(wepInp1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(wepAtt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepBoss1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepInp2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(wepAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepBoss2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(wepInp3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(wepAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepBoss3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(wepIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(embSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(80, 80, 80)
-                                .addComponent(embInp2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(secSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(secInp1)
-                                    .addComponent(embInp1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(secAtt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(secBoss1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(secIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(embAtt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(embIed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(secInp2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(secAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secBoss2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secIed2)
-                            .addComponent(embAtt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(embIed2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(secInp3, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                            .addComponent(embInp3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(secAtt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secBoss3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(secIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(embAtt3)
-                            .addComponent(embIed3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(soulSelect)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(wepInp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(wepAtt4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(wepBoss4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(wepIed4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        hyperStatsInp.setText("1266");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(hyperStatsInp, gridBagConstraints);
+
+        wepSelect.setText("Weapon");
+        wepSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        wepSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepSelect, gridBagConstraints);
+
+        wepInp1.setEnabled(false);
+        wepInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepInp1, gridBagConstraints);
+
+        wepAtt1.setText("Att");
+        wepAtt1.setEnabled(false);
+        wepAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepAtt1.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepAtt1, gridBagConstraints);
+
+        wepBoss1.setText("BOSS");
+        wepBoss1.setEnabled(false);
+        wepBoss1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepBoss1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepBoss1, gridBagConstraints);
+
+        wepIed1.setText("IED");
+        wepIed1.setEnabled(false);
+        wepIed1.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepIed1.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepIed1.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepIed1, gridBagConstraints);
+
+        wepInp2.setEnabled(false);
+        wepInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepInp2, gridBagConstraints);
+
+        wepAtt2.setText("Att");
+        wepAtt2.setEnabled(false);
+        wepAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepAtt2, gridBagConstraints);
+
+        wepBoss2.setText("BOSS");
+        wepBoss2.setEnabled(false);
+        wepBoss2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepBoss2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepBoss2, gridBagConstraints);
+
+        wepIed2.setText("IED");
+        wepIed2.setEnabled(false);
+        wepIed2.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepIed2.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepIed2.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepIed2, gridBagConstraints);
+
+        wepInp3.setEnabled(false);
+        wepInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepInp3, gridBagConstraints);
+
+        wepAtt3.setText("Att");
+        wepAtt3.setEnabled(false);
+        wepAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepAtt3, gridBagConstraints);
+
+        wepBoss3.setText("BOSS");
+        wepBoss3.setEnabled(false);
+        wepBoss3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepBoss3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepBoss3, gridBagConstraints);
+
+        wepIed3.setText("IED");
+        wepIed3.setEnabled(false);
+        wepIed3.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepIed3.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepIed3.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepIed3, gridBagConstraints);
+
+        secSelect.setText("Secondary");
+        secSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        secSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        secSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        secSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secSelect, gridBagConstraints);
+
+        secInp2.setEnabled(false);
+        secInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        secInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        secInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secInp2, gridBagConstraints);
+
+        secAtt2.setText("ATT");
+        secAtt2.setEnabled(false);
+        secAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
+        secAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
+        secAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
+        secAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secAtt2, gridBagConstraints);
+
+        secBoss2.setText("BOSS");
+        secBoss2.setEnabled(false);
+        secBoss2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secBoss2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secBoss2, gridBagConstraints);
+
+        secIed2.setText("IED");
+        secIed2.setEnabled(false);
+        secIed2.setMaximumSize(new java.awt.Dimension(64, 23));
+        secIed2.setMinimumSize(new java.awt.Dimension(64, 23));
+        secIed2.setPreferredSize(new java.awt.Dimension(64, 23));
+        secIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secIed2, gridBagConstraints);
+
+        secInp3.setEnabled(false);
+        secInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        secInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        secInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secInp3, gridBagConstraints);
+
+        secAtt3.setText("ATT");
+        secAtt3.setEnabled(false);
+        secAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
+        secAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
+        secAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
+        secAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secAtt3, gridBagConstraints);
+
+        secInp1.setEnabled(false);
+        secInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        secInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        secInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secInp1, gridBagConstraints);
+
+        secBoss3.setText("BOSS");
+        secBoss3.setEnabled(false);
+        secBoss3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secBoss3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secBoss3, gridBagConstraints);
+
+        secAtt1.setText("ATT");
+        secAtt1.setEnabled(false);
+        secAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
+        secAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
+        secAtt1.setPreferredSize(new java.awt.Dimension(64, 23));
+        secAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secAtt1, gridBagConstraints);
+
+        secIed3.setText("IED");
+        secIed3.setEnabled(false);
+        secIed3.setMaximumSize(new java.awt.Dimension(64, 23));
+        secIed3.setMinimumSize(new java.awt.Dimension(64, 23));
+        secIed3.setPreferredSize(new java.awt.Dimension(64, 23));
+        secIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secIed3, gridBagConstraints);
+
+        secBoss1.setText("BOSS");
+        secBoss1.setEnabled(false);
+        secBoss1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secBoss1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secBoss1, gridBagConstraints);
+
+        secIed1.setText("IED");
+        secIed1.setEnabled(false);
+        secIed1.setMaximumSize(new java.awt.Dimension(64, 23));
+        secIed1.setMinimumSize(new java.awt.Dimension(64, 23));
+        secIed1.setPreferredSize(new java.awt.Dimension(64, 23));
+        secIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secIed1, gridBagConstraints);
+
+        embSelect.setText("Emblem");
+        embSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        embSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        embSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        embSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.weightx = 2.0;
+        inputPanel.add(embSelect, gridBagConstraints);
+
+        embInp2.setEnabled(false);
+        embInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        embInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        embInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embInp2, gridBagConstraints);
+
+        embAtt2.setText("Att");
+        embAtt2.setEnabled(false);
+        embAtt2.setMaximumSize(new java.awt.Dimension(101, 23));
+        embAtt2.setMinimumSize(new java.awt.Dimension(101, 23));
+        embAtt2.setPreferredSize(new java.awt.Dimension(101, 23));
+        embAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embAtt2, gridBagConstraints);
+
+        embIed2.setText("IED");
+        embIed2.setEnabled(false);
+        embIed2.setMaximumSize(new java.awt.Dimension(101, 23));
+        embIed2.setMinimumSize(new java.awt.Dimension(101, 23));
+        embIed2.setPreferredSize(new java.awt.Dimension(101, 23));
+        embIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embIed2, gridBagConstraints);
+
+        embInp3.setEnabled(false);
+        embInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        embInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        embInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embInp3, gridBagConstraints);
+
+        embAtt3.setText("Att");
+        embAtt3.setEnabled(false);
+        embAtt3.setMaximumSize(new java.awt.Dimension(101, 23));
+        embAtt3.setMinimumSize(new java.awt.Dimension(101, 23));
+        embAtt3.setPreferredSize(new java.awt.Dimension(101, 23));
+        embAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embAtt3, gridBagConstraints);
+
+        embInp1.setEnabled(false);
+        embInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        embInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        embInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embInp1, gridBagConstraints);
+
+        embAtt1.setText("Att");
+        embAtt1.setEnabled(false);
+        embAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embAtt1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embAtt1, gridBagConstraints);
+
+        embIed3.setText("IED");
+        embIed3.setEnabled(false);
+        embIed3.setMaximumSize(new java.awt.Dimension(101, 23));
+        embIed3.setMinimumSize(new java.awt.Dimension(101, 23));
+        embIed3.setPreferredSize(new java.awt.Dimension(101, 23));
+        embIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embIed3, gridBagConstraints);
+
+        embIed1.setText("IED");
+        embIed1.setEnabled(false);
+        embIed1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embIed1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embIed1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embIed1, gridBagConstraints);
+
+        wepInp4.setEnabled(false);
+        wepInp4.setMinimumSize(new java.awt.Dimension(621, 23));
+        wepInp4.setPreferredSize(new java.awt.Dimension(621, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 10;
+        inputPanel.add(wepInp4, gridBagConstraints);
+
+        soulSelect.setText("Soul");
+        soulSelect.setMaximumSize(new java.awt.Dimension(621, 23));
+        soulSelect.setMinimumSize(new java.awt.Dimension(621, 23));
+        soulSelect.setPreferredSize(new java.awt.Dimension(621, 23));
+        soulSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soulSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 10;
+        inputPanel.add(soulSelect, gridBagConstraints);
+
+        wepBoss4.setText("Boss/Dmg");
+        wepBoss4.setEnabled(false);
+        wepBoss4.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepBoss4.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepBoss4.setPreferredSize(new java.awt.Dimension(207, 23));
+        wepBoss4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepBoss4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepBoss4, gridBagConstraints);
+
+        wepAtt4.setText("Att");
+        wepAtt4.setEnabled(false);
+        wepAtt4.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepAtt4.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepAtt4.setPreferredSize(new java.awt.Dimension(207, 23));
+        wepAtt4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepAtt4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepAtt4, gridBagConstraints);
+
+        wepIed4.setText("IED");
+        wepIed4.setEnabled(false);
+        wepIed4.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepIed4.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepIed4.setPreferredSize(new java.awt.Dimension(207, 23));
+        wepIed4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepIed4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepIed4, gridBagConstraints);
+
+        wepbpInp2.setEnabled(false);
+        wepbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpInp2, gridBagConstraints);
+
+        wepbpAtt2.setText("Att");
+        wepbpAtt2.setEnabled(false);
+        wepbpAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepbpAtt2, gridBagConstraints);
+
+        wepbpBoss2.setText("BOSS");
+        wepbpBoss2.setEnabled(false);
+        wepbpBoss2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpBoss2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpBoss2, gridBagConstraints);
+
+        wepbpIed2.setText("IED");
+        wepbpIed2.setEnabled(false);
+        wepbpIed2.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpIed2.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpIed2.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepbpIed2, gridBagConstraints);
+
+        wepbpInp3.setEnabled(false);
+        wepbpInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepbpInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpInp3, gridBagConstraints);
+
+        wepbpAtt3.setText("Att");
+        wepbpAtt3.setEnabled(false);
+        wepbpAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepbpAtt3, gridBagConstraints);
+
+        wepbpInp1.setEnabled(false);
+        wepbpInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepbpInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepbpInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpInp1, gridBagConstraints);
+
+        wepbpBoss3.setText("BOSS");
+        wepbpBoss3.setEnabled(false);
+        wepbpBoss3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpBoss3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpBoss3, gridBagConstraints);
+
+        wepbpAtt1.setText("Att");
+        wepbpAtt1.setEnabled(false);
+        wepbpAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt1.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepbpAtt1, gridBagConstraints);
+
+        wepbpIed3.setText("IED");
+        wepbpIed3.setEnabled(false);
+        wepbpIed3.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpIed3.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpIed3.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepbpIed3, gridBagConstraints);
+
+        wepbpBoss1.setText("BOSS");
+        wepbpBoss1.setEnabled(false);
+        wepbpBoss1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpBoss1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpBoss1, gridBagConstraints);
+
+        wepbpIed1.setText("IED");
+        wepbpIed1.setEnabled(false);
+        wepbpIed1.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpIed1.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpIed1.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepbpIed1, gridBagConstraints);
+
+        wepbpSelect.setText("Weapon Bonus Potential");
+        wepbpSelect.setEnabled(false);
+        wepbpSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepbpSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepbpSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        wepbpSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpSelect, gridBagConstraints);
+
+        secbpSelect.setText("Secondary Bonus Potential");
+        secbpSelect.setEnabled(false);
+        secbpSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        secbpSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        secbpSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        secbpSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpSelect, gridBagConstraints);
+
+        secbpInp2.setEnabled(false);
+        secbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        secbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        secbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpInp2, gridBagConstraints);
+
+        secbpAtt2.setText("ATT");
+        secbpAtt2.setEnabled(false);
+        secbpAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secbpAtt2, gridBagConstraints);
+
+        secbpBoss2.setText("BOSS");
+        secbpBoss2.setEnabled(false);
+        secbpBoss2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpBoss2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpBoss2, gridBagConstraints);
+
+        secbpIed2.setText("IED");
+        secbpIed2.setEnabled(false);
+        secbpIed2.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpIed2.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpIed2.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secbpIed2, gridBagConstraints);
+
+        secbpInp3.setEnabled(false);
+        secbpInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        secbpInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        secbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpInp3, gridBagConstraints);
+
+        secbpAtt3.setText("ATT");
+        secbpAtt3.setEnabled(false);
+        secbpAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secbpAtt3, gridBagConstraints);
+
+        secbpBoss3.setText("BOSS");
+        secbpBoss3.setEnabled(false);
+        secbpBoss3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpBoss3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpBoss3, gridBagConstraints);
+
+        secbpIed3.setText("IED");
+        secbpIed3.setEnabled(false);
+        secbpIed3.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpIed3.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpIed3.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secbpIed3, gridBagConstraints);
+
+        secbpInp1.setEnabled(false);
+        secbpInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        secbpInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        secbpInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpInp1, gridBagConstraints);
+
+        secbpAtt1.setText("ATT");
+        secbpAtt1.setEnabled(false);
+        secbpAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpAtt1.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secbpAtt1, gridBagConstraints);
+
+        secbpBoss1.setText("BOSS");
+        secbpBoss1.setEnabled(false);
+        secbpBoss1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpBoss1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpBoss1, gridBagConstraints);
+
+        secbpIed1.setText("IED");
+        secbpIed1.setEnabled(false);
+        secbpIed1.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpIed1.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpIed1.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secbpIed1, gridBagConstraints);
+
+        embbpIed2.setText("IED");
+        embbpIed2.setEnabled(false);
+        embbpIed2.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpIed2.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpIed2.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embbpIed2, gridBagConstraints);
+
+        embbpInp3.setEnabled(false);
+        embbpInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        embbpInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        embbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        inputPanel.add(embbpInp3, gridBagConstraints);
+
+        embbpAtt3.setText("Att");
+        embbpAtt3.setEnabled(false);
+        embbpAtt3.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpAtt3.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpAtt3.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embbpAtt3, gridBagConstraints);
+
+        embbpInp1.setEnabled(false);
+        embbpInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        embbpInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        embbpInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embbpInp1, gridBagConstraints);
+
+        embbpAtt1.setText("Att");
+        embbpAtt1.setEnabled(false);
+        embbpAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpAtt1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embbpAtt1, gridBagConstraints);
+
+        embbpIed3.setText("IED");
+        embbpIed3.setEnabled(false);
+        embbpIed3.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpIed3.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpIed3.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embbpIed3, gridBagConstraints);
+
+        embbpIed1.setText("IED");
+        embbpIed1.setEnabled(false);
+        embbpIed1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpIed1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpIed1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embbpIed1, gridBagConstraints);
+
+        embbpSelect.setText("Emblem Bonus Potential");
+        embbpSelect.setEnabled(false);
+        embbpSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        embbpSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        embbpSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        embbpSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embbpSelect, gridBagConstraints);
+
+        embbpInp2.setEnabled(false);
+        embbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        embbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        embbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embbpInp2, gridBagConstraints);
+
+        embbpAtt2.setText("Att");
+        embbpAtt2.setEnabled(false);
+        embbpAtt2.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpAtt2.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpAtt2.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embbpAtt2, gridBagConstraints);
+
+        fd_LegionBP.setColumns(20);
+        fd_LegionBP.setRows(5);
+        fd_LegionBP.setEnabled(false);
+        fd_LegionBP.setMinimumSize(new java.awt.Dimension(621, 150));
+        fd_LegionBP.setPreferredSize(new java.awt.Dimension(621, 150));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(fd_LegionBP, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        getContentPane().add(inputPanel, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1351,9 +1684,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private void bpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpActionPerformed
         if (bp.isSelected()) {
             this.server = Server.NONREBOOT;
-            setSize(618, 960);
-            jPanel1.setVisible(true);
-            jPanel2.setVisible(false);
             wepbpSelect.setEnabled(true);
             if (classType != ClassType.ZERO) {
                 secbpSelect.setEnabled(true);
@@ -1362,9 +1692,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
             no_3lbp.setEnabled(true);
         } else {
             this.server = Server.REBOOT;
-            setSize(618, 715);
-            jPanel1.setVisible(false);
-            jPanel2.setVisible(true);
             wepbpSelect.setEnabled(false);
             secbpSelect.setEnabled(false);
             embbpSelect.setEnabled(false);
@@ -1429,7 +1756,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 if (this.classType == ClassType.ZERO) {
                     zero_scale = 2;
                 }
-                fd_Legion.setText("Optimizing...");
                 fd_LegionBP.setText("Optimizing...");
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepSelect.isSelected()) {
@@ -1748,7 +2074,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e.toString());
-                fd_Legion.setText("ERROR OCCURED: REDO INPUTS");
                 fd_LegionBP.setText("ERROR OCCURED: REDO INPUTS");
             }
         }
@@ -2194,7 +2519,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             ItemPrinter.printSoul(wepInp4, potVector.getSoul());
         }
         double calcBase = ((1.3 + this.crit_baseS) * (1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
-        ItemPrinter.printLegionHypersAndFD(fd_Legion, fd_LegionBP, calcBase, this.time, potVector);
+        ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, this.time, potVector);
     }
 
     private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
@@ -2274,10 +2599,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField embbpInp2;
     private javax.swing.JTextField embbpInp3;
     private javax.swing.JToggleButton embbpSelect;
-    private javax.swing.JTextArea fd_Legion;
     private javax.swing.JTextArea fd_LegionBP;
     private javax.swing.JTextField hyperStatsInp;
     private javax.swing.JTextField ied;
+    private javax.swing.JPanel inputPanel;
+    private javax.swing.JSeparator inputSeperator;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -2287,12 +2613,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToggleButton kannaClass;
     private javax.swing.JTextField monDef;
     private javax.swing.JToggleButton no_3l;

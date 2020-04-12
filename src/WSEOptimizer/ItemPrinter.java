@@ -38,7 +38,7 @@ public class ItemPrinter {
         }
     }
 
-    public static void printLegionHypersAndFD(JTextArea legion, JTextArea legionBP, double baseCalc, double time, PotVector potVector) {
+    public static void printLegionHypersAndFD(JTextArea legionBP, double baseCalc, double time, PotVector potVector) {
         int[] hyperStats = potVector.getHypers();
         String[] legionStrings = potVector.legionStrings();
         String finished = formattedConcat(formattedConcat("----Hypers----", String.format("%.3f%% Final Damage", (potVector.getCalc() / baseCalc - 1) * 100), 67), String.format("In %.5f Seconds\n", time), 110);
@@ -47,7 +47,6 @@ public class ItemPrinter {
         finished += formattedConcat(formattedConcat(String.format("%02d Points into Damage", hyperStats[2]), legionStrings[1], 69), String.format("%.3f%% Total IED\n", 100 * potVector.getIed()), 109);
         finished += formattedConcat(formattedConcat(String.format("%02d Points into IED", hyperStats[3]), legionStrings[2], 69), String.format("%.1f%% Total Crit Damage\n", 100 * potVector.getCrit()), 108);
 
-        legion.setText(finished);
         legionBP.setText(finished);
     }
     
