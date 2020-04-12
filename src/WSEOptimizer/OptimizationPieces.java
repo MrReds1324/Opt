@@ -1428,6 +1428,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 if (this.classType == ClassType.ZERO) {
                     zero_scale = 2;
                 }
+                fd_Legion.setText("Optimizing...");
+                fd_LegionBP.setText("Optimizing...");
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
