@@ -82,6 +82,8 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
         List<Future<ArrayList<PotVector>>> allResults = new ArrayList();
         Collection<Callable<ArrayList<PotVector>>> threads = new ArrayList();
         ArrayList<PotVector> potVectorList = new ArrayList();
+        int coreCount = Runtime.getRuntime().availableProcessors();
+        System.out.println(coreCount + " processor" + (coreCount != 1 ? "s are " : " is ") + "available");
         switch(server){
             case REBOOT:
                 //Carries out the optimization beginning with Emblem to find the perfect configuration
@@ -89,7 +91,7 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                     threads.add(new WSEOptimizationThread(hyper, legion, weapon, secondary, emblem, souls, classType, baseDMG, baseBOSS, baseATT, baseIED, 
                             baseCRIT, PDR, sw_abs, sec160, options, Server.REBOOT));
                 }
-                pool = Executors.newFixedThreadPool(4);
+                pool = Executors.newFixedThreadPool(coreCount);
                 for (Callable<ArrayList<PotVector>> thread : threads){
                     allResults.add(pool.submit(thread));
                 }
@@ -190,7 +192,7 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 for (int[] hyper : hyperStats){
                     threads.add(new WSEOptimizationThread(hyper, legion, main_temp, bonus_temp, souls, baseDMG, baseBOSS, baseATT, baseIED, baseCRIT, PDR, options, Server.NONREBOOT));
                 }
-                pool = Executors.newFixedThreadPool(4);
+                pool = Executors.newFixedThreadPool(coreCount);
                 for (Callable<ArrayList<PotVector>> thread : threads){
                     allResults.add(pool.submit(thread));
                 }
