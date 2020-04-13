@@ -589,7 +589,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepInp1, gridBagConstraints);
 
-        wepAtt1.setText("Att");
+        wepAtt1.setText("ATT");
         wepAtt1.setEnabled(false);
         wepAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
         wepAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
@@ -644,7 +644,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepInp2, gridBagConstraints);
 
-        wepAtt2.setText("Att");
+        wepAtt2.setText("ATT");
         wepAtt2.setEnabled(false);
         wepAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
         wepAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
@@ -700,7 +700,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepInp3, gridBagConstraints);
 
-        wepAtt3.setText("Att");
+        wepAtt3.setText("ATT");
         wepAtt3.setEnabled(false);
         wepAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
         wepAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
@@ -951,7 +951,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(embInp1, gridBagConstraints);
 
-        embAtt1.setText("Att");
+        embAtt1.setText("ATT");
         embAtt1.setEnabled(false);
         embAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
         embAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
@@ -995,7 +995,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(embInp2, gridBagConstraints);
 
-        embAtt2.setText("Att");
+        embAtt2.setText("ATT");
         embAtt2.setEnabled(false);
         embAtt2.setMaximumSize(new java.awt.Dimension(101, 23));
         embAtt2.setMinimumSize(new java.awt.Dimension(101, 23));
@@ -1179,7 +1179,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepbpInp1, gridBagConstraints);
 
-        wepbpAtt1.setText("Att");
+        wepbpAtt1.setText("ATT");
         wepbpAtt1.setEnabled(false);
         wepbpAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
         wepbpAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
@@ -1234,7 +1234,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepbpInp2, gridBagConstraints);
 
-        wepbpAtt2.setText("Att");
+        wepbpAtt2.setText("ATT");
         wepbpAtt2.setEnabled(false);
         wepbpAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
         wepbpAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
@@ -1289,7 +1289,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepbpInp3, gridBagConstraints);
 
-        wepbpAtt3.setText("Att");
+        wepbpAtt3.setText("ATT");
         wepbpAtt3.setEnabled(false);
         wepbpAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
         wepbpAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
@@ -1541,7 +1541,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(embbpInp1, gridBagConstraints);
 
-        embbpAtt1.setText("Att");
+        embbpAtt1.setText("ATT");
         embbpAtt1.setEnabled(false);
         embbpAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
         embbpAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
@@ -1585,7 +1585,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(embbpInp2, gridBagConstraints);
 
-        embbpAtt2.setText("Att");
+        embbpAtt2.setText("ATT");
         embbpAtt2.setEnabled(false);
         embbpAtt2.setMaximumSize(new java.awt.Dimension(101, 23));
         embbpAtt2.setMinimumSize(new java.awt.Dimension(101, 23));
@@ -1630,7 +1630,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         inputPanel.add(embbpInp3, gridBagConstraints);
 
-        embbpAtt3.setText("Att");
+        embbpAtt3.setText("ATT");
         embbpAtt3.setEnabled(false);
         embbpAtt3.setMaximumSize(new java.awt.Dimension(101, 23));
         embbpAtt3.setMinimumSize(new java.awt.Dimension(101, 23));
