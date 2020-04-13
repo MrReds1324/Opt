@@ -21,7 +21,7 @@ public class ComboBoxSupport {
         PotVector max = wseList1.get(0);
         for (int i = 0; i < wseList1.size(); i++) {
             double percentFD = ((wseList1.get(i).getCalc() / max.getCalc() - 1) * 100);
-            String key = String.format("%d: %.4f%% FD", i, percentFD);
+            String key = String.format("%d: %.4f%% Final Damage", i, percentFD);
             builderMap.put(key, wseList1.get(i));
         }
         return builderMap;
