@@ -137,34 +137,34 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         inputPanel = new javax.swing.JPanel();
         dmg = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        dmgLabel = new javax.swing.JLabel();
         boss = new javax.swing.JTextField();
+        bossLabel = new javax.swing.JLabel();
         att = new javax.swing.JTextField();
+        attLabel = new javax.swing.JLabel();
+        critDmgInp = new javax.swing.JTextField();
+        critdmgLabel = new javax.swing.JLabel();
         ied = new javax.swing.JTextField();
-        bp = new javax.swing.JToggleButton();
+        iedLabel = new javax.swing.JLabel();
         weplvl = new javax.swing.JToggleButton();
         seclvl = new javax.swing.JToggleButton();
         kannaClass = new javax.swing.JToggleButton();
         zeroClass = new javax.swing.JToggleButton();
-        no_3lbp = new javax.swing.JToggleButton();
-        jLabel7 = new javax.swing.JLabel();
+        bp = new javax.swing.JToggleButton();
         union = new javax.swing.JTextField();
-        no_3l = new javax.swing.JToggleButton();
-        jLabel8 = new javax.swing.JLabel();
-        monDef = new javax.swing.JTextField();
-        calculate = new javax.swing.JToggleButton();
-        inputSeperator = new javax.swing.JSeparator();
-        clearInp = new javax.swing.JToggleButton();
-        wseOptions = new javax.swing.JComboBox<>();
-        numOptions = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        critDmgInp = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        legionLabel = new javax.swing.JLabel();
         hyperStatsInp = new javax.swing.JTextField();
+        hyperLabel = new javax.swing.JLabel();
+        monDef = new javax.swing.JTextField();
+        pdrLabel = new javax.swing.JLabel();
+        numOptions = new javax.swing.JTextField();
+        optionsLabel = new javax.swing.JLabel();
+        wseOptions = new javax.swing.JComboBox<>();
+        calculate = new javax.swing.JToggleButton();
+        no_3lbp = new javax.swing.JToggleButton();
+        no_3l = new javax.swing.JToggleButton();
+        clearInp = new javax.swing.JToggleButton();
+        inputSeperator = new javax.swing.JSeparator();
         wepSelect = new javax.swing.JToggleButton();
         wepInp1 = new javax.swing.JTextField();
         wepAtt1 = new javax.swing.JToggleButton();
@@ -179,47 +179,52 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepBoss3 = new javax.swing.JToggleButton();
         wepIed3 = new javax.swing.JToggleButton();
         secSelect = new javax.swing.JToggleButton();
+        secInp1 = new javax.swing.JTextField();
+        secAtt1 = new javax.swing.JToggleButton();
+        secBoss1 = new javax.swing.JToggleButton();
+        secIed1 = new javax.swing.JToggleButton();
         secInp2 = new javax.swing.JTextField();
         secAtt2 = new javax.swing.JToggleButton();
         secBoss2 = new javax.swing.JToggleButton();
         secIed2 = new javax.swing.JToggleButton();
         secInp3 = new javax.swing.JTextField();
         secAtt3 = new javax.swing.JToggleButton();
-        secInp1 = new javax.swing.JTextField();
         secBoss3 = new javax.swing.JToggleButton();
-        secAtt1 = new javax.swing.JToggleButton();
         secIed3 = new javax.swing.JToggleButton();
-        secBoss1 = new javax.swing.JToggleButton();
-        secIed1 = new javax.swing.JToggleButton();
         embSelect = new javax.swing.JToggleButton();
+        embInp1 = new javax.swing.JTextField();
+        embAtt1 = new javax.swing.JToggleButton();
+        embIed1 = new javax.swing.JToggleButton();
         embInp2 = new javax.swing.JTextField();
         embAtt2 = new javax.swing.JToggleButton();
         embIed2 = new javax.swing.JToggleButton();
         embInp3 = new javax.swing.JTextField();
         embAtt3 = new javax.swing.JToggleButton();
-        embInp1 = new javax.swing.JTextField();
-        embAtt1 = new javax.swing.JToggleButton();
         embIed3 = new javax.swing.JToggleButton();
-        embIed1 = new javax.swing.JToggleButton();
-        wepInp4 = new javax.swing.JTextField();
         soulSelect = new javax.swing.JToggleButton();
-        wepBoss4 = new javax.swing.JToggleButton();
+        wepInp4 = new javax.swing.JTextField();
         wepAtt4 = new javax.swing.JToggleButton();
+        wepBoss4 = new javax.swing.JToggleButton();
         wepIed4 = new javax.swing.JToggleButton();
+        bonusSeperator = new javax.swing.JSeparator();
+        wepbpSelect = new javax.swing.JToggleButton();
+        wepbpInp1 = new javax.swing.JTextField();
+        wepbpAtt1 = new javax.swing.JToggleButton();
+        wepbpBoss1 = new javax.swing.JToggleButton();
+        wepbpIed1 = new javax.swing.JToggleButton();
         wepbpInp2 = new javax.swing.JTextField();
         wepbpAtt2 = new javax.swing.JToggleButton();
         wepbpBoss2 = new javax.swing.JToggleButton();
         wepbpIed2 = new javax.swing.JToggleButton();
         wepbpInp3 = new javax.swing.JTextField();
         wepbpAtt3 = new javax.swing.JToggleButton();
-        wepbpInp1 = new javax.swing.JTextField();
         wepbpBoss3 = new javax.swing.JToggleButton();
-        wepbpAtt1 = new javax.swing.JToggleButton();
         wepbpIed3 = new javax.swing.JToggleButton();
-        wepbpBoss1 = new javax.swing.JToggleButton();
-        wepbpIed1 = new javax.swing.JToggleButton();
-        wepbpSelect = new javax.swing.JToggleButton();
         secbpSelect = new javax.swing.JToggleButton();
+        secbpInp1 = new javax.swing.JTextField();
+        secbpAtt1 = new javax.swing.JToggleButton();
+        secbpBoss1 = new javax.swing.JToggleButton();
+        secbpIed1 = new javax.swing.JToggleButton();
         secbpInp2 = new javax.swing.JTextField();
         secbpAtt2 = new javax.swing.JToggleButton();
         secbpBoss2 = new javax.swing.JToggleButton();
@@ -228,27 +233,24 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbpAtt3 = new javax.swing.JToggleButton();
         secbpBoss3 = new javax.swing.JToggleButton();
         secbpIed3 = new javax.swing.JToggleButton();
-        secbpInp1 = new javax.swing.JTextField();
-        secbpAtt1 = new javax.swing.JToggleButton();
-        secbpBoss1 = new javax.swing.JToggleButton();
-        secbpIed1 = new javax.swing.JToggleButton();
+        embbpSelect = new javax.swing.JToggleButton();
+        embbpInp1 = new javax.swing.JTextField();
+        embbpAtt1 = new javax.swing.JToggleButton();
+        embbpIed1 = new javax.swing.JToggleButton();
+        embbpInp2 = new javax.swing.JTextField();
+        embbpAtt2 = new javax.swing.JToggleButton();
         embbpIed2 = new javax.swing.JToggleButton();
         embbpInp3 = new javax.swing.JTextField();
         embbpAtt3 = new javax.swing.JToggleButton();
-        embbpInp1 = new javax.swing.JTextField();
-        embbpAtt1 = new javax.swing.JToggleButton();
         embbpIed3 = new javax.swing.JToggleButton();
-        embbpIed1 = new javax.swing.JToggleButton();
-        embbpSelect = new javax.swing.JToggleButton();
-        embbpInp2 = new javax.swing.JTextField();
-        embbpAtt2 = new javax.swing.JToggleButton();
+        outputSeperator = new javax.swing.JSeparator();
         fd_LegionBP = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
-        setMaximumSize(new java.awt.Dimension(623, 800));
-        setMinimumSize(new java.awt.Dimension(623, 800));
-        setPreferredSize(new java.awt.Dimension(623, 800));
+        setMaximumSize(new java.awt.Dimension(640, 780));
+        setMinimumSize(new java.awt.Dimension(640, 780));
+        setPreferredSize(new java.awt.Dimension(640, 780));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -263,37 +265,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         inputPanel.add(dmg, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("DMG");
+        dmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        dmgLabel.setText("DMG");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel1, gridBagConstraints);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("BOSS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel2, gridBagConstraints);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("IED");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel3, gridBagConstraints);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("ATT");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel4, gridBagConstraints);
+        inputPanel.add(dmgLabel, gridBagConstraints);
 
         boss.setText("170");
         boss.setMaximumSize(new java.awt.Dimension(60, 23));
@@ -304,6 +282,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         inputPanel.add(boss, gridBagConstraints);
 
+        bossLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        bossLabel.setText("BOSS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(bossLabel, gridBagConstraints);
+
         att.setText("39");
         att.setMaximumSize(new java.awt.Dimension(60, 23));
         att.setMinimumSize(new java.awt.Dimension(60, 23));
@@ -312,6 +298,32 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         inputPanel.add(att, gridBagConstraints);
+
+        attLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        attLabel.setText("ATT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(attLabel, gridBagConstraints);
+
+        critDmgInp.setText("90");
+        critDmgInp.setMaximumSize(new java.awt.Dimension(60, 23));
+        critDmgInp.setMinimumSize(new java.awt.Dimension(60, 23));
+        critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        inputPanel.add(critDmgInp, gridBagConstraints);
+
+        critdmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        critdmgLabel.setLabelFor(critDmgInp);
+        critdmgLabel.setText("CRIT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(critdmgLabel, gridBagConstraints);
 
         ied.setText("91.83");
         ied.setMaximumSize(new java.awt.Dimension(60, 23));
@@ -322,20 +334,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         inputPanel.add(ied, gridBagConstraints);
 
-        bp.setText("Bonus Pot");
-        bp.setMaximumSize(new java.awt.Dimension(103, 23));
-        bp.setMinimumSize(new java.awt.Dimension(103, 23));
-        bp.setPreferredSize(new java.awt.Dimension(103, 23));
-        bp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bpActionPerformed(evt);
-            }
-        });
+        iedLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        iedLabel.setText("IED");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(bp, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(iedLabel, gridBagConstraints);
 
         weplvl.setText("lvl 160+ Wep");
         weplvl.setMaximumSize(new java.awt.Dimension(103, 23));
@@ -397,6 +402,112 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(zeroClass, gridBagConstraints);
 
+        bp.setText("Bonus Pot");
+        bp.setMaximumSize(new java.awt.Dimension(103, 23));
+        bp.setMinimumSize(new java.awt.Dimension(103, 23));
+        bp.setPreferredSize(new java.awt.Dimension(103, 23));
+        bp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bpActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(bp, gridBagConstraints);
+
+        union.setText("120");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(union, gridBagConstraints);
+
+        legionLabel.setText("Legion Points for Boss, IED, Crit DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(legionLabel, gridBagConstraints);
+
+        hyperStatsInp.setText("1266");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(hyperStatsInp, gridBagConstraints);
+
+        hyperLabel.setLabelFor(hyperStatsInp);
+        hyperLabel.setText("Hyper Points for Boss, DMG, IED, Crit DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(hyperLabel, gridBagConstraints);
+
+        monDef.setText("300");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(monDef, gridBagConstraints);
+
+        pdrLabel.setText("Monster Defense");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(pdrLabel, gridBagConstraints);
+
+        numOptions.setText("10");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(numOptions, gridBagConstraints);
+
+        optionsLabel.setText("Additional Options");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(optionsLabel, gridBagConstraints);
+
+        wseOptions.setModel(new DefaultComboBoxModel());
+        wseOptions.setEnabled(false);
+        wseOptions.setMaximumSize(new java.awt.Dimension(28, 20));
+        wseOptions.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                wseOptionsItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(wseOptions, gridBagConstraints);
+
+        calculate.setText("Calculate");
+        calculate.setMaximumSize(new java.awt.Dimension(207, 23));
+        calculate.setMinimumSize(new java.awt.Dimension(207, 23));
+        calculate.setPreferredSize(new java.awt.Dimension(207, 23));
+        calculate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(calculate, gridBagConstraints);
+
         no_3lbp.setText("No 3L Att BP");
         no_3lbp.setEnabled(false);
         no_3lbp.setMaximumSize(new java.awt.Dimension(103, 23));
@@ -414,21 +525,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(no_3lbp, gridBagConstraints);
 
-        jLabel7.setText("Legion Points for Boss, IED, Crit DMG");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel7, gridBagConstraints);
-
-        union.setText("120");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(union, gridBagConstraints);
-
         no_3l.setText("No 3L Att");
         no_3l.setMaximumSize(new java.awt.Dimension(103, 23));
         no_3l.setMinimumSize(new java.awt.Dimension(103, 23));
@@ -445,42 +541,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(no_3l, gridBagConstraints);
 
-        jLabel8.setText("Monster Defense");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel8, gridBagConstraints);
-
-        monDef.setText("300");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(monDef, gridBagConstraints);
-
-        calculate.setText("Calculate");
-        calculate.setMaximumSize(new java.awt.Dimension(207, 23));
-        calculate.setMinimumSize(new java.awt.Dimension(207, 23));
-        calculate.setPreferredSize(new java.awt.Dimension(207, 23));
-        calculate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calculateActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(calculate, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(inputSeperator, gridBagConstraints);
-
         clearInp.setText("Reset/Cancel");
         clearInp.setMaximumSize(new java.awt.Dimension(207, 23));
         clearInp.setMinimumSize(new java.awt.Dimension(207, 23));
@@ -496,69 +556,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(clearInp, gridBagConstraints);
 
-        wseOptions.setModel(new DefaultComboBoxModel());
-        wseOptions.setEnabled(false);
-        wseOptions.setMaximumSize(new java.awt.Dimension(28, 20));
-        wseOptions.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                wseOptionsItemStateChanged(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(wseOptions, gridBagConstraints);
-
-        numOptions.setText("10");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(numOptions, gridBagConstraints);
-
-        jLabel5.setText("Additional Options");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel5, gridBagConstraints);
-
-        critDmgInp.setText("90");
-        critDmgInp.setMaximumSize(new java.awt.Dimension(60, 23));
-        critDmgInp.setMinimumSize(new java.awt.Dimension(60, 23));
-        critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
+        inputSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        inputPanel.add(critDmgInp, gridBagConstraints);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel9.setLabelFor(critDmgInp);
-        jLabel9.setText("CRIT");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel9, gridBagConstraints);
-
-        jLabel11.setLabelFor(hyperStatsInp);
-        jLabel11.setText("Hyper Points for Boss, DMG, IED, Crit DMG");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(jLabel11, gridBagConstraints);
-
-        hyperStatsInp.setText("1266");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(hyperStatsInp, gridBagConstraints);
+        inputPanel.add(inputSeperator, gridBagConstraints);
 
         wepSelect.setText("Weapon");
         wepSelect.setMaximumSize(new java.awt.Dimension(207, 23));
@@ -756,6 +760,61 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(secSelect, gridBagConstraints);
 
+        secInp1.setEnabled(false);
+        secInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        secInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        secInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secInp1, gridBagConstraints);
+
+        secAtt1.setText("ATT");
+        secAtt1.setEnabled(false);
+        secAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
+        secAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
+        secAtt1.setPreferredSize(new java.awt.Dimension(64, 23));
+        secAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secAtt1, gridBagConstraints);
+
+        secBoss1.setText("BOSS");
+        secBoss1.setEnabled(false);
+        secBoss1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secBoss1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secBoss1, gridBagConstraints);
+
+        secIed1.setText("IED");
+        secIed1.setEnabled(false);
+        secIed1.setMaximumSize(new java.awt.Dimension(64, 23));
+        secIed1.setMinimumSize(new java.awt.Dimension(64, 23));
+        secIed1.setPreferredSize(new java.awt.Dimension(64, 23));
+        secIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secIed1, gridBagConstraints);
+
         secInp2.setEnabled(false);
         secInp2.setMaximumSize(new java.awt.Dimension(207, 23));
         secInp2.setMinimumSize(new java.awt.Dimension(207, 23));
@@ -837,16 +896,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secAtt3, gridBagConstraints);
 
-        secInp1.setEnabled(false);
-        secInp1.setMaximumSize(new java.awt.Dimension(207, 23));
-        secInp1.setMinimumSize(new java.awt.Dimension(207, 23));
-        secInp1.setPreferredSize(new java.awt.Dimension(207, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(secInp1, gridBagConstraints);
-
         secBoss3.setText("BOSS");
         secBoss3.setEnabled(false);
         secBoss3.addActionListener(new java.awt.event.ActionListener() {
@@ -859,22 +908,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(secBoss3, gridBagConstraints);
-
-        secAtt1.setText("ATT");
-        secAtt1.setEnabled(false);
-        secAtt1.setMaximumSize(new java.awt.Dimension(64, 23));
-        secAtt1.setMinimumSize(new java.awt.Dimension(64, 23));
-        secAtt1.setPreferredSize(new java.awt.Dimension(64, 23));
-        secAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secAtt1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(secAtt1, gridBagConstraints);
 
         secIed3.setText("IED");
         secIed3.setEnabled(false);
@@ -892,35 +925,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(secIed3, gridBagConstraints);
 
-        secBoss1.setText("BOSS");
-        secBoss1.setEnabled(false);
-        secBoss1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secBoss1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(secBoss1, gridBagConstraints);
-
-        secIed1.setText("IED");
-        secIed1.setEnabled(false);
-        secIed1.setMaximumSize(new java.awt.Dimension(64, 23));
-        secIed1.setMinimumSize(new java.awt.Dimension(64, 23));
-        secIed1.setPreferredSize(new java.awt.Dimension(64, 23));
-        secIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secIed1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(secIed1, gridBagConstraints);
-
         embSelect.setText("Emblem");
         embSelect.setMaximumSize(new java.awt.Dimension(207, 23));
         embSelect.setMinimumSize(new java.awt.Dimension(207, 23));
@@ -936,6 +940,50 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.weightx = 2.0;
         inputPanel.add(embSelect, gridBagConstraints);
+
+        embInp1.setEnabled(false);
+        embInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        embInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        embInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embInp1, gridBagConstraints);
+
+        embAtt1.setText("Att");
+        embAtt1.setEnabled(false);
+        embAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embAtt1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embAtt1, gridBagConstraints);
+
+        embIed1.setText("IED");
+        embIed1.setEnabled(false);
+        embIed1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embIed1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embIed1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embIed1, gridBagConstraints);
 
         embInp2.setEnabled(false);
         embInp2.setMaximumSize(new java.awt.Dimension(207, 23));
@@ -1008,33 +1056,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embAtt3, gridBagConstraints);
 
-        embInp1.setEnabled(false);
-        embInp1.setMaximumSize(new java.awt.Dimension(207, 23));
-        embInp1.setMinimumSize(new java.awt.Dimension(207, 23));
-        embInp1.setPreferredSize(new java.awt.Dimension(207, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(embInp1, gridBagConstraints);
-
-        embAtt1.setText("Att");
-        embAtt1.setEnabled(false);
-        embAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
-        embAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
-        embAtt1.setPreferredSize(new java.awt.Dimension(101, 23));
-        embAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embAtt1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(embAtt1, gridBagConstraints);
-
         embIed3.setText("IED");
         embIed3.setEnabled(false);
         embIed3.setMaximumSize(new java.awt.Dimension(101, 23));
@@ -1052,32 +1073,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(embIed3, gridBagConstraints);
 
-        embIed1.setText("IED");
-        embIed1.setEnabled(false);
-        embIed1.setMaximumSize(new java.awt.Dimension(101, 23));
-        embIed1.setMinimumSize(new java.awt.Dimension(101, 23));
-        embIed1.setPreferredSize(new java.awt.Dimension(101, 23));
-        embIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embIed1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(embIed1, gridBagConstraints);
-
-        wepInp4.setEnabled(false);
-        wepInp4.setMinimumSize(new java.awt.Dimension(621, 23));
-        wepInp4.setPreferredSize(new java.awt.Dimension(621, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 10;
-        inputPanel.add(wepInp4, gridBagConstraints);
-
         soulSelect.setText("Soul");
         soulSelect.setMaximumSize(new java.awt.Dimension(621, 23));
         soulSelect.setMinimumSize(new java.awt.Dimension(621, 23));
@@ -1093,21 +1088,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 10;
         inputPanel.add(soulSelect, gridBagConstraints);
 
-        wepBoss4.setText("Boss/Dmg");
-        wepBoss4.setEnabled(false);
-        wepBoss4.setMaximumSize(new java.awt.Dimension(207, 23));
-        wepBoss4.setMinimumSize(new java.awt.Dimension(207, 23));
-        wepBoss4.setPreferredSize(new java.awt.Dimension(207, 23));
-        wepBoss4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepBoss4ActionPerformed(evt);
-            }
-        });
+        wepInp4.setEnabled(false);
+        wepInp4.setMinimumSize(new java.awt.Dimension(621, 23));
+        wepInp4.setPreferredSize(new java.awt.Dimension(621, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(wepBoss4, gridBagConstraints);
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 10;
+        inputPanel.add(wepInp4, gridBagConstraints);
 
         wepAtt4.setText("Att");
         wepAtt4.setEnabled(false);
@@ -1120,10 +1108,26 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepAtt4, gridBagConstraints);
+
+        wepBoss4.setText("BOSS");
+        wepBoss4.setEnabled(false);
+        wepBoss4.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepBoss4.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepBoss4.setPreferredSize(new java.awt.Dimension(207, 23));
+        wepBoss4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepBoss4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepBoss4, gridBagConstraints);
 
         wepIed4.setText("IED");
         wepIed4.setEnabled(false);
@@ -1141,86 +1145,29 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepIed4, gridBagConstraints);
 
-        wepbpInp2.setEnabled(false);
-        wepbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
-        wepbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
-        wepbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        bonusSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(bonusSeperator, gridBagConstraints);
+
+        wepbpSelect.setText("Weapon Bonus Potential");
+        wepbpSelect.setEnabled(false);
+        wepbpSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepbpSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepbpSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        wepbpSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 3;
-        inputPanel.add(wepbpInp2, gridBagConstraints);
-
-        wepbpAtt2.setText("Att");
-        wepbpAtt2.setEnabled(false);
-        wepbpAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
-        wepbpAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
-        wepbpAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
-        wepbpAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpAtt2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(wepbpAtt2, gridBagConstraints);
-
-        wepbpBoss2.setText("BOSS");
-        wepbpBoss2.setEnabled(false);
-        wepbpBoss2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpBoss2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(wepbpBoss2, gridBagConstraints);
-
-        wepbpIed2.setText("IED");
-        wepbpIed2.setEnabled(false);
-        wepbpIed2.setMaximumSize(new java.awt.Dimension(64, 23));
-        wepbpIed2.setMinimumSize(new java.awt.Dimension(64, 23));
-        wepbpIed2.setPreferredSize(new java.awt.Dimension(64, 23));
-        wepbpIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpIed2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(wepbpIed2, gridBagConstraints);
-
-        wepbpInp3.setEnabled(false);
-        wepbpInp3.setMaximumSize(new java.awt.Dimension(207, 23));
-        wepbpInp3.setMinimumSize(new java.awt.Dimension(207, 23));
-        wepbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(wepbpInp3, gridBagConstraints);
-
-        wepbpAtt3.setText("Att");
-        wepbpAtt3.setEnabled(false);
-        wepbpAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
-        wepbpAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
-        wepbpAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
-        wepbpAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpAtt3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(wepbpAtt3, gridBagConstraints);
+        inputPanel.add(wepbpSelect, gridBagConstraints);
 
         wepbpInp1.setEnabled(false);
         wepbpInp1.setMaximumSize(new java.awt.Dimension(207, 23));
@@ -1228,22 +1175,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbpInp1.setPreferredSize(new java.awt.Dimension(207, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepbpInp1, gridBagConstraints);
-
-        wepbpBoss3.setText("BOSS");
-        wepbpBoss3.setEnabled(false);
-        wepbpBoss3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpBoss3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(wepbpBoss3, gridBagConstraints);
 
         wepbpAtt1.setText("Att");
         wepbpAtt1.setEnabled(false);
@@ -1257,25 +1191,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepbpAtt1, gridBagConstraints);
-
-        wepbpIed3.setText("IED");
-        wepbpIed3.setEnabled(false);
-        wepbpIed3.setMaximumSize(new java.awt.Dimension(64, 23));
-        wepbpIed3.setMinimumSize(new java.awt.Dimension(64, 23));
-        wepbpIed3.setPreferredSize(new java.awt.Dimension(64, 23));
-        wepbpIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpIed3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(wepbpIed3, gridBagConstraints);
 
         wepbpBoss1.setText("BOSS");
         wepbpBoss1.setEnabled(false);
@@ -1286,7 +1204,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(wepbpBoss1, gridBagConstraints);
 
@@ -1302,25 +1220,119 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(wepbpIed1, gridBagConstraints);
 
-        wepbpSelect.setText("Weapon Bonus Potential");
-        wepbpSelect.setEnabled(false);
-        wepbpSelect.setMaximumSize(new java.awt.Dimension(207, 23));
-        wepbpSelect.setMinimumSize(new java.awt.Dimension(207, 23));
-        wepbpSelect.setPreferredSize(new java.awt.Dimension(207, 23));
-        wepbpSelect.addActionListener(new java.awt.event.ActionListener() {
+        wepbpInp2.setEnabled(false);
+        wepbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpInp2, gridBagConstraints);
+
+        wepbpAtt2.setText("Att");
+        wepbpAtt2.setEnabled(false);
+        wepbpAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpAtt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wepbpSelectActionPerformed(evt);
+                wepbpAtt2ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepbpAtt2, gridBagConstraints);
+
+        wepbpBoss2.setText("BOSS");
+        wepbpBoss2.setEnabled(false);
+        wepbpBoss2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpBoss2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.gridwidth = 3;
-        inputPanel.add(wepbpSelect, gridBagConstraints);
+        inputPanel.add(wepbpBoss2, gridBagConstraints);
+
+        wepbpIed2.setText("IED");
+        wepbpIed2.setEnabled(false);
+        wepbpIed2.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpIed2.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpIed2.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepbpIed2, gridBagConstraints);
+
+        wepbpInp3.setEnabled(false);
+        wepbpInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        wepbpInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        wepbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpInp3, gridBagConstraints);
+
+        wepbpAtt3.setText("Att");
+        wepbpAtt3.setEnabled(false);
+        wepbpAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(wepbpAtt3, gridBagConstraints);
+
+        wepbpBoss3.setText("BOSS");
+        wepbpBoss3.setEnabled(false);
+        wepbpBoss3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpBoss3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(wepbpBoss3, gridBagConstraints);
+
+        wepbpIed3.setText("IED");
+        wepbpIed3.setEnabled(false);
+        wepbpIed3.setMaximumSize(new java.awt.Dimension(64, 23));
+        wepbpIed3.setMinimumSize(new java.awt.Dimension(64, 23));
+        wepbpIed3.setPreferredSize(new java.awt.Dimension(64, 23));
+        wepbpIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wepbpIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(wepbpIed3, gridBagConstraints);
 
         secbpSelect.setText("Secondary Bonus Potential");
         secbpSelect.setEnabled(false);
@@ -1334,119 +1346,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(secbpSelect, gridBagConstraints);
-
-        secbpInp2.setEnabled(false);
-        secbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
-        secbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
-        secbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(secbpInp2, gridBagConstraints);
-
-        secbpAtt2.setText("ATT");
-        secbpAtt2.setEnabled(false);
-        secbpAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
-        secbpAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
-        secbpAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
-        secbpAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpAtt2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(secbpAtt2, gridBagConstraints);
-
-        secbpBoss2.setText("BOSS");
-        secbpBoss2.setEnabled(false);
-        secbpBoss2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpBoss2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(secbpBoss2, gridBagConstraints);
-
-        secbpIed2.setText("IED");
-        secbpIed2.setEnabled(false);
-        secbpIed2.setMaximumSize(new java.awt.Dimension(64, 23));
-        secbpIed2.setMinimumSize(new java.awt.Dimension(64, 23));
-        secbpIed2.setPreferredSize(new java.awt.Dimension(64, 23));
-        secbpIed2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpIed2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(secbpIed2, gridBagConstraints);
-
-        secbpInp3.setEnabled(false);
-        secbpInp3.setMaximumSize(new java.awt.Dimension(207, 23));
-        secbpInp3.setMinimumSize(new java.awt.Dimension(207, 23));
-        secbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(secbpInp3, gridBagConstraints);
-
-        secbpAtt3.setText("ATT");
-        secbpAtt3.setEnabled(false);
-        secbpAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
-        secbpAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
-        secbpAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
-        secbpAtt3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpAtt3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(secbpAtt3, gridBagConstraints);
-
-        secbpBoss3.setText("BOSS");
-        secbpBoss3.setEnabled(false);
-        secbpBoss3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpBoss3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(secbpBoss3, gridBagConstraints);
-
-        secbpIed3.setText("IED");
-        secbpIed3.setEnabled(false);
-        secbpIed3.setMaximumSize(new java.awt.Dimension(64, 23));
-        secbpIed3.setMinimumSize(new java.awt.Dimension(64, 23));
-        secbpIed3.setPreferredSize(new java.awt.Dimension(64, 23));
-        secbpIed3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                secbpIed3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(secbpIed3, gridBagConstraints);
 
         secbpInp1.setEnabled(false);
         secbpInp1.setMaximumSize(new java.awt.Dimension(207, 23));
@@ -1454,7 +1356,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbpInp1.setPreferredSize(new java.awt.Dimension(207, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(secbpInp1, gridBagConstraints);
 
@@ -1470,7 +1372,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secbpAtt1, gridBagConstraints);
 
@@ -1483,7 +1385,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(secbpBoss1, gridBagConstraints);
 
@@ -1499,9 +1401,206 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(secbpIed1, gridBagConstraints);
+
+        secbpInp2.setEnabled(false);
+        secbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        secbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        secbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpInp2, gridBagConstraints);
+
+        secbpAtt2.setText("ATT");
+        secbpAtt2.setEnabled(false);
+        secbpAtt2.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpAtt2.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpAtt2.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secbpAtt2, gridBagConstraints);
+
+        secbpBoss2.setText("BOSS");
+        secbpBoss2.setEnabled(false);
+        secbpBoss2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpBoss2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpBoss2, gridBagConstraints);
+
+        secbpIed2.setText("IED");
+        secbpIed2.setEnabled(false);
+        secbpIed2.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpIed2.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpIed2.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpIed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpIed2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secbpIed2, gridBagConstraints);
+
+        secbpInp3.setEnabled(false);
+        secbpInp3.setMaximumSize(new java.awt.Dimension(207, 23));
+        secbpInp3.setMinimumSize(new java.awt.Dimension(207, 23));
+        secbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpInp3, gridBagConstraints);
+
+        secbpAtt3.setText("ATT");
+        secbpAtt3.setEnabled(false);
+        secbpAtt3.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpAtt3.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpAtt3.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpAtt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpAtt3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(secbpAtt3, gridBagConstraints);
+
+        secbpBoss3.setText("BOSS");
+        secbpBoss3.setEnabled(false);
+        secbpBoss3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpBoss3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(secbpBoss3, gridBagConstraints);
+
+        secbpIed3.setText("IED");
+        secbpIed3.setEnabled(false);
+        secbpIed3.setMaximumSize(new java.awt.Dimension(64, 23));
+        secbpIed3.setMinimumSize(new java.awt.Dimension(64, 23));
+        secbpIed3.setPreferredSize(new java.awt.Dimension(64, 23));
+        secbpIed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secbpIed3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(secbpIed3, gridBagConstraints);
+
+        embbpSelect.setText("Emblem Bonus Potential");
+        embbpSelect.setEnabled(false);
+        embbpSelect.setMaximumSize(new java.awt.Dimension(207, 23));
+        embbpSelect.setMinimumSize(new java.awt.Dimension(207, 23));
+        embbpSelect.setPreferredSize(new java.awt.Dimension(207, 23));
+        embbpSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embbpSelect, gridBagConstraints);
+
+        embbpInp1.setEnabled(false);
+        embbpInp1.setMaximumSize(new java.awt.Dimension(207, 23));
+        embbpInp1.setMinimumSize(new java.awt.Dimension(207, 23));
+        embbpInp1.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embbpInp1, gridBagConstraints);
+
+        embbpAtt1.setText("Att");
+        embbpAtt1.setEnabled(false);
+        embbpAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpAtt1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpAtt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpAtt1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embbpAtt1, gridBagConstraints);
+
+        embbpIed1.setText("IED");
+        embbpIed1.setEnabled(false);
+        embbpIed1.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpIed1.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpIed1.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpIed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpIed1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(embbpIed1, gridBagConstraints);
+
+        embbpInp2.setEnabled(false);
+        embbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
+        embbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
+        embbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(embbpInp2, gridBagConstraints);
+
+        embbpAtt2.setText("Att");
+        embbpAtt2.setEnabled(false);
+        embbpAtt2.setMaximumSize(new java.awt.Dimension(101, 23));
+        embbpAtt2.setMinimumSize(new java.awt.Dimension(101, 23));
+        embbpAtt2.setPreferredSize(new java.awt.Dimension(101, 23));
+        embbpAtt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                embbpAtt2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(embbpAtt2, gridBagConstraints);
 
         embbpIed2.setText("IED");
         embbpIed2.setEnabled(false);
@@ -1515,7 +1614,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(embbpIed2, gridBagConstraints);
@@ -1526,7 +1625,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbpInp3.setPreferredSize(new java.awt.Dimension(207, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         inputPanel.add(embbpInp3, gridBagConstraints);
@@ -1543,37 +1642,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embbpAtt3, gridBagConstraints);
-
-        embbpInp1.setEnabled(false);
-        embbpInp1.setMaximumSize(new java.awt.Dimension(207, 23));
-        embbpInp1.setMinimumSize(new java.awt.Dimension(207, 23));
-        embbpInp1.setPreferredSize(new java.awt.Dimension(207, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(embbpInp1, gridBagConstraints);
-
-        embbpAtt1.setText("Att");
-        embbpAtt1.setEnabled(false);
-        embbpAtt1.setMaximumSize(new java.awt.Dimension(101, 23));
-        embbpAtt1.setMinimumSize(new java.awt.Dimension(101, 23));
-        embbpAtt1.setPreferredSize(new java.awt.Dimension(101, 23));
-        embbpAtt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpAtt1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 21;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(embbpAtt1, gridBagConstraints);
 
         embbpIed3.setText("IED");
         embbpIed3.setEnabled(false);
@@ -1587,70 +1659,18 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(embbpIed3, gridBagConstraints);
 
-        embbpIed1.setText("IED");
-        embbpIed1.setEnabled(false);
-        embbpIed1.setMaximumSize(new java.awt.Dimension(101, 23));
-        embbpIed1.setMinimumSize(new java.awt.Dimension(101, 23));
-        embbpIed1.setPreferredSize(new java.awt.Dimension(101, 23));
-        embbpIed1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpIed1ActionPerformed(evt);
-            }
-        });
+        outputSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 21;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(embbpIed1, gridBagConstraints);
-
-        embbpSelect.setText("Emblem Bonus Potential");
-        embbpSelect.setEnabled(false);
-        embbpSelect.setMaximumSize(new java.awt.Dimension(207, 23));
-        embbpSelect.setMinimumSize(new java.awt.Dimension(207, 23));
-        embbpSelect.setPreferredSize(new java.awt.Dimension(207, 23));
-        embbpSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpSelectActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(embbpSelect, gridBagConstraints);
-
-        embbpInp2.setEnabled(false);
-        embbpInp2.setMaximumSize(new java.awt.Dimension(207, 23));
-        embbpInp2.setMinimumSize(new java.awt.Dimension(207, 23));
-        embbpInp2.setPreferredSize(new java.awt.Dimension(207, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.gridwidth = 3;
-        inputPanel.add(embbpInp2, gridBagConstraints);
-
-        embbpAtt2.setText("Att");
-        embbpAtt2.setEnabled(false);
-        embbpAtt2.setMaximumSize(new java.awt.Dimension(101, 23));
-        embbpAtt2.setMinimumSize(new java.awt.Dimension(101, 23));
-        embbpAtt2.setPreferredSize(new java.awt.Dimension(101, 23));
-        embbpAtt2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                embbpAtt2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(embbpAtt2, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(outputSeperator, gridBagConstraints);
 
         fd_LegionBP.setColumns(20);
         fd_LegionBP.setRows(5);
@@ -1659,7 +1679,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         fd_LegionBP.setPreferredSize(new java.awt.Dimension(621, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.gridwidth = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(fd_LegionBP, gridBagConstraints);
@@ -2573,12 +2593,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField att;
+    private javax.swing.JLabel attLabel;
+    private javax.swing.JSeparator bonusSeperator;
     private javax.swing.JTextField boss;
+    private javax.swing.JLabel bossLabel;
     private javax.swing.JToggleButton bp;
     private javax.swing.JToggleButton calculate;
     private javax.swing.JToggleButton clearInp;
     private javax.swing.JTextField critDmgInp;
+    private javax.swing.JLabel critdmgLabel;
     private javax.swing.JTextField dmg;
+    private javax.swing.JLabel dmgLabel;
     private javax.swing.JToggleButton embAtt1;
     private javax.swing.JToggleButton embAtt2;
     private javax.swing.JToggleButton embAtt3;
@@ -2600,24 +2625,21 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField embbpInp3;
     private javax.swing.JToggleButton embbpSelect;
     private javax.swing.JTextArea fd_LegionBP;
+    private javax.swing.JLabel hyperLabel;
     private javax.swing.JTextField hyperStatsInp;
     private javax.swing.JTextField ied;
+    private javax.swing.JLabel iedLabel;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JSeparator inputSeperator;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JToggleButton kannaClass;
+    private javax.swing.JLabel legionLabel;
     private javax.swing.JTextField monDef;
     private javax.swing.JToggleButton no_3l;
     private javax.swing.JToggleButton no_3lbp;
     private javax.swing.JTextField numOptions;
+    private javax.swing.JLabel optionsLabel;
+    private javax.swing.JSeparator outputSeperator;
+    private javax.swing.JLabel pdrLabel;
     private javax.swing.JToggleButton secAtt1;
     private javax.swing.JToggleButton secAtt2;
     private javax.swing.JToggleButton secAtt3;
