@@ -418,6 +418,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         inputPanel.add(bp, gridBagConstraints);
 
         union.setText("120");
+        union.setMaximumSize(new java.awt.Dimension(2147483647, 23));
+        union.setMinimumSize(new java.awt.Dimension(6, 23));
+        union.setPreferredSize(new java.awt.Dimension(24, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -433,6 +436,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         inputPanel.add(legionLabel, gridBagConstraints);
 
         hyperStatsInp.setText("1266");
+        hyperStatsInp.setMaximumSize(new java.awt.Dimension(2147483647, 23));
+        hyperStatsInp.setMinimumSize(new java.awt.Dimension(6, 23));
+        hyperStatsInp.setPreferredSize(new java.awt.Dimension(24, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -449,6 +455,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         inputPanel.add(hyperLabel, gridBagConstraints);
 
         monDef.setText("300");
+        monDef.setMaximumSize(new java.awt.Dimension(2147483647, 23));
+        monDef.setMinimumSize(new java.awt.Dimension(6, 23));
+        monDef.setPreferredSize(new java.awt.Dimension(24, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -464,6 +473,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         inputPanel.add(pdrLabel, gridBagConstraints);
 
         numOptions.setText("10");
+        numOptions.setMaximumSize(new java.awt.Dimension(2147483647, 23));
+        numOptions.setMinimumSize(new java.awt.Dimension(6, 23));
+        numOptions.setPreferredSize(new java.awt.Dimension(24, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
