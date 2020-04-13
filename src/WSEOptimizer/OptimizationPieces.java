@@ -2084,7 +2084,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                 }
-
+                if (!this.bp.isSelected()){
+                    clearInputs(false, true);
+                }
                 //Start time of the method
                 this.startTime = System.nanoTime();
                 
@@ -2093,8 +2095,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 worker.execute();
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println(e.toString());
                 fd_LegionBP.setText("ERROR OCCURED: REDO INPUTS");
+                this.calculate.setSelected(false);
             }
         }
         calculate.setEnabled(false);
@@ -2103,27 +2105,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void clearInpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearInpActionPerformed
         if (clearInp.isSelected() && (worker.isDone() || worker.isCancelled())) {
-            wepInp1.setText("");
-            wepInp2.setText("");
-            wepInp3.setText("");
-
-            secInp1.setText("");
-            secInp2.setText("");
-            secInp3.setText("");
-
-            embInp1.setText("");
-            embInp2.setText("");
-            embInp3.setText("");
-            wepbpInp1.setText("");
-            wepbpInp2.setText("");
-            wepbpInp3.setText("");
-            secbpInp1.setText("");
-            secbpInp2.setText("");
-            secbpInp3.setText("");
-            embbpInp1.setText("");
-            embbpInp2.setText("");
-            embbpInp3.setText("");
-            wepInp4.setText("");
+            clearInputs(true, true);
         }
         else if (!worker.isDone()){
             worker.cancel(true);
@@ -2415,6 +2397,37 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void embbpIed2ActionPerformed(java.awt.event.ActionEvent evt) {
         this.embbpInp2_butSel = buttonSelectAndDisable(embbpIed2, embbpAtt2, null, PotType.IED);
+    }
+    
+    public void clearInputs(boolean main, boolean bonus){
+        if (main){
+            wepInp1.setText("");
+            wepInp2.setText("");
+            wepInp3.setText("");
+
+            secInp1.setText("");
+            secInp2.setText("");
+            secInp3.setText("");
+
+            embInp1.setText("");
+            embInp2.setText("");
+            embInp3.setText("");
+            
+            wepInp4.setText("");
+        }
+        if (bonus){
+            wepbpInp1.setText("");
+            wepbpInp2.setText("");
+            wepbpInp3.setText("");
+            
+            secbpInp1.setText("");
+            secbpInp2.setText("");
+            secbpInp3.setText("");
+            
+            embbpInp1.setText("");
+            embbpInp2.setText("");
+            embbpInp3.setText("");
+        }      
     }
 
     public void setEmblemEnabled(boolean b) {
