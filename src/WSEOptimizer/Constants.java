@@ -53,6 +53,11 @@ public class Constants {
     public static final double SBOSS = 0.07;
     public static final double SIED = 0.07;
     
+    //Double values of familiars
+    public static final double FATT = 0.06;
+    public static final double FBOSS = 0.40;
+    public static final double FIED = 0.40;
+    
     public static final PotType[][] weapon = new PotType[][]{
         // ATT Legendary line then two Unique lines
         {PotType.ATT, PotType.ATT, PotType.ATT},
@@ -90,6 +95,27 @@ public class Constants {
         {PotType.IED, PotType.ATT, PotType.ATT}};
     
     public static final PotType[][] emblemNo3LineAtt = Arrays.copyOfRange(emblem, 1, emblem.length);
+    
+    //Tracks the total lines on familiars of Boss/IED/ATT - Note Boss is capped to 120% which is 3 lines
+    public static final int[][] familiars = new int[][]{
+        {3, 0, 2}, 
+        {3, 2, 0}, 
+        {1, 0, 4}, 
+        {1, 4, 0}, 
+        {2, 0, 3}, 
+        {3, 1, 1}, 
+        {0, 2, 3}, 
+        {0, 4, 1}, 
+        {1, 1, 3}, 
+        {1, 2, 2}, 
+        {1, 3, 1}, 
+        {2, 2, 1}, 
+        {0, 0, 5}, 
+        {0, 1, 4}, 
+        {0, 5, 0}, 
+        {2, 1, 2}, 
+        {2, 3, 0}, 
+        {0, 3, 2}};
     
     public static final PotType[] souls = new PotType[]{PotType.ATT, PotType.BOSS, PotType.IED};
     

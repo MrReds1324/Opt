@@ -109,7 +109,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="att">
           <Properties>
-            <Property name="text" type="java.lang.String" value="39"/>
+            <Property name="text" type="java.lang.String" value="42"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[60, 23]"/>
             </Property>
@@ -176,7 +176,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="ied">
           <Properties>
-            <Property name="text" type="java.lang.String" value="91.83"/>
+            <Property name="text" type="java.lang.String" value="90.07"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[60, 23]"/>
             </Property>

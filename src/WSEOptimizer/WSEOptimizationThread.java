@@ -34,6 +34,7 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
     private ArrayList<PotVector> bonusPots;
     
     public ArrayList<PotVector> reducedOptimize;
+    private int[] familiars;
     
     public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, PotType[][] weapon, PotType[][] secondary, PotType[][] emblem, PotType[] souls, ClassType classType,
             double baseDMG, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, boolean sw_abs, boolean sec160, int options, Server server){
@@ -56,9 +57,10 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
         this.server = server;
     }
     
-    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, PotType[] souls,
+    public WSEOptimizationThread(int[] hyper, int[] familiars, ArrayList<int[]> legion, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, PotType[] souls,
             double baseDMG, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int options, Server server){
         this.hyper = hyper;
+        this.familiars = familiars;
         this.legion = legion;
         this.mainPots = mainPots;
         this.bonusPots = bonusPots;
@@ -79,41 +81,43 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
             reducedOptimize = new ArrayList();
             switch(this.server){
                 case REBOOT:
-                    for (PotType soul : souls){
-                        for (PotType[] emb : emblem) {
-                            //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                            Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
-                            for (PotType[] wep : weapon) {
+                    for (int[] familiarCombo : Constants.familiars){
+                        for (PotType soul : souls){
+                            for (PotType[] emb : emblem) {
                                 //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
-                                Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
-                                switch (classType) {
-                                    case ZERO:
-                                        reducedOptimize = legionAndReduce(reducedOptimize, wtemp, wtemp, etemp, null, null, null, hyper, soul);
-                                        break;
-                                    case KANNA:
-                                        //Secondary fan only recognizes Magic Att%
-                                        Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
-                                        reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, soul);
-                                        break;
-                                    default:
-                                        for (PotType[] sec : secondary) {
-                                            //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
-                                            stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
-                                            reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, soul);
+                                Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
+                                for (PotType[] wep : weapon) {
+                                    //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
+                                    Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
+                                    switch (classType) {
+                                        case ZERO:
+                                            reducedOptimize = legionAndReduce(reducedOptimize, wtemp, wtemp, etemp, null, null, null, hyper, familiarCombo, soul);
+                                            break;
+                                        case KANNA:
+                                            //Secondary fan only recognizes Magic Att%
+                                            Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
+                                            reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, familiarCombo, soul);
+                                            break;
+                                        default:
+                                            for (PotType[] sec : secondary) {
+                                                //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
+                                                stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
+                                                reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, familiarCombo, soul);
+                                            }
+                                            break;
                                         }
-                                        break;
                                     }
                                 }
-                            }
-                            //Makes the thread interruptable
-                            Thread.sleep(1);
+                                //Makes the thread interruptable
+                                Thread.sleep(1);
                         }
+                    }
                     break;
                 case NONREBOOT:
                     for (PotType soul : souls){
                         for (PotVector mpot : this.mainPots) {
                             for (PotVector bpot : this.bonusPots) {
-                                reducedOptimize = legionAndReduce(reducedOptimize, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, soul);
+                                reducedOptimize = legionAndReduce(reducedOptimize, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, familiars, soul);
                             }
                             //Makes the thread interruptable
                             Thread.sleep(1);
@@ -129,18 +133,18 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
         return reducedOptimize;
     }
     
-    private ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, PotType soul){
+    private ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, int[] familiars, PotType soul){
         // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
         if (legion.size() == 1){
             //Add the potVector to the list
-            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion.get(0), hyperStats, soul);
+            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion.get(0), hyperStats, familiars, soul);
             temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
             potContainer.add(temp);
         }
         else{
             for (int[] legion : legion){
                 //Add the potVector to the list
-                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion, hyperStats, soul);
+                PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion, hyperStats, familiars, soul);
                 temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
                 potContainer.add(temp);
             }

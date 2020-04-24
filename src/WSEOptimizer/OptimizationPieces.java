@@ -290,7 +290,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(bossLabel, gridBagConstraints);
 
-        att.setText("39");
+        att.setText("42");
         att.setMaximumSize(new java.awt.Dimension(60, 23));
         att.setMinimumSize(new java.awt.Dimension(60, 23));
         att.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -325,7 +325,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(critdmgLabel, gridBagConstraints);
 
-        ied.setText("91.83");
+        ied.setText("90.07");
         ied.setMaximumSize(new java.awt.Dimension(60, 23));
         ied.setMinimumSize(new java.awt.Dimension(60, 23));
         ied.setPreferredSize(new java.awt.Dimension(60, 23));
