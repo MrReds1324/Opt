@@ -121,7 +121,7 @@ public class PotVector implements Comparable {
     public double calculcateMultiplier(double baseATT, double baseBOSS, double baseDMG, double baseIED, double baseCrit, double pdr){
         // wep, sec, emb, wepb, secb, embb
         //Calculate new IED - Hard cap of 100% IED, if familiars go over that then cap it to 1 (100% ied)
-        double iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * Math.pow(1 - Constants.FIED, familiars[0]) * (1 - Constants.hyperIed[hyperStats[3]]) * (1 - (legion[1] * 0.01))));
+        double iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * Math.pow(1 - Constants.FIED, familiars[1]) * (1 - Constants.hyperIed[hyperStats[3]]) * (1 - (legion[1] * 0.01))));
         if (soul == PotType.IED){
             iedt = (1 - ((1 - iedt) * (1 - Constants.SIED)));
         }
