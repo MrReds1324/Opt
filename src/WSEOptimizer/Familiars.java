@@ -28,6 +28,10 @@ public class Familiars {
     private double botBoss = 0.0;
     private double botCrit = 0.0;
     
+    public Familiars(){
+        super();
+    }
+    
     public Familiars(int[] topline, int[] botline, FamiliarTier familiarTier){
         this.topline = topline;
         this.botline = botline;
@@ -96,7 +100,7 @@ public class Familiars {
 
     //Computes and returns the boss damage added by the familiar combination
     public double cboss() {
-        return (topline[2] * topBoss + botline[2] * botBoss);
+        return (topline[2] * topBoss + botline[2] * botBoss) >= 1.20 ? 1.20 : (topline[2] * topBoss + botline[2] * botBoss);
     }
     
     //Computes and returns the crit damage added by the familiar combination
@@ -122,6 +126,12 @@ public class Familiars {
         hash = 51 * hash + Arrays.hashCode(this.topline);
         hash = 51 * hash + Arrays.hashCode(this.botline);
         return hash;
+    }
+    
+    @Override
+    public String toString(){
+        String s = "";
+        return s;
     }
     
 }
