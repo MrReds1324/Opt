@@ -17,11 +17,14 @@ public class WSEHelpers {
     
     public static PotType[] soulSpace = new PotType[]{PotType.DEFAULT};
     public static PotType[][] emblemSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+    public static PotType[][] emblembpSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
     public static PotType[][] weaponSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+    public static PotType[][] weaponbpSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
     public static PotType[][] secondarySpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+    public static PotType[][] secondarybpSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
     public static ArrayList<int[]> hyperStatsSpace = new ArrayList(Arrays.asList(new int[]{0, 0, 0, 0}));
     public static ArrayList<int[]> legionSpace = new ArrayList(Arrays.asList(new int[]{0, 0, 0}));
-    public static ArrayList<Familiars> familiarSpace = new ArrayList(Arrays.asList(new Familiars(new int[]{0,0,0,0}, new int[]{0,0,0,0}, FamiliarTier.DEFAULT)));
+    public static ArrayList<Familiars> familiarSpace = new ArrayList(Arrays.asList(new Familiars()));
     
     public static ArrayList reduce(ArrayList potContainer, int options){
         //Sorts then shrinks the list to reduce memory overhead
@@ -44,48 +47,78 @@ public class WSEHelpers {
         }
     }
     
-    public static void setupEmblemGenerationSpace(boolean sel, PotConfig option){
+    public static void setupEmblemGenerationSpace(boolean sel, PotConfig option, PotType mb){
+        PotType[][] local_space;
         if (sel){
-            emblemSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+            local_space = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else{
             switch(option){
                 case NO3LINE:
-                    emblemSpace = Constants.emblemNo3LineAtt;
+                    local_space = Constants.emblemNo3LineAtt;
                 default:
-                    emblemSpace = Constants.emblem;
+                    local_space = Constants.emblem;
             }
+        }
+        
+        switch(mb){
+            case MAIN:
+                emblemSpace = local_space;
+                break;
+            case BONUS:
+                emblembpSpace = local_space;
+                break;
         }
     }
     
-    public static void setupWeaponGenerationSpace(boolean sel, PotConfig option){
+    public static void setupWeaponGenerationSpace(boolean sel, PotConfig option, PotType mb){
+        PotType[][] local_space;
         if (sel){
-            weaponSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+            local_space = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else{
             switch(option){
                 case NO3LINE:
-                    weaponSpace = Constants.weaponNo3LineAtt;
+                    local_space = Constants.weaponNo3LineAtt;
                 default:
-                    weaponSpace = Constants.weapon;
+                    local_space = Constants.weapon;
             }
+        }
+        
+        switch(mb){
+            case MAIN:
+                weaponSpace = local_space;
+                break;
+            case BONUS:
+                weaponbpSpace = local_space;
+                break;
         }
     }
         
-    public static void setupSecondaryGenerationSpace(boolean sel, PotConfig option, ClassType classType){
+    public static void setupSecondaryGenerationSpace(boolean sel, PotConfig option, ClassType classType, PotType mb){
+        PotType[][] local_space;
         if (sel || classType == ClassType.ZERO){
-            secondarySpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+            local_space = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else if (classType == ClassType.KANNA){
-            secondarySpace = new PotType[][]{{PotType.ATT, PotType.ATT, PotType.ATT}};
+            local_space = new PotType[][]{{PotType.ATT, PotType.ATT, PotType.ATT}};
         }
         else{
             switch(option){
                 case NO3LINE:
-                    secondarySpace = Constants.secondaryNo3LineAtt;
+                    local_space = Constants.secondaryNo3LineAtt;
                 default:
-                    secondarySpace = Constants.secondary;
+                    local_space = Constants.secondary;
             }
+        }
+        
+        switch(mb){
+            case MAIN:
+                secondarySpace = local_space;
+                break;
+            case BONUS:
+                secondarybpSpace = local_space;
+                break;
         }
     }
     
