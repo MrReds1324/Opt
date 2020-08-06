@@ -2111,6 +2111,18 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //Start time of the method
                 this.startTime = System.nanoTime();
                 
+                //Set up generation spaces for each variable
+                WSEHelpers.generateHyperStats(hyperPoints);
+                WSEHelpers.generateLegion(legionVal);
+                WSEHelpers.setupWeaponGenerationSpace(wepSelect.isSelected(), no_3lAtt, PotType.MAIN);
+                WSEHelpers.setupSecondaryGenerationSpace(secSelect.isSelected(), no_3lAtt, classType, PotType.MAIN);
+                WSEHelpers.setupEmblemGenerationSpace(embSelect.isSelected(), no_3lAtt, PotType.MAIN);
+                WSEHelpers.setupWeaponGenerationSpace(wepbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
+                WSEHelpers.setupSecondaryGenerationSpace(secbpSelect.isSelected(), no_3lbpAtt, classType, PotType.BONUS);
+                WSEHelpers.setupEmblemGenerationSpace(embbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
+                WSEHelpers.setupSoulsGenerationSpace(soulSelect.isSelected());
+                
+                
                 worker = new WSEWorker(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), this.soulSelect.isSelected(), numberOfOptions, this.server);
                 worker.addPropertyChangeListener(listener);
                 worker.execute();
