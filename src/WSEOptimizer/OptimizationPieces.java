@@ -135,28 +135,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        inputOutputPane = new javax.swing.JTabbedPane();
         inputPanel = new javax.swing.JPanel();
-        dmg = new javax.swing.JTextField();
-        dmgLabel = new javax.swing.JLabel();
-        boss = new javax.swing.JTextField();
-        bossLabel = new javax.swing.JLabel();
-        att = new javax.swing.JTextField();
-        attLabel = new javax.swing.JLabel();
-        critDmgInp = new javax.swing.JTextField();
-        critdmgLabel = new javax.swing.JLabel();
-        ied = new javax.swing.JTextField();
-        iedLabel = new javax.swing.JLabel();
-        weplvl = new javax.swing.JToggleButton();
-        seclvl = new javax.swing.JToggleButton();
-        kannaClass = new javax.swing.JToggleButton();
-        zeroClass = new javax.swing.JToggleButton();
         bp = new javax.swing.JToggleButton();
-        union = new javax.swing.JTextField();
-        legionLabel = new javax.swing.JLabel();
-        hyperStatsInp = new javax.swing.JTextField();
-        hyperLabel = new javax.swing.JLabel();
-        monDef = new javax.swing.JTextField();
-        pdrLabel = new javax.swing.JLabel();
         numOptions = new javax.swing.JTextField();
         optionsLabel = new javax.swing.JLabel();
         wseOptions = new javax.swing.JComboBox<>();
@@ -245,6 +226,27 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbpIed3 = new javax.swing.JToggleButton();
         outputSeperator = new javax.swing.JSeparator();
         fd_LegionBP = new javax.swing.JTextArea();
+        baseStatsPanel = new javax.swing.JPanel();
+        dmg = new javax.swing.JTextField();
+        dmgLabel = new javax.swing.JLabel();
+        boss = new javax.swing.JTextField();
+        bossLabel = new javax.swing.JLabel();
+        att = new javax.swing.JTextField();
+        attLabel = new javax.swing.JLabel();
+        critDmgInp = new javax.swing.JTextField();
+        ied = new javax.swing.JTextField();
+        critdmgLabel = new javax.swing.JLabel();
+        iedLabel = new javax.swing.JLabel();
+        weplvl = new javax.swing.JToggleButton();
+        seclvl = new javax.swing.JToggleButton();
+        kannaClass = new javax.swing.JToggleButton();
+        zeroClass = new javax.swing.JToggleButton();
+        union = new javax.swing.JTextField();
+        legionLabel = new javax.swing.JLabel();
+        hyperStatsInp = new javax.swing.JTextField();
+        hyperLabel = new javax.swing.JLabel();
+        monDef = new javax.swing.JTextField();
+        pdrLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
@@ -256,152 +258,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         inputPanel.setLayout(new java.awt.GridBagLayout());
 
-        dmg.setText("214");
-        dmg.setMaximumSize(new java.awt.Dimension(60, 23));
-        dmg.setMinimumSize(new java.awt.Dimension(60, 23));
-        dmg.setPreferredSize(new java.awt.Dimension(60, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        inputPanel.add(dmg, gridBagConstraints);
-
-        dmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        dmgLabel.setText("DMG");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(dmgLabel, gridBagConstraints);
-
-        boss.setText("170");
-        boss.setMaximumSize(new java.awt.Dimension(60, 23));
-        boss.setMinimumSize(new java.awt.Dimension(60, 23));
-        boss.setPreferredSize(new java.awt.Dimension(60, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        inputPanel.add(boss, gridBagConstraints);
-
-        bossLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        bossLabel.setText("BOSS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(bossLabel, gridBagConstraints);
-
-        att.setText("42");
-        att.setMaximumSize(new java.awt.Dimension(60, 23));
-        att.setMinimumSize(new java.awt.Dimension(60, 23));
-        att.setPreferredSize(new java.awt.Dimension(60, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        inputPanel.add(att, gridBagConstraints);
-
-        attLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        attLabel.setText("ATT");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(attLabel, gridBagConstraints);
-
-        critDmgInp.setText("90");
-        critDmgInp.setMaximumSize(new java.awt.Dimension(60, 23));
-        critDmgInp.setMinimumSize(new java.awt.Dimension(60, 23));
-        critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        inputPanel.add(critDmgInp, gridBagConstraints);
-
-        critdmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        critdmgLabel.setLabelFor(critDmgInp);
-        critdmgLabel.setText("CRIT");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(critdmgLabel, gridBagConstraints);
-
-        ied.setText("90.07");
-        ied.setMaximumSize(new java.awt.Dimension(60, 23));
-        ied.setMinimumSize(new java.awt.Dimension(60, 23));
-        ied.setPreferredSize(new java.awt.Dimension(60, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        inputPanel.add(ied, gridBagConstraints);
-
-        iedLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        iedLabel.setText("IED");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(iedLabel, gridBagConstraints);
-
-        weplvl.setText("lvl 160+ Wep");
-        weplvl.setMaximumSize(new java.awt.Dimension(103, 23));
-        weplvl.setMinimumSize(new java.awt.Dimension(103, 23));
-        weplvl.setPreferredSize(new java.awt.Dimension(103, 23));
-        weplvl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weplvlActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(weplvl, gridBagConstraints);
-
-        seclvl.setText("lvl 160+ Sec");
-        seclvl.setMaximumSize(new java.awt.Dimension(103, 23));
-        seclvl.setMinimumSize(new java.awt.Dimension(103, 23));
-        seclvl.setPreferredSize(new java.awt.Dimension(103, 23));
-        seclvl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seclvlActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(seclvl, gridBagConstraints);
-
-        kannaClass.setText("Kanna Class");
-        kannaClass.setMaximumSize(new java.awt.Dimension(103, 23));
-        kannaClass.setMinimumSize(new java.awt.Dimension(103, 23));
-        kannaClass.setPreferredSize(new java.awt.Dimension(103, 23));
-        kannaClass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kannaClassActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(kannaClass, gridBagConstraints);
-
-        zeroClass.setText("Zero Class");
-        zeroClass.setMaximumSize(new java.awt.Dimension(103, 23));
-        zeroClass.setMinimumSize(new java.awt.Dimension(103, 23));
-        zeroClass.setPreferredSize(new java.awt.Dimension(103, 23));
-        zeroClass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zeroClassActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        inputPanel.add(zeroClass, gridBagConstraints);
-
         bp.setText("Bonus Pot");
         bp.setMaximumSize(new java.awt.Dimension(103, 23));
         bp.setMinimumSize(new java.awt.Dimension(103, 23));
@@ -412,81 +268,27 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(bp, gridBagConstraints);
-
-        union.setText("120");
-        union.setMaximumSize(new java.awt.Dimension(2147483647, 23));
-        union.setMinimumSize(new java.awt.Dimension(6, 23));
-        union.setPreferredSize(new java.awt.Dimension(24, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(union, gridBagConstraints);
-
-        legionLabel.setText("Legion Points for Boss, IED, Crit DMG");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(legionLabel, gridBagConstraints);
-
-        hyperStatsInp.setText("1266");
-        hyperStatsInp.setMaximumSize(new java.awt.Dimension(2147483647, 23));
-        hyperStatsInp.setMinimumSize(new java.awt.Dimension(6, 23));
-        hyperStatsInp.setPreferredSize(new java.awt.Dimension(24, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(hyperStatsInp, gridBagConstraints);
-
-        hyperLabel.setLabelFor(hyperStatsInp);
-        hyperLabel.setText("Hyper Points for Boss, DMG, IED, Crit DMG");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(hyperLabel, gridBagConstraints);
-
-        monDef.setText("300");
-        monDef.setMaximumSize(new java.awt.Dimension(2147483647, 23));
-        monDef.setMinimumSize(new java.awt.Dimension(6, 23));
-        monDef.setPreferredSize(new java.awt.Dimension(24, 23));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(monDef, gridBagConstraints);
-
-        pdrLabel.setText("Monster Defense");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        inputPanel.add(pdrLabel, gridBagConstraints);
 
         numOptions.setText("10");
         numOptions.setMaximumSize(new java.awt.Dimension(2147483647, 23));
         numOptions.setMinimumSize(new java.awt.Dimension(6, 23));
         numOptions.setPreferredSize(new java.awt.Dimension(24, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(numOptions, gridBagConstraints);
 
         optionsLabel.setText("Additional Options");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(optionsLabel, gridBagConstraints);
 
@@ -500,7 +302,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(wseOptions, gridBagConstraints);
@@ -517,7 +319,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(calculate, gridBagConstraints);
 
         no_3lbp.setText("No 3L Att BP");
@@ -531,9 +334,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(no_3lbp, gridBagConstraints);
 
@@ -547,9 +351,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(no_3l, gridBagConstraints);
 
@@ -563,9 +368,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(clearInp, gridBagConstraints);
 
         inputSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1696,11 +1502,214 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(fd_LegionBP, gridBagConstraints);
 
+        inputOutputPane.addTab("Main", inputPanel);
+
+        baseStatsPanel.setLayout(new java.awt.GridBagLayout());
+
+        dmg.setText("214");
+        dmg.setMaximumSize(new java.awt.Dimension(60, 23));
+        dmg.setMinimumSize(new java.awt.Dimension(60, 23));
+        dmg.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        getContentPane().add(inputPanel, gridBagConstraints);
+        baseStatsPanel.add(dmg, gridBagConstraints);
+
+        dmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        dmgLabel.setText("DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(dmgLabel, gridBagConstraints);
+
+        boss.setText("170");
+        boss.setMaximumSize(new java.awt.Dimension(60, 23));
+        boss.setMinimumSize(new java.awt.Dimension(60, 23));
+        boss.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        baseStatsPanel.add(boss, gridBagConstraints);
+
+        bossLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        bossLabel.setText("BOSS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(bossLabel, gridBagConstraints);
+
+        att.setText("42");
+        att.setMaximumSize(new java.awt.Dimension(60, 23));
+        att.setMinimumSize(new java.awt.Dimension(60, 23));
+        att.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        baseStatsPanel.add(att, gridBagConstraints);
+
+        attLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        attLabel.setText("ATT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(attLabel, gridBagConstraints);
+
+        critDmgInp.setText("90");
+        critDmgInp.setMaximumSize(new java.awt.Dimension(60, 23));
+        critDmgInp.setMinimumSize(new java.awt.Dimension(60, 23));
+        critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        baseStatsPanel.add(critDmgInp, gridBagConstraints);
+
+        ied.setText("90.07");
+        ied.setMaximumSize(new java.awt.Dimension(60, 23));
+        ied.setMinimumSize(new java.awt.Dimension(60, 23));
+        ied.setPreferredSize(new java.awt.Dimension(60, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        baseStatsPanel.add(ied, gridBagConstraints);
+
+        critdmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        critdmgLabel.setLabelFor(critDmgInp);
+        critdmgLabel.setText("CRIT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(critdmgLabel, gridBagConstraints);
+
+        iedLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        iedLabel.setText("IED");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(iedLabel, gridBagConstraints);
+
+        weplvl.setText("lvl 160+ Wep");
+        weplvl.setMaximumSize(new java.awt.Dimension(103, 23));
+        weplvl.setMinimumSize(new java.awt.Dimension(103, 23));
+        weplvl.setPreferredSize(new java.awt.Dimension(103, 23));
+        weplvl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weplvlActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        baseStatsPanel.add(weplvl, gridBagConstraints);
+
+        seclvl.setText("lvl 160+ Sec");
+        seclvl.setMaximumSize(new java.awt.Dimension(103, 23));
+        seclvl.setMinimumSize(new java.awt.Dimension(103, 23));
+        seclvl.setPreferredSize(new java.awt.Dimension(103, 23));
+        seclvl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seclvlActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        baseStatsPanel.add(seclvl, gridBagConstraints);
+
+        kannaClass.setText("Kanna Class");
+        kannaClass.setMaximumSize(new java.awt.Dimension(103, 23));
+        kannaClass.setMinimumSize(new java.awt.Dimension(103, 23));
+        kannaClass.setPreferredSize(new java.awt.Dimension(103, 23));
+        kannaClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kannaClassActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        baseStatsPanel.add(kannaClass, gridBagConstraints);
+
+        zeroClass.setText("Zero Class");
+        zeroClass.setMaximumSize(new java.awt.Dimension(103, 23));
+        zeroClass.setMinimumSize(new java.awt.Dimension(103, 23));
+        zeroClass.setPreferredSize(new java.awt.Dimension(103, 23));
+        zeroClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zeroClassActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        baseStatsPanel.add(zeroClass, gridBagConstraints);
+
+        union.setText("120");
+        union.setMaximumSize(new java.awt.Dimension(2147483647, 23));
+        union.setMinimumSize(new java.awt.Dimension(6, 23));
+        union.setPreferredSize(new java.awt.Dimension(24, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        baseStatsPanel.add(union, gridBagConstraints);
+
+        legionLabel.setText("Legion Points for Boss, IED, Crit DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(legionLabel, gridBagConstraints);
+
+        hyperStatsInp.setText("1266");
+        hyperStatsInp.setMaximumSize(new java.awt.Dimension(2147483647, 23));
+        hyperStatsInp.setMinimumSize(new java.awt.Dimension(6, 23));
+        hyperStatsInp.setPreferredSize(new java.awt.Dimension(24, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        baseStatsPanel.add(hyperStatsInp, gridBagConstraints);
+
+        hyperLabel.setLabelFor(hyperStatsInp);
+        hyperLabel.setText("Hyper Points for Boss, DMG, IED, Crit DMG");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(hyperLabel, gridBagConstraints);
+
+        monDef.setText("300");
+        monDef.setMaximumSize(new java.awt.Dimension(2147483647, 23));
+        monDef.setMinimumSize(new java.awt.Dimension(6, 23));
+        monDef.setPreferredSize(new java.awt.Dimension(24, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        baseStatsPanel.add(monDef, gridBagConstraints);
+
+        pdrLabel.setText("Monster Defense");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        baseStatsPanel.add(pdrLabel, gridBagConstraints);
+
+        inputOutputPane.addTab("Base Stats", baseStatsPanel);
+
+        getContentPane().add(inputOutputPane, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2619,6 +2628,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField att;
     private javax.swing.JLabel attLabel;
+    private javax.swing.JPanel baseStatsPanel;
     private javax.swing.JSeparator bonusSeperator;
     private javax.swing.JTextField boss;
     private javax.swing.JLabel bossLabel;
@@ -2654,6 +2664,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField hyperStatsInp;
     private javax.swing.JTextField ied;
     private javax.swing.JLabel iedLabel;
+    private javax.swing.JTabbedPane inputOutputPane;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JSeparator inputSeperator;
     private javax.swing.JToggleButton kannaClass;
