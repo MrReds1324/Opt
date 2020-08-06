@@ -10,12 +10,6 @@ import java.util.concurrent.Callable;
  */
 public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
     private int[] hyper;
-    private PotType[][] weapon;
-    private PotType[][] secondary;
-    private PotType[][] emblem;
-    
-    private PotType[] souls;
-    private ArrayList<int[]> legion;
     
     private boolean sec160;
     private boolean sw_abs;
@@ -29,21 +23,16 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
     private double baseCRIT;
     private double PDR;
     private int options;
+    private Familiars familiars;
     
     private ArrayList<PotVector> mainPots;
     private ArrayList<PotVector> bonusPots;
     
     public ArrayList<PotVector> reducedOptimize;
-    private int[] familiars;
     
-    public WSEOptimizationThread(int[] hyper, ArrayList<int[]> legion, PotType[][] weapon, PotType[][] secondary, PotType[][] emblem, PotType[] souls, ClassType classType,
-            double baseDMG, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, boolean sw_abs, boolean sec160, int options, Server server){
+    public WSEOptimizationThread(int[] hyper, ClassType classType, double baseDMG, double baseBoss, double baseAtt, 
+            double baseIed, double baseCrit, double pdr, boolean sw_abs, boolean sec160, int options, Server server){
         this.hyper = hyper;
-        this.legion = legion;
-        this.weapon = weapon;
-        this.secondary = secondary;
-        this.emblem = emblem;
-        this.souls = souls;
         this.classType = classType;
         this.baseDMG = baseDMG;
         this.baseBOSS = baseBoss;
@@ -57,14 +46,12 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
         this.server = server;
     }
     
-    public WSEOptimizationThread(int[] hyper, int[] familiars, ArrayList<int[]> legion, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, PotType[] souls,
-            double baseDMG, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int options, Server server){
+    public WSEOptimizationThread(int[] hyper, Familiars familiars, ArrayList<PotVector> mainPots, ArrayList<PotVector> bonusPots, double baseDMG, double baseBoss,
+            double baseAtt, double baseIed, double baseCrit, double pdr, int options, Server server){
         this.hyper = hyper;
         this.familiars = familiars;
-        this.legion = legion;
         this.mainPots = mainPots;
         this.bonusPots = bonusPots;
-        this.souls = souls;
         this.baseDMG = baseDMG;
         this.baseBOSS = baseBoss;
         this.baseATT = baseAtt;
@@ -81,12 +68,12 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
             reducedOptimize = new ArrayList();
             switch(this.server){
                 case REBOOT:
-                    for (int[] familiarCombo : Constants.familiars){
-                        for (PotType soul : souls){
-                            for (PotType[] emb : emblem) {
+                    for (Familiars familiarCombo : WSEHelpers.familiarSpace){
+                        for (PotType soul : WSEHelpers.soulSpace){
+                            for (PotType[] emb : WSEHelpers.emblemSpace) {
                                 //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                                 Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
-                                for (PotType[] wep : weapon) {
+                                for (PotType[] wep : WSEHelpers.weaponSpace) {
                                     //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                                     Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                                     switch (classType) {
@@ -95,11 +82,11 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
                                             break;
                                         case KANNA:
                                             //Secondary fan only recognizes Magic Att%
-                                            Potentials stemp = new Potentials(secondary[0][0], secondary[0][1], secondary[0][2], sec160);
+                                            Potentials stemp = new Potentials(WSEHelpers.secondarySpace[0][0], WSEHelpers.secondarySpace[0][1], WSEHelpers.secondarySpace[0][2], sec160);
                                             reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, familiarCombo, soul);
                                             break;
                                         default:
-                                            for (PotType[] sec : secondary) {
+                                            for (PotType[] sec : WSEHelpers.secondarySpace) {
                                                 //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                                                 stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
                                                 reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, familiarCombo, soul);
@@ -114,7 +101,7 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
                     }
                     break;
                 case NONREBOOT:
-                    for (PotType soul : souls){
+                    for (PotType soul : WSEHelpers.soulSpace){
                         for (PotVector mpot : this.mainPots) {
                             for (PotVector bpot : this.bonusPots) {
                                 reducedOptimize = legionAndReduce(reducedOptimize, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, familiars, soul);
@@ -133,16 +120,16 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
         return reducedOptimize;
     }
     
-    private ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, int[] familiars, PotType soul){
+    private ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, Familiars familiars, PotType soul){
         // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
-        if (legion.size() == 1){
+        if (WSEHelpers.legionSpace.size() == 1){
             //Add the potVector to the list
-            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion.get(0), hyperStats, familiars, soul);
+            PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, WSEHelpers.legionSpace.get(0), hyperStats, familiars, soul);
             temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
             potContainer.add(temp);
         }
         else{
-            for (int[] legion : legion){
+            for (int[] legion : WSEHelpers.legionSpace){
                 //Add the potVector to the list
                 PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, legion, hyperStats, familiars, soul);
                 temp.calculcateMultiplier(baseATT, baseBOSS, baseDMG, baseIED, baseCRIT, PDR);
