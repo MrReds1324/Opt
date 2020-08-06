@@ -20,6 +20,7 @@ public class WSEHelpers {
     public static PotType[][] weaponSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
     public static PotType[][] secondarySpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
     public static ArrayList<int[]> hyperStatsSpace = new ArrayList(Arrays.asList(new int[]{0, 0, 0, 0}));
+    public static ArrayList<int[]> legionSpace = new ArrayList(Arrays.asList(new int[]{0, 0, 0}));
     public static ArrayList<Familiars> familiarSpace = new ArrayList(Arrays.asList(new Familiars(new int[]{0,0,0,0}, new int[]{0,0,0,0}, FamiliarTier.DEFAULT)));
     
     public static ArrayList reduce(ArrayList potContainer, int options){
@@ -34,61 +35,61 @@ public class WSEHelpers {
         return potContainer;
     }
     
-    public static PotType[] setupSoulsGenerationSpace(boolean sel){
+    public static void setupSoulsGenerationSpace(boolean sel){
         if (sel){
-            return new PotType[]{PotType.DEFAULT};
+            soulSpace = new PotType[]{PotType.DEFAULT};
         }
         else{
-            return Constants.souls;
+            soulSpace = Constants.souls;
         }
     }
     
-    public static PotType[][] setupEmblemGenerationSpace(boolean sel, PotConfig option){
+    public static void setupEmblemGenerationSpace(boolean sel, PotConfig option){
         if (sel){
-            return new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+            emblemSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else{
             switch(option){
                 case NO3LINE:
-                    return Constants.emblemNo3LineAtt;
+                    emblemSpace = Constants.emblemNo3LineAtt;
                 default:
-                    return Constants.emblem;
+                    emblemSpace = Constants.emblem;
             }
         }
     }
     
-    public static PotType[][] setupWeaponGenerationSpace(boolean sel, PotConfig option){
+    public static void setupWeaponGenerationSpace(boolean sel, PotConfig option){
         if (sel){
-            return new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+            weaponSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else{
             switch(option){
                 case NO3LINE:
-                    return Constants.weaponNo3LineAtt;
+                    weaponSpace = Constants.weaponNo3LineAtt;
                 default:
-                    return Constants.weapon;
+                    weaponSpace = Constants.weapon;
             }
         }
     }
         
-    public static PotType[][] setupSecondaryGenerationSpace(boolean sel, PotConfig option, ClassType classType){
+    public static void setupSecondaryGenerationSpace(boolean sel, PotConfig option, ClassType classType){
         if (sel || classType == ClassType.ZERO){
-            return new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+            secondarySpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
         }
         else if (classType == ClassType.KANNA){
-            return new PotType[][]{{PotType.ATT, PotType.ATT, PotType.ATT}};
+            secondarySpace = new PotType[][]{{PotType.ATT, PotType.ATT, PotType.ATT}};
         }
         else{
             switch(option){
                 case NO3LINE:
-                    return Constants.secondaryNo3LineAtt;
+                    secondarySpace = Constants.secondaryNo3LineAtt;
                 default:
-                    return Constants.secondary;
+                    secondarySpace = Constants.secondary;
             }
         }
     }
     
-    public static ArrayList<int[]> generateHyperStats(int totalAvailablePoints){
+    public static void generateHyperStats(int totalAvailablePoints){
         ArrayList<int[]> hyperStats = new ArrayList();
         totalAvailablePoints = totalAvailablePoints > 1266 ?  1266 : totalAvailablePoints;
         for (int cd = 0; cd <= 15; cd++){
@@ -127,10 +128,10 @@ public class WSEHelpers {
         if (hyperStats.isEmpty()){
             hyperStats.add(new int[]{0, 0, 0, 0});
         }
-        return hyperStats;
+        hyperStatsSpace = hyperStats;
     }
     
-    public static ArrayList<int[]> generateLegion(int legionPoints){
+    public static void generateLegion(int legionPoints){
         ArrayList<int[]> legionCombos = new ArrayList();
         if (legionPoints <= 0){
             legionCombos.add(new int[]{0, 0, 0});
@@ -198,10 +199,10 @@ public class WSEHelpers {
                 legionCombos.add(new int[]{first, second, third});
             }
         }
-        return legionCombos;
+        legionSpace = legionCombos;
     }
    
-    public static ArrayList<Familiars> generateFamiliars(int numFamiliarLines, FamiliarTier top){   
+    public static void generateFamiliars(int numFamiliarLines, FamiliarTier top){   
         ArrayList<Familiars> familiarCombos = new ArrayList();
         ArrayList<int[]> familiarTops = new ArrayList();
         ArrayList<int[]> familiarBots = new ArrayList();
@@ -296,7 +297,7 @@ public class WSEHelpers {
         }        
         
 
-        return familiarCombos;
+        familiarSpace = familiarCombos;
     }
     
 }
