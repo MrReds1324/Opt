@@ -26,7 +26,7 @@ public class Constants {
     }
 
     public enum PotType {
-        DEFAULT, ATT, BOSS, IED;
+        DEFAULT, ATT, BOSS, IED, MAIN, BONUS;
     }
     
     public enum Server {
@@ -80,11 +80,6 @@ public class Constants {
     public static final double SATT = 0.03;
     public static final double SBOSS = 0.07;
     public static final double SIED = 0.07;
-    
-    //Double values of familiars
-    public static final double FATT = 0.06;
-    public static final double FBOSS = 0.40;
-    public static final double FIED = 0.40;
     
     public static final PotType[][] weapon = new PotType[][]{
         // ATT Legendary line then two Unique lines
