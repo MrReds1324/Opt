@@ -24,16 +24,15 @@ public class PotVector implements Comparable {
     //The total attack, boss damage, ignore enemy defense, and the value from the calculation on these stats
     private double att, totalDMG, ied, crit, calc;
     private PotType soul;
-    //Boss/IED/ATT
-    private int[] familiars = new int[]{0, 0, 0};
+    Familiars familiars = new Familiars();
 
     //Constructor to create PotVector without Bonus Potential
-    PotVector(Potentials wep, Potentials sec, Potentials emb, int[] legion, int[] hyperStats, int[] familiars, PotType soul) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, int[] legion, int[] hyperStats, Familiars familiars, PotType soul) {
         this(wep, sec, emb, null, null, null, legion, hyperStats, familiars, soul);
     }
 
     //Constructor to create PotVectors with Bonus Potential 
-    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, int[] legion, int[] hyperStats, int[] familiars, PotType soul) {
+    PotVector(Potentials wep, Potentials sec, Potentials emb, Potentials wepb, Potentials secb, Potentials embb, int[] legion, int[] hyperStats, Familiars familiars, PotType soul) {
         this.wep = wep;
         this.sec = sec;
         this.emb = emb;
@@ -114,24 +113,24 @@ public class PotVector implements Comparable {
         return this.hyperStats;
     }
     
-    public int[] getFamiliars(){
+    public Familiars getFamiliars(){
         return this.familiars;
     }
     
     public double calculcateMultiplier(double baseATT, double baseBOSS, double baseDMG, double baseIED, double baseCrit, double pdr){
         // wep, sec, emb, wepb, secb, embb
         //Calculate new IED - Hard cap of 100% IED, if familiars go over that then cap it to 1 (100% ied)
-        double iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * Math.pow(1 - Constants.FIED, familiars[1]) * (1 - Constants.hyperIed[hyperStats[3]]) * (1 - (legion[1] * 0.01))));
+        double iedt = (1 - ((1 - baseIED) * emb.cied() * sec.cied() * wep.cied() * familiars.cied() * (1 - Constants.hyperIed[hyperStats[3]]) * (1 - (legion[1] * 0.01))));
         if (soul == PotType.IED){
             iedt = (1 - ((1 - iedt) * (1 - Constants.SIED)));
         }
         //Calculate new ATT
-        double attt = 1 + baseATT + emb.catt() + sec.catt() + wep.catt() + (familiars[2] * Constants.FATT);
+        double attt = 1 + baseATT + emb.catt() + sec.catt() + wep.catt() + familiars.catt();
         if (soul == PotType.ATT){
             attt += Constants.SATT;
         }
         //Calculate new BOSS
-        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + (familiars[0] * Constants.FBOSS > 1.2 ? 1.2 : familiars[0] * Constants.FBOSS) + Constants.hyperBossDmg[hyperStats[1]] + Constants.hyperDmg[hyperStats[2]] + (legion[0] * 0.01);
+        double bosst = 1 + baseDMG + baseBOSS + emb.cboss() + sec.cboss() + wep.cboss() + familiars.cboss() + Constants.hyperBossDmg[hyperStats[1]] + Constants.hyperDmg[hyperStats[2]] + (legion[0] * 0.01);
         if (soul == PotType.BOSS){
             bosst += Constants.SBOSS;
         }
