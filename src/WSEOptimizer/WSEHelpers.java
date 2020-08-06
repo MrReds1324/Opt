@@ -7,12 +7,20 @@ package WSEOptimizer;
 
 import java.util.ArrayList;
 import WSEOptimizer.Constants.*;
+import java.util.Arrays;
 import java.util.Collections;
 /**
  *
  * @author ryanb
  */
 public class WSEHelpers {
+    
+    public static PotType[] soulSpace = new PotType[]{PotType.DEFAULT};
+    public static PotType[][] emblemSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+    public static PotType[][] weaponSpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+    public static PotType[][] secondarySpace = new PotType[][]{{PotType.DEFAULT, PotType.DEFAULT, PotType.DEFAULT}};
+    public static ArrayList<int[]> hyperStatsSpace = new ArrayList(Arrays.asList(new int[]{0, 0, 0, 0}));
+    public static ArrayList<Familiars> familiarSpace = new ArrayList(Arrays.asList(new Familiars(new int[]{0,0,0,0}, new int[]{0,0,0,0}, FamiliarTier.DEFAULT)));
     
     public static ArrayList reduce(ArrayList potContainer, int options){
         //Sorts then shrinks the list to reduce memory overhead
@@ -193,4 +201,102 @@ public class WSEHelpers {
         return legionCombos;
     }
    
+    public static ArrayList<Familiars> generateFamiliars(int numFamiliarLines, FamiliarTier top){   
+        ArrayList<Familiars> familiarCombos = new ArrayList();
+        ArrayList<int[]> familiarTops = new ArrayList();
+        ArrayList<int[]> familiarBots = new ArrayList();
+        
+        int toplines = 0;
+        int botlines = 0;
+
+        // Determine the correct number of top and bottom lines - preferencing top lines over bot
+        if (numFamiliarLines >= 3){
+            toplines = 3;
+            botlines = numFamiliarLines - 3;
+        }
+        else{
+            toplines = numFamiliarLines;
+            botlines = 0;
+        }
+
+        switch(top){
+            case DEFAULT:
+                familiarTops.add(new int[]{0, 0, 0, 0});
+                break;
+            case LEGENDARY:
+            case UNIQUE:
+            case EPIC:
+            case RARE:
+            case COMMON:
+                // Iterate combinations of top lines
+                for(int boss = 0; boss <= toplines; boss++){
+                    for(int att = 0; att <= toplines; att++){
+                        for(int ied = 0; ied <= toplines; ied++){
+                            for(int cd = 0; cd <= toplines; cd++){
+                                if ((boss + att + ied + cd) == toplines){
+                                    familiarTops.add(new int[]{att, ied, boss, cd});
+                                    //[ATT, IED, BOSS, Crit Damage]
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+                
+        switch(top){
+            case DEFAULT:
+            case COMMON:
+                familiarBots.add(new int[]{0, 0, 0, 0});
+                break;
+            case LEGENDARY:
+            case UNIQUE:
+            case EPIC:
+            case RARE:
+                // Iterate combinations of bot lines
+                for(int boss = 0; boss <= botlines; boss++){
+                    for(int att = 0; att <= botlines; att++){
+                        for(int ied = 0; ied <= botlines; ied++){
+                            for(int cd = 0; cd <= botlines; cd++){
+                                if ((boss + att + ied + cd) == botlines){
+                                    familiarBots.add(new int[]{att, ied, boss, cd});
+                                    //[ATT, IED, BOSS, Crit Damage]
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+        
+        for(int[] tops: familiarTops){
+            for(int[] bots: familiarBots){
+                // Attempt to reduce the total number of combinations as well as validate combos based on tier
+                //[ATT, IED, BOSS, Crit Damage]
+                if (top == FamiliarTier.LEGENDARY && (tops[2] + bots[2]) > 3){
+                    // Limit the amount of boss to as close to 120 as possible
+                }
+                else if (top == FamiliarTier.UNIQUE && (tops[2] + bots[2]) > 4){
+                    // Limit the amount of boss to as close to 120 as possible
+                }
+                else if (top == FamiliarTier.EPIC && (tops[3] > 0 || bots[3] > 0)){
+                    // No crit damage on EPIC tier top lines, No crit damage on RARE tier bottom lines
+                }
+                else if (top == FamiliarTier.RARE && ( tops[3] > 0 || bots[3] > 0)){
+                    //No crit damage on RARE tier top lines, no crit damage on COMMON tier bot lines
+                }
+                else if (top == FamiliarTier.COMMON && tops[0] + tops[2] == toplines){
+                    // Common ONLY has ATT and damage lines - will ignore bottom lines
+                    familiarCombos.add(new Familiars(tops, bots, top));
+                }
+                else{
+                    familiarCombos.add(new Familiars(tops, bots, top));
+                }
+            }
+        }        
+        
+
+        return familiarCombos;
+    }
+    
 }
