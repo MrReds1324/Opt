@@ -33,6 +33,34 @@ public class Constants {
         REBOOT, NONREBOOT;
     }
     
+    public enum FamiliarTier {
+        LEGENDARY, UNIQUE, EPIC, RARE, COMMON, DEFAULT;
+    }
+    
+    //Double values of each tier of familiar lines
+    //Legendary
+    public static final double LFATT = 0.09;
+    public static final double LFIED = 0.50;
+    public static final double LFBOSS = 0.50;
+    public static final double LFCRIT = 0.06;
+    //Unique
+    public static final double UFATT = 0.05;
+    public static final double UFIED = 0.40;
+    public static final double UFBOSS = 0.40;
+    public static final double UFCRIT = 0.03;
+    //Epic
+    public static final double EFATT = 0.03;
+    public static final double EFIED = 0.30;
+    public static final double EFBOSS = 0.30;
+    //Rare
+    public static final double RFATT = 0.02;
+    public static final double RFIED = 0.15;
+    public static final double RFBOSS = 0.02;
+    //Common
+    public static final double CFATT = 0.01;
+    public static final double CFIED = 0.15;
+    public static final double CFBOSS = 0.01;
+    
     //Double values of each potential
     public static final double LIED = 0.40;  //Legendary IED value
     public static final double UIED = 0.30;  //Unique IED value
@@ -96,26 +124,6 @@ public class Constants {
     
     public static final PotType[][] emblemNo3LineAtt = Arrays.copyOfRange(emblem, 1, emblem.length);
     
-    //Tracks the total lines on familiars of Boss/IED/ATT - Note Boss is capped to 120% which is 3 lines
-    public static final int[][] familiars = new int[][]{
-        {3, 0, 2}, 
-        {3, 2, 0}, 
-        {1, 0, 4}, 
-        {1, 4, 0}, 
-        {2, 0, 3}, 
-        {3, 1, 1}, 
-        {0, 2, 3}, 
-        {0, 4, 1}, 
-        {1, 1, 3}, 
-        {1, 2, 2}, 
-        {1, 3, 1}, 
-        {2, 2, 1}, 
-        {0, 0, 5}, 
-        {0, 1, 4}, 
-        {0, 5, 0}, 
-        {2, 1, 2}, 
-        {2, 3, 0}, 
-        {0, 3, 2}};
     
     public static final PotType[] souls = new PotType[]{PotType.ATT, PotType.BOSS, PotType.IED};
     
