@@ -5,6 +5,7 @@
  */
 package WSEOptimizer;
 
+import WSEOptimizer.Constants.PotType;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,4 +32,13 @@ public class ComboBoxSupport {
     public static DefaultComboBoxModel<String> buildComboBoxItems(Map<String, PotVector> itemMapping){
         return new DefaultComboBoxModel(itemMapping.keySet().toArray());
     }
+    
+    public static Map<String, PotType> buildSelectComboBoxMap(){
+        LinkedHashMap<String, PotType> builderMap = new LinkedHashMap<>();
+        builderMap.put("ATT", PotType.ATT);
+        builderMap.put("IED", PotType.IED);
+        builderMap.put("BOSS", PotType.BOSS);
+        builderMap.put("CRIT", PotType.CRITDAMAGE);
+        return builderMap;
+    }  
 }
