@@ -26,7 +26,7 @@ public class Constants {
     }
 
     public enum PotType {
-        DEFAULT, ATT, BOSS, IED, MAIN, BONUS;
+        DEFAULT, ATT, BOSS, IED, CRITDAMAGE, MAIN, BONUS;
     }
     
     public enum Server {
