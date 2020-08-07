@@ -131,6 +131,15 @@ public class Familiars {
     @Override
     public String toString(){
         String s = "";
+        s += String.format("%.0f ATT x%d", topAtt * 100, topline[0]);
+        s += String.format("\n%.0f IED x%d", topIED * 100, topline[1]);
+        s += String.format("\n%.0f BOSS x%d", topBoss * 100, topline[2]);
+        s += String.format("\n%.0f Crit Damage x%d", topCrit * 100, topline[3]);
+        
+        s += String.format("\n%.0f ATT x%d", botAtt * 100, botline[0]);
+        s += String.format("\n%.0f IED x%d", botIED * 100, botline[1]);
+        s += String.format("\n%.0f BOSS x%d", botBoss * 100, botline[2]);
+        s += String.format("\n%.0f Crit Damage x%d", botCrit * 100, botline[3]);
         return s;
     }
     
