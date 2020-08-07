@@ -1707,7 +1707,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(pdrLabel, gridBagConstraints);
 
-        inputOutputPane.addTab("Base Stats", baseStatsPanel);
+        inputOutputPane.addTab("Base Stats and Buffs", baseStatsPanel);
 
         getContentPane().add(inputOutputPane, new java.awt.GridBagConstraints());
 
@@ -2121,9 +2121,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 WSEHelpers.setupSecondaryGenerationSpace(secbpSelect.isSelected(), no_3lbpAtt, classType, PotType.BONUS);
                 WSEHelpers.setupEmblemGenerationSpace(embbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
                 WSEHelpers.setupSoulsGenerationSpace(soulSelect.isSelected());
+                WSEHelpers.generateFamiliars(3, FamiliarTier.EPIC);
                 
                 
-                worker = new WSEWorker(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.hyperPoints, this.legionVal, this.no_3lAtt, this.no_3lbpAtt, this.classType, this.wep_lvl, this.sec_lvl, this.embSelect.isSelected(), this.wepSelect.isSelected(), this.secSelect.isSelected(), this.embbpSelect.isSelected(), this.wepbpSelect.isSelected(), this.secbpSelect.isSelected(), this.soulSelect.isSelected(), numberOfOptions, this.server);
+                worker = new WSEWorker(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.classType, this.wep_lvl, this.sec_lvl,  numberOfOptions, this.server);
                 worker.addPropertyChangeListener(listener);
                 worker.execute();
             } catch (Exception e) {

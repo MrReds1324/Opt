@@ -36,20 +36,19 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
     private int progress = 0;
     private ExecutorService pool;
 
-    public WSEWorker(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, int hyperPoints, int legionPoints, 
-            PotConfig mainConfig, PotConfig bpConfig, ClassType classType, boolean sw_abs, boolean sec160, boolean embSelected, boolean wepSelected, 
-            boolean secSelected, boolean embbpSelected, boolean wepbpSelected, boolean secbpSelected, boolean soulSelected, int numberOfOptions, Server server){
+    public WSEWorker(double baseDamage, double baseBoss, double baseAtt, double baseIed, double baseCrit, double pdr, ClassType classType, boolean sw_abs, 
+            boolean sec160, int numberOfOptions, Server server){
         this.baseDMG = baseDamage;
         this.baseBOSS = baseBoss;
         this.baseATT = baseAtt;
         this.baseIED = baseIed;
         this.baseCRIT = baseCrit;
         this.PDR = pdr;
+        this.classType = classType;
+        this.sw_abs = sw_abs;
+        this.sec160 = sec160;
         this.options = numberOfOptions;
         this.server = server;
-        this.classType = classType;
-        this.sec160 = sec160;
-        this.sw_abs = sw_abs;
     }
 
     @Override
