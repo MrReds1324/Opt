@@ -28,25 +28,25 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
     private ClassType classType = ClassType.NOCLASS;  //Keeps track of the class type
     //These keep track of which buttons are selected for which input field
-    private PotType wepInp1_butSel = PotType.DEFAULT;
-    private PotType wepInp2_butSel = PotType.DEFAULT;
-    private PotType wepInp3_butSel = PotType.DEFAULT;
-    private PotType wepInp5_butSel = PotType.DEFAULT;
-    private PotType secInp1_butSel = PotType.DEFAULT;
-    private PotType secInp2_butSel = PotType.DEFAULT;
-    private PotType secInp3_butSel = PotType.DEFAULT;
-    private PotType wepbpInp1_butSel = PotType.DEFAULT;
-    private PotType wepbpInp2_butSel = PotType.DEFAULT;
-    private PotType wepbpInp3_butSel = PotType.DEFAULT;
-    private PotType secbpInp1_butSel = PotType.DEFAULT;
-    private PotType secbpInp2_butSel = PotType.DEFAULT;
-    private PotType secbpInp3_butSel = PotType.DEFAULT;
-    private PotType embInp1_butSel = PotType.DEFAULT;
-    private PotType embInp2_butSel = PotType.DEFAULT;
-    private PotType embInp3_butSel = PotType.DEFAULT;
-    private PotType embbpInp1_butSel = PotType.DEFAULT;
-    private PotType embbpInp2_butSel = PotType.DEFAULT;
-    private PotType embbpInp3_butSel = PotType.DEFAULT;
+    private PotType wepInp1_comboSel = PotType.DEFAULT;
+    private PotType wepInp2_comboSel = PotType.DEFAULT;
+    private PotType wepInp3_comboSel = PotType.DEFAULT;
+    private PotType wepInp5_comboSel = PotType.DEFAULT;
+    private PotType secInp1_comboSel = PotType.DEFAULT;
+    private PotType secInp2_comboSel = PotType.DEFAULT;
+    private PotType secInp3_comboSel = PotType.DEFAULT;
+    private PotType wepbpInp1_comboSel = PotType.DEFAULT;
+    private PotType wepbpInp2_comboSel = PotType.DEFAULT;
+    private PotType wepbpInp3_comboSel = PotType.DEFAULT;
+    private PotType secbpInp1_comboSel = PotType.DEFAULT;
+    private PotType secbpInp2_comboSel = PotType.DEFAULT;
+    private PotType secbpInp3_comboSel = PotType.DEFAULT;
+    private PotType embInp1_comboSel = PotType.DEFAULT;
+    private PotType embInp2_comboSel = PotType.DEFAULT;
+    private PotType embInp3_comboSel = PotType.DEFAULT;
+    private PotType embbpInp1_comboSel = PotType.DEFAULT;
+    private PotType embbpInp2_comboSel = PotType.DEFAULT;
+    private PotType embbpInp3_comboSel = PotType.DEFAULT;
     //These fields keep track of the values inserted into the input text fields
     private double att_base;
     private double ied_base;
@@ -1313,9 +1313,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp1.getText().equals("") && wepInp1_butSel != PotType.DEFAULT) {
+                    if (!wepInp1.getText().equals("") && wepInp1_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp1.getText()) / 100;
-                        switch (wepInp1_butSel) {
+                        switch (wepInp1_comboSel) {
                             case ATT:
                                 this.att_base += wepInp * zero_scale;
                                 break;
@@ -1331,9 +1331,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp2.getText().equals("") && wepInp2_butSel != PotType.DEFAULT) {
+                    if (!wepInp2.getText().equals("") && wepInp2_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp2.getText()) / 100;
-                        switch (wepInp2_butSel) {
+                        switch (wepInp2_comboSel) {
                             case ATT:
                                 this.att_base += wepInp * zero_scale;
                                 break;
@@ -1349,9 +1349,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp3.getText().equals("") && wepInp3_butSel != PotType.DEFAULT) {
+                    if (!wepInp3.getText().equals("") && wepInp3_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp3.getText()) / 100;
-                        switch (wepInp3_butSel) {
+                        switch (wepInp3_comboSel) {
                             case ATT:
                                 this.att_base += wepInp * zero_scale;
                                 break;
@@ -1370,9 +1370,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
                 if (secSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp1.getText().equals("") && secInp1_butSel != PotType.DEFAULT) {
+                    if (!secInp1.getText().equals("") && secInp1_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp1.getText()) / 100;
-                        switch (secInp1_butSel) {
+                        switch (secInp1_comboSel) {
                             case ATT:
                                 this.att_base += secInp;
                                 break;
@@ -1385,9 +1385,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp2.getText().equals("") && secInp2_butSel != PotType.DEFAULT) {
+                    if (!secInp2.getText().equals("") && secInp2_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp2.getText()) / 100;
-                        switch (secInp2_butSel) {
+                        switch (secInp2_comboSel) {
                             case ATT:
                                 this.att_base += secInp;
                                 break;
@@ -1400,9 +1400,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp3.getText().equals("") && secInp3_butSel != PotType.DEFAULT) {
+                    if (!secInp3.getText().equals("") && secInp3_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp3.getText()) / 100;
-                        switch (secInp3_butSel) {
+                        switch (secInp3_comboSel) {
                             case ATT:
                                 this.att_base += secInp;
                                 break;
@@ -1418,9 +1418,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
                 if (embSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp1.getText().equals("") && embInp1_butSel != PotType.DEFAULT) {
+                    if (!embInp1.getText().equals("") && embInp1_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp1.getText()) / 100;
-                        switch (embInp1_butSel){
+                        switch (embInp1_comboSel){
                             case ATT:
                                 this.att_base += embInp;
                                 break;
@@ -1430,9 +1430,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp2.getText().equals("") && embInp2_butSel != PotType.DEFAULT) {
+                    if (!embInp2.getText().equals("") && embInp2_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp2.getText()) / 100;
-                        switch (embInp2_butSel){
+                        switch (embInp2_comboSel){
                             case ATT:
                                 this.att_base += embInp;
                                 break;
@@ -1442,9 +1442,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp3.getText().equals("") && embInp3_butSel != PotType.DEFAULT) {
+                    if (!embInp3.getText().equals("") && embInp3_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp3.getText()) / 100;
-                        switch (embInp3_butSel){
+                        switch (embInp3_comboSel){
                             case ATT:
                                 this.att_base += embInp;
                                 break;
@@ -1458,9 +1458,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp1.getText().equals("") && wepbpInp1_butSel != PotType.DEFAULT) {
+                    if (!wepbpInp1.getText().equals("") && wepbpInp1_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp1.getText()) / 100;
-                        switch (wepbpInp1_butSel) {
+                        switch (wepbpInp1_comboSel) {
                             case ATT:
                                 this.att_base += wepInp * zero_scale;
                                 break;
@@ -1476,9 +1476,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp2.getText().equals("") && wepbpInp2_butSel != PotType.DEFAULT) {
+                    if (!wepbpInp2.getText().equals("") && wepbpInp2_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp2.getText()) / 100;
-                        switch (wepbpInp2_butSel) {
+                        switch (wepbpInp2_comboSel) {
                             case ATT:
                                 this.att_base += wepInp * zero_scale;
                                 break;
@@ -1494,9 +1494,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp3.getText().equals("") && wepbpInp3_butSel != PotType.DEFAULT) {
+                    if (!wepbpInp3.getText().equals("") && wepbpInp3_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp3.getText()) / 100;
-                        switch (wepbpInp3_butSel) {
+                        switch (wepbpInp3_comboSel) {
                             case ATT:
                                 this.att_base += wepInp * zero_scale;
                                 break;
@@ -1515,9 +1515,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
                 if (secbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp1.getText().equals("") && secbpInp1_butSel != PotType.DEFAULT) {
+                    if (!secbpInp1.getText().equals("") && secbpInp1_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp1.getText()) / 100;
-                        switch (secbpInp1_butSel) {
+                        switch (secbpInp1_comboSel) {
                             case ATT:
                                 this.att_base += secInp;
                                 break;
@@ -1530,9 +1530,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp2.getText().equals("") && secbpInp2_butSel != PotType.DEFAULT) {
+                    if (!secbpInp2.getText().equals("") && secbpInp2_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp2.getText()) / 100;
-                        switch (secbpInp2_butSel) {
+                        switch (secbpInp2_comboSel) {
                             case ATT:
                                 this.att_base += secInp;
                                 break;
@@ -1545,9 +1545,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp3.getText().equals("") && secbpInp3_butSel != PotType.DEFAULT) {
+                    if (!secbpInp3.getText().equals("") && secbpInp3_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp3.getText()) / 100;
-                        switch (secbpInp3_butSel) {
+                        switch (secbpInp3_comboSel) {
                             case ATT:
                                 this.att_base += secInp;
                                 break;
@@ -1563,9 +1563,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
                 if (embbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp1.getText().equals("") && embbpInp1_butSel != PotType.DEFAULT) {
+                    if (!embbpInp1.getText().equals("") && embbpInp1_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp1.getText()) / 100;
-                        switch (embbpInp1_butSel){
+                        switch (embbpInp1_comboSel){
                             case ATT:
                                 this.att_base += embInp;
                                 break;
@@ -1575,9 +1575,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp2.getText().equals("") && embbpInp2_butSel != PotType.DEFAULT) {
+                    if (!embbpInp2.getText().equals("") && embbpInp2_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp2.getText()) / 100;
-                        switch (embbpInp2_butSel){
+                        switch (embbpInp2_comboSel){
                             case ATT:
                                 this.att_base += embInp;
                                 break;
@@ -1587,9 +1587,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         }
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp3.getText().equals("") && embbpInp3_butSel != PotType.DEFAULT) {
+                    if (!embbpInp3.getText().equals("") && embbpInp3_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp3.getText()) / 100;
-                        switch (embbpInp3_butSel){
+                        switch (embbpInp3_comboSel){
                             case ATT:
                                 this.att_base += embInp;
                                 break;
@@ -1602,9 +1602,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the soul is sleceted go through and pull all the inputs and add them to the base values
                 if (soulSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp4.getText().equals("") && wepInp5_butSel != PotType.DEFAULT) {
+                    if (!wepInp4.getText().equals("") && wepInp5_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp4.getText()) / 100;
-                        switch (wepInp5_butSel) {
+                        switch (wepInp5_comboSel) {
                             case ATT:
                                 this.att_base += wepInp;
                                 break;
