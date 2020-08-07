@@ -31,7 +31,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private PotType wepInp1_comboSel = PotType.DEFAULT;
     private PotType wepInp2_comboSel = PotType.DEFAULT;
     private PotType wepInp3_comboSel = PotType.DEFAULT;
-    private PotType wepInp5_comboSel = PotType.DEFAULT;
+    private PotType soul_comboSel = PotType.DEFAULT;
     private PotType secInp1_comboSel = PotType.DEFAULT;
     private PotType secInp2_comboSel = PotType.DEFAULT;
     private PotType secInp3_comboSel = PotType.DEFAULT;
@@ -170,7 +170,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embInp3 = new javax.swing.JTextField();
         emb3ComboBox = new javax.swing.JComboBox<>();
         soulSelect = new javax.swing.JToggleButton();
-        wepInp4 = new javax.swing.JTextField();
+        soulInp = new javax.swing.JTextField();
         soulComboBox = new javax.swing.JComboBox<>();
         bonusSeperator = new javax.swing.JSeparator();
         wepbpSelect = new javax.swing.JToggleButton();
@@ -220,9 +220,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
-        setMaximumSize(new java.awt.Dimension(640, 780));
         setMinimumSize(new java.awt.Dimension(640, 780));
-        setPreferredSize(new java.awt.Dimension(640, 780));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -384,7 +382,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepInp1, gridBagConstraints);
 
-        wep1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        wep1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         wep1ComboBox.setEnabled(false);
         wep1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wep1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -411,7 +409,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepInp2, gridBagConstraints);
 
-        wep2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        wep2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         wep2ComboBox.setEnabled(false);
         wep2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wep2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -438,7 +436,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepInp3, gridBagConstraints);
 
-        wep3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        wep3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         wep3ComboBox.setEnabled(false);
         wep3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wep3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -481,7 +479,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secInp1, gridBagConstraints);
 
-        sec1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        sec1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         sec1ComboBox.setEnabled(false);
         sec1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         sec1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -508,7 +506,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secInp2, gridBagConstraints);
 
-        sec2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        sec2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         sec2ComboBox.setEnabled(false);
         sec2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         sec2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -535,7 +533,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secInp3, gridBagConstraints);
 
-        sec3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        sec3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         sec3ComboBox.setEnabled(false);
         sec3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         sec3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -579,7 +577,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embInp1, gridBagConstraints);
 
-        emb1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED" }));
+        emb1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED" }));
         emb1ComboBox.setEnabled(false);
         emb1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         emb1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -606,7 +604,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embInp2, gridBagConstraints);
 
-        emb2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED" }));
+        emb2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED" }));
         emb2ComboBox.setEnabled(false);
         emb2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         emb2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -633,7 +631,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embInp3, gridBagConstraints);
 
-        emb3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED" }));
+        emb3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED" }));
         emb3ComboBox.setEnabled(false);
         emb3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         emb3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -665,18 +663,18 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(soulSelect, gridBagConstraints);
 
-        wepInp4.setEnabled(false);
-        wepInp4.setMaximumSize(new java.awt.Dimension(140, 23));
-        wepInp4.setMinimumSize(new java.awt.Dimension(140, 23));
-        wepInp4.setPreferredSize(new java.awt.Dimension(140, 23));
+        soulInp.setEnabled(false);
+        soulInp.setMaximumSize(new java.awt.Dimension(140, 23));
+        soulInp.setMinimumSize(new java.awt.Dimension(140, 23));
+        soulInp.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        inputPanel.add(wepInp4, gridBagConstraints);
+        inputPanel.add(soulInp, gridBagConstraints);
 
-        soulComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        soulComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         soulComboBox.setEnabled(false);
         soulComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         soulComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -728,7 +726,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepbpInp1, gridBagConstraints);
 
-        wepbp1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        wepbp1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         wepbp1ComboBox.setEnabled(false);
         wepbp1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wepbp1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -755,7 +753,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepbpInp2, gridBagConstraints);
 
-        wepbp2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        wepbp2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         wepbp2ComboBox.setEnabled(false);
         wepbp2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wepbp2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -782,7 +780,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepbpInp3, gridBagConstraints);
 
-        wepbp3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        wepbp3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         wepbp3ComboBox.setEnabled(false);
         wepbp3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wepbp3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -826,7 +824,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secbpInp1, gridBagConstraints);
 
-        secbp1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        secbp1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         secbp1ComboBox.setEnabled(false);
         secbp1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         secbp1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -853,7 +851,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secbpInp2, gridBagConstraints);
 
-        secbp2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        secbp2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         secbp2ComboBox.setEnabled(false);
         secbp2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         secbp2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -880,7 +878,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secbpInp3, gridBagConstraints);
 
-        secbp3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED", "BOSS" }));
+        secbp3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS" }));
         secbp3ComboBox.setEnabled(false);
         secbp3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         secbp3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -924,7 +922,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embbpInp1, gridBagConstraints);
 
-        embbp1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED" }));
+        embbp1ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED" }));
         embbp1ComboBox.setEnabled(false);
         embbp1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         embbp1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -951,7 +949,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embbpInp2, gridBagConstraints);
 
-        embbp2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED" }));
+        embbp2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED" }));
         embbp2ComboBox.setEnabled(false);
         embbp2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         embbp2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -978,7 +976,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embbpInp3, gridBagConstraints);
 
-        embbp3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATT", "IED" }));
+        embbp3ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED" }));
         embbp3ComboBox.setEnabled(false);
         embbp3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         embbp3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
@@ -1602,9 +1600,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //If the soul is sleceted go through and pull all the inputs and add them to the base values
                 if (soulSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp4.getText().equals("") && wepInp5_comboSel != PotType.DEFAULT) {
-                        double wepInp = Double.parseDouble(wepInp4.getText()) / 100;
-                        switch (wepInp5_comboSel) {
+                    if (!soulInp.getText().equals("") && soul_comboSel != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(soulInp.getText()) / 100;
+                        switch (soul_comboSel) {
                             case ATT:
                                 this.att_base += wepInp;
                                 break;
@@ -1743,80 +1741,116 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void wep1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep1ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            System.out.println(this.potSelectComboBoxMap.get(wep1ComboBox.getSelectedItem().toString()));
+           this.wepInp1_comboSel = this.potSelectComboBoxMap.get(wep1ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_wep1ComboBoxItemStateChanged
 
     private void wep2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep2ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.wepInp2_comboSel = this.potSelectComboBoxMap.get(wep2ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_wep2ComboBoxItemStateChanged
 
     private void wep3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep3ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.wepInp3_comboSel = this.potSelectComboBoxMap.get(wep3ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_wep3ComboBoxItemStateChanged
 
     private void sec1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec1ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.secInp1_comboSel = this.potSelectComboBoxMap.get(sec1ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_sec1ComboBoxItemStateChanged
 
     private void sec2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec2ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.secInp2_comboSel = this.potSelectComboBoxMap.get(sec2ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_sec2ComboBoxItemStateChanged
 
     private void sec3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec3ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.secInp3_comboSel = this.potSelectComboBoxMap.get(sec3ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_sec3ComboBoxItemStateChanged
 
     private void emb1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb1ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.embInp1_comboSel = this.potSelectComboBoxMap.get(emb1ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_emb1ComboBoxItemStateChanged
 
     private void emb2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb2ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.embInp2_comboSel = this.potSelectComboBoxMap.get(emb2ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_emb2ComboBoxItemStateChanged
 
     private void emb3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb3ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.embInp3_comboSel = this.potSelectComboBoxMap.get(emb3ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_emb3ComboBoxItemStateChanged
 
     private void wepbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp1ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.wepbpInp1_comboSel = this.potSelectComboBoxMap.get(wepbp1ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_wepbp1ComboBoxItemStateChanged
 
     private void wepbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp2ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.wepbpInp2_comboSel = this.potSelectComboBoxMap.get(wepbp2ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_wepbp2ComboBoxItemStateChanged
 
     private void wepbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp3ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.wepbpInp3_comboSel = this.potSelectComboBoxMap.get(wepbp3ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_wepbp3ComboBoxItemStateChanged
 
     private void secbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp1ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.secbpInp1_comboSel = this.potSelectComboBoxMap.get(secbp1ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_secbp1ComboBoxItemStateChanged
 
     private void secbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp2ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.secbpInp2_comboSel = this.potSelectComboBoxMap.get(secbp2ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_secbp2ComboBoxItemStateChanged
 
     private void secbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp3ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.secbpInp3_comboSel = this.potSelectComboBoxMap.get(secbp3ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_secbp3ComboBoxItemStateChanged
 
     private void embbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp1ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.embbpInp1_comboSel = this.potSelectComboBoxMap.get(embbp1ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_embbp1ComboBoxItemStateChanged
 
     private void embbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp2ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.embbpInp2_comboSel = this.potSelectComboBoxMap.get(embbp2ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_embbp2ComboBoxItemStateChanged
 
     private void embbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp3ComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.embbpInp3_comboSel = this.potSelectComboBoxMap.get(embbp3ComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_embbp3ComboBoxItemStateChanged
 
     private void soulComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_soulComboBoxItemStateChanged
-        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            this.soul_comboSel = this.potSelectComboBoxMap.get(soulComboBox.getSelectedItem().toString());
+        }
     }//GEN-LAST:event_soulComboBoxItemStateChanged
     
     public void clearInputs(boolean main, boolean bonus){
@@ -1833,7 +1867,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             embInp2.setText("");
             embInp3.setText("");
             
-            wepInp4.setText("");
+            soulInp.setText("");
         }
         if (bonus){
             wepbpInp1.setText("");
@@ -1905,7 +1939,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }
 
     public void setSoulEnabled(boolean b) {
-        wepInp4.setEnabled(b);
+        soulInp.setEnabled(b);
         soulComboBox.setEnabled(b);
     }
 
@@ -1937,7 +1971,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             ItemPrinter.printItem(embbpInp1, embbpInp2, embbpInp3, potVector.getEmbb());
         }
         if (!soulSelect.isSelected()) {
-            ItemPrinter.printSoul(wepInp4, potVector.getSoul());
+            ItemPrinter.printSoul(soulInp, potVector.getSoul());
         }
         double calcBase = ((1.3 + this.crit_baseS) * (1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
         ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, this.time, potVector);
@@ -2053,6 +2087,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton secbpSelect;
     private javax.swing.JToggleButton seclvl;
     private javax.swing.JComboBox<String> soulComboBox;
+    private javax.swing.JTextField soulInp;
     private javax.swing.JToggleButton soulSelect;
     private javax.swing.JTextField union;
     private javax.swing.JComboBox<String> wep1ComboBox;
@@ -2061,7 +2096,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField wepInp1;
     private javax.swing.JTextField wepInp2;
     private javax.swing.JTextField wepInp3;
-    private javax.swing.JTextField wepInp4;
     private javax.swing.JToggleButton wepSelect;
     private javax.swing.JComboBox<String> wepbp1ComboBox;
     private javax.swing.JComboBox<String> wepbp2ComboBox;
