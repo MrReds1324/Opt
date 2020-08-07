@@ -35,6 +35,7 @@ public class ComboBoxSupport {
     
     public static Map<String, PotType> buildSelectComboBoxMap(){
         LinkedHashMap<String, PotType> builderMap = new LinkedHashMap<>();
+        builderMap.put("None", PotType.DEFAULT);
         builderMap.put("ATT", PotType.ATT);
         builderMap.put("IED", PotType.IED);
         builderMap.put("BOSS", PotType.BOSS);
