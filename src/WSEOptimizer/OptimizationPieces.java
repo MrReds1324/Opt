@@ -1558,6 +1558,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             wseOptions.setEnabled(false);
             //Determine the inputs from the text fields
             try {
+                resetOpenFamiliarSlots();
                 numberOfOptions = Integer.parseInt(numOptions.getText());
                 if (numberOfOptions < 0) {
                     numberOfOptions = 0;
@@ -2090,20 +2091,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
             soulInp.setText("");
             soulComboBox.setSelectedItem("None");
             
-            familiar1Inp1.setText("");
-            familiar1Inp2.setText("");
-            familiar1ComboBox1.setSelectedItem("None");
-            familiar1ComboBox2.setSelectedItem("None");
-            
-            familiar2Inp1.setText("");
-            familiar2Inp2.setText("");
-            familiar2ComboBox1.setSelectedItem("None");
-            familiar2ComboBox2.setSelectedItem("None");
-            
-            familiar3Inp1.setText("");
-            familiar3Inp2.setText("");
-            familiar3ComboBox1.setSelectedItem("None");
-            familiar3ComboBox2.setSelectedItem("None");
+            resetFamiliar1();
+            resetFamiliar2();
+            resetFamiliar3();
 
         }
         if (bonus) {
@@ -2262,10 +2252,44 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
         ItemPrinter.printFamiliars(familiar1Select.isSelected(), familiar2Select.isSelected(), familiar3Select.isSelected(), familiar1Inp1, familiar1ComboBox1, familiar1Inp2, familiar1ComboBox2,
                 familiar2Inp1, familiar2ComboBox1, familiar2Inp2, familiar2ComboBox2, familiar3Inp1, familiar3ComboBox1, familiar3Inp2, familiar3ComboBox2, potVector.getFamiliars());
+        
         double calcBase = ((1.3 + crit_baseS) * (1 + att_baseS) * (1 + boss_baseS + dmg_baseS) * (1 - (pdr * (1 - ied_baseS))));
         ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, time, potVector);
     }
 
+    private void resetFamiliar1() {
+        familiar1Inp1.setText("");
+        familiar1Inp2.setText("");
+        familiar1ComboBox1.setSelectedItem("None");
+        familiar1ComboBox2.setSelectedItem("None");
+    }
+
+    private void resetFamiliar2() {
+        familiar2Inp1.setText("");
+        familiar2Inp2.setText("");
+        familiar2ComboBox1.setSelectedItem("None");
+        familiar2ComboBox2.setSelectedItem("None");
+    }
+
+    private void resetFamiliar3() {
+        familiar3Inp1.setText("");
+        familiar3Inp2.setText("");
+        familiar3ComboBox1.setSelectedItem("None");
+        familiar3ComboBox2.setSelectedItem("None");
+    }
+    
+    private void resetOpenFamiliarSlots(){
+        if (!familiar1Select.isSelected()){
+            resetFamiliar1();
+        }
+        if (!familiar2Select.isSelected()){
+            resetFamiliar2();
+        }
+        if (!familiar3Select.isSelected()){
+            resetFamiliar3();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
