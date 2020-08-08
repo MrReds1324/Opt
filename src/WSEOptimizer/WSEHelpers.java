@@ -235,23 +235,13 @@ public class WSEHelpers {
         legionSpace = legionCombos;
     }
    
-    public static void generateFamiliars(int numFamiliarLines, FamiliarTier top){   
+    public static void generateFamiliars(int numTop, int numBot, FamiliarTier top){   
         ArrayList<Familiars> familiarCombos = new ArrayList();
         ArrayList<int[]> familiarTops = new ArrayList();
         ArrayList<int[]> familiarBots = new ArrayList();
         
-        int toplines = 0;
-        int botlines = 0;
-
-        // Determine the correct number of top and bottom lines - preferencing top lines over bot
-        if (numFamiliarLines >= 3){
-            toplines = 3;
-            botlines = numFamiliarLines - 3;
-        }
-        else{
-            toplines = numFamiliarLines;
-            botlines = 0;
-        }
+        int toplines = numTop;
+        int botlines = numBot;
 
         switch(top){
             case DEFAULT:
