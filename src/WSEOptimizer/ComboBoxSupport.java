@@ -7,6 +7,7 @@ package WSEOptimizer;
 
 import WSEOptimizer.Constants.FamiliarTier;
 import WSEOptimizer.Constants.PotType;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,15 @@ public class ComboBoxSupport {
     @SuppressWarnings("unchecked")
     public static DefaultComboBoxModel<String> buildComboBoxItems(Map<String, PotVector> itemMapping){
         return new DefaultComboBoxModel(itemMapping.keySet().toArray());
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static DefaultComboBoxModel<String> buildComboBoxFamiliars(int num_lines){
+        ArrayList<String> newModel = new ArrayList<>();
+        for (int i = 0; i <= num_lines; i++){
+            newModel.add(String.format("%d Lines", i));
+        }
+        return new DefaultComboBoxModel(newModel.toArray());
     }
     
     public static Map<String, PotType> buildSelectComboBoxMap(){
