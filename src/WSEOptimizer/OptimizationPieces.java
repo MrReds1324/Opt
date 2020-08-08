@@ -5,6 +5,8 @@
  */
 package WSEOptimizer;
 
+import static WSEOptimizer.ComboBoxSupport.buildFamiliarLinesSelectComboBoxMap;
+import static WSEOptimizer.ComboBoxSupport.buildFamiliarSelectComboBoxMap;
 import static WSEOptimizer.ComboBoxSupport.buildSelectComboBoxMap;
 import WSEOptimizer.Constants.*;
 import java.beans.PropertyChangeEvent;
@@ -14,7 +16,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JToggleButton;
 
 /**
  *
@@ -69,6 +70,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private double crit_baseS;
     private int hyperPoints;
     private Server server = Server.REBOOT;
+    //Variables for tracking familiar related
+    private FamiliarTier familiarTier = FamiliarTier.LEGENDARY;
+    private int num_lines = 0;
+    private Map<String, FamiliarTier> familiarTierComboBoxMap = buildFamiliarSelectComboBoxMap();
+    private Map<String, Integer> familiarLinesComboBoxMap = buildFamiliarLinesSelectComboBoxMap();
     //Variables for tracking execution time for the worker
     private double time;
     private long startTime;
@@ -194,6 +200,25 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbp2ComboBox = new javax.swing.JComboBox<>();
         embbpInp3 = new javax.swing.JTextField();
         embbp3ComboBox = new javax.swing.JComboBox<>();
+        familiarSeperator = new javax.swing.JSeparator();
+        familiarSelect = new javax.swing.JToggleButton();
+        familiarLinesComboBox = new javax.swing.JComboBox<>();
+        familiarTierComboBox = new javax.swing.JComboBox<>();
+        familiar1Select = new javax.swing.JToggleButton();
+        familiar2Select = new javax.swing.JToggleButton();
+        familiar3Select = new javax.swing.JToggleButton();
+        familiar1Inp1 = new javax.swing.JTextField();
+        familiar1Inp2 = new javax.swing.JTextField();
+        familiar2Inp1 = new javax.swing.JTextField();
+        familiar2Inp2 = new javax.swing.JTextField();
+        familiar3Inp1 = new javax.swing.JTextField();
+        familiar3Inp2 = new javax.swing.JTextField();
+        familiar1ComboBox1 = new javax.swing.JComboBox<>();
+        familiar1ComboBox2 = new javax.swing.JComboBox<>();
+        familiar2ComboBox1 = new javax.swing.JComboBox<>();
+        familiar2ComboBox2 = new javax.swing.JComboBox<>();
+        familiar3ComboBox1 = new javax.swing.JComboBox<>();
+        familiar3ComboBox2 = new javax.swing.JComboBox<>();
         outputSeperator = new javax.swing.JSeparator();
         fd_LegionBP = new javax.swing.JTextArea();
         baseStatsPanel = new javax.swing.JPanel();
@@ -220,7 +245,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
+        setMaximumSize(new java.awt.Dimension(640, 780));
         setMinimumSize(new java.awt.Dimension(640, 780));
+        setPreferredSize(new java.awt.Dimension(640, 780));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -992,10 +1019,230 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(embbp3ComboBox, gridBagConstraints);
 
-        outputSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        familiarSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        inputPanel.add(familiarSeperator, gridBagConstraints);
+
+        familiarSelect.setText("Familiars");
+        familiarSelect.setMaximumSize(new java.awt.Dimension(310, 23));
+        familiarSelect.setMinimumSize(new java.awt.Dimension(310, 23));
+        familiarSelect.setPreferredSize(new java.awt.Dimension(310, 23));
+        familiarSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                familiarSelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(familiarSelect, gridBagConstraints);
+
+        familiarLinesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 Lines", "1 Lines", "2 Lines", "3 Lines", "4 Lines", "5 Lines", "6 Lines" }));
+        familiarLinesComboBox.setMaximumSize(new java.awt.Dimension(310, 20));
+        familiarLinesComboBox.setMinimumSize(new java.awt.Dimension(310, 20));
+        familiarLinesComboBox.setPreferredSize(new java.awt.Dimension(310, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        inputPanel.add(familiarLinesComboBox, gridBagConstraints);
+
+        familiarTierComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LEGENDARY", "UNIQUE", "EPIC", "RARE", "COMMON" }));
+        familiarTierComboBox.setMaximumSize(new java.awt.Dimension(310, 20));
+        familiarTierComboBox.setMinimumSize(new java.awt.Dimension(310, 20));
+        familiarTierComboBox.setPreferredSize(new java.awt.Dimension(310, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        inputPanel.add(familiarTierComboBox, gridBagConstraints);
+
+        familiar1Select.setText("Familiar 1");
+        familiar1Select.setEnabled(false);
+        familiar1Select.setMaximumSize(new java.awt.Dimension(207, 23));
+        familiar1Select.setMinimumSize(new java.awt.Dimension(207, 23));
+        familiar1Select.setPreferredSize(new java.awt.Dimension(207, 23));
+        familiar1Select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                familiar1SelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(familiar1Select, gridBagConstraints);
+
+        familiar2Select.setText("Familiar 2");
+        familiar2Select.setEnabled(false);
+        familiar2Select.setMaximumSize(new java.awt.Dimension(207, 23));
+        familiar2Select.setMinimumSize(new java.awt.Dimension(207, 23));
+        familiar2Select.setPreferredSize(new java.awt.Dimension(207, 23));
+        familiar2Select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                familiar2SelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(familiar2Select, gridBagConstraints);
+
+        familiar3Select.setText("Familiar 3");
+        familiar3Select.setEnabled(false);
+        familiar3Select.setMaximumSize(new java.awt.Dimension(207, 23));
+        familiar3Select.setMinimumSize(new java.awt.Dimension(207, 23));
+        familiar3Select.setPreferredSize(new java.awt.Dimension(207, 23));
+        familiar3Select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                familiar3SelectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 3;
+        inputPanel.add(familiar3Select, gridBagConstraints);
+
+        familiar1Inp1.setEnabled(false);
+        familiar1Inp1.setMaximumSize(new java.awt.Dimension(140, 23));
+        familiar1Inp1.setMinimumSize(new java.awt.Dimension(140, 23));
+        familiar1Inp1.setPreferredSize(new java.awt.Dimension(140, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 2;
+        inputPanel.add(familiar1Inp1, gridBagConstraints);
+
+        familiar1Inp2.setEnabled(false);
+        familiar1Inp2.setMaximumSize(new java.awt.Dimension(140, 23));
+        familiar1Inp2.setMinimumSize(new java.awt.Dimension(140, 23));
+        familiar1Inp2.setPreferredSize(new java.awt.Dimension(140, 23));
+        familiar1Inp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                familiar1Inp2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 2;
+        inputPanel.add(familiar1Inp2, gridBagConstraints);
+
+        familiar2Inp1.setEnabled(false);
+        familiar2Inp1.setMaximumSize(new java.awt.Dimension(140, 23));
+        familiar2Inp1.setMinimumSize(new java.awt.Dimension(140, 23));
+        familiar2Inp1.setPreferredSize(new java.awt.Dimension(140, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 2;
+        inputPanel.add(familiar2Inp1, gridBagConstraints);
+
+        familiar2Inp2.setEnabled(false);
+        familiar2Inp2.setMaximumSize(new java.awt.Dimension(140, 23));
+        familiar2Inp2.setMinimumSize(new java.awt.Dimension(140, 23));
+        familiar2Inp2.setPreferredSize(new java.awt.Dimension(140, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 2;
+        inputPanel.add(familiar2Inp2, gridBagConstraints);
+
+        familiar3Inp1.setEnabled(false);
+        familiar3Inp1.setMaximumSize(new java.awt.Dimension(140, 23));
+        familiar3Inp1.setMinimumSize(new java.awt.Dimension(140, 23));
+        familiar3Inp1.setPreferredSize(new java.awt.Dimension(140, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridwidth = 2;
+        inputPanel.add(familiar3Inp1, gridBagConstraints);
+
+        familiar3Inp2.setEnabled(false);
+        familiar3Inp2.setMaximumSize(new java.awt.Dimension(140, 23));
+        familiar3Inp2.setMinimumSize(new java.awt.Dimension(140, 23));
+        familiar3Inp2.setPreferredSize(new java.awt.Dimension(140, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 2;
+        inputPanel.add(familiar3Inp2, gridBagConstraints);
+
+        familiar1ComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
+        familiar1ComboBox1.setEnabled(false);
+        familiar1ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
+        familiar1ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
+        familiar1ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 22;
+        inputPanel.add(familiar1ComboBox1, gridBagConstraints);
+
+        familiar1ComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
+        familiar1ComboBox2.setEnabled(false);
+        familiar1ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
+        familiar1ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
+        familiar1ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 23;
+        inputPanel.add(familiar1ComboBox2, gridBagConstraints);
+
+        familiar2ComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
+        familiar2ComboBox1.setEnabled(false);
+        familiar2ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
+        familiar2ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
+        familiar2ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 22;
+        inputPanel.add(familiar2ComboBox1, gridBagConstraints);
+
+        familiar2ComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
+        familiar2ComboBox2.setEnabled(false);
+        familiar2ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
+        familiar2ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
+        familiar2ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 23;
+        inputPanel.add(familiar2ComboBox2, gridBagConstraints);
+
+        familiar3ComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
+        familiar3ComboBox1.setEnabled(false);
+        familiar3ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
+        familiar3ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
+        familiar3ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 22;
+        inputPanel.add(familiar3ComboBox1, gridBagConstraints);
+
+        familiar3ComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
+        familiar3ComboBox2.setEnabled(false);
+        familiar3ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
+        familiar3ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
+        familiar3ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 23;
+        inputPanel.add(familiar3ComboBox2, gridBagConstraints);
+
+        outputSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(outputSeperator, gridBagConstraints);
@@ -1007,7 +1254,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         fd_LegionBP.setPreferredSize(new java.awt.Dimension(621, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(fd_LegionBP, gridBagConstraints);
@@ -1285,6 +1532,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
         if (calculate.isSelected()) {
+            System.out.println(familiarTierComboBox.getSelectedItem().toString());
             //Disable the combobox
             wseOptions.setEnabled(false);
             //Determine the inputs from the text fields
@@ -1680,6 +1928,42 @@ public class OptimizationPieces extends javax.swing.JFrame {
             soul_comboSel = potSelectComboBoxMap.get(soulComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_soulComboBoxItemStateChanged
+
+    private void familiar1Inp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar1Inp2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_familiar1Inp2ActionPerformed
+
+    private void familiarSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiarSelectActionPerformed
+        if (familiarSelect.isSelected()) {
+            setFamiliarsEnabled(true);
+        } else {
+            setFamiliarsEnabled(false);
+        }
+    }//GEN-LAST:event_familiarSelectActionPerformed
+
+    private void familiar1SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar1SelectActionPerformed
+        if (familiar1Select.isSelected()) {
+            setFamiliar1Enabled(true);
+        } else {
+            setFamiliar1Enabled(false);
+        }
+    }//GEN-LAST:event_familiar1SelectActionPerformed
+
+    private void familiar2SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar2SelectActionPerformed
+        if (familiar2Select.isSelected()) {
+            setFamiliar2Enabled(true);
+        } else {
+            setFamiliar2Enabled(false);
+        }
+    }//GEN-LAST:event_familiar2SelectActionPerformed
+
+    private void familiar3SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar3SelectActionPerformed
+        if (familiar3Select.isSelected()) {
+            setFamiliar3Enabled(true);
+        } else {
+            setFamiliar3Enabled(false);
+        }
+    }//GEN-LAST:event_familiar3SelectActionPerformed
     
     public void clearInputs(boolean main, boolean bonus) {
         if (main) {
@@ -1706,6 +1990,22 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
             soulInp.setText("");
             soulComboBox.setSelectedItem("None");
+            
+            familiar1Inp1.setText("");
+            familiar1Inp2.setText("");
+            familiar1ComboBox1.setSelectedItem("None");
+            familiar1ComboBox2.setSelectedItem("None");
+            
+            familiar2Inp1.setText("");
+            familiar2Inp2.setText("");
+            familiar2ComboBox1.setSelectedItem("None");
+            familiar2ComboBox2.setSelectedItem("None");
+            
+            familiar3Inp1.setText("");
+            familiar3Inp2.setText("");
+            familiar3ComboBox1.setSelectedItem("None");
+            familiar3ComboBox2.setSelectedItem("None");
+
         }
         if (bonus) {
             wepbpInp1.setText("");
@@ -1789,6 +2089,33 @@ public class OptimizationPieces extends javax.swing.JFrame {
         soulInp.setEnabled(b);
         soulComboBox.setEnabled(b);
     }
+    
+    public void setFamiliarsEnabled(boolean b) {
+        familiar1Select.setEnabled(b);
+        familiar2Select.setEnabled(b);
+        familiar3Select.setEnabled(b);
+    }
+
+    public void setFamiliar1Enabled(boolean b) {
+        familiar1Inp1.setEnabled(b);
+        familiar1Inp2.setEnabled(b);
+        familiar1ComboBox1.setEnabled(b);
+        familiar1ComboBox2.setEnabled(b);
+    }
+
+    public void setFamiliar2Enabled(boolean b) {
+        familiar2Inp1.setEnabled(b);
+        familiar2Inp2.setEnabled(b);
+        familiar2ComboBox1.setEnabled(b);
+        familiar2ComboBox2.setEnabled(b);
+    }
+
+    public void setFamiliar3Enabled(boolean b) {
+        familiar3Inp1.setEnabled(b);
+        familiar3Inp2.setEnabled(b);
+        familiar3ComboBox1.setEnabled(b);
+        familiar3ComboBox2.setEnabled(b);
+    }
 
     private void saveBase() {
         att_baseS = att_base;
@@ -1822,20 +2149,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
         double calcBase = ((1.3 + crit_baseS) * (1 + att_baseS) * (1 + boss_baseS + dmg_baseS) * (1 - (pdr * (1 - ied_baseS))));
         ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, time, potVector);
-    }
-
-    private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
-        if (selector.isSelected()) {
-            if (disabler1 != null) {
-                disabler1.setSelected(false);
-            }
-            if (disabler2 != null) {
-                disabler2.setSelected(false);
-            }
-            return potType;
-        } else {
-            return PotType.DEFAULT;
-        }
     }
 
     /**
@@ -1901,6 +2214,25 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField embbpInp2;
     private javax.swing.JTextField embbpInp3;
     private javax.swing.JToggleButton embbpSelect;
+    private javax.swing.JComboBox<String> familiar1ComboBox1;
+    private javax.swing.JComboBox<String> familiar1ComboBox2;
+    private javax.swing.JTextField familiar1Inp1;
+    private javax.swing.JTextField familiar1Inp2;
+    private javax.swing.JToggleButton familiar1Select;
+    private javax.swing.JComboBox<String> familiar2ComboBox1;
+    private javax.swing.JComboBox<String> familiar2ComboBox2;
+    private javax.swing.JTextField familiar2Inp1;
+    private javax.swing.JTextField familiar2Inp2;
+    private javax.swing.JToggleButton familiar2Select;
+    private javax.swing.JComboBox<String> familiar3ComboBox1;
+    private javax.swing.JComboBox<String> familiar3ComboBox2;
+    private javax.swing.JTextField familiar3Inp1;
+    private javax.swing.JTextField familiar3Inp2;
+    private javax.swing.JToggleButton familiar3Select;
+    private javax.swing.JComboBox<String> familiarLinesComboBox;
+    private javax.swing.JToggleButton familiarSelect;
+    private javax.swing.JSeparator familiarSeperator;
+    private javax.swing.JComboBox<String> familiarTierComboBox;
     private javax.swing.JTextArea fd_LegionBP;
     private javax.swing.JLabel hyperLabel;
     private javax.swing.JTextField hyperStatsInp;
