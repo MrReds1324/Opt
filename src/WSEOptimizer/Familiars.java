@@ -6,7 +6,11 @@
 package WSEOptimizer;
 
 import WSEOptimizer.Constants.FamiliarTier;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -141,6 +145,54 @@ public class Familiars {
         s += String.format("\n%.0f BOSS x%d", botBoss * 100, botline[2]);
         s += String.format("\n%.0f Crit Damage x%d", botCrit * 100, botline[3]);
         return s;
+    }
+
+    List<Map.Entry<String, String>> botLineMapping() {
+        ArrayList<Map.Entry<String, String>> botlines = new ArrayList<>();
+
+        for (int i = 0; i < botline.length; i++) {
+            for (int j = 0; j < botline[i]; j++) {
+                switch (i) {
+                    case 0:
+                        botlines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(botAtt * 100)), Constants.PotType.ATT.toString()));
+                        break;
+                    case 1:
+                        botlines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(botIED * 100)), Constants.PotType.IED.toString()));
+                        break;
+                    case 2:
+                        botlines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(botBoss * 100)), Constants.PotType.BOSS.toString()));
+                        break;
+                    default:
+                        botlines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(botCrit * 100)), Constants.PotType.CRITDAMAGE.toString()));
+                        break;
+                }
+            }
+        }
+        return botlines; 
+    }
+    
+    List<Map.Entry<String, String>> topLineMapping() {
+        ArrayList<Map.Entry<String, String>> toplines = new ArrayList<>();
+
+        for (int i = 0; i < topline.length; i++) {
+            for (int j = 0; j < topline[i]; j++) {
+                switch (i) {
+                    case 0:
+                        toplines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(topAtt * 100)), Constants.PotType.ATT.toString()));
+                        break;
+                    case 1:
+                        toplines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(topIED * 100)), Constants.PotType.IED.toString()));
+                        break;
+                    case 2:
+                        toplines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(topBoss * 100)), Constants.PotType.BOSS.toString()));
+                        break;
+                    default:
+                        toplines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)(topCrit * 100)), Constants.PotType.CRITDAMAGE.toString()));
+                        break;
+                }
+            }
+        }
+        return toplines; 
     }
     
 }
