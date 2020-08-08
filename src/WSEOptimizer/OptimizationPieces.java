@@ -49,6 +49,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private PotType embbpInp1_comboSel = PotType.DEFAULT;
     private PotType embbpInp2_comboSel = PotType.DEFAULT;
     private PotType embbpInp3_comboSel = PotType.DEFAULT;
+    //Track Familiar Lines PotType
+    private PotType familiar1_comboSel1 = PotType.DEFAULT;
+    private PotType familiar1_comboSel2 = PotType.DEFAULT;
+    private PotType familiar2_comboSel1 = PotType.DEFAULT;
+    private PotType familiar2_comboSel2 = PotType.DEFAULT;
+    private PotType familiar3_comboSel1 = PotType.DEFAULT;
+    private PotType familiar3_comboSel2 = PotType.DEFAULT;
     //These fields keep track of the values inserted into the input text fields
     private double att_base;
     private double ied_base;
@@ -1047,6 +1054,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiarTierComboBox.setMaximumSize(new java.awt.Dimension(310, 20));
         familiarTierComboBox.setMinimumSize(new java.awt.Dimension(310, 20));
         familiarTierComboBox.setPreferredSize(new java.awt.Dimension(310, 20));
+        familiarTierComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                familiarTierComboBoxItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 19;
@@ -1164,6 +1176,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar1ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
+        familiar1ComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                familiar1ComboBox1ItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 21;
@@ -1174,6 +1191,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar1ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
+        familiar1ComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                familiar1ComboBox2ItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 22;
@@ -1184,6 +1206,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar2ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
+        familiar2ComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                familiar2ComboBox1ItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 21;
@@ -1194,6 +1221,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar2ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
+        familiar2ComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                familiar2ComboBox2ItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 22;
@@ -1204,6 +1236,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar3ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
+        familiar3ComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                familiar3ComboBox1ItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 21;
@@ -1214,6 +1251,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar3ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
+        familiar3ComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                familiar3ComboBox2ItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 22;
@@ -1650,6 +1692,42 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         addInputToBase(wepInp, soul_comboSel);
                     }
                 }
+                if (familiar1Select.isSelected()) {
+                    //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
+                    if (!familiar1Inp1.getText().equals("") && familiar1_comboSel1 != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(familiar1Inp1.getText()) / 100;
+                        addInputToBase(wepInp, familiar1_comboSel1);
+                    }
+                    //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
+                    if (!familiar1Inp2.getText().equals("") && familiar1_comboSel2 != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(familiar1Inp2.getText()) / 100;
+                        addInputToBase(wepInp, familiar1_comboSel2);
+                    }
+                }
+                if (familiar2Select.isSelected()) {
+                    //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
+                    if (!familiar2Inp1.getText().equals("") && familiar2_comboSel1 != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(familiar2Inp1.getText()) / 100;
+                        addInputToBase(wepInp, familiar2_comboSel1);
+                    }
+                    //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
+                    if (!familiar2Inp2.getText().equals("") && familiar2_comboSel2 != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(familiar2Inp2.getText()) / 100;
+                        addInputToBase(wepInp, familiar2_comboSel2);
+                    }
+                }
+                if (familiar3Select.isSelected()) {
+                    //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
+                    if (!familiar3Inp1.getText().equals("") && familiar3_comboSel1 != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(familiar3Inp1.getText()) / 100;
+                        addInputToBase(wepInp, familiar3_comboSel1);
+                    }
+                    //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
+                    if (!familiar3Inp2.getText().equals("") && familiar3_comboSel2 != PotType.DEFAULT) {
+                        double wepInp = Double.parseDouble(familiar3Inp2.getText()) / 100;
+                        addInputToBase(wepInp, familiar3_comboSel2);
+                    }
+                }
                 if (!bp.isSelected()){
                     clearInputs(false, true);
                 }
@@ -1666,7 +1744,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 WSEHelpers.setupSecondaryGenerationSpace(secbpSelect.isSelected(), no_3lbpAtt, classType, PotType.BONUS);
                 WSEHelpers.setupEmblemGenerationSpace(embbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
                 WSEHelpers.setupSoulsGenerationSpace(soulSelect.isSelected());
-                WSEHelpers.generateFamiliars(3, FamiliarTier.EPIC);
+                WSEHelpers.generateFamiliars(num_familiar_lines, familiarTier);
                 
                 
                 worker = new WSEWorker(dmg_base, boss_base, att_base, ied_base, crit_base, pdr, classType, wep_lvl, sec_lvl,  numberOfOptions, server);
@@ -1941,10 +2019,51 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void familiarLinesComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiarLinesComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            System.out.println(familiarLinesComboBox.getSelectedItem().toString());
-            num_familiar_lines = this.familiarLinesComboBoxMap.get(familiarLinesComboBox.getSelectedItem().toString());
+            num_familiar_lines = familiarLinesComboBoxMap.get(familiarLinesComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_familiarLinesComboBoxItemStateChanged
+
+    private void familiarTierComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiarTierComboBoxItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            familiarTier = familiarTierComboBoxMap.get(familiarTierComboBox.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_familiarTierComboBoxItemStateChanged
+
+    private void familiar1ComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar1ComboBox1ItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            familiar1_comboSel1 = potSelectComboBoxMap.get(familiar1ComboBox1.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_familiar1ComboBox1ItemStateChanged
+
+    private void familiar1ComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar1ComboBox2ItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            familiar1_comboSel2 = potSelectComboBoxMap.get(familiar1ComboBox2.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_familiar1ComboBox2ItemStateChanged
+
+    private void familiar2ComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar2ComboBox1ItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            familiar2_comboSel1 = potSelectComboBoxMap.get(familiar2ComboBox1.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_familiar2ComboBox1ItemStateChanged
+
+    private void familiar2ComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar2ComboBox2ItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            familiar2_comboSel2 = potSelectComboBoxMap.get(familiar2ComboBox2.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_familiar2ComboBox2ItemStateChanged
+
+    private void familiar3ComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar3ComboBox1ItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            familiar3_comboSel1 = potSelectComboBoxMap.get(familiar3ComboBox1.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_familiar3ComboBox1ItemStateChanged
+
+    private void familiar3ComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar3ComboBox2ItemStateChanged
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
+            familiar3_comboSel2 = potSelectComboBoxMap.get(familiar3ComboBox2.getSelectedItem().toString());
+        }
+    }//GEN-LAST:event_familiar3ComboBox2ItemStateChanged
     
     public void clearInputs(boolean main, boolean bonus) {
         if (main) {
@@ -2142,6 +2261,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         if (!soulSelect.isSelected()) {
             ItemPrinter.printSoul(soulInp, soulComboBox, potVector.getSoul());
         }
+        ItemPrinter.printFamiliars(familiar1Select.isSelected(), familiar2Select.isSelected(), familiar3Select.isSelected(), familiar1Inp1, familiar1Inp2, familiar2Inp1, familiar2Inp2, familiar3Inp1, familiar3Inp2, potVector.getFamiliars());
         double calcBase = ((1.3 + crit_baseS) * (1 + att_baseS) * (1 + boss_baseS + dmg_baseS) * (1 - (pdr * (1 - ied_baseS))));
         ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, time, potVector);
     }
