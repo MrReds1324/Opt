@@ -71,8 +71,48 @@ public class ItemPrinter {
         return beginning + ending;
     }
 
-    static void printFamiliars(boolean f1, boolean f2, boolean f3, JTextField familiar1Inp1, JTextField familiar1Inp2, JTextField familiar2Inp1, JTextField familiar2Inp2, JTextField familiar3Inp1, JTextField familiar3Inp2, Familiars familiars) {
-       
+    static void printFamiliars(boolean f1, boolean f2, boolean f3, JTextField familiar1Inp1, JComboBox<String> familiar1ComboBox1, JTextField familiar1Inp2, JComboBox<String> familiar1ComboBox2, JTextField familiar2Inp1, JComboBox<String> familiar2ComboBox1, JTextField familiar2Inp2, JComboBox<String> familiar2ComboBox2, JTextField familiar3Inp1, JComboBox<String> familiar3ComboBox1, JTextField familiar3Inp2, JComboBox<String> familiar3ComboBox2, Familiars familiars) {
+        List<Entry<String, String>> toplines = familiars.topLineMapping();
+        List<Entry<String, String>> botlines = familiars.botLineMapping();
+        
+        // first 3 are for top positions - last 3 are for bottom positions
+        boolean [] filled = new boolean[]{false, false, false, false, false, false};
+        for (int i = 0; i < toplines.size(); i++){
+            if (!f1 && !filled[0]){
+                familiar1Inp1.setText(toplines.get(i).getKey());
+                familiar1ComboBox1.setSelectedItem(toplines.get(i).getValue());
+                filled[0] = true;
+            }
+            else if (!f2 && !filled[1]){
+                familiar2Inp1.setText(toplines.get(i).getKey());
+                familiar2ComboBox1.setSelectedItem(toplines.get(i).getValue());
+                filled[1] = true;
+            }
+            else if (!f3 && !filled[2]){
+                familiar3Inp1.setText(toplines.get(i).getKey());
+                familiar3ComboBox1.setSelectedItem(toplines.get(i).getValue());
+                filled[2] = true;
+            }
+        }
+        
+        for (int i = 0; i < botlines.size(); i++){
+            if (!f1 && !filled[3]){
+                familiar1Inp2.setText(botlines.get(i).getKey());
+                familiar1ComboBox2.setSelectedItem(botlines.get(i).getValue());
+                filled[3] = true;
+            }
+            else if (!f2 && !filled[4]){
+                familiar2Inp2.setText(botlines.get(i).getKey());
+                familiar2ComboBox2.setSelectedItem(botlines.get(i).getValue());
+                filled[4] = true;
+            }
+            else if (!f3 && !filled[5]){
+                familiar3Inp2.setText(botlines.get(i).getKey());
+                familiar3ComboBox2.setSelectedItem(botlines.get(i).getValue());
+                filled[5] = true;
+            }
+        }
+        
     }
 
 }
