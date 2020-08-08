@@ -10,7 +10,6 @@ import WSEOptimizer.Constants.*;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 /**
@@ -105,27 +104,6 @@ public class Potentials {
     //Returns weather this is the bpot item or not
     public boolean getBpot() {
         return this.bpot;
-    }
-
-    //Checks the configuration of pots is possible
-    //If x == 0 then treat it as a wep or secondary, else if x == 1 then treat it as an emblem
-    public boolean feasible(ItemType itemType, PotConfig potConfig) {
-        //No piece should have more than 2 lines of boss or ied
-        if (itemType == ItemType.WEPSEC && potConfig == PotConfig.DEFAULT && (legpot[1] + upot[1] == 3 || legpot[2] + upot[2] == 3)) {
-            return false;
-        } //Emblem should not have any boss lines
-        else if (itemType == ItemType.EMB && potConfig == PotConfig.DEFAULT && ((legpot[2] > 0 || upot[2] > 0))) {
-            return false;
-        } //No 3 lines option for bpots (they can get really expensive)
-        else if (itemType == ItemType.WEPSEC && potConfig == PotConfig.NO3LINE && (legpot[0] + upot[0] == 3 || legpot[1] + upot[1] == 3 || legpot[2] + upot[2] == 3)) {
-            return false;
-        } //No 3 lines option for bpots on emblem
-        else if (itemType == ItemType.EMB && potConfig == PotConfig.NO3LINE && ((legpot[2] > 0 || upot[2] > 0) || legpot[0] + upot[0] == 3 || legpot[1] + upot[1] == 3)) {
-            return false;
-        } //else return true
-        else {
-            return true;
-        }
     }
 
     //Equals method for this class

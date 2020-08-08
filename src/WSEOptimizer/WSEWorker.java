@@ -98,10 +98,8 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 ArrayList<PotVector> bonus_temp = new ArrayList();
 
                 for (PotType[] emb : WSEHelpers.emblembpSpace) {
-                    //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                     Potentials etempb = new Potentials(emb[0], emb[1], emb[2], false, true);
                     for (PotType[] wep : WSEHelpers.weaponbpSpace) {
-                        //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                         Potentials wtempb = new Potentials(wep[0], wep[1], wep[2], sw_abs, true);
                         switch (classType){
                             case ZERO:
@@ -120,7 +118,6 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                                 break;
                             default:
                                 for (PotType[] sec : WSEHelpers.secondarybpSpace) {
-                                    //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                                     stempb = new Potentials(sec[0], sec[1], sec[2], sec160, true);
                                     //Add the potVector to the list
                                     ptb = new PotVector(wtempb, stempb, etempb, null, null, null, PotType.DEFAULT);
@@ -133,10 +130,8 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                 }
                 //Carries out the optimization beginning with Emblem to find the perfect configuration
                 for (PotType[] emb : WSEHelpers.emblemSpace) {
-                    //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                     Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
                     for (PotType[] wep : WSEHelpers.weaponSpace) {
-                        //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                         Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                         switch (classType) {
                             case ZERO:
@@ -149,7 +144,6 @@ public class WSEWorker extends SwingWorker<ArrayList<PotVector>, ArrayList<PotVe
                                 break;
                             default:
                                 for (PotType[] sec : WSEHelpers.secondarySpace) {
-                                    //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                                     stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
                                     main_temp.add(new PotVector(wtemp, stemp, etemp, new int[]{0, 0, 0}, new int[]{0, 0, 0, 0}, new Familiars(), PotType.DEFAULT));
                                 }

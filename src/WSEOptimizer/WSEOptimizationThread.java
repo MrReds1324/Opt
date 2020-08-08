@@ -71,10 +71,8 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
                     for (Familiars familiarCombo : WSEHelpers.familiarSpace){
                         for (PotType soul : WSEHelpers.soulSpace){
                             for (PotType[] emb : WSEHelpers.emblemSpace) {
-                                //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                                 Potentials etemp = new Potentials(emb[0], emb[1], emb[2], false);
                                 for (PotType[] wep : WSEHelpers.weaponSpace) {
-                                    //Saves the potentials and then checks if they are feasible, If they are go to the next piece of gear, else go to the next potential combination
                                     Potentials wtemp = new Potentials(wep[0], wep[1], wep[2], sw_abs);
                                     switch (classType) {
                                         case ZERO:
@@ -87,7 +85,6 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
                                             break;
                                         default:
                                             for (PotType[] sec : WSEHelpers.secondarySpace) {
-                                                //Saves the potentials and then checks if they are feasible, If they are calculate the multiplier, else go to the next potential combination
                                                 stemp = new Potentials(sec[0], sec[1], sec[2], sec160);
                                                 reducedOptimize = legionAndReduce(reducedOptimize, wtemp, stemp, etemp, null, null, null, hyper, familiarCombo, soul);
                                             }
@@ -121,7 +118,7 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
     }
     
     private ArrayList legionAndReduce(ArrayList potContainer, Potentials wepTemp, Potentials secTemp, Potentials embTemp, Potentials wepbpTemp, Potentials secbpTemp, Potentials embbpTemp, int[] hyperStats, Familiars familiars, PotType soul){
-        // If we have put a number 80 or greater for Legion then we only need the first combination of BOSS + IED
+        // If we have put a number 120 or greater for Legion then we only need the first combination of BOSS + IED + Crit Damage
         if (WSEHelpers.legionSpace.size() == 1){
             //Add the potVector to the list
             PotVector temp = new PotVector(wepTemp, secTemp, embTemp, wepbpTemp, secbpTemp, embbpTemp, WSEHelpers.legionSpace.get(0), hyperStats, familiars, soul);
