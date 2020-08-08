@@ -1720,6 +1720,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     ied_base = (1 - ((1 - ied_base) * (1 - input)));
                 }
                 break;
+            case CRITDAMAGE:
+                crit_base += input;
+                break;
         }
     }
     
