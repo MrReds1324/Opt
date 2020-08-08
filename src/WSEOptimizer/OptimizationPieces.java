@@ -253,9 +253,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
-        setMaximumSize(new java.awt.Dimension(640, 780));
-        setMinimumSize(new java.awt.Dimension(640, 780));
-        setPreferredSize(new java.awt.Dimension(640, 780));
+        setMaximumSize(new java.awt.Dimension(640, 660));
+        setMinimumSize(new java.awt.Dimension(640, 660));
+        setPreferredSize(new java.awt.Dimension(640, 660));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
