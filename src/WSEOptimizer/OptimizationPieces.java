@@ -1234,7 +1234,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void bpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpActionPerformed
         if (bp.isSelected()) {
-            this.server = Server.NONREBOOT;
+            server = Server.NONREBOOT;
             wepbpSelect.setEnabled(true);
             if (classType != ClassType.ZERO) {
                 secbpSelect.setEnabled(true);
@@ -1242,7 +1242,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
             embbpSelect.setEnabled(true);
             no_3lbp.setEnabled(true);
         } else {
-            this.server = Server.REBOOT;
+            server = Server.REBOOT;
             wepbpSelect.setEnabled(false);
             secbpSelect.setEnabled(false);
             embbpSelect.setEnabled(false);
@@ -1259,26 +1259,26 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private void kannaClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kannaClassActionPerformed
         if (kannaClass.isSelected()) {
             zeroClass.setEnabled(false);
-            this.classType = ClassType.KANNA;
+            classType = ClassType.KANNA;
         } else {
-            this.classType = ClassType.NOCLASS;
+            classType = ClassType.NOCLASS;
             zeroClass.setEnabled(true);
         }
     }//GEN-LAST:event_kannaClassActionPerformed
 
     private void no_3lActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_3lActionPerformed
         if (no_3l.isSelected()) {
-            this.no_3lAtt = PotConfig.NO3LINE;
+            no_3lAtt = PotConfig.NO3LINE;
         } else {
-            this.no_3lAtt = PotConfig.DEFAULT;
+            no_3lAtt = PotConfig.DEFAULT;
         }
     }//GEN-LAST:event_no_3lActionPerformed
 
     private void no_3lbpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_3lbpActionPerformed
         if (no_3lbp.isSelected()) {
-            this.no_3lbpAtt = PotConfig.NO3LINE;
+            no_3lbpAtt = PotConfig.NO3LINE;
         } else {
-            this.no_3lbpAtt = PotConfig.DEFAULT;
+            no_3lbpAtt = PotConfig.DEFAULT;
         }
     }//GEN-LAST:event_no_3lbpActionPerformed
 
@@ -1289,24 +1289,21 @@ public class OptimizationPieces extends javax.swing.JFrame {
             wseOptions.setEnabled(false);
             //Determine the inputs from the text fields
             try {
-                this.numberOfOptions = Integer.parseInt(numOptions.getText());
-                if (this.numberOfOptions < 0) {
-                    this.numberOfOptions = 0;
+                numberOfOptions = Integer.parseInt(numOptions.getText());
+                if (numberOfOptions < 0) {
+                    numberOfOptions = 0;
                 }
-                this.att_base = Double.parseDouble(att.getText()) / 100;
-                this.boss_base = Double.parseDouble(boss.getText()) / 100;
-                this.dmg_base = Double.parseDouble(dmg.getText()) / 100;
-                this.ied_base = Double.parseDouble(ied.getText()) / 100;
-                this.crit_base = Double.parseDouble(critDmgInp.getText()) / 100;
-                this.pdr = Double.parseDouble(monDef.getText()) / 100;
-                this.hyperPoints = Integer.parseInt(hyperStatsInp.getText());
+                att_base = Double.parseDouble(att.getText()) / 100;
+                boss_base = Double.parseDouble(boss.getText()) / 100;
+                dmg_base = Double.parseDouble(dmg.getText()) / 100;
+                ied_base = Double.parseDouble(ied.getText()) / 100;
+                crit_base = Double.parseDouble(critDmgInp.getText()) / 100;
+                pdr = Double.parseDouble(monDef.getText()) / 100;
+                hyperPoints = Integer.parseInt(hyperStatsInp.getText());
                 saveBase();
-                this.legionVal = Integer.parseInt(union.getText());
+                legionVal = Integer.parseInt(union.getText());
                 //Sets up a scaling value for weapon inputs if the class selected was Zero
-                double zero_scale = 1;
-                if (this.classType == ClassType.ZERO) {
-                    zero_scale = 2;
-                }
+                double zero_scale = classType == ClassType.ZERO ? 2 : 1;
                 fd_LegionBP.setText("Optimizing...");
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepSelect.isSelected()) {
@@ -1425,11 +1422,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
                         addInputToBase(wepInp, soul_comboSel);
                     }
                 }
-                if (!this.bp.isSelected()){
+                if (!bp.isSelected()){
                     clearInputs(false, true);
                 }
                 //Start time of the method
-                this.startTime = System.nanoTime();
+                startTime = System.nanoTime();
                 
                 //Set up generation spaces for each variable
                 WSEHelpers.generateHyperStats(hyperPoints);
@@ -1444,13 +1441,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 WSEHelpers.generateFamiliars(3, FamiliarTier.EPIC);
                 
                 
-                worker = new WSEWorker(this.dmg_base, this.boss_base, this.att_base, this.ied_base, this.crit_base, this.pdr, this.classType, this.wep_lvl, this.sec_lvl,  numberOfOptions, this.server);
+                worker = new WSEWorker(dmg_base, boss_base, att_base, ied_base, crit_base, pdr, classType, wep_lvl, sec_lvl,  numberOfOptions, server);
                 worker.addPropertyChangeListener(listener);
                 worker.execute();
             } catch (Exception e) {
                 e.printStackTrace();
                 fd_LegionBP.setText("ERROR OCCURED: REDO INPUTS");
-                this.calculate.setSelected(false);
+                calculate.setSelected(false);
             }
         }
         calculate.setEnabled(false);
@@ -1464,15 +1461,15 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private void addInputToBase(double input, PotType selection, double zeroScale){
         switch (selection) {
             case ATT:
-                this.att_base += input * zeroScale;
+                att_base += input * zeroScale;
                 break;
             case BOSS:
-                this.boss_base += input * zeroScale;
+                boss_base += input * zeroScale;
                 break;
             case IED:
-                this.ied_base = (1 - ((1 - this.ied_base) * (1 - input)));
+                ied_base = (1 - ((1 - ied_base) * (1 - input)));
                 if (zeroScale == 2) {
-                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - input)));
+                    ied_base = (1 - ((1 - ied_base) * (1 - input)));
                 }
                 break;
         }
@@ -1505,7 +1502,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_embSelectActionPerformed
 
     private void seclvlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seclvlActionPerformed
-        this.sec_lvl = seclvl.isSelected();
+        sec_lvl = seclvl.isSelected();
     }//GEN-LAST:event_seclvlActionPerformed
 
     private void zeroClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeroClassActionPerformed
@@ -1518,18 +1515,18 @@ public class OptimizationPieces extends javax.swing.JFrame {
             secbpSelect.setSelected(false);
             setSecondaryEnabled(false);
             setSecondaryBPEnabled(false);
-            this.classType = ClassType.ZERO;
+            classType = ClassType.ZERO;
         } else {
             kannaClass.setEnabled(true);
             secSelect.setEnabled(true);
             seclvl.setEnabled(true);
             secbpSelect.setEnabled(true);
-            this.classType = ClassType.NOCLASS;
+            classType = ClassType.NOCLASS;
         }
     }//GEN-LAST:event_zeroClassActionPerformed
 
     private void weplvlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weplvlActionPerformed
-        this.wep_lvl = weplvl.isSelected();
+        wep_lvl = weplvl.isSelected();
     }//GEN-LAST:event_weplvlActionPerformed
 
     private void soulSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soulSelectActionPerformed
@@ -1566,121 +1563,121 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void wseOptionsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wseOptionsItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            outputPotVector(this.comboBoxMap.get(wseOptions.getSelectedItem().toString()));
+            outputPotVector(comboBoxMap.get(wseOptions.getSelectedItem().toString()));
         }
     }//GEN-LAST:event_wseOptionsItemStateChanged
 
     private void wep1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep1ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-           this.wepInp1_comboSel = this.potSelectComboBoxMap.get(wep1ComboBox.getSelectedItem().toString());
+           wepInp1_comboSel = potSelectComboBoxMap.get(wep1ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_wep1ComboBoxItemStateChanged
 
     private void wep2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep2ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.wepInp2_comboSel = this.potSelectComboBoxMap.get(wep2ComboBox.getSelectedItem().toString());
+            wepInp2_comboSel = potSelectComboBoxMap.get(wep2ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_wep2ComboBoxItemStateChanged
 
     private void wep3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep3ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.wepInp3_comboSel = this.potSelectComboBoxMap.get(wep3ComboBox.getSelectedItem().toString());
+            wepInp3_comboSel = potSelectComboBoxMap.get(wep3ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_wep3ComboBoxItemStateChanged
 
     private void sec1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec1ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.secInp1_comboSel = this.potSelectComboBoxMap.get(sec1ComboBox.getSelectedItem().toString());
+            secInp1_comboSel = potSelectComboBoxMap.get(sec1ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_sec1ComboBoxItemStateChanged
 
     private void sec2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec2ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.secInp2_comboSel = this.potSelectComboBoxMap.get(sec2ComboBox.getSelectedItem().toString());
+            secInp2_comboSel = potSelectComboBoxMap.get(sec2ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_sec2ComboBoxItemStateChanged
 
     private void sec3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec3ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.secInp3_comboSel = this.potSelectComboBoxMap.get(sec3ComboBox.getSelectedItem().toString());
+            secInp3_comboSel = potSelectComboBoxMap.get(sec3ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_sec3ComboBoxItemStateChanged
 
     private void emb1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb1ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.embInp1_comboSel = this.potSelectComboBoxMap.get(emb1ComboBox.getSelectedItem().toString());
+            embInp1_comboSel = potSelectComboBoxMap.get(emb1ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_emb1ComboBoxItemStateChanged
 
     private void emb2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb2ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.embInp2_comboSel = this.potSelectComboBoxMap.get(emb2ComboBox.getSelectedItem().toString());
+            embInp2_comboSel = potSelectComboBoxMap.get(emb2ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_emb2ComboBoxItemStateChanged
 
     private void emb3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb3ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.embInp3_comboSel = this.potSelectComboBoxMap.get(emb3ComboBox.getSelectedItem().toString());
+            embInp3_comboSel = potSelectComboBoxMap.get(emb3ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_emb3ComboBoxItemStateChanged
 
     private void wepbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp1ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.wepbpInp1_comboSel = this.potSelectComboBoxMap.get(wepbp1ComboBox.getSelectedItem().toString());
+            wepbpInp1_comboSel = potSelectComboBoxMap.get(wepbp1ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_wepbp1ComboBoxItemStateChanged
 
     private void wepbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp2ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.wepbpInp2_comboSel = this.potSelectComboBoxMap.get(wepbp2ComboBox.getSelectedItem().toString());
+            wepbpInp2_comboSel = potSelectComboBoxMap.get(wepbp2ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_wepbp2ComboBoxItemStateChanged
 
     private void wepbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp3ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.wepbpInp3_comboSel = this.potSelectComboBoxMap.get(wepbp3ComboBox.getSelectedItem().toString());
+            wepbpInp3_comboSel = potSelectComboBoxMap.get(wepbp3ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_wepbp3ComboBoxItemStateChanged
 
     private void secbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp1ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.secbpInp1_comboSel = this.potSelectComboBoxMap.get(secbp1ComboBox.getSelectedItem().toString());
+            secbpInp1_comboSel = potSelectComboBoxMap.get(secbp1ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_secbp1ComboBoxItemStateChanged
 
     private void secbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp2ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.secbpInp2_comboSel = this.potSelectComboBoxMap.get(secbp2ComboBox.getSelectedItem().toString());
+            secbpInp2_comboSel = potSelectComboBoxMap.get(secbp2ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_secbp2ComboBoxItemStateChanged
 
     private void secbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp3ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.secbpInp3_comboSel = this.potSelectComboBoxMap.get(secbp3ComboBox.getSelectedItem().toString());
+            secbpInp3_comboSel = potSelectComboBoxMap.get(secbp3ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_secbp3ComboBoxItemStateChanged
 
     private void embbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp1ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.embbpInp1_comboSel = this.potSelectComboBoxMap.get(embbp1ComboBox.getSelectedItem().toString());
+            embbpInp1_comboSel = potSelectComboBoxMap.get(embbp1ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_embbp1ComboBoxItemStateChanged
 
     private void embbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp2ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.embbpInp2_comboSel = this.potSelectComboBoxMap.get(embbp2ComboBox.getSelectedItem().toString());
+            embbpInp2_comboSel = potSelectComboBoxMap.get(embbp2ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_embbp2ComboBoxItemStateChanged
 
     private void embbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp3ComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.embbpInp3_comboSel = this.potSelectComboBoxMap.get(embbp3ComboBox.getSelectedItem().toString());
+            embbpInp3_comboSel = potSelectComboBoxMap.get(embbp3ComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_embbp3ComboBoxItemStateChanged
 
     private void soulComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_soulComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            this.soul_comboSel = this.potSelectComboBoxMap.get(soulComboBox.getSelectedItem().toString());
+            soul_comboSel = potSelectComboBoxMap.get(soulComboBox.getSelectedItem().toString());
         }
     }//GEN-LAST:event_soulComboBoxItemStateChanged
     
@@ -1794,11 +1791,11 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }
 
     private void saveBase() {
-        this.att_baseS = this.att_base;
-        this.boss_baseS = this.boss_base;
-        this.dmg_baseS = this.dmg_base;
-        this.ied_baseS = this.ied_base;
-        this.crit_baseS = this.crit_base;
+        att_baseS = att_base;
+        boss_baseS = boss_base;
+        dmg_baseS = dmg_base;
+        ied_baseS = ied_base;
+        crit_baseS = crit_base;
     }
 
     private void outputPotVector(PotVector potVector) {
@@ -1823,8 +1820,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
         if (!soulSelect.isSelected()) {
             ItemPrinter.printSoul(soulInp, potVector.getSoul());
         }
-        double calcBase = ((1.3 + this.crit_baseS) * (1 + this.att_baseS) * (1 + this.boss_baseS + this.dmg_baseS) * (1 - (this.pdr * (1 - this.ied_baseS))));
-        ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, this.time, potVector);
+        double calcBase = ((1.3 + crit_baseS) * (1 + att_baseS) * (1 + boss_baseS + dmg_baseS) * (1 - (pdr * (1 - ied_baseS))));
+        ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, time, potVector);
     }
 
     private PotType buttonSelectAndDisable(JToggleButton selector, JToggleButton disabler1, JToggleButton disabler2, PotType potType) {
