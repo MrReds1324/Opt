@@ -5,6 +5,7 @@
  */
 package WSEOptimizer;
 
+import WSEOptimizer.Constants.FamiliarTier;
 import WSEOptimizer.Constants.PotType;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -41,5 +42,28 @@ public class ComboBoxSupport {
         builderMap.put("BOSS", PotType.BOSS);
         builderMap.put("CRIT", PotType.CRITDAMAGE);
         return builderMap;
-    }  
+    }
+    
+    public static Map<String, FamiliarTier> buildFamiliarSelectComboBoxMap(){
+        LinkedHashMap<String, FamiliarTier> builderMap = new LinkedHashMap<>();
+        builderMap.put("LEGENDARY", FamiliarTier.LEGENDARY);
+        builderMap.put("UNIQUE", FamiliarTier.UNIQUE);
+        builderMap.put("EPIC", FamiliarTier.EPIC);
+        builderMap.put("RARE", FamiliarTier.RARE);
+        builderMap.put("COMMON", FamiliarTier.COMMON);
+        return builderMap;
+    }
+    
+    public static Map<String, Integer> buildFamiliarLinesSelectComboBoxMap(){
+        LinkedHashMap<String, Integer> builderMap = new LinkedHashMap<>();
+        builderMap.put("0 Lines", 0);
+        builderMap.put("1 Lines", 1);
+        builderMap.put("2 Lines", 2);
+        builderMap.put("3 Lines", 3);
+        builderMap.put("4 Lines", 4);
+        builderMap.put("5 Lines", 5);
+        builderMap.put("6 Lines", 6);
+        return builderMap;
+    }
+    
 }
