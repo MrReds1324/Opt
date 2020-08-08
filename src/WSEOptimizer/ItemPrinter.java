@@ -71,4 +71,8 @@ public class ItemPrinter {
         return beginning + ending;
     }
 
+    static void printFamiliars(boolean f1, boolean f2, boolean f3, JTextField familiar1Inp1, JTextField familiar1Inp2, JTextField familiar2Inp1, JTextField familiar2Inp2, JTextField familiar3Inp1, JTextField familiar3Inp2, Familiars familiars) {
+       
+    }
+
 }
