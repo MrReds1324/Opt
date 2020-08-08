@@ -277,7 +277,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(bp, gridBagConstraints);
@@ -288,7 +288,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         numOptions.setPreferredSize(new java.awt.Dimension(50, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(numOptions, gridBagConstraints);
@@ -296,7 +296,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         optionsLabel.setText("Additional Options:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         inputPanel.add(optionsLabel, gridBagConstraints);
 
@@ -310,7 +310,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(wseOptions, gridBagConstraints);
@@ -326,7 +326,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(calculate, gridBagConstraints);
@@ -343,7 +343,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -360,7 +360,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -377,7 +377,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(clearInp, gridBagConstraints);
@@ -385,7 +385,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         inputSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(inputSeperator, gridBagConstraints);
@@ -401,7 +401,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(wepSelect, gridBagConstraints);
@@ -412,7 +412,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepInp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepInp1, gridBagConstraints);
@@ -429,7 +429,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(wep1ComboBox, gridBagConstraints);
 
@@ -439,7 +439,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepInp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepInp2, gridBagConstraints);
@@ -456,7 +456,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(wep2ComboBox, gridBagConstraints);
 
@@ -466,7 +466,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepInp3.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepInp3, gridBagConstraints);
@@ -483,7 +483,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(wep3ComboBox, gridBagConstraints);
 
@@ -498,7 +498,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(secSelect, gridBagConstraints);
@@ -509,7 +509,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secInp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secInp1, gridBagConstraints);
@@ -526,7 +526,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(sec1ComboBox, gridBagConstraints);
 
@@ -536,7 +536,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secInp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secInp2, gridBagConstraints);
@@ -553,7 +553,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(sec2ComboBox, gridBagConstraints);
 
@@ -563,7 +563,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secInp3.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secInp3, gridBagConstraints);
@@ -580,7 +580,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(sec3ComboBox, gridBagConstraints);
 
@@ -595,7 +595,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 2.0;
@@ -607,7 +607,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embInp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embInp1, gridBagConstraints);
@@ -624,7 +624,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(emb1ComboBox, gridBagConstraints);
 
@@ -634,7 +634,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embInp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embInp2, gridBagConstraints);
@@ -651,7 +651,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(emb2ComboBox, gridBagConstraints);
 
@@ -661,7 +661,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embInp3.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embInp3, gridBagConstraints);
@@ -678,7 +678,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(emb3ComboBox, gridBagConstraints);
 
@@ -693,7 +693,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(soulSelect, gridBagConstraints);
@@ -704,7 +704,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         soulInp.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(soulInp, gridBagConstraints);
@@ -721,14 +721,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(soulComboBox, gridBagConstraints);
 
         bonusSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(bonusSeperator, gridBagConstraints);
@@ -745,7 +745,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(wepbpSelect, gridBagConstraints);
@@ -756,7 +756,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbpInp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepbpInp1, gridBagConstraints);
@@ -773,7 +773,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(wepbp1ComboBox, gridBagConstraints);
 
@@ -783,7 +783,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbpInp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepbpInp2, gridBagConstraints);
@@ -800,7 +800,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(wepbp2ComboBox, gridBagConstraints);
 
@@ -810,7 +810,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbpInp3.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(wepbpInp3, gridBagConstraints);
@@ -827,7 +827,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(wepbp3ComboBox, gridBagConstraints);
 
@@ -843,7 +843,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(secbpSelect, gridBagConstraints);
@@ -854,7 +854,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbpInp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secbpInp1, gridBagConstraints);
@@ -871,7 +871,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(secbp1ComboBox, gridBagConstraints);
 
@@ -881,7 +881,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbpInp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secbpInp2, gridBagConstraints);
@@ -898,7 +898,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(secbp2ComboBox, gridBagConstraints);
 
@@ -908,7 +908,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbpInp3.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(secbpInp3, gridBagConstraints);
@@ -925,7 +925,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(secbp3ComboBox, gridBagConstraints);
 
@@ -941,7 +941,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(embbpSelect, gridBagConstraints);
@@ -952,7 +952,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbpInp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embbpInp1, gridBagConstraints);
@@ -969,7 +969,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(embbp1ComboBox, gridBagConstraints);
 
@@ -979,7 +979,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbpInp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embbpInp2, gridBagConstraints);
@@ -996,7 +996,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(embbp2ComboBox, gridBagConstraints);
 
@@ -1006,7 +1006,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbpInp3.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(embbpInp3, gridBagConstraints);
@@ -1023,14 +1023,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(embbp3ComboBox, gridBagConstraints);
 
         familiarSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(familiarSeperator, gridBagConstraints);
@@ -1046,7 +1046,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         inputPanel.add(familiarLinesComboBox, gridBagConstraints);
@@ -1062,7 +1062,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         inputPanel.add(familiarTierComboBox, gridBagConstraints);
@@ -1078,7 +1078,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(familiar1Select, gridBagConstraints);
 
@@ -1093,7 +1093,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(familiar2Select, gridBagConstraints);
 
@@ -1108,7 +1108,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 3;
         inputPanel.add(familiar3Select, gridBagConstraints);
 
@@ -1118,7 +1118,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar1Inp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         inputPanel.add(familiar1Inp1, gridBagConstraints);
 
@@ -1128,7 +1128,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar1Inp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.gridwidth = 2;
         inputPanel.add(familiar1Inp2, gridBagConstraints);
 
@@ -1138,7 +1138,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar2Inp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         inputPanel.add(familiar2Inp1, gridBagConstraints);
 
@@ -1148,7 +1148,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar2Inp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.gridwidth = 2;
         inputPanel.add(familiar2Inp2, gridBagConstraints);
 
@@ -1158,7 +1158,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar3Inp1.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 2;
         inputPanel.add(familiar3Inp1, gridBagConstraints);
 
@@ -1168,7 +1168,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar3Inp2.setPreferredSize(new java.awt.Dimension(140, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.gridwidth = 2;
         inputPanel.add(familiar3Inp2, gridBagConstraints);
 
@@ -1184,7 +1184,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 18;
         inputPanel.add(familiar1ComboBox1, gridBagConstraints);
 
         familiar1ComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
@@ -1199,7 +1199,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 19;
         inputPanel.add(familiar1ComboBox2, gridBagConstraints);
 
         familiar2ComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
@@ -1214,7 +1214,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 18;
         inputPanel.add(familiar2ComboBox1, gridBagConstraints);
 
         familiar2ComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
@@ -1229,7 +1229,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 19;
         inputPanel.add(familiar2ComboBox2, gridBagConstraints);
 
         familiar3ComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
@@ -1244,7 +1244,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 18;
         inputPanel.add(familiar3ComboBox1, gridBagConstraints);
 
         familiar3ComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "ATT", "IED", "BOSS", "CRIT" }));
@@ -1259,13 +1259,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 19;
         inputPanel.add(familiar3ComboBox2, gridBagConstraints);
 
         outputSeperator.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(outputSeperator, gridBagConstraints);
@@ -1277,13 +1277,16 @@ public class OptimizationPieces extends javax.swing.JFrame {
         fd_LegionBP.setPreferredSize(new java.awt.Dimension(621, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(fd_LegionBP, gridBagConstraints);
 
         inputOutputPane.addTab("Main", inputPanel);
 
+        baseStatsPanel.setMaximumSize(new java.awt.Dimension(621, 650));
+        baseStatsPanel.setMinimumSize(new java.awt.Dimension(621, 650));
+        baseStatsPanel.setPreferredSize(new java.awt.Dimension(621, 650));
         baseStatsPanel.setLayout(new java.awt.GridBagLayout());
 
         dmg.setText("214");
@@ -1433,16 +1436,16 @@ public class OptimizationPieces extends javax.swing.JFrame {
         baseStatsPanel.add(zeroClass, gridBagConstraints);
 
         union.setText("120");
-        union.setMaximumSize(new java.awt.Dimension(2147483647, 23));
-        union.setMinimumSize(new java.awt.Dimension(6, 23));
-        union.setPreferredSize(new java.awt.Dimension(24, 23));
+        union.setMaximumSize(new java.awt.Dimension(60, 23));
+        union.setMinimumSize(new java.awt.Dimension(60, 23));
+        union.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         baseStatsPanel.add(union, gridBagConstraints);
 
-        legionLabel.setText("Legion Points for Boss, IED, Crit DMG");
+        legionLabel.setText("Legion Points for Boss, IED, and Crit Dmage ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
@@ -1451,9 +1454,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         baseStatsPanel.add(legionLabel, gridBagConstraints);
 
         hyperStatsInp.setText("1266");
-        hyperStatsInp.setMaximumSize(new java.awt.Dimension(2147483647, 23));
-        hyperStatsInp.setMinimumSize(new java.awt.Dimension(6, 23));
-        hyperStatsInp.setPreferredSize(new java.awt.Dimension(24, 23));
+        hyperStatsInp.setMaximumSize(new java.awt.Dimension(60, 23));
+        hyperStatsInp.setMinimumSize(new java.awt.Dimension(60, 23));
+        hyperStatsInp.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -1461,7 +1464,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         baseStatsPanel.add(hyperStatsInp, gridBagConstraints);
 
         hyperLabel.setLabelFor(hyperStatsInp);
-        hyperLabel.setText("Hyper Points for Boss, DMG, IED, Crit DMG");
+        hyperLabel.setText("Hyper Points for Boss, Damage, IED, and Crit Damage");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
@@ -1470,9 +1473,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
         baseStatsPanel.add(hyperLabel, gridBagConstraints);
 
         monDef.setText("300");
-        monDef.setMaximumSize(new java.awt.Dimension(2147483647, 23));
-        monDef.setMinimumSize(new java.awt.Dimension(6, 23));
-        monDef.setPreferredSize(new java.awt.Dimension(24, 23));
+        monDef.setMaximumSize(new java.awt.Dimension(60, 23));
+        monDef.setMinimumSize(new java.awt.Dimension(60, 23));
+        monDef.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
