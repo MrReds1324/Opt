@@ -80,7 +80,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private Server server = Server.REBOOT;
     //Variables for tracking familiar related
     private FamiliarTier familiarTier = FamiliarTier.LEGENDARY;
-    private int num_familiar_lines = 0;
+    private int numTopLines = 0;
+    private int numBotLines = 0;
     private Map<String, FamiliarTier> familiarTierComboBoxMap = buildFamiliarSelectComboBoxMap();
     private Map<String, Integer> familiarLinesComboBoxMap = buildFamiliarLinesSelectComboBoxMap();
     //Variables for tracking execution time for the worker
@@ -1744,7 +1745,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 WSEHelpers.setupSecondaryGenerationSpace(secbpSelect.isSelected(), no_3lbpAtt, classType, PotType.BONUS);
                 WSEHelpers.setupEmblemGenerationSpace(embbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
                 WSEHelpers.setupSoulsGenerationSpace(soulSelect.isSelected());
-                WSEHelpers.generateFamiliars(num_familiar_lines, familiarTier);
+                WSEHelpers.generateFamiliars(numTopLines, numBotLines, familiarTier);
                 
                 
                 worker = new WSEWorker(dmg_base, boss_base, att_base, ied_base, crit_base, pdr, classType, wep_lvl, sec_lvl,  numberOfOptions, server);
@@ -2019,7 +2020,39 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void familiarLinesComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiarLinesComboBoxItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            num_familiar_lines = familiarLinesComboBoxMap.get(familiarLinesComboBox.getSelectedItem().toString());
+            int total_lines = familiarLinesComboBoxMap.get(familiarLinesComboBox.getSelectedItem().toString());
+
+            boolean f1 = familiar1Select.isSelected();
+            boolean f2 = familiar2Select.isSelected();
+            boolean f3 = familiar3Select.isSelected();
+            if(total_lines >= 5){
+                numTopLines = 3;
+                numBotLines = total_lines - 3;
+            }
+            else if (total_lines >= 3){
+                if (f1 || f2 || f3){
+                    numTopLines = 2;
+                    numBotLines = total_lines - 2;
+                }
+                else{
+                    numTopLines = 3;
+                    numBotLines = total_lines - 3;
+                }
+            }
+            else if (total_lines >= 1){
+                if (f1 && f2 || f2 && f3 || f1 && f3){
+                    numTopLines = 1;
+                    numBotLines = total_lines - 1;
+                }
+                else{
+                    numTopLines = total_lines;
+                    numBotLines = 0;
+                }
+            }
+            else {
+                numTopLines = 0;
+                numBotLines = 0;
+            }
         }
     }//GEN-LAST:event_familiarLinesComboBoxItemStateChanged
 
@@ -2204,7 +2237,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
         if (f1 && f2 && f3){
             familiarLinesComboBox.setModel(buildComboBoxFamiliars(0));
             // Setting selected item was not setting the lines to 0
-            num_familiar_lines = 0;
+            numTopLines = 0;
+            numBotLines = 0;
         }
         else if (f1 && f2 || f1 && f3 || f2 && f3){
             familiarLinesComboBox.setModel(buildComboBoxFamiliars(2));
