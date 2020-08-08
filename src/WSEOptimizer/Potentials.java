@@ -7,6 +7,11 @@ package WSEOptimizer;
 
 import java.util.Arrays;
 import WSEOptimizer.Constants.*;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  *
@@ -151,70 +156,39 @@ public class Potentials {
         return hash;
     }
 
-    public String legline() {
-        int scale = 0;
-        if (sw_abs == true) {
-            scale = 1;
-        }
-
-        String s = "";
-        if (this.bpot == false) {
-            if (legpot[0] == 1) {
-                s += "" + (Constants.LATT + (0.01 * scale)) * 100 + "% ATT\n";
-            } else if (legpot[1] == 1) {
-                s += "" + Constants.LIED * 100 + "% IED\n";
-            } else {
-                s += "" + Constants.LBOSS * 100 + "% BOSS\n";
-            }
+    public Entry<String, String> legline() {
+        int scale = sw_abs ? 1 : 0;
+        
+        if (legpot[0] == 1) {
+            return new AbstractMap.SimpleEntry<>(String.valueOf((int)((Constants.LATT + (0.01 * scale)) * 100)), PotType.ATT.toString());
+        } else if (legpot[1] == 1) {
+            return new AbstractMap.SimpleEntry<>(String.valueOf((int)(((bpot ? Constants.BLIED : Constants.LIED)) * 100)), PotType.IED.toString());
         } else {
-            if (legpot[0] == 1) {
-                s += "" + (Constants.LATT + (0.01 * scale)) * 100 + "% ATT\n";
-            } else if (legpot[1] == 1) {
-                s += "" + Constants.BLIED * 100 + "% IED\n";
-            } else {
-                s += "" + Constants.BLBOSS * 100 + "% BOSS\n";
-            }
+            return new AbstractMap.SimpleEntry<>(String.valueOf((int)(((bpot ? Constants.BLBOSS : Constants.LBOSS)) * 100)), PotType.BOSS.toString());
         }
-        return s;
     }
 
-    public String uline() {
-        int scale = 0;
-        if (sw_abs == true) {
-            scale = 1;
-        }
+    public List<Entry<String, String>> uline() {
+        ArrayList<Entry<String, String>> ulines = new ArrayList<>();
+        int scale = sw_abs ? 1 : 0;
 
         String s = "";
         for (int i = 0; i < upot.length; i++) {
             for (int j = 0; j < upot[i]; j++) {
-                if (this.bpot == false) {
-                    switch (i) {
-                        case 0:
-                            s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
-                            break;
-                        case 1:
-                            s += "" + Constants.UIED * 100 + "% IED:";
-                            break;
-                        default:
-                            s += "" + Constants.UBOSS * 100 + "% BOSS:";
-                            break;
-                    }
-                } else {
-                    switch (i) {
-                        case 0:
-                            s += "" + (Constants.UATT + (0.01 * scale)) * 100 + "% ATT:";
-                            break;
-                        case 1:
-                            s += "" + Constants.BUIED * 100 + "% IED:";
-                            break;
-                        default:
-                            s += "" + Constants.BUBOSS * 100 + "% BOSS:";
-                            break;
-                    }
+                switch (i) {
+                    case 0:
+                        ulines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)((Constants.UATT + (0.01 * scale)) * 100)), PotType.ATT.toString()));
+                        break;
+                    case 1:
+                        ulines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)((bpot ? Constants.BUIED : Constants.UIED) * 100)), PotType.IED.toString()));
+                        break;
+                    default:
+                        ulines.add(new AbstractMap.SimpleEntry<>(String.valueOf((int)((bpot ? Constants.BUBOSS : Constants.UBOSS) * 100)), PotType.BOSS.toString()));
+                        break;
                 }
             }
         }
-        return s;
+        return ulines;
     }
 
     //Creates the text of the potentials on this piece of gear

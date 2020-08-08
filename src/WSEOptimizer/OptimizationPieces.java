@@ -1800,25 +1800,25 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
     private void outputPotVector(PotVector potVector) {
         if (!wepSelect.isSelected()) {
-            ItemPrinter.printItem(wepInp1, wepInp2, wepInp3, potVector.getWep());
+            ItemPrinter.printItem(wepInp1, wep1ComboBox, wepInp2, wep2ComboBox, wepInp3, wep3ComboBox, potVector.getWep());
         }
         if (!secSelect.isSelected()) {
-            ItemPrinter.printItem(secInp1, secInp2, secInp3, potVector.getSec());
+            ItemPrinter.printItem(secInp1, sec1ComboBox, secInp2, sec2ComboBox, secInp3, sec3ComboBox, potVector.getSec());
         }
         if (!embSelect.isSelected()) {
-            ItemPrinter.printItem(embInp1, embInp2, embInp3, potVector.getEmb());
+            ItemPrinter.printItem(embInp1, emb1ComboBox, embInp2, emb2ComboBox, embInp3, emb3ComboBox, potVector.getEmb());
         }
         if (!wepbpSelect.isSelected() && bp.isSelected()) {
-            ItemPrinter.printItem(wepbpInp1, wepbpInp2, wepbpInp3, potVector.getWepb());
+            ItemPrinter.printItem(wepbpInp1, wepbp1ComboBox, wepbpInp2, wepbp2ComboBox, wepbpInp3, wepbp3ComboBox, potVector.getWepb());
         }
         if (!secbpSelect.isSelected() && bp.isSelected()) {
-            ItemPrinter.printItem(secbpInp1, secbpInp2, secbpInp3, potVector.getSecb());
+            ItemPrinter.printItem(secbpInp1, secbp1ComboBox, secbpInp2, secbp2ComboBox, secbpInp3, secbp3ComboBox, potVector.getSecb());
         }
         if (!embbpSelect.isSelected() && bp.isSelected()) {
-            ItemPrinter.printItem(embbpInp1, embbpInp2, embbpInp3, potVector.getEmbb());
+            ItemPrinter.printItem(embbpInp1, embbp1ComboBox, embbpInp2, embbp2ComboBox, embbpInp3, embbp3ComboBox, potVector.getEmbb());
         }
         if (!soulSelect.isSelected()) {
-            ItemPrinter.printSoul(soulInp, potVector.getSoul());
+            ItemPrinter.printSoul(soulInp, soulComboBox, potVector.getSoul());
         }
         double calcBase = ((1.3 + crit_baseS) * (1 + att_baseS) * (1 + boss_baseS + dmg_baseS) * (1 - (pdr * (1 - ied_baseS))));
         ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, time, potVector);
