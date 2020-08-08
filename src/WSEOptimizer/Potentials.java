@@ -172,7 +172,6 @@ public class Potentials {
         ArrayList<Entry<String, String>> ulines = new ArrayList<>();
         int scale = sw_abs ? 1 : 0;
 
-        String s = "";
         for (int i = 0; i < upot.length; i++) {
             for (int j = 0; j < upot[i]; j++) {
                 switch (i) {
