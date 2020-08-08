@@ -1008,7 +1008,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 19;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         inputPanel.add(fd_LegionBP, gridBagConstraints);
 
@@ -1313,56 +1313,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepInp1.getText().equals("") && wepInp1_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp1.getText()) / 100;
-                        switch (wepInp1_comboSel) {
-                            case ATT:
-                                this.att_base += wepInp * zero_scale;
-                                break;
-                            case BOSS:
-                                this.boss_base += wepInp * zero_scale;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                                if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
-                                }
-                                break;
-                        }
+                        addInputToBase(wepInp, wepInp1_comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepInp2.getText().equals("") && wepInp2_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp2.getText()) / 100;
-                        switch (wepInp2_comboSel) {
-                            case ATT:
-                                this.att_base += wepInp * zero_scale;
-                                break;
-                            case BOSS:
-                                this.boss_base += wepInp * zero_scale;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                                if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
-                                }
-                                break;
-                        }
+                        addInputToBase(wepInp, wepInp2_comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepInp3.getText().equals("") && wepInp3_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp3.getText()) / 100;
-                        switch (wepInp3_comboSel) {
-                            case ATT:
-                                this.att_base += wepInp * zero_scale;
-                                break;
-                            case BOSS:
-                                this.boss_base += wepInp * zero_scale;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                                if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
-                                }
-                                break;
-                        }
+                        addInputToBase(wepInp, wepInp3_comboSel, zero_scale);
                     }
                 }
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
@@ -1370,47 +1331,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secInp1.getText().equals("") && secInp1_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp1.getText()) / 100;
-                        switch (secInp1_comboSel) {
-                            case ATT:
-                                this.att_base += secInp;
-                                break;
-                            case BOSS:
-                                this.boss_base += secInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
-                                break;
-                        }
+                        addInputToBase(secInp, secInp1_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secInp2.getText().equals("") && secInp2_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp2.getText()) / 100;
-                        switch (secInp2_comboSel) {
-                            case ATT:
-                                this.att_base += secInp;
-                                break;
-                            case BOSS:
-                                this.boss_base += secInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
-                                break;
-                        }
+                        addInputToBase(secInp, secInp2_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secInp3.getText().equals("") && secInp3_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp3.getText()) / 100;
-                        switch (secInp3_comboSel) {
-                            case ATT:
-                                this.att_base += secInp;
-                                break;
-                            case BOSS:
-                                this.boss_base += secInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
-                                break;
-                        }
+                        addInputToBase(secInp, secInp3_comboSel);
                     }
                 }
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
@@ -1418,38 +1349,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embInp1.getText().equals("") && embInp1_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp1.getText()) / 100;
-                        switch (embInp1_comboSel){
-                            case ATT:
-                                this.att_base += embInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
-                                break;
-                        }
+                        addInputToBase(embInp, embInp1_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embInp2.getText().equals("") && embInp2_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp2.getText()) / 100;
-                        switch (embInp2_comboSel){
-                            case ATT:
-                                this.att_base += embInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
-                                break;
-                        }
+                        addInputToBase(embInp, embInp2_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embInp3.getText().equals("") && embInp3_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp3.getText()) / 100;
-                        switch (embInp3_comboSel){
-                            case ATT:
-                                this.att_base += embInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
-                                break;
-                        }
+                        addInputToBase(embInp, embInp3_comboSel);
                     }
                 }
 
@@ -1458,56 +1368,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepbpInp1.getText().equals("") && wepbpInp1_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp1.getText()) / 100;
-                        switch (wepbpInp1_comboSel) {
-                            case ATT:
-                                this.att_base += wepInp * zero_scale;
-                                break;
-                            case BOSS:
-                                this.boss_base += wepInp * zero_scale;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                                if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
-                                }
-                                break;
-                        }
+                        addInputToBase(wepInp, wepbpInp1_comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepbpInp2.getText().equals("") && wepbpInp2_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp2.getText()) / 100;
-                        switch (wepbpInp2_comboSel) {
-                            case ATT:
-                                this.att_base += wepInp * zero_scale;
-                                break;
-                            case BOSS:
-                                this.boss_base += wepInp * zero_scale;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                                if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
-                                }
-                                break;
-                        }
+                        addInputToBase(wepInp, wepbpInp2_comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!wepbpInp3.getText().equals("") && wepbpInp3_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp3.getText()) / 100;
-                        switch (wepbpInp3_comboSel) {
-                            case ATT:
-                                this.att_base += wepInp * zero_scale;
-                                break;
-                            case BOSS:
-                                this.boss_base += wepInp * zero_scale;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                                if (zero_scale == 2) {
-                                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp) * (1 - wepInp)));
-                                }
-                                break;
-                        }
+                        addInputToBase(wepInp, wepbpInp3_comboSel, zero_scale);
                     }
                 }
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
@@ -1515,47 +1386,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secbpInp1.getText().equals("") && secbpInp1_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp1.getText()) / 100;
-                        switch (secbpInp1_comboSel) {
-                            case ATT:
-                                this.att_base += secInp;
-                                break;
-                            case BOSS:
-                                this.boss_base += secInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
-                                break;
-                        }
+                        addInputToBase(secInp, secbpInp1_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secbpInp2.getText().equals("") && secbpInp2_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp2.getText()) / 100;
-                        switch (secbpInp2_comboSel) {
-                            case ATT:
-                                this.att_base += secInp;
-                                break;
-                            case BOSS:
-                                this.boss_base += secInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
-                                break;
-                        }
+                        addInputToBase(secInp, secbpInp2_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!secbpInp3.getText().equals("") && secbpInp3_comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp3.getText()) / 100;
-                        switch (secbpInp3_comboSel) {
-                            case ATT:
-                                this.att_base += secInp;
-                                break;
-                            case BOSS:
-                                this.boss_base += secInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - secInp)));
-                                break;
-                        }
+                        addInputToBase(secInp, secbpInp3_comboSel);
                     }
                 }
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
@@ -1563,38 +1404,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embbpInp1.getText().equals("") && embbpInp1_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp1.getText()) / 100;
-                        switch (embbpInp1_comboSel){
-                            case ATT:
-                                this.att_base += embInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
-                                break;
-                        }
+                        addInputToBase(embInp, embbpInp1_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embbpInp2.getText().equals("") && embbpInp2_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp2.getText()) / 100;
-                        switch (embbpInp2_comboSel){
-                            case ATT:
-                                this.att_base += embInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
-                                break;
-                        }
+                        addInputToBase(embInp, embbpInp2_comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!embbpInp3.getText().equals("") && embbpInp3_comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp3.getText()) / 100;
-                        switch (embbpInp3_comboSel){
-                            case ATT:
-                                this.att_base += embInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - embInp)));
-                                break;
-                        }
+                        addInputToBase(embInp, embbpInp3_comboSel);
                     }
                 }
                 //If the soul is sleceted go through and pull all the inputs and add them to the base values
@@ -1602,17 +1422,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
                     if (!soulInp.getText().equals("") && soul_comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(soulInp.getText()) / 100;
-                        switch (soul_comboSel) {
-                            case ATT:
-                                this.att_base += wepInp;
-                                break;
-                            case BOSS:
-                                this.boss_base += wepInp;
-                                break;
-                            case IED:
-                                this.ied_base = (1 - ((1 - this.ied_base) * (1 - wepInp)));
-                                break;
-                        }
+                        addInputToBase(wepInp, soul_comboSel);
                     }
                 }
                 if (!this.bp.isSelected()){
@@ -1646,9 +1456,30 @@ public class OptimizationPieces extends javax.swing.JFrame {
         calculate.setEnabled(false);
         calculate.setSelected(false);
     }//GEN-LAST:event_calculateActionPerformed
-
+    
+    private void addInputToBase(double input, PotType selection){
+        addInputToBase(input, selection, 1);
+    }
+    
+    private void addInputToBase(double input, PotType selection, double zeroScale){
+        switch (selection) {
+            case ATT:
+                this.att_base += input * zeroScale;
+                break;
+            case BOSS:
+                this.boss_base += input * zeroScale;
+                break;
+            case IED:
+                this.ied_base = (1 - ((1 - this.ied_base) * (1 - input)));
+                if (zeroScale == 2) {
+                    this.ied_base = (1 - ((1 - this.ied_base) * (1 - input)));
+                }
+                break;
+        }
+    }
+    
     private void clearInpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearInpActionPerformed
-        if (clearInp.isSelected() && (worker.isDone() || worker.isCancelled())) {
+        if (clearInp.isSelected() && (worker == null || worker.isDone() || worker.isCancelled())) {
             clearInputs(true, true);
         }
         else if (!worker.isDone()){
@@ -1853,35 +1684,54 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_soulComboBoxItemStateChanged
     
-    public void clearInputs(boolean main, boolean bonus){
-        if (main){
+    public void clearInputs(boolean main, boolean bonus) {
+        if (main) {
             wepInp1.setText("");
             wepInp2.setText("");
             wepInp3.setText("");
+            wep1ComboBox.setSelectedItem("None");
+            wep2ComboBox.setSelectedItem("None");
+            wep3ComboBox.setSelectedItem("None");
 
             secInp1.setText("");
             secInp2.setText("");
             secInp3.setText("");
+            sec1ComboBox.setSelectedItem("None");
+            sec2ComboBox.setSelectedItem("None");
+            sec3ComboBox.setSelectedItem("None");
 
             embInp1.setText("");
             embInp2.setText("");
             embInp3.setText("");
-            
+            emb1ComboBox.setSelectedItem("None");
+            emb2ComboBox.setSelectedItem("None");
+            emb3ComboBox.setSelectedItem("None");
+
             soulInp.setText("");
+            soulComboBox.setSelectedItem("None");
         }
-        if (bonus){
+        if (bonus) {
             wepbpInp1.setText("");
             wepbpInp2.setText("");
             wepbpInp3.setText("");
-            
+            wepbp1ComboBox.setSelectedItem("None");
+            wepbp2ComboBox.setSelectedItem("None");
+            wepbp3ComboBox.setSelectedItem("None");
+
             secbpInp1.setText("");
             secbpInp2.setText("");
             secbpInp3.setText("");
-            
+            secbp1ComboBox.setSelectedItem("None");
+            secbp2ComboBox.setSelectedItem("None");
+            secbp3ComboBox.setSelectedItem("None");
+
             embbpInp1.setText("");
             embbpInp2.setText("");
             embbpInp3.setText("");
-        }      
+            embbp1ComboBox.setSelectedItem("None");
+            embbp2ComboBox.setSelectedItem("None");
+            embbp3ComboBox.setSelectedItem("None");
+        }
     }
 
     public void setEmblemEnabled(boolean b) {
