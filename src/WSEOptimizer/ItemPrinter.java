@@ -59,7 +59,7 @@ public class ItemPrinter {
         finished += formattedConcat(formattedConcat(String.format("%02d Points into Boss Damage", hyperStats[1]), legionStrings[0], 65), String.format("%.0f%% Total Damage/Boss\n", 100 * potVector.getTotalDMG()), 106);
         finished += formattedConcat(formattedConcat(String.format("%02d Points into Damage", hyperStats[2]), legionStrings[1], 69), String.format("%.3f%% Total IED\n", 100 * potVector.getIed()), 109);
         finished += formattedConcat(formattedConcat(String.format("%02d Points into IED", hyperStats[3]), legionStrings[2], 69), String.format("%.1f%% Total Crit Damage\n", 100 * potVector.getCrit()), 108);
-
+        finished += String.format("--------------------------------------------------- Overall Setup Score: %.5f ---------------------------------------------------", potVector.getCalc());
         legionBP.setText(finished);
     }
     
