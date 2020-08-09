@@ -250,6 +250,53 @@ public class OptimizationPieces extends javax.swing.JFrame {
         hyperLabel = new javax.swing.JLabel();
         monDef = new javax.swing.JTextField();
         pdrLabel = new javax.swing.JLabel();
+        guildSeperator = new javax.swing.JSeparator();
+        guildPanel = new javax.swing.JPanel();
+        guildSkills = new javax.swing.JLabel();
+        guildSkillBoss = new javax.swing.JLabel();
+        guildSkillIED = new javax.swing.JLabel();
+        guildSkillDmg = new javax.swing.JLabel();
+        guildSkillCrit = new javax.swing.JLabel();
+        guildBossComboBox = new javax.swing.JComboBox<>();
+        guildCritComboBox = new javax.swing.JComboBox<>();
+        guildIEDComboBox = new javax.swing.JComboBox<>();
+        guildDmgComboBox = new javax.swing.JComboBox<>();
+        linkSeperator = new javax.swing.JSeparator();
+        linkSkillsPanel = new javax.swing.JPanel();
+        zeroLinkSkill = new javax.swing.JLabel();
+        linkSkills = new javax.swing.JLabel();
+        zeroLinkComboBox = new javax.swing.JComboBox<>();
+        cadenaLinkSkill = new javax.swing.JLabel();
+        cadenaLinkComboBox = new javax.swing.JComboBox<>();
+        abLinkSkill = new javax.swing.JLabel();
+        abLinkComboBox = new javax.swing.JComboBox<>();
+        luminousLinkSkill = new javax.swing.JLabel();
+        luminousLinkComboBox = new javax.swing.JComboBox<>();
+        adeleLinkSkill = new javax.swing.JLabel();
+        adeleLinkComboBox = new javax.swing.JComboBox<>();
+        adelePartyComboBox = new javax.swing.JComboBox<>();
+        dsLinkSkill = new javax.swing.JLabel();
+        dsLinkComboBox = new javax.swing.JComboBox<>();
+        btLinkSkill = new javax.swing.JLabel();
+        btLinkComboBox = new javax.swing.JComboBox<>();
+        kinesisLinkSkill = new javax.swing.JLabel();
+        kinesisLinkComboBox = new javax.swing.JComboBox<>();
+        illiumLinkSkill = new javax.swing.JLabel();
+        illiumLinkComboBox = new javax.swing.JComboBox<>();
+        illiumStacksComboBox = new javax.swing.JComboBox<>();
+        arkLinkSkill = new javax.swing.JLabel();
+        arkLinkComboBox = new javax.swing.JComboBox<>();
+        arkStacksComboBox = new javax.swing.JComboBox<>();
+        daLinkSkill = new javax.swing.JLabel();
+        daLinkComboBox = new javax.swing.JComboBox<>();
+        kannaLinkSkill = new javax.swing.JLabel();
+        kannaLinkComboBox = new javax.swing.JComboBox<>();
+        mageLinkSkill = new javax.swing.JLabel();
+        mageLinkComboBox = new javax.swing.JComboBox<>();
+        mageStacksComboBox = new javax.swing.JComboBox<>();
+        thiefLinkSkill = new javax.swing.JLabel();
+        thiefLinkComboBox = new javax.swing.JComboBox<>();
+        buffsSeperator = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
@@ -1489,6 +1536,408 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(pdrLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        baseStatsPanel.add(guildSeperator, gridBagConstraints);
+
+        guildPanel.setMaximumSize(new java.awt.Dimension(621, 61));
+        guildPanel.setMinimumSize(new java.awt.Dimension(621, 61));
+        guildPanel.setPreferredSize(new java.awt.Dimension(621, 61));
+        guildPanel.setLayout(new java.awt.GridBagLayout());
+
+        guildSkills.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        guildSkills.setText("Nobelesse Guild Skills");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        guildPanel.add(guildSkills, gridBagConstraints);
+
+        guildSkillBoss.setText("Boss Slayers");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildSkillBoss, gridBagConstraints);
+
+        guildSkillIED.setText("Undeterred");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildSkillIED, gridBagConstraints);
+
+        guildSkillDmg.setText("For the Guild!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildSkillDmg, gridBagConstraints);
+
+        guildSkillCrit.setText("Hard Hitter");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildSkillCrit, gridBagConstraints);
+
+        guildBossComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3", "LVL 4", "LVL 5", "LVL 6", "LVL 7", "LVL 8", "LVL 9", "LVL 10", "LVL 11", "LVL 12", "LVL 13", "LVL 14", "LVL 15" }));
+        guildBossComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        guildBossComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        guildBossComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildBossComboBox, gridBagConstraints);
+
+        guildCritComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3", "LVL 4", "LVL 5", "LVL 6", "LVL 7", "LVL 8", "LVL 9", "LVL 10", "LVL 11", "LVL 12", "LVL 13", "LVL 14", "LVL 15" }));
+        guildCritComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        guildCritComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        guildCritComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildCritComboBox, gridBagConstraints);
+
+        guildIEDComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3", "LVL 4", "LVL 5", "LVL 6", "LVL 7", "LVL 8", "LVL 9", "LVL 10", "LVL 11", "LVL 12", "LVL 13", "LVL 14", "LVL 15" }));
+        guildIEDComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        guildIEDComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        guildIEDComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildIEDComboBox, gridBagConstraints);
+
+        guildDmgComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3", "LVL 4", "LVL 5", "LVL 6", "LVL 7", "LVL 8", "LVL 9", "LVL 10", "LVL 11", "LVL 12", "LVL 13", "LVL 14", "LVL 15" }));
+        guildDmgComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        guildDmgComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        guildDmgComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        guildPanel.add(guildDmgComboBox, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 9;
+        baseStatsPanel.add(guildPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        baseStatsPanel.add(linkSeperator, gridBagConstraints);
+
+        linkSkillsPanel.setMaximumSize(new java.awt.Dimension(621, 160));
+        linkSkillsPanel.setMinimumSize(new java.awt.Dimension(621, 160));
+        linkSkillsPanel.setPreferredSize(new java.awt.Dimension(621, 160));
+        linkSkillsPanel.setLayout(new java.awt.GridBagLayout());
+
+        zeroLinkSkill.setText("Zero");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(zeroLinkSkill, gridBagConstraints);
+
+        linkSkills.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        linkSkills.setText("Link Skills");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 8;
+        linkSkillsPanel.add(linkSkills, gridBagConstraints);
+
+        zeroLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3", "LVL 4", "LVL 5" }));
+        zeroLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        zeroLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        zeroLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(zeroLinkComboBox, gridBagConstraints);
+
+        cadenaLinkSkill.setText("Cadena");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(cadenaLinkSkill, gridBagConstraints);
+
+        cadenaLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2" }));
+        cadenaLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        cadenaLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        cadenaLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(cadenaLinkComboBox, gridBagConstraints);
+
+        abLinkSkill.setText("Angelic Buster");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(abLinkSkill, gridBagConstraints);
+
+        abLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3" }));
+        abLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        abLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        abLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(abLinkComboBox, gridBagConstraints);
+
+        luminousLinkSkill.setText("Luminous");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(luminousLinkSkill, gridBagConstraints);
+
+        luminousLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3" }));
+        luminousLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        luminousLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        luminousLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(luminousLinkComboBox, gridBagConstraints);
+
+        adeleLinkSkill.setText("Adele");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(adeleLinkSkill, gridBagConstraints);
+
+        adeleLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2" }));
+        adeleLinkComboBox.setMaximumSize(new java.awt.Dimension(65, 20));
+        adeleLinkComboBox.setMinimumSize(new java.awt.Dimension(65, 20));
+        adeleLinkComboBox.setPreferredSize(new java.awt.Dimension(65, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        linkSkillsPanel.add(adeleLinkComboBox, gridBagConstraints);
+
+        adelePartyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 Stacks", "2 Stacks", "3 Stacks", "4 Stacks" }));
+        adelePartyComboBox.setMaximumSize(new java.awt.Dimension(89, 20));
+        adelePartyComboBox.setMinimumSize(new java.awt.Dimension(89, 20));
+        adelePartyComboBox.setPreferredSize(new java.awt.Dimension(89, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        linkSkillsPanel.add(adelePartyComboBox, gridBagConstraints);
+
+        dsLinkSkill.setText("Demon Slayer");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(dsLinkSkill, gridBagConstraints);
+
+        dsLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3" }));
+        dsLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        dsLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        dsLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(dsLinkComboBox, gridBagConstraints);
+
+        btLinkSkill.setText("Beast Tamer ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(btLinkSkill, gridBagConstraints);
+
+        btLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3" }));
+        btLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        btLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        btLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(btLinkComboBox, gridBagConstraints);
+
+        kinesisLinkSkill.setText("Kinesis");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(kinesisLinkSkill, gridBagConstraints);
+
+        kinesisLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2" }));
+        kinesisLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        kinesisLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        kinesisLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(kinesisLinkComboBox, gridBagConstraints);
+
+        illiumLinkSkill.setText("Illium");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(illiumLinkSkill, gridBagConstraints);
+
+        illiumLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2" }));
+        illiumLinkComboBox.setMaximumSize(new java.awt.Dimension(65, 20));
+        illiumLinkComboBox.setMinimumSize(new java.awt.Dimension(65, 20));
+        illiumLinkComboBox.setPreferredSize(new java.awt.Dimension(65, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        linkSkillsPanel.add(illiumLinkComboBox, gridBagConstraints);
+
+        illiumStacksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 Stacks", "2 Stacks", "3 Stacks" }));
+        illiumStacksComboBox.setMaximumSize(new java.awt.Dimension(89, 20));
+        illiumStacksComboBox.setMinimumSize(new java.awt.Dimension(89, 20));
+        illiumStacksComboBox.setPreferredSize(new java.awt.Dimension(89, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        linkSkillsPanel.add(illiumStacksComboBox, gridBagConstraints);
+
+        arkLinkSkill.setText("Ark");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(arkLinkSkill, gridBagConstraints);
+
+        arkLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3" }));
+        arkLinkComboBox.setMaximumSize(new java.awt.Dimension(65, 20));
+        arkLinkComboBox.setMinimumSize(new java.awt.Dimension(65, 20));
+        arkLinkComboBox.setPreferredSize(new java.awt.Dimension(65, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        linkSkillsPanel.add(arkLinkComboBox, gridBagConstraints);
+
+        arkStacksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 Stacks", "1 Stacks", "2 Stacks", "3 Stacks", "4 Stacks", "5 Stacks" }));
+        arkStacksComboBox.setMaximumSize(new java.awt.Dimension(89, 20));
+        arkStacksComboBox.setMinimumSize(new java.awt.Dimension(89, 20));
+        arkStacksComboBox.setPreferredSize(new java.awt.Dimension(89, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        linkSkillsPanel.add(arkStacksComboBox, gridBagConstraints);
+
+        daLinkSkill.setText("Demon Avenger");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(daLinkSkill, gridBagConstraints);
+
+        daLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3" }));
+        daLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        daLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        daLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(daLinkComboBox, gridBagConstraints);
+
+        kannaLinkSkill.setText("Kanna");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(kannaLinkSkill, gridBagConstraints);
+
+        kannaLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2" }));
+        kannaLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        kannaLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        kannaLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(kannaLinkComboBox, gridBagConstraints);
+
+        mageLinkSkill.setText("Explorer Mage");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(mageLinkSkill, gridBagConstraints);
+
+        mageLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3", "LVL 4", "LVL 5", "LVL 6" }));
+        mageLinkComboBox.setMaximumSize(new java.awt.Dimension(65, 20));
+        mageLinkComboBox.setMinimumSize(new java.awt.Dimension(65, 20));
+        mageLinkComboBox.setPreferredSize(new java.awt.Dimension(65, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        linkSkillsPanel.add(mageLinkComboBox, gridBagConstraints);
+
+        mageStacksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 Stacks", "1 Stacks", "2 Stacks", "3 Stacks", "4 Stacks", "5 Stacks", "6 Stacks" }));
+        mageStacksComboBox.setMaximumSize(new java.awt.Dimension(89, 20));
+        mageStacksComboBox.setMinimumSize(new java.awt.Dimension(89, 20));
+        mageStacksComboBox.setPreferredSize(new java.awt.Dimension(89, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        linkSkillsPanel.add(mageStacksComboBox, gridBagConstraints);
+
+        thiefLinkSkill.setText("Explorer Thief");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(thiefLinkSkill, gridBagConstraints);
+
+        thiefLinkComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LVL 0", "LVL 1", "LVL 2", "LVL 3", "LVL 4", "LVL 5", "LVL 6" }));
+        thiefLinkComboBox.setMaximumSize(new java.awt.Dimension(155, 20));
+        thiefLinkComboBox.setMinimumSize(new java.awt.Dimension(155, 20));
+        thiefLinkComboBox.setPreferredSize(new java.awt.Dimension(155, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        linkSkillsPanel.add(thiefLinkComboBox, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 9;
+        baseStatsPanel.add(linkSkillsPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        baseStatsPanel.add(buffsSeperator, gridBagConstraints);
 
         inputOutputPane.addTab("Base Stats and Buffs", baseStatsPanel);
 
@@ -2356,6 +2805,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> abLinkComboBox;
+    private javax.swing.JLabel abLinkSkill;
+    private javax.swing.JComboBox<String> adeleLinkComboBox;
+    private javax.swing.JLabel adeleLinkSkill;
+    private javax.swing.JComboBox<String> adelePartyComboBox;
+    private javax.swing.JComboBox<String> arkLinkComboBox;
+    private javax.swing.JLabel arkLinkSkill;
+    private javax.swing.JComboBox<String> arkStacksComboBox;
     private javax.swing.JTextField att;
     private javax.swing.JLabel attLabel;
     private javax.swing.JPanel baseStatsPanel;
@@ -2363,12 +2820,21 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField boss;
     private javax.swing.JLabel bossLabel;
     private javax.swing.JToggleButton bp;
+    private javax.swing.JComboBox<String> btLinkComboBox;
+    private javax.swing.JLabel btLinkSkill;
+    private javax.swing.JSeparator buffsSeperator;
+    private javax.swing.JComboBox<String> cadenaLinkComboBox;
+    private javax.swing.JLabel cadenaLinkSkill;
     private javax.swing.JToggleButton calculate;
     private javax.swing.JToggleButton clearInp;
     private javax.swing.JTextField critDmgInp;
     private javax.swing.JLabel critdmgLabel;
+    private javax.swing.JComboBox<String> daLinkComboBox;
+    private javax.swing.JLabel daLinkSkill;
     private javax.swing.JTextField dmg;
     private javax.swing.JLabel dmgLabel;
+    private javax.swing.JComboBox<String> dsLinkComboBox;
+    private javax.swing.JLabel dsLinkSkill;
     private javax.swing.JComboBox<String> emb1ComboBox;
     private javax.swing.JComboBox<String> emb2ComboBox;
     private javax.swing.JComboBox<String> emb3ComboBox;
@@ -2402,15 +2868,41 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JSeparator familiarSeperator;
     private javax.swing.JComboBox<String> familiarTierComboBox;
     private javax.swing.JTextArea fd_LegionBP;
+    private javax.swing.JComboBox<String> guildBossComboBox;
+    private javax.swing.JComboBox<String> guildCritComboBox;
+    private javax.swing.JComboBox<String> guildDmgComboBox;
+    private javax.swing.JComboBox<String> guildIEDComboBox;
+    private javax.swing.JPanel guildPanel;
+    private javax.swing.JSeparator guildSeperator;
+    private javax.swing.JLabel guildSkillBoss;
+    private javax.swing.JLabel guildSkillCrit;
+    private javax.swing.JLabel guildSkillDmg;
+    private javax.swing.JLabel guildSkillIED;
+    private javax.swing.JLabel guildSkills;
     private javax.swing.JLabel hyperLabel;
     private javax.swing.JTextField hyperStatsInp;
     private javax.swing.JTextField ied;
     private javax.swing.JLabel iedLabel;
+    private javax.swing.JComboBox<String> illiumLinkComboBox;
+    private javax.swing.JLabel illiumLinkSkill;
+    private javax.swing.JComboBox<String> illiumStacksComboBox;
     private javax.swing.JTabbedPane inputOutputPane;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JSeparator inputSeperator;
     private javax.swing.JToggleButton kannaClass;
+    private javax.swing.JComboBox<String> kannaLinkComboBox;
+    private javax.swing.JLabel kannaLinkSkill;
+    private javax.swing.JComboBox<String> kinesisLinkComboBox;
+    private javax.swing.JLabel kinesisLinkSkill;
     private javax.swing.JLabel legionLabel;
+    private javax.swing.JSeparator linkSeperator;
+    private javax.swing.JLabel linkSkills;
+    private javax.swing.JPanel linkSkillsPanel;
+    private javax.swing.JComboBox<String> luminousLinkComboBox;
+    private javax.swing.JLabel luminousLinkSkill;
+    private javax.swing.JComboBox<String> mageLinkComboBox;
+    private javax.swing.JLabel mageLinkSkill;
+    private javax.swing.JComboBox<String> mageStacksComboBox;
     private javax.swing.JTextField monDef;
     private javax.swing.JToggleButton no_3l;
     private javax.swing.JToggleButton no_3lbp;
@@ -2436,6 +2928,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> soulComboBox;
     private javax.swing.JTextField soulInp;
     private javax.swing.JToggleButton soulSelect;
+    private javax.swing.JComboBox<String> thiefLinkComboBox;
+    private javax.swing.JLabel thiefLinkSkill;
     private javax.swing.JTextField union;
     private javax.swing.JComboBox<String> wep1ComboBox;
     private javax.swing.JComboBox<String> wep2ComboBox;
@@ -2454,5 +2948,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton weplvl;
     private javax.swing.JComboBox<String> wseOptions;
     private javax.swing.JToggleButton zeroClass;
+    private javax.swing.JComboBox<String> zeroLinkComboBox;
+    private javax.swing.JLabel zeroLinkSkill;
     // End of variables declaration//GEN-END:variables
 }
