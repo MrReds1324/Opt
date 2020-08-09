@@ -230,6 +230,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         outputSeperator = new javax.swing.JSeparator();
         fd_LegionBP = new javax.swing.JTextArea();
         baseStatsPanel = new javax.swing.JPanel();
+        baseStats = new javax.swing.JLabel();
         dmg = new javax.swing.JTextField();
         dmgLabel = new javax.swing.JLabel();
         boss = new javax.swing.JTextField();
@@ -297,6 +298,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         thiefLinkSkill = new javax.swing.JLabel();
         thiefLinkComboBox = new javax.swing.JComboBox<>();
         buffsSeperator = new javax.swing.JSeparator();
+        buffsDebuffs = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
@@ -1336,20 +1338,28 @@ public class OptimizationPieces extends javax.swing.JFrame {
         baseStatsPanel.setPreferredSize(new java.awt.Dimension(621, 650));
         baseStatsPanel.setLayout(new java.awt.GridBagLayout());
 
+        baseStats.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        baseStats.setText("Base Stats");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 9;
+        baseStatsPanel.add(baseStats, gridBagConstraints);
+
         dmg.setText("214");
         dmg.setMaximumSize(new java.awt.Dimension(60, 23));
         dmg.setMinimumSize(new java.awt.Dimension(60, 23));
         dmg.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         baseStatsPanel.add(dmg, gridBagConstraints);
 
         dmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         dmgLabel.setText("DMG");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(dmgLabel, gridBagConstraints);
 
@@ -1359,14 +1369,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
         boss.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         baseStatsPanel.add(boss, gridBagConstraints);
 
         bossLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         bossLabel.setText("BOSS");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(bossLabel, gridBagConstraints);
 
@@ -1376,14 +1386,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
         att.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         baseStatsPanel.add(att, gridBagConstraints);
 
         attLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         attLabel.setText("ATT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(attLabel, gridBagConstraints);
 
@@ -1393,7 +1403,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         baseStatsPanel.add(critDmgInp, gridBagConstraints);
 
         ied.setText("90.07");
@@ -1402,7 +1412,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         ied.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         baseStatsPanel.add(ied, gridBagConstraints);
 
         critdmgLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1410,7 +1420,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         critdmgLabel.setText("CRIT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(critdmgLabel, gridBagConstraints);
 
@@ -1418,7 +1428,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         iedLabel.setText("IED");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(iedLabel, gridBagConstraints);
 
@@ -1433,7 +1443,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         baseStatsPanel.add(weplvl, gridBagConstraints);
 
@@ -1448,7 +1458,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         baseStatsPanel.add(seclvl, gridBagConstraints);
 
@@ -1463,7 +1473,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         baseStatsPanel.add(kannaClass, gridBagConstraints);
 
@@ -1478,7 +1488,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         baseStatsPanel.add(zeroClass, gridBagConstraints);
 
@@ -1488,14 +1498,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
         union.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         baseStatsPanel.add(union, gridBagConstraints);
 
         legionLabel.setText("Legion Points for Boss, IED, and Crit Dmage ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(legionLabel, gridBagConstraints);
@@ -1506,7 +1516,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         hyperStatsInp.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         baseStatsPanel.add(hyperStatsInp, gridBagConstraints);
 
@@ -1514,7 +1524,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         hyperLabel.setText("Hyper Points for Boss, Damage, IED, and Crit Damage");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(hyperLabel, gridBagConstraints);
@@ -1525,20 +1535,20 @@ public class OptimizationPieces extends javax.swing.JFrame {
         monDef.setPreferredSize(new java.awt.Dimension(60, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         baseStatsPanel.add(monDef, gridBagConstraints);
 
         pdrLabel.setText("Monster Defense");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(pdrLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         baseStatsPanel.add(guildSeperator, gridBagConstraints);
@@ -1626,12 +1636,12 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 9;
         baseStatsPanel.add(guildPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         baseStatsPanel.add(linkSeperator, gridBagConstraints);
@@ -1929,15 +1939,23 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 9;
         baseStatsPanel.add(linkSkillsPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         baseStatsPanel.add(buffsSeperator, gridBagConstraints);
+
+        buffsDebuffs.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        buffsDebuffs.setText("Party Buffs and Debuffs");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 9;
+        baseStatsPanel.add(buffsDebuffs, gridBagConstraints);
 
         inputOutputPane.addTab("Base Stats and Buffs", baseStatsPanel);
 
@@ -2815,6 +2833,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> arkStacksComboBox;
     private javax.swing.JTextField att;
     private javax.swing.JLabel attLabel;
+    private javax.swing.JLabel baseStats;
     private javax.swing.JPanel baseStatsPanel;
     private javax.swing.JSeparator bonusSeperator;
     private javax.swing.JTextField boss;
@@ -2822,6 +2841,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton bp;
     private javax.swing.JComboBox<String> btLinkComboBox;
     private javax.swing.JLabel btLinkSkill;
+    private javax.swing.JLabel buffsDebuffs;
     private javax.swing.JSeparator buffsSeperator;
     private javax.swing.JComboBox<String> cadenaLinkComboBox;
     private javax.swing.JLabel cadenaLinkSkill;
