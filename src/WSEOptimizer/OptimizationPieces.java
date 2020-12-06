@@ -31,6 +31,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
     private ClassType classType = ClassType.NOCLASS;  //Keeps track of the class type
     //These fields keep track of the values inserted into the input text fields
+    private double crit_base;
     private double att_base;
     private double ied_base;
     private double dmg_base;
@@ -38,6 +39,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private double pdr;
     private int legionVal;
     //Variables for saving the base stats for final damage calculation
+    private double crit_baseS;
     private double att_baseS;
     private double boss_baseS;
     private double dmg_baseS;
@@ -48,8 +50,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     Map<String, PotVector> comboBoxMap = new LinkedHashMap();
     Map<String, PotType> potSelectComboBoxMap = buildSelectComboBoxMap();
-    private double crit_base;
-    private double crit_baseS;
     private int hyperPoints;
     private Server server = Server.REBOOT;
     //Variables for tracking familiar related
@@ -60,7 +60,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     //Variables for tracking execution time for the worker
     private double time;
     private long startTime;
-    private long endTime;
     //Variables for trakcing the final output
     private PotVector selectedPotVector;
     private ArrayList<PotVector> generatedWSE;
