@@ -30,33 +30,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private boolean sec_lvl; //Keeps track if we want to calculate with a higher level secondary than normal
     private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
     private ClassType classType = ClassType.NOCLASS;  //Keeps track of the class type
-    //These keep track of which buttons are selected for which input field
-    private PotType wepInp1_comboSel = PotType.DEFAULT;
-    private PotType wepInp2_comboSel = PotType.DEFAULT;
-    private PotType wepInp3_comboSel = PotType.DEFAULT;
-    private PotType soul_comboSel = PotType.DEFAULT;
-    private PotType secInp1_comboSel = PotType.DEFAULT;
-    private PotType secInp2_comboSel = PotType.DEFAULT;
-    private PotType secInp3_comboSel = PotType.DEFAULT;
-    private PotType wepbpInp1_comboSel = PotType.DEFAULT;
-    private PotType wepbpInp2_comboSel = PotType.DEFAULT;
-    private PotType wepbpInp3_comboSel = PotType.DEFAULT;
-    private PotType secbpInp1_comboSel = PotType.DEFAULT;
-    private PotType secbpInp2_comboSel = PotType.DEFAULT;
-    private PotType secbpInp3_comboSel = PotType.DEFAULT;
-    private PotType embInp1_comboSel = PotType.DEFAULT;
-    private PotType embInp2_comboSel = PotType.DEFAULT;
-    private PotType embInp3_comboSel = PotType.DEFAULT;
-    private PotType embbpInp1_comboSel = PotType.DEFAULT;
-    private PotType embbpInp2_comboSel = PotType.DEFAULT;
-    private PotType embbpInp3_comboSel = PotType.DEFAULT;
-    //Track Familiar Lines PotType
-    private PotType familiar1_comboSel1 = PotType.DEFAULT;
-    private PotType familiar1_comboSel2 = PotType.DEFAULT;
-    private PotType familiar2_comboSel1 = PotType.DEFAULT;
-    private PotType familiar2_comboSel2 = PotType.DEFAULT;
-    private PotType familiar3_comboSel1 = PotType.DEFAULT;
-    private PotType familiar3_comboSel2 = PotType.DEFAULT;
     //These fields keep track of the values inserted into the input text fields
     private double att_base;
     private double ied_base;
@@ -506,11 +479,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wep1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wep1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         wep1ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        wep1ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                wep1ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -533,11 +501,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wep2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wep2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         wep2ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        wep2ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                wep2ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -560,11 +523,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wep3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wep3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         wep3ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        wep3ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                wep3ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -603,11 +561,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         sec1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         sec1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         sec1ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        sec1ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                sec1ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 6;
@@ -630,11 +583,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         sec2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         sec2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         sec2ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        sec2ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                sec2ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 7;
@@ -657,11 +605,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         sec3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         sec3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         sec3ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        sec3ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                sec3ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 8;
@@ -701,11 +644,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         emb1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         emb1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         emb1ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        emb1ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                emb1ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
@@ -728,11 +666,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         emb2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         emb2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         emb2ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        emb2ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                emb2ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 7;
@@ -755,11 +688,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         emb3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         emb3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         emb3ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        emb3ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                emb3ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
@@ -798,11 +726,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         soulComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         soulComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         soulComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        soulComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                soulComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 10;
@@ -850,11 +773,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbp1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wepbp1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         wepbp1ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        wepbp1ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                wepbp1ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 13;
@@ -877,11 +795,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbp2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wepbp2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         wepbp2ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        wepbp2ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                wepbp2ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
@@ -904,11 +817,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         wepbp3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         wepbp3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         wepbp3ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        wepbp3ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                wepbp3ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 15;
@@ -948,11 +856,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbp1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         secbp1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         secbp1ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        secbp1ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                secbp1ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 13;
@@ -975,11 +878,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbp2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         secbp2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         secbp2ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        secbp2ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                secbp2ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 14;
@@ -1002,11 +900,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         secbp3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         secbp3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         secbp3ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        secbp3ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                secbp3ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 15;
@@ -1046,11 +939,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbp1ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         embbp1ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         embbp1ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        embbp1ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                embbp1ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 13;
@@ -1073,11 +961,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbp2ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         embbp2ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         embbp2ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        embbp2ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                embbp2ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 14;
@@ -1100,11 +983,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         embbp3ComboBox.setMaximumSize(new java.awt.Dimension(67, 20));
         embbp3ComboBox.setMinimumSize(new java.awt.Dimension(67, 20));
         embbp3ComboBox.setPreferredSize(new java.awt.Dimension(67, 20));
-        embbp3ComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                embbp3ComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 15;
@@ -1256,11 +1134,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar1ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
-        familiar1ComboBox1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                familiar1ComboBox1ItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 19;
@@ -1271,11 +1144,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar1ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar1ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
-        familiar1ComboBox2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                familiar1ComboBox2ItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 20;
@@ -1286,11 +1154,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar2ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
-        familiar2ComboBox1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                familiar2ComboBox1ItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 19;
@@ -1301,11 +1164,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar2ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar2ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
-        familiar2ComboBox2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                familiar2ComboBox2ItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 20;
@@ -1316,11 +1174,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar3ComboBox1.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox1.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox1.setPreferredSize(new java.awt.Dimension(67, 20));
-        familiar3ComboBox1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                familiar3ComboBox1ItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 19;
@@ -1331,11 +1184,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiar3ComboBox2.setMaximumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox2.setMinimumSize(new java.awt.Dimension(67, 20));
         familiar3ComboBox2.setPreferredSize(new java.awt.Dimension(67, 20));
-        familiar3ComboBox2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                familiar3ComboBox2ItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 20;
@@ -2257,156 +2105,182 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 fd_LegionBP.setText("Optimizing...");
                 getGuildSkills();
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
+                PotType comboSel = PotType.DEFAULT;
                 if (wepSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp1.getText().equals("") && wepInp1_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(wep1ComboBox.getSelectedItem().toString());
+                    if (!wepInp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp1.getText()) / 100;
-                        addInputToBase(wepInp, wepInp1_comboSel, zero_scale);
+                        addInputToBase(wepInp, comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp2.getText().equals("") && wepInp2_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(wep2ComboBox.getSelectedItem().toString());
+                    if (!wepInp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp2.getText()) / 100;
-                        addInputToBase(wepInp, wepInp2_comboSel, zero_scale);
+                        addInputToBase(wepInp, comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepInp3.getText().equals("") && wepInp3_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(wep3ComboBox.getSelectedItem().toString());
+                    if (!wepInp3.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepInp3.getText()) / 100;
-                        addInputToBase(wepInp, wepInp3_comboSel, zero_scale);
+                        addInputToBase(wepInp, comboSel, zero_scale);
                     }
                 }
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
                 if (secSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp1.getText().equals("") && secInp1_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(sec1ComboBox.getSelectedItem().toString());
+                    if (!secInp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp1.getText()) / 100;
-                        addInputToBase(secInp, secInp1_comboSel);
+                        addInputToBase(secInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp2.getText().equals("") && secInp2_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(sec2ComboBox.getSelectedItem().toString());
+                    if (!secInp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp2.getText()) / 100;
-                        addInputToBase(secInp, secInp2_comboSel);
+                        addInputToBase(secInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secInp3.getText().equals("") && secInp3_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(sec3ComboBox.getSelectedItem().toString());
+                    if (!secInp3.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secInp3.getText()) / 100;
-                        addInputToBase(secInp, secInp3_comboSel);
+                        addInputToBase(secInp, comboSel);
                     }
                 }
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
                 if (embSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp1.getText().equals("") && embInp1_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(emb1ComboBox.getSelectedItem().toString());
+                    if (!embInp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp1.getText()) / 100;
-                        addInputToBase(embInp, embInp1_comboSel);
+                        addInputToBase(embInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp2.getText().equals("") && embInp2_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(emb2ComboBox.getSelectedItem().toString());
+                    if (!embInp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp2.getText()) / 100;
-                        addInputToBase(embInp, embInp2_comboSel);
+                        addInputToBase(embInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embInp3.getText().equals("") && embInp3_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(emb3ComboBox.getSelectedItem().toString());
+                    if (!embInp3.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embInp3.getText()) / 100;
-                        addInputToBase(embInp, embInp3_comboSel);
+                        addInputToBase(embInp, comboSel);
                     }
                 }
 
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp1.getText().equals("") && wepbpInp1_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(wepbp1ComboBox.getSelectedItem().toString());
+                    if (!wepbpInp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp1.getText()) / 100;
-                        addInputToBase(wepInp, wepbpInp1_comboSel, zero_scale);
+                        addInputToBase(wepInp, comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp2.getText().equals("") && wepbpInp2_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(wepbp2ComboBox.getSelectedItem().toString());
+                    if (!wepbpInp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp2.getText()) / 100;
-                        addInputToBase(wepInp, wepbpInp2_comboSel, zero_scale);
+                        addInputToBase(wepInp, comboSel, zero_scale);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!wepbpInp3.getText().equals("") && wepbpInp3_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(wepbp3ComboBox.getSelectedItem().toString());
+                    if (!wepbpInp3.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(wepbpInp3.getText()) / 100;
-                        addInputToBase(wepInp, wepbpInp3_comboSel, zero_scale);
+                        addInputToBase(wepInp, comboSel, zero_scale);
                     }
                 }
                 //If the secondary is sleceted go through and pull all the inputs and add them to the base values
                 if (secbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp1.getText().equals("") && secbpInp1_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(secbp1ComboBox.getSelectedItem().toString());
+                    if (!secbpInp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp1.getText()) / 100;
-                        addInputToBase(secInp, secbpInp1_comboSel);
+                        addInputToBase(secInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp2.getText().equals("") && secbpInp2_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(secbp2ComboBox.getSelectedItem().toString());
+                    if (!secbpInp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp2.getText()) / 100;
-                        addInputToBase(secInp, secbpInp2_comboSel);
+                        addInputToBase(secInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!secbpInp3.getText().equals("") && secbpInp3_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(secbp3ComboBox.getSelectedItem().toString());
+                    if (!secbpInp3.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double secInp = Double.parseDouble(secbpInp3.getText()) / 100;
-                        addInputToBase(secInp, secbpInp3_comboSel);
+                        addInputToBase(secInp, comboSel);
                     }
                 }
                 //If the emblem is sleceted go through and pull all the inputs and add them to the base values
                 if (embbpSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp1.getText().equals("") && embbpInp1_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(embbp1ComboBox.getSelectedItem().toString());
+                    if (!embbpInp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp1.getText()) / 100;
-                        addInputToBase(embInp, embbpInp1_comboSel);
+                        addInputToBase(embInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp2.getText().equals("") && embbpInp2_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(embbp2ComboBox.getSelectedItem().toString());
+                    if (!embbpInp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp2.getText()) / 100;
-                        addInputToBase(embInp, embbpInp2_comboSel);
+                        addInputToBase(embInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!embbpInp3.getText().equals("") && embbpInp3_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(embbp3ComboBox.getSelectedItem().toString());
+                    if (!embbpInp3.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double embInp = Double.parseDouble(embbpInp3.getText()) / 100;
-                        addInputToBase(embInp, embbpInp3_comboSel);
+                        addInputToBase(embInp, comboSel);
                     }
                 }
                 //If the soul is sleceted go through and pull all the inputs and add them to the base values
                 if (soulSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!soulInp.getText().equals("") && soul_comboSel != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(soulComboBox.getSelectedItem().toString());
+                    if (!soulInp.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(soulInp.getText()) / 100;
-                        addInputToBase(wepInp, soul_comboSel);
+                        addInputToBase(wepInp, comboSel);
                     }
                 }
                 if (familiar1Select.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!familiar1Inp1.getText().equals("") && familiar1_comboSel1 != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(familiar1ComboBox1.getSelectedItem().toString());
+                    if (!familiar1Inp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(familiar1Inp1.getText()) / 100;
-                        addInputToBase(wepInp, familiar1_comboSel1);
+                        addInputToBase(wepInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!familiar1Inp2.getText().equals("") && familiar1_comboSel2 != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(familiar1ComboBox2.getSelectedItem().toString());
+                    if (!familiar1Inp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(familiar1Inp2.getText()) / 100;
-                        addInputToBase(wepInp, familiar1_comboSel2);
+                        addInputToBase(wepInp, comboSel);
                     }
                 }
                 if (familiar2Select.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!familiar2Inp1.getText().equals("") && familiar2_comboSel1 != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(familiar2ComboBox1.getSelectedItem().toString());
+                    if (!familiar2Inp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(familiar2Inp1.getText()) / 100;
-                        addInputToBase(wepInp, familiar2_comboSel1);
+                        addInputToBase(wepInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!familiar2Inp2.getText().equals("") && familiar2_comboSel2 != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(familiar2ComboBox2.getSelectedItem().toString());
+                    if (!familiar2Inp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(familiar2Inp2.getText()) / 100;
-                        addInputToBase(wepInp, familiar2_comboSel2);
+                        addInputToBase(wepInp, comboSel);
                     }
                 }
                 if (familiar3Select.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!familiar3Inp1.getText().equals("") && familiar3_comboSel1 != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(familiar3ComboBox1.getSelectedItem().toString());
+                    if (!familiar3Inp1.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(familiar3Inp1.getText()) / 100;
-                        addInputToBase(wepInp, familiar3_comboSel1);
+                        addInputToBase(wepInp, comboSel);
                     }
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
-                    if (!familiar3Inp2.getText().equals("") && familiar3_comboSel2 != PotType.DEFAULT) {
+                    comboSel = potSelectComboBoxMap.get(familiar3ComboBox2.getSelectedItem().toString());
+                    if (!familiar3Inp2.getText().equals("") && comboSel != PotType.DEFAULT) {
                         double wepInp = Double.parseDouble(familiar3Inp2.getText()) / 100;
-                        addInputToBase(wepInp, familiar3_comboSel2);
+                        addInputToBase(wepInp, comboSel);
                     }
                 }
                 if (!bp.isSelected()){
@@ -2557,120 +2431,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_wseOptionsItemStateChanged
 
-    private void wep1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep1ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-           wepInp1_comboSel = potSelectComboBoxMap.get(wep1ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_wep1ComboBoxItemStateChanged
-
-    private void wep2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep2ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            wepInp2_comboSel = potSelectComboBoxMap.get(wep2ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_wep2ComboBoxItemStateChanged
-
-    private void wep3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wep3ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            wepInp3_comboSel = potSelectComboBoxMap.get(wep3ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_wep3ComboBoxItemStateChanged
-
-    private void sec1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec1ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            secInp1_comboSel = potSelectComboBoxMap.get(sec1ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_sec1ComboBoxItemStateChanged
-
-    private void sec2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec2ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            secInp2_comboSel = potSelectComboBoxMap.get(sec2ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_sec2ComboBoxItemStateChanged
-
-    private void sec3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sec3ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            secInp3_comboSel = potSelectComboBoxMap.get(sec3ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_sec3ComboBoxItemStateChanged
-
-    private void emb1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb1ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            embInp1_comboSel = potSelectComboBoxMap.get(emb1ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_emb1ComboBoxItemStateChanged
-
-    private void emb2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb2ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            embInp2_comboSel = potSelectComboBoxMap.get(emb2ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_emb2ComboBoxItemStateChanged
-
-    private void emb3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emb3ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            embInp3_comboSel = potSelectComboBoxMap.get(emb3ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_emb3ComboBoxItemStateChanged
-
-    private void wepbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp1ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            wepbpInp1_comboSel = potSelectComboBoxMap.get(wepbp1ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_wepbp1ComboBoxItemStateChanged
-
-    private void wepbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp2ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            wepbpInp2_comboSel = potSelectComboBoxMap.get(wepbp2ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_wepbp2ComboBoxItemStateChanged
-
-    private void wepbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wepbp3ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            wepbpInp3_comboSel = potSelectComboBoxMap.get(wepbp3ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_wepbp3ComboBoxItemStateChanged
-
-    private void secbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp1ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            secbpInp1_comboSel = potSelectComboBoxMap.get(secbp1ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_secbp1ComboBoxItemStateChanged
-
-    private void secbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp2ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            secbpInp2_comboSel = potSelectComboBoxMap.get(secbp2ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_secbp2ComboBoxItemStateChanged
-
-    private void secbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_secbp3ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            secbpInp3_comboSel = potSelectComboBoxMap.get(secbp3ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_secbp3ComboBoxItemStateChanged
-
-    private void embbp1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp1ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            embbpInp1_comboSel = potSelectComboBoxMap.get(embbp1ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_embbp1ComboBoxItemStateChanged
-
-    private void embbp2ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp2ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            embbpInp2_comboSel = potSelectComboBoxMap.get(embbp2ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_embbp2ComboBoxItemStateChanged
-
-    private void embbp3ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_embbp3ComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            embbpInp3_comboSel = potSelectComboBoxMap.get(embbp3ComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_embbp3ComboBoxItemStateChanged
-
-    private void soulComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_soulComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            soul_comboSel = potSelectComboBoxMap.get(soulComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_soulComboBoxItemStateChanged
-
     private void familiar1SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar1SelectActionPerformed
         if (familiar1Select.isSelected()) {
             setFamiliar1Enabled(true);
@@ -2735,42 +2495,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_familiarLinesComboBoxItemStateChanged
-
-    private void familiar1ComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar1ComboBox1ItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            familiar1_comboSel1 = potSelectComboBoxMap.get(familiar1ComboBox1.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_familiar1ComboBox1ItemStateChanged
-
-    private void familiar1ComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar1ComboBox2ItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            familiar1_comboSel2 = potSelectComboBoxMap.get(familiar1ComboBox2.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_familiar1ComboBox2ItemStateChanged
-
-    private void familiar2ComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar2ComboBox1ItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            familiar2_comboSel1 = potSelectComboBoxMap.get(familiar2ComboBox1.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_familiar2ComboBox1ItemStateChanged
-
-    private void familiar2ComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar2ComboBox2ItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            familiar2_comboSel2 = potSelectComboBoxMap.get(familiar2ComboBox2.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_familiar2ComboBox2ItemStateChanged
-
-    private void familiar3ComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar3ComboBox1ItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            familiar3_comboSel1 = potSelectComboBoxMap.get(familiar3ComboBox1.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_familiar3ComboBox1ItemStateChanged
-
-    private void familiar3ComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar3ComboBox2ItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            familiar3_comboSel2 = potSelectComboBoxMap.get(familiar3ComboBox2.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_familiar3ComboBox2ItemStateChanged
     
     public void getGuildSkills(){
         //Add the guild skills to the base of each stat
