@@ -76,4 +76,7 @@ public class ComboBoxSupport {
         return builderMap;
     }
     
+    public static int lvlStrToInt(String lvlString){
+        return Integer.parseInt(lvlString.substring(4));
+    }
 }
