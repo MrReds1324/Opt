@@ -2971,7 +2971,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         ItemPrinter.printFamiliars(familiar1Select.isSelected(), familiar2Select.isSelected(), familiar3Select.isSelected(), familiar1Inp1, familiar1ComboBox1, familiar1Inp2, familiar1ComboBox2,
                 familiar2Inp1, familiar2ComboBox1, familiar2Inp2, familiar2ComboBox2, familiar3Inp1, familiar3ComboBox1, familiar3Inp2, familiar3ComboBox2, potVector.getFamiliars());
         
-        double calcBase = ((1.3 + crit_baseS) * (1 + att_baseS) * (1 + boss_baseS + dmg_baseS) * (1 - (pdr * (1 - ied_baseS))));
+        double calcBase = ((1.35 + crit_baseS) * (1 + att_baseS) * (1 + boss_baseS + dmg_baseS) * (1 - (pdr * (1 - ied_baseS))));
         ItemPrinter.printLegionHypersAndFD(fd_LegionBP, calcBase, time, potVector);
     }
 

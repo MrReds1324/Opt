@@ -142,7 +142,7 @@ public class PotVector implements Comparable {
             bosst += embb.cboss() + secb.cboss() + wepb.cboss();
         }
         //Calculate new Crit Damage
-        double critt = 1.3 + baseCrit + (legion[2] * 0.005) + Constants.hyperCritDmg[hyperStats[0]];
+        double critt = 1.35 + baseCrit + (legion[2] * 0.005) + Constants.hyperCritDmg[hyperStats[0]];
         this.att = attt - 1;
         this.totalDMG = bosst - 1;
         this.ied = iedt;
