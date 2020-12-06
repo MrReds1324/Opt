@@ -9,6 +9,7 @@ import static WSEOptimizer.ComboBoxSupport.buildComboBoxFamiliars;
 import static WSEOptimizer.ComboBoxSupport.buildFamiliarLinesSelectComboBoxMap;
 import static WSEOptimizer.ComboBoxSupport.buildFamiliarSelectComboBoxMap;
 import static WSEOptimizer.ComboBoxSupport.buildSelectComboBoxMap;
+import static WSEOptimizer.ComboBoxSupport.lvlStrToInt;
 import WSEOptimizer.Constants.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -79,7 +80,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private int hyperPoints;
     private Server server = Server.REBOOT;
     //Variables for tracking familiar related
-    private FamiliarTier familiarTier = FamiliarTier.LEGENDARY;
     private int numTopLines = 0;
     private int numBotLines = 0;
     private Map<String, FamiliarTier> familiarTierComboBoxMap = buildFamiliarSelectComboBoxMap();
@@ -1139,11 +1139,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         familiarTierComboBox.setMaximumSize(new java.awt.Dimension(310, 20));
         familiarTierComboBox.setMinimumSize(new java.awt.Dimension(310, 20));
         familiarTierComboBox.setPreferredSize(new java.awt.Dimension(310, 20));
-        familiarTierComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                familiarTierComboBoxItemStateChanged(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
@@ -1389,7 +1384,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 9;
         baseStatsPanel.add(baseStats, gridBagConstraints);
 
-        dmg.setText("214");
+        dmg.setText("215");
         dmg.setMaximumSize(new java.awt.Dimension(60, 23));
         dmg.setMinimumSize(new java.awt.Dimension(60, 23));
         dmg.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1406,7 +1401,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(dmgLabel, gridBagConstraints);
 
-        boss.setText("170");
+        boss.setText("210");
         boss.setMaximumSize(new java.awt.Dimension(60, 23));
         boss.setMinimumSize(new java.awt.Dimension(60, 23));
         boss.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1423,7 +1418,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(bossLabel, gridBagConstraints);
 
-        att.setText("42");
+        att.setText("39");
         att.setMaximumSize(new java.awt.Dimension(60, 23));
         att.setMinimumSize(new java.awt.Dimension(60, 23));
         att.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1440,7 +1435,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(attLabel, gridBagConstraints);
 
-        critDmgInp.setText("90");
+        critDmgInp.setText("96");
         critDmgInp.setMaximumSize(new java.awt.Dimension(60, 23));
         critDmgInp.setMinimumSize(new java.awt.Dimension(60, 23));
         critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1449,7 +1444,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         baseStatsPanel.add(critDmgInp, gridBagConstraints);
 
-        ied.setText("90.07");
+        ied.setText("89.49");
         ied.setMaximumSize(new java.awt.Dimension(60, 23));
         ied.setMinimumSize(new java.awt.Dimension(60, 23));
         ied.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -2260,6 +2255,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //Sets up a scaling value for weapon inputs if the class selected was Zero
                 double zero_scale = classType == ClassType.ZERO ? 2 : 1;
                 fd_LegionBP.setText("Optimizing...");
+                getGuildSkills();
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 if (wepSelect.isSelected()) {
                     //If the field is not empty and a button has been selected the grab the inputs and add them to the base values
@@ -2429,7 +2425,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 WSEHelpers.setupSecondaryGenerationSpace(secbpSelect.isSelected(), no_3lbpAtt, classType, PotType.BONUS);
                 WSEHelpers.setupEmblemGenerationSpace(embbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
                 WSEHelpers.setupSoulsGenerationSpace(soulSelect.isSelected());
-                WSEHelpers.generateFamiliars(numTopLines, numBotLines, familiarTier);
+                WSEHelpers.generateFamiliars(numTopLines, numBotLines, familiarTierComboBoxMap.get(familiarTierComboBox.getSelectedItem().toString()));
                 
                 
                 worker = new WSEWorker(dmg_base, boss_base, att_base, ied_base, crit_base, pdr, classType, wep_lvl, sec_lvl,  numberOfOptions, server);
@@ -2740,12 +2736,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_familiarLinesComboBoxItemStateChanged
 
-    private void familiarTierComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiarTierComboBoxItemStateChanged
-        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
-            familiarTier = familiarTierComboBoxMap.get(familiarTierComboBox.getSelectedItem().toString());
-        }
-    }//GEN-LAST:event_familiarTierComboBoxItemStateChanged
-
     private void familiar1ComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_familiar1ComboBox1ItemStateChanged
         if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
             familiar1_comboSel1 = potSelectComboBoxMap.get(familiar1ComboBox1.getSelectedItem().toString());
@@ -2781,6 +2771,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
             familiar3_comboSel2 = potSelectComboBoxMap.get(familiar3ComboBox2.getSelectedItem().toString());
         }
     }//GEN-LAST:event_familiar3ComboBox2ItemStateChanged
+    
+    public void getGuildSkills(){
+        //Add the guild skills to the base of each stat
+        crit_base += lvlStrToInt(guildCritComboBox.getSelectedItem().toString()) * 0.02;
+        boss_base += lvlStrToInt(guildBossComboBox.getSelectedItem().toString()) * 0.02;
+        dmg_base += lvlStrToInt(guildDmgComboBox.getSelectedItem().toString()) * 0.02;
+        ied_base = (1 - ((1 - ied_base) * (1 - (lvlStrToInt(guildIEDComboBox.getSelectedItem().toString()) * 0.02))));
+    }
     
     public void clearInputs(boolean main, boolean bonus) {
         if (main) {

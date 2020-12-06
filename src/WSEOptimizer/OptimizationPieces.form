@@ -1474,9 +1474,6 @@
                   <Dimension value="[310, 20]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="familiarTierComboBoxItemStateChanged"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -7812,7 +7809,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="dmg">
               <Properties>
-                <Property name="text" type="java.lang.String" value="214"/>
+                <Property name="text" type="java.lang.String" value="215"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -7844,7 +7841,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="boss">
               <Properties>
-                <Property name="text" type="java.lang.String" value="170"/>
+                <Property name="text" type="java.lang.String" value="210"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -7876,7 +7873,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="att">
               <Properties>
-                <Property name="text" type="java.lang.String" value="42"/>
+                <Property name="text" type="java.lang.String" value="39"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -7908,7 +7905,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="critDmgInp">
               <Properties>
-                <Property name="text" type="java.lang.String" value="90"/>
+                <Property name="text" type="java.lang.String" value="96"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -7927,7 +7924,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="ied">
               <Properties>
-                <Property name="text" type="java.lang.String" value="90.07"/>
+                <Property name="text" type="java.lang.String" value="89.49"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
