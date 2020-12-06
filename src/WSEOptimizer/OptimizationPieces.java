@@ -25,8 +25,6 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class OptimizationPieces extends javax.swing.JFrame {
 
-    private PotConfig no_3lAtt = PotConfig.DEFAULT; //Keeps track if we want to calculate with or without 3 lines of attack
-    private PotConfig no_3lbpAtt = PotConfig.DEFAULT; //Keeps track if we want to calculate with or without 3 lines of attack for bonus potential
     private boolean sec_lvl; //Keeps track if we want to calculate with a higher level secondary than normal
     private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
     private ClassType classType = ClassType.NOCLASS;  //Keeps track of the class type
@@ -392,11 +390,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         no_3lbp.setMaximumSize(new java.awt.Dimension(207, 23));
         no_3lbp.setMinimumSize(new java.awt.Dimension(207, 23));
         no_3lbp.setPreferredSize(new java.awt.Dimension(207, 23));
-        no_3lbp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                no_3lbpActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -409,11 +402,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         no_3l.setMaximumSize(new java.awt.Dimension(207, 23));
         no_3l.setMinimumSize(new java.awt.Dimension(207, 23));
         no_3l.setPreferredSize(new java.awt.Dimension(207, 23));
-        no_3l.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                no_3lActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
@@ -2062,22 +2050,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_kannaClassActionPerformed
 
-    private void no_3lActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_3lActionPerformed
-        if (no_3l.isSelected()) {
-            no_3lAtt = PotConfig.NO3LINE;
-        } else {
-            no_3lAtt = PotConfig.DEFAULT;
-        }
-    }//GEN-LAST:event_no_3lActionPerformed
-
-    private void no_3lbpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_3lbpActionPerformed
-        if (no_3lbp.isSelected()) {
-            no_3lbpAtt = PotConfig.NO3LINE;
-        } else {
-            no_3lbpAtt = PotConfig.DEFAULT;
-        }
-    }//GEN-LAST:event_no_3lbpActionPerformed
-
     @SuppressWarnings("unchecked")
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
         if (calculate.isSelected()) {
@@ -2097,9 +2069,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 crit_base = Double.parseDouble(critDmgInp.getText()) / 100;
                 pdr = Double.parseDouble(monDef.getText()) / 100;
                 hyperPoints = Integer.parseInt(hyperStatsInp.getText());
-                getGuildSkills();
+                
                 saveBase();
                 legionVal = Integer.parseInt(union.getText());
+                getGuildSkills();
                 //Sets up a scaling value for weapon inputs if the class selected was Zero
                 double zero_scale = classType == ClassType.ZERO ? 2 : 1;
                 fd_LegionBP.setText("Optimizing...");
@@ -2291,9 +2264,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 //Set up generation spaces for each variable
                 WSEHelpers.generateHyperStats(hyperPoints);
                 WSEHelpers.generateLegion(legionVal);
+                
+                PotConfig no_3lAtt = no_3l.isSelected() ? PotConfig.NO3LINE : PotConfig.DEFAULT; //Keeps track if we want to calculate with or without 3 lines of attack
                 WSEHelpers.setupWeaponGenerationSpace(wepSelect.isSelected(), no_3lAtt, PotType.MAIN);
                 WSEHelpers.setupSecondaryGenerationSpace(secSelect.isSelected(), no_3lAtt, classType, PotType.MAIN);
                 WSEHelpers.setupEmblemGenerationSpace(embSelect.isSelected(), no_3lAtt, PotType.MAIN);
+                
+                PotConfig no_3lbpAtt = no_3lbp.isSelected() ? PotConfig.NO3LINE : PotConfig.DEFAULT; //Keeps track if we want to calculate with or without 3 lines of attack for bonus potential
                 WSEHelpers.setupWeaponGenerationSpace(wepbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
                 WSEHelpers.setupSecondaryGenerationSpace(secbpSelect.isSelected(), no_3lbpAtt, classType, PotType.BONUS);
                 WSEHelpers.setupEmblemGenerationSpace(embbpSelect.isSelected(), no_3lbpAtt, PotType.BONUS);
