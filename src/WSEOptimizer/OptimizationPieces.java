@@ -2235,7 +2235,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                     }
                 }
                 if (!bp.isSelected()){
-                    clearInputs(false, true);
+                    clearInputs();
                 }
                 //Start time of the method
                 startTime = System.nanoTime();
@@ -2296,7 +2296,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     
     private void clearInpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearInpActionPerformed
         if (clearInp.isSelected() && (worker == null || worker.isDone() || worker.isCancelled())) {
-            clearInputs(true, true);
+            clearInputs();
         }
         else if (!worker.isDone()){
             worker.cancel(true);
@@ -2415,59 +2415,57 @@ public class OptimizationPieces extends javax.swing.JFrame {
         ied_base = (1 - ((1 - ied_base) * (1 - (lvlStrToInt(guildIEDComboBox.getSelectedItem().toString()) * 0.02))));
     }
     
-    public void clearInputs(boolean main, boolean bonus) {
-        if (main) {
-            wepInp1.setText("");
-            wepInp2.setText("");
-            wepInp3.setText("");
-            wep1ComboBox.setSelectedItem("None");
-            wep2ComboBox.setSelectedItem("None");
-            wep3ComboBox.setSelectedItem("None");
+    public void clearInputs() {
+        //Main inputs
+        wepInp1.setText("");
+        wepInp2.setText("");
+        wepInp3.setText("");
+        wep1ComboBox.setSelectedItem("None");
+        wep2ComboBox.setSelectedItem("None");
+        wep3ComboBox.setSelectedItem("None");
 
-            secInp1.setText("");
-            secInp2.setText("");
-            secInp3.setText("");
-            sec1ComboBox.setSelectedItem("None");
-            sec2ComboBox.setSelectedItem("None");
-            sec3ComboBox.setSelectedItem("None");
+        secInp1.setText("");
+        secInp2.setText("");
+        secInp3.setText("");
+        sec1ComboBox.setSelectedItem("None");
+        sec2ComboBox.setSelectedItem("None");
+        sec3ComboBox.setSelectedItem("None");
 
-            embInp1.setText("");
-            embInp2.setText("");
-            embInp3.setText("");
-            emb1ComboBox.setSelectedItem("None");
-            emb2ComboBox.setSelectedItem("None");
-            emb3ComboBox.setSelectedItem("None");
+        embInp1.setText("");
+        embInp2.setText("");
+        embInp3.setText("");
+        emb1ComboBox.setSelectedItem("None");
+        emb2ComboBox.setSelectedItem("None");
+        emb3ComboBox.setSelectedItem("None");
 
-            soulInp.setText("");
-            soulComboBox.setSelectedItem("None");
-            
-            resetFamiliar1();
-            resetFamiliar2();
-            resetFamiliar3();
+        soulInp.setText("");
+        soulComboBox.setSelectedItem("None");
 
-        }
-        if (bonus) {
-            wepbpInp1.setText("");
-            wepbpInp2.setText("");
-            wepbpInp3.setText("");
-            wepbp1ComboBox.setSelectedItem("None");
-            wepbp2ComboBox.setSelectedItem("None");
-            wepbp3ComboBox.setSelectedItem("None");
+        resetFamiliar1();
+        resetFamiliar2();
+        resetFamiliar3();
 
-            secbpInp1.setText("");
-            secbpInp2.setText("");
-            secbpInp3.setText("");
-            secbp1ComboBox.setSelectedItem("None");
-            secbp2ComboBox.setSelectedItem("None");
-            secbp3ComboBox.setSelectedItem("None");
+        //BP inputs
+        wepbpInp1.setText("");
+        wepbpInp2.setText("");
+        wepbpInp3.setText("");
+        wepbp1ComboBox.setSelectedItem("None");
+        wepbp2ComboBox.setSelectedItem("None");
+        wepbp3ComboBox.setSelectedItem("None");
 
-            embbpInp1.setText("");
-            embbpInp2.setText("");
-            embbpInp3.setText("");
-            embbp1ComboBox.setSelectedItem("None");
-            embbp2ComboBox.setSelectedItem("None");
-            embbp3ComboBox.setSelectedItem("None");
-        }
+        secbpInp1.setText("");
+        secbpInp2.setText("");
+        secbpInp3.setText("");
+        secbp1ComboBox.setSelectedItem("None");
+        secbp2ComboBox.setSelectedItem("None");
+        secbp3ComboBox.setSelectedItem("None");
+
+        embbpInp1.setText("");
+        embbpInp2.setText("");
+        embbpInp3.setText("");
+        embbp1ComboBox.setSelectedItem("None");
+        embbp2ComboBox.setSelectedItem("None");
+        embbp3ComboBox.setSelectedItem("None");
     }
 
     public void setEmblemEnabled(boolean b) {
