@@ -2313,23 +2313,15 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_embSelectActionPerformed
 
     private void zeroClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeroClassActionPerformed
-        if (zeroClass.isSelected()) {
-            kannaClass.setEnabled(false);
-            seclvl.setEnabled(false);
-            secSelect.setEnabled(false);
-            secSelect.setSelected(false);
-            secbpSelect.setEnabled(false);
-            secbpSelect.setSelected(false);
-            setSecondaryEnabled(false);
-            setSecondaryBPEnabled(false);
-            classType = ClassType.ZERO;
-        } else {
-            kannaClass.setEnabled(true);
-            secSelect.setEnabled(true);
-            seclvl.setEnabled(true);
-            secbpSelect.setEnabled(true);
-            classType = ClassType.NOCLASS;
-        }
+        classType = zeroClass.isSelected() ? ClassType.ZERO : ClassType.NOCLASS;
+        kannaClass.setEnabled(!zeroClass.isSelected());
+        secSelect.setEnabled(!zeroClass.isSelected());
+        seclvl.setEnabled(!zeroClass.isSelected());
+        secbpSelect.setEnabled(zeroClass.isSelected() ? false : secbpSelect.isSelected());
+        secSelect.setSelected(false);
+        secbpSelect.setSelected(false);
+        setSecondaryEnabled(false);
+        setSecondaryBPEnabled(false);
     }//GEN-LAST:event_zeroClassActionPerformed
 
     private void soulSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soulSelectActionPerformed
