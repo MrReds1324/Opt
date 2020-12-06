@@ -25,8 +25,6 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class OptimizationPieces extends javax.swing.JFrame {
 
-    private boolean sec_lvl; //Keeps track if we want to calculate with a higher level secondary than normal
-    private boolean wep_lvl; //Keeps track if we want to calculate with a higher level weapon than normal
     private ClassType classType = ClassType.NOCLASS;  //Keeps track of the class type
     //These fields keep track of the values inserted into the input text fields
     private double crit_base;
@@ -1309,11 +1307,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         weplvl.setMaximumSize(new java.awt.Dimension(103, 23));
         weplvl.setMinimumSize(new java.awt.Dimension(103, 23));
         weplvl.setPreferredSize(new java.awt.Dimension(103, 23));
-        weplvl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weplvlActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -1324,11 +1317,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         seclvl.setMaximumSize(new java.awt.Dimension(103, 23));
         seclvl.setMinimumSize(new java.awt.Dimension(103, 23));
         seclvl.setPreferredSize(new java.awt.Dimension(103, 23));
-        seclvl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seclvlActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -2009,11 +1997,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void secSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secSelectActionPerformed
-        if (secSelect.isSelected()) {
-            setSecondaryEnabled(true);
-        } else {
-            setSecondaryEnabled(false);
-        }
+        setSecondaryEnabled(secSelect.isSelected());
     }//GEN-LAST:event_secSelectActionPerformed
 
     private void bpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpActionPerformed
@@ -2041,13 +2025,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_bpActionPerformed
 
     private void kannaClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kannaClassActionPerformed
-        if (kannaClass.isSelected()) {
-            zeroClass.setEnabled(false);
-            classType = ClassType.KANNA;
-        } else {
-            classType = ClassType.NOCLASS;
-            zeroClass.setEnabled(true);
-        }
+        zeroClass.setEnabled(!kannaClass.isSelected());
+        classType = kannaClass.isSelected() ? ClassType.KANNA : ClassType.NOCLASS;
     }//GEN-LAST:event_kannaClassActionPerformed
 
     @SuppressWarnings("unchecked")
@@ -2278,7 +2257,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 WSEHelpers.generateFamiliars(numTopLines, numBotLines, familiarTierComboBoxMap.get(familiarTierComboBox.getSelectedItem().toString()));
                 
                 
-                worker = new WSEWorker(dmg_base, boss_base, att_base, ied_base, crit_base, pdr, classType, wep_lvl, sec_lvl,  numberOfOptions, server);
+                worker = new WSEWorker(dmg_base, boss_base, att_base, ied_base, crit_base, pdr, classType, weplvl.isSelected(), seclvl.isSelected(),  numberOfOptions, server);
                 worker.addPropertyChangeListener(listener);
                 worker.execute();
             } catch (Exception e) {
@@ -2326,24 +2305,12 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_clearInpActionPerformed
 
     private void wepSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepSelectActionPerformed
-        if (wepSelect.isSelected()) {
-            setWeaponEnabled(true);
-        } else {
-            setWeaponEnabled(false);
-        }
+        setWeaponEnabled(wepSelect.isSelected());
     }//GEN-LAST:event_wepSelectActionPerformed
 
     private void embSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embSelectActionPerformed
-        if (embSelect.isSelected()) {
-            setEmblemEnabled(true);
-        } else {
-            setEmblemEnabled(false);
-        }
+        setEmblemEnabled(embSelect.isSelected());
     }//GEN-LAST:event_embSelectActionPerformed
-
-    private void seclvlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seclvlActionPerformed
-        sec_lvl = seclvl.isSelected();
-    }//GEN-LAST:event_seclvlActionPerformed
 
     private void zeroClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeroClassActionPerformed
         if (zeroClass.isSelected()) {
@@ -2365,40 +2332,20 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_zeroClassActionPerformed
 
-    private void weplvlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weplvlActionPerformed
-        wep_lvl = weplvl.isSelected();
-    }//GEN-LAST:event_weplvlActionPerformed
-
     private void soulSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soulSelectActionPerformed
-        if (soulSelect.isSelected()) {
-            setSoulEnabled(true);
-        } else {
-            setSoulEnabled(false);
-        }
+        setSoulEnabled(soulSelect.isSelected());
     }//GEN-LAST:event_soulSelectActionPerformed
 
     private void secbpSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secbpSelectActionPerformed
-        if (secbpSelect.isSelected()) {
-            setSecondaryBPEnabled(true);
-        } else {
-            setSecondaryBPEnabled(false);
-        }
+        setSecondaryBPEnabled(secbpSelect.isSelected());
     }//GEN-LAST:event_secbpSelectActionPerformed
 
     private void embbpSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_embbpSelectActionPerformed
-        if (embbpSelect.isSelected()) {
-            setEmblemBPEnabled(true);
-        } else {
-            setEmblemBPEnabled(false);
-        }
+        setEmblemBPEnabled(embbpSelect.isSelected());
     }//GEN-LAST:event_embbpSelectActionPerformed
 
     private void wepbpSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wepbpSelectActionPerformed
-        if (wepbpSelect.isSelected()) {
-            setWeaponBPEnabled(true);
-        } else {
-            setWeaponBPEnabled(false);
-        }
+        setWeaponBPEnabled(wepbpSelect.isSelected());
     }//GEN-LAST:event_wepbpSelectActionPerformed
 
     private void wseOptionsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_wseOptionsItemStateChanged
@@ -2408,29 +2355,17 @@ public class OptimizationPieces extends javax.swing.JFrame {
     }//GEN-LAST:event_wseOptionsItemStateChanged
 
     private void familiar1SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar1SelectActionPerformed
-        if (familiar1Select.isSelected()) {
-            setFamiliar1Enabled(true);
-        } else {
-            setFamiliar1Enabled(false);
-        }
+        setFamiliar1Enabled(familiar1Select.isSelected());
         updateFamiliarLineComboBox(familiar1Select.isSelected(), familiar2Select.isSelected(), familiar3Select.isSelected());
     }//GEN-LAST:event_familiar1SelectActionPerformed
 
     private void familiar2SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar2SelectActionPerformed
-        if (familiar2Select.isSelected()) {
-            setFamiliar2Enabled(true);
-        } else {
-            setFamiliar2Enabled(false);
-        }
+        setFamiliar2Enabled(familiar2Select.isSelected());
         updateFamiliarLineComboBox(familiar1Select.isSelected(), familiar2Select.isSelected(), familiar3Select.isSelected());
     }//GEN-LAST:event_familiar2SelectActionPerformed
 
     private void familiar3SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_familiar3SelectActionPerformed
-        if (familiar3Select.isSelected()) {
-            setFamiliar3Enabled(true);
-        } else {
-            setFamiliar3Enabled(false);
-        }
+        setFamiliar3Enabled(familiar3Select.isSelected());
         updateFamiliarLineComboBox(familiar1Select.isSelected(), familiar2Select.isSelected(), familiar3Select.isSelected());
     }//GEN-LAST:event_familiar3SelectActionPerformed
 
