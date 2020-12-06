@@ -2097,12 +2097,12 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 crit_base = Double.parseDouble(critDmgInp.getText()) / 100;
                 pdr = Double.parseDouble(monDef.getText()) / 100;
                 hyperPoints = Integer.parseInt(hyperStatsInp.getText());
+                getGuildSkills();
                 saveBase();
                 legionVal = Integer.parseInt(union.getText());
                 //Sets up a scaling value for weapon inputs if the class selected was Zero
                 double zero_scale = classType == ClassType.ZERO ? 2 : 1;
                 fd_LegionBP.setText("Optimizing...");
-                getGuildSkills();
                 //If the weapon is sleceted go through and pull all the inputs and add them to the base values
                 PotType comboSel = PotType.DEFAULT;
                 if (wepSelect.isSelected()) {
