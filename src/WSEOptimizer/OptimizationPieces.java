@@ -10,6 +10,7 @@ import static WSEOptimizer.ComboBoxSupport.buildFamiliarLinesSelectComboBoxMap;
 import static WSEOptimizer.ComboBoxSupport.buildFamiliarSelectComboBoxMap;
 import static WSEOptimizer.ComboBoxSupport.buildSelectComboBoxMap;
 import static WSEOptimizer.ComboBoxSupport.lvlStrToInt;
+import static WSEOptimizer.ComboBoxSupport.stacksToInt;
 import WSEOptimizer.Constants.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -1217,7 +1218,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 9;
         baseStatsPanel.add(baseStats, gridBagConstraints);
 
-        dmg.setText("215");
+        dmg.setText("180");
         dmg.setMaximumSize(new java.awt.Dimension(60, 23));
         dmg.setMinimumSize(new java.awt.Dimension(60, 23));
         dmg.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1234,7 +1235,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(dmgLabel, gridBagConstraints);
 
-        boss.setText("210");
+        boss.setText("156");
         boss.setMaximumSize(new java.awt.Dimension(60, 23));
         boss.setMinimumSize(new java.awt.Dimension(60, 23));
         boss.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1268,7 +1269,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(attLabel, gridBagConstraints);
 
-        critDmgInp.setText("96");
+        critDmgInp.setText("92");
         critDmgInp.setMaximumSize(new java.awt.Dimension(60, 23));
         critDmgInp.setMinimumSize(new java.awt.Dimension(60, 23));
         critDmgInp.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1277,7 +1278,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         baseStatsPanel.add(critDmgInp, gridBagConstraints);
 
-        ied.setText("89.49");
+        ied.setText("85.56");
         ied.setMaximumSize(new java.awt.Dimension(60, 23));
         ied.setMinimumSize(new java.awt.Dimension(60, 23));
         ied.setPreferredSize(new java.awt.Dimension(60, 23));
@@ -1683,7 +1684,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         linkSkillsPanel.add(illiumLinkComboBox, gridBagConstraints);
 
-        illiumStacksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 Stacks", "2 Stacks", "3 Stacks" }));
+        illiumStacksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 Stacks", "2 Stacks", "3 Stacks", "4 Stacks", "5 Stacks", "6 Stacks" }));
         illiumStacksComboBox.setMaximumSize(new java.awt.Dimension(89, 20));
         illiumStacksComboBox.setMinimumSize(new java.awt.Dimension(89, 20));
         illiumStacksComboBox.setPreferredSize(new java.awt.Dimension(89, 20));
@@ -1771,7 +1772,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         linkSkillsPanel.add(mageLinkComboBox, gridBagConstraints);
 
-        mageStacksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 Stacks", "1 Stacks", "2 Stacks", "3 Stacks", "4 Stacks", "5 Stacks", "6 Stacks" }));
+        mageStacksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 Stacks", "1 Stacks", "2 Stacks", "3 Stacks" }));
         mageStacksComboBox.setMaximumSize(new java.awt.Dimension(89, 20));
         mageStacksComboBox.setMinimumSize(new java.awt.Dimension(89, 20));
         mageStacksComboBox.setPreferredSize(new java.awt.Dimension(89, 20));
@@ -1826,6 +1827,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(buffsDebuffs, gridBagConstraints);
 
         mercedesSpikes.setText("Merc - Spikes Royale (50% IED)");
+        mercedesSpikes.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1834,6 +1836,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(mercedesSpikes, gridBagConstraints);
 
         mercedesUnicorn.setText("Merc - Unicorn Spike (30% Damage)");
+        mercedesUnicorn.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -1842,6 +1845,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(mercedesUnicorn, gridBagConstraints);
 
         bamDarkAura1.setText("BaM - Dark Aura (20% Damage)");
+        bamDarkAura1.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -1849,6 +1853,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(bamDarkAura1, gridBagConstraints);
 
         bamDarkAura2.setText("BaM - Dark Aura (10% Boss)");
+        bamDarkAura2.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -1856,6 +1861,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(bamDarkAura2, gridBagConstraints);
 
         bamWeakeningAura.setText("BaM - Weakening Aura (20% IED)");
+        bamWeakeningAura.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -1863,6 +1869,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(bamWeakeningAura, gridBagConstraints);
 
         daNetherSlice.setText("DA - Nether Slice (30% IED)");
+        daNetherSlice.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -1870,6 +1877,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(daNetherSlice, gridBagConstraints);
 
         dsDemonCry.setText("DS - Demon Cry (15% IED)");
+        dsDemonCry.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -1877,6 +1885,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(dsDemonCry, gridBagConstraints);
 
         mechHEX.setText("Mech - Support Unit: H-EX (10% IED)");
+        mechHEX.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -1885,6 +1894,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(mechHEX, gridBagConstraints);
 
         whCall.setText("WH - Call of the Wild (10% Att)");
+        whCall.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
@@ -1892,6 +1902,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(whCall, gridBagConstraints);
 
         sharpEyes.setText("Sharp Eyes - (15% Crit Damage)");
+        sharpEyes.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -1900,6 +1911,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(sharpEyes, gridBagConstraints);
 
         xenonOrbital.setText("Xenon - Orbital Cataclysm (30% IED)");
+        xenonOrbital.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -1908,6 +1920,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(xenonOrbital, gridBagConstraints);
 
         xenonHypogram.setText("Xenon - Hypogram Field: Fusion (20% Damage)");
+        xenonHypogram.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
@@ -1916,6 +1929,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(xenonHypogram, gridBagConstraints);
 
         cadenaDaggers.setText("Cadena - Summon Daggers (30% IED)");
+        cadenaDaggers.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -1923,6 +1937,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(cadenaDaggers, gridBagConstraints);
 
         abRibbon.setText("AB - Finale Ribbon (20% Damage)");
+        abRibbon.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -1930,6 +1945,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(abRibbon, gridBagConstraints);
 
         arkAbyssal.setText("Ark - Abyssal Charge Drive (30% Boss, 20% IED)");
+        arkAbyssal.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -1938,6 +1954,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(arkAbyssal, gridBagConstraints);
 
         illiumBrand.setText("Illium - Umbral Brand III (12% IED)");
+        illiumBrand.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
@@ -1945,6 +1962,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(illiumBrand, gridBagConstraints);
 
         hayatoStrike.setText("Hayato - Sudden Strike (20% Boss)");
+        hayatoStrike.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
@@ -1952,6 +1970,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(hayatoStrike, gridBagConstraints);
 
         kannaBubble.setText("Kanna - Bellflower Barrier (20% Damage, 25% Boss)");
+        kannaBubble.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
@@ -1960,6 +1979,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(kannaBubble, gridBagConstraints);
 
         kinesisQuake1.setText("Kinesis - Mind Quake (13% IED)");
+        kinesisQuake1.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -1967,6 +1987,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(kinesisQuake1, gridBagConstraints);
 
         kinesisQuake2.setText("Kinesis - Mind Quake Overwhelm (+3% IED)");
+        kinesisQuake2.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -1974,6 +1995,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(kinesisQuake2, gridBagConstraints);
 
         kinesisShot.setText("Kinesis - Psychic Shot (15% IED)");
+        kinesisShot.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -1981,6 +2003,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         buffsPanel.add(kinesisShot, gridBagConstraints);
 
         nlCurse.setText("Night Lord - Frailty Curse (30% IED)");
+        nlCurse.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -2052,6 +2075,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
                 saveBase();
                 legionVal = Integer.parseInt(union.getText());
                 getGuildSkills();
+                getLinkSkills();
                 //Sets up a scaling value for weapon inputs if the class selected was Zero
                 double zero_scale = classType == ClassType.ZERO ? 2 : 1;
                 fd_LegionBP.setText("Optimizing...");

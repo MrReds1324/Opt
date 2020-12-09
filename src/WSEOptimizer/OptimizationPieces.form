@@ -7728,7 +7728,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="dmg">
               <Properties>
-                <Property name="text" type="java.lang.String" value="215"/>
+                <Property name="text" type="java.lang.String" value="180"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -7760,7 +7760,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="boss">
               <Properties>
-                <Property name="text" type="java.lang.String" value="210"/>
+                <Property name="text" type="java.lang.String" value="156"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -7824,7 +7824,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="critDmgInp">
               <Properties>
-                <Property name="text" type="java.lang.String" value="96"/>
+                <Property name="text" type="java.lang.String" value="92"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -7843,7 +7843,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="ied">
               <Properties>
-                <Property name="text" type="java.lang.String" value="89.49"/>
+                <Property name="text" type="java.lang.String" value="85.56"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
                 </Property>
@@ -8728,10 +8728,13 @@
                 <Component class="javax.swing.JComboBox" name="illiumStacksComboBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
+                      <StringArray count="6">
                         <StringItem index="0" value="1 Stacks"/>
                         <StringItem index="1" value="2 Stacks"/>
                         <StringItem index="2" value="3 Stacks"/>
+                        <StringItem index="3" value="4 Stacks"/>
+                        <StringItem index="4" value="5 Stacks"/>
+                        <StringItem index="5" value="6 Stacks"/>
                       </StringArray>
                     </Property>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -8945,14 +8948,11 @@
                 <Component class="javax.swing.JComboBox" name="mageStacksComboBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="7">
+                      <StringArray count="4">
                         <StringItem index="0" value="0 Stacks"/>
                         <StringItem index="1" value="1 Stacks"/>
                         <StringItem index="2" value="2 Stacks"/>
                         <StringItem index="3" value="3 Stacks"/>
-                        <StringItem index="4" value="4 Stacks"/>
-                        <StringItem index="5" value="5 Stacks"/>
-                        <StringItem index="6" value="6 Stacks"/>
                       </StringArray>
                     </Property>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -9076,6 +9076,7 @@
             <Component class="javax.swing.JRadioButton" name="mercedesSpikes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Merc - Spikes Royale (50% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9086,6 +9087,7 @@
             <Component class="javax.swing.JRadioButton" name="mercedesUnicorn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Merc - Unicorn Spike (30% Damage)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9096,6 +9098,7 @@
             <Component class="javax.swing.JRadioButton" name="bamDarkAura1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="BaM - Dark Aura (20% Damage)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9106,6 +9109,7 @@
             <Component class="javax.swing.JRadioButton" name="bamDarkAura2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="BaM - Dark Aura (10% Boss)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9116,6 +9120,7 @@
             <Component class="javax.swing.JRadioButton" name="bamWeakeningAura">
               <Properties>
                 <Property name="text" type="java.lang.String" value="BaM - Weakening Aura (20% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9126,6 +9131,7 @@
             <Component class="javax.swing.JRadioButton" name="daNetherSlice">
               <Properties>
                 <Property name="text" type="java.lang.String" value="DA - Nether Slice (30% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9136,6 +9142,7 @@
             <Component class="javax.swing.JRadioButton" name="dsDemonCry">
               <Properties>
                 <Property name="text" type="java.lang.String" value="DS - Demon Cry (15% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9146,6 +9153,7 @@
             <Component class="javax.swing.JRadioButton" name="mechHEX">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mech - Support Unit: H-EX (10% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9156,6 +9164,7 @@
             <Component class="javax.swing.JRadioButton" name="whCall">
               <Properties>
                 <Property name="text" type="java.lang.String" value="WH - Call of the Wild (10% Att)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9166,6 +9175,7 @@
             <Component class="javax.swing.JRadioButton" name="sharpEyes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sharp Eyes - (15% Crit Damage)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9176,6 +9186,7 @@
             <Component class="javax.swing.JRadioButton" name="xenonOrbital">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xenon - Orbital Cataclysm (30% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9186,6 +9197,7 @@
             <Component class="javax.swing.JRadioButton" name="xenonHypogram">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xenon - Hypogram Field: Fusion (20% Damage)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9196,6 +9208,7 @@
             <Component class="javax.swing.JRadioButton" name="cadenaDaggers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadena - Summon Daggers (30% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9206,6 +9219,7 @@
             <Component class="javax.swing.JRadioButton" name="abRibbon">
               <Properties>
                 <Property name="text" type="java.lang.String" value="AB - Finale Ribbon (20% Damage)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9216,6 +9230,7 @@
             <Component class="javax.swing.JRadioButton" name="arkAbyssal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ark - Abyssal Charge Drive (30% Boss, 20% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9226,6 +9241,7 @@
             <Component class="javax.swing.JRadioButton" name="illiumBrand">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Illium - Umbral Brand III (12% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9236,6 +9252,7 @@
             <Component class="javax.swing.JRadioButton" name="hayatoStrike">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hayato - Sudden Strike (20% Boss)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9246,6 +9263,7 @@
             <Component class="javax.swing.JRadioButton" name="kannaBubble">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kanna - Bellflower Barrier (20% Damage, 25% Boss)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9256,6 +9274,7 @@
             <Component class="javax.swing.JRadioButton" name="kinesisQuake1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kinesis - Mind Quake (13% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9266,6 +9285,7 @@
             <Component class="javax.swing.JRadioButton" name="kinesisQuake2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kinesis - Mind Quake Overwhelm (+3% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9276,6 +9296,7 @@
             <Component class="javax.swing.JRadioButton" name="kinesisShot">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kinesis - Psychic Shot (15% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -9286,6 +9307,7 @@
             <Component class="javax.swing.JRadioButton" name="nlCurse">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Night Lord - Frailty Curse (30% IED)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
