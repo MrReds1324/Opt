@@ -2431,6 +2431,78 @@ public class OptimizationPieces extends javax.swing.JFrame {
         ied_base = (1 - ((1 - ied_base) * (1 - (lvlStrToInt(guildIEDComboBox.getSelectedItem().toString()) * 0.02))));
     }
     
+    public void getLinkSkills() {
+        // Zero Link 2/4/6/8/10 IED 
+        int zero = lvlStrToInt(zeroLinkComboBox.getSelectedItem().toString());
+        ied_base = zero > 0 ? (1 - ((1 - ied_base) * (1 - (zero * 0.02)))) : ied_base;
+        
+        // Cadena Link 6/12 BOSS (level dependent but we assume we are always over the boss)
+        dmg_base += lvlStrToInt(cadenaLinkComboBox.getSelectedItem().toString()) * 0.06;
+        
+        // Angelic Buster Link 60/90/120 DMG
+        int ab = lvlStrToInt(abLinkComboBox.getSelectedItem().toString());
+        dmg_base += ab > 0 ? 0.3 + (ab * 0.3) : 0;
+        
+        // Luminous Link 10/15/20 IED
+        int lumi = lvlStrToInt(luminousLinkComboBox.getSelectedItem().toString());
+        ied_base = lumi > 0 ? (1 - ((1 - ied_base) * (1 - (0.05 + lumi * 0.05)))) : ied_base;
+        
+        // Adele Link 2 +1 per party, 4 +2 per party BOSS
+        int adele = lvlStrToInt(adeleLinkComboBox.getSelectedItem().toString());
+        boss_base += (adele * 0.02) + (stacksToInt(adelePartyComboBox.getSelectedItem().toString()) * 0.01 * adele);
+        
+        // Demon Slayer Link 10/15/20 BOSS
+        int ds = lvlStrToInt(dsLinkComboBox.getSelectedItem().toString());
+        boss_base += ds > 0 ? 0.05 + (ds * 0.05) : 0;
+        
+        // Beast Tamer Link 4/7/10 BOSS
+        int bt = lvlStrToInt(btLinkComboBox.getSelectedItem().toString());
+        boss_base += bt > 0 ? 0.01 + (bt * 0.03) : 0;
+        
+        // Kinesis Link 2/4 CRIT DMG
+        crit_base += lvlStrToInt(kinesisLinkComboBox.getSelectedItem().toString()) * 0.02;
+        
+        // Illium Link 1/2 BOSS per stack
+        boss_base += lvlStrToInt(illiumLinkComboBox.getSelectedItem().toString()) * 0.01 * stacksToInt(illiumStacksComboBox.getSelectedItem().toString());
+        
+        // Ark Link 1/2/3 DMG Per stack + 1 while active
+        int ark = lvlStrToInt(arkLinkComboBox.getSelectedItem().toString());
+        int arkStacks = stacksToInt(arkStacksComboBox.getSelectedItem().toString());
+        dmg_base += arkStacks > 0 ? 0.01 + (ark * 0.01 * arkStacks) : 0;
+        
+        // Demon Avenger Link 5/10/15 DMG
+        dmg_base += lvlStrToInt(daLinkComboBox.getSelectedItem().toString()) * 0.05;
+        
+        // Kanna Link 5/10 DMG
+        dmg_base += lvlStrToInt(kannaLinkComboBox.getSelectedItem().toString()) * 0.05;
+        
+        // Explorer Mage 1/1/2/2/3/3 DMG + IED per stack
+        int mage = lvlStrToInt(mageLinkComboBox.getSelectedItem().toString());
+        int mageStacks = stacksToInt(mageStacksComboBox.getSelectedItem().toString());
+        switch (mage) {
+            case 1:
+            case 2:
+                mage = 1;
+                break;
+            case 3:
+            case 4:
+                mage = 2;
+                break;
+            case 5:
+            case 6:
+                mage = 3;
+                break;
+            default:
+                break;
+        }
+        double mageTotal = mage * 0.01 * mageStacks;
+        dmg_base += mageTotal;
+        ied_base = (1 - ((1 - ied_base) * (1 - mageTotal)));
+        
+        // Explorer Thief 3/6/9/12/15/18 DMG
+        dmg_base += lvlStrToInt(thiefLinkComboBox.getSelectedItem().toString()) * 0.03;
+    }
+    
     public void clearInputs() {
         //Main inputs
         wepInp1.setText("");
