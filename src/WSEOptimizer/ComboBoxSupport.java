@@ -79,4 +79,8 @@ public class ComboBoxSupport {
     public static int lvlStrToInt(String lvlString){
         return Integer.parseInt(lvlString.substring(4));
     }
+    
+    public static int stacksToInt(String stackString) {
+        return Integer.parseInt(stackString.substring(0, 1));
+    }
 }
