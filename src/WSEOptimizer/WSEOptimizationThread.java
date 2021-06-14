@@ -104,7 +104,9 @@ public class WSEOptimizationThread implements Callable<ArrayList<PotVector>> {
                                 reducedOptimize = legionAndReduce(reducedOptimize, mpot.getWep(), mpot.getSec(), mpot.getEmb(), bpot.getWep(), bpot.getSec(), bpot.getEmb(), hyper, familiars, soul);
                             }
                             //Makes the thread interruptable
-                            Thread.sleep(1);
+                            if (Thread.currentThread().isInterrupted()){
+                                return reducedOptimize;
+                            }
                         }  
                     }
                     break;
