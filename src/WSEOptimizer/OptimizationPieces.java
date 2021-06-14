@@ -269,30 +269,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
         thiefLinkSkill = new javax.swing.JLabel();
         thiefLinkComboBox = new javax.swing.JComboBox<>();
         statsFiller = new javax.swing.Box.Filler(new java.awt.Dimension(1, 250), new java.awt.Dimension(1, 250), new java.awt.Dimension(1, 250));
-        buffsPanel = new javax.swing.JPanel();
-        buffsDebuffs = new javax.swing.JLabel();
-        mercedesSpikes = new javax.swing.JRadioButton();
-        mercedesUnicorn = new javax.swing.JRadioButton();
-        bamDarkAura1 = new javax.swing.JRadioButton();
-        bamDarkAura2 = new javax.swing.JRadioButton();
-        bamWeakeningAura = new javax.swing.JRadioButton();
-        daNetherSlice = new javax.swing.JRadioButton();
-        dsDemonCry = new javax.swing.JRadioButton();
-        mechHEX = new javax.swing.JRadioButton();
-        whCall = new javax.swing.JRadioButton();
-        sharpEyes = new javax.swing.JRadioButton();
-        xenonOrbital = new javax.swing.JRadioButton();
-        xenonHypogram = new javax.swing.JRadioButton();
-        cadenaDaggers = new javax.swing.JRadioButton();
-        abRibbon = new javax.swing.JRadioButton();
-        arkAbyssal = new javax.swing.JRadioButton();
-        illiumBrand = new javax.swing.JRadioButton();
-        hayatoStrike = new javax.swing.JRadioButton();
-        kannaBubble = new javax.swing.JRadioButton();
-        kinesisQuake1 = new javax.swing.JRadioButton();
-        kinesisQuake2 = new javax.swing.JRadioButton();
-        kinesisShot = new javax.swing.JRadioButton();
-        nlCurse = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
@@ -1813,205 +1789,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         mainPane.addTab("Base Stats, Links, and Guild Skills", baseStatsPanel);
 
-        buffsPanel.setMaximumSize(new java.awt.Dimension(621, 300));
-        buffsPanel.setMinimumSize(new java.awt.Dimension(621, 300));
-        buffsPanel.setPreferredSize(new java.awt.Dimension(621, 300));
-        buffsPanel.setLayout(new java.awt.GridBagLayout());
-
-        buffsDebuffs.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        buffsDebuffs.setText("Party Buffs and Debuffs");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        buffsPanel.add(buffsDebuffs, gridBagConstraints);
-
-        mercedesSpikes.setText("Merc - Spikes Royale (50% IED)");
-        mercedesSpikes.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(mercedesSpikes, gridBagConstraints);
-
-        mercedesUnicorn.setText("Merc - Unicorn Spike (30% Damage)");
-        mercedesUnicorn.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(mercedesUnicorn, gridBagConstraints);
-
-        bamDarkAura1.setText("BaM - Dark Aura (20% Damage)");
-        bamDarkAura1.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(bamDarkAura1, gridBagConstraints);
-
-        bamDarkAura2.setText("BaM - Dark Aura (10% Boss)");
-        bamDarkAura2.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(bamDarkAura2, gridBagConstraints);
-
-        bamWeakeningAura.setText("BaM - Weakening Aura (20% IED)");
-        bamWeakeningAura.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(bamWeakeningAura, gridBagConstraints);
-
-        daNetherSlice.setText("DA - Nether Slice (30% IED)");
-        daNetherSlice.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(daNetherSlice, gridBagConstraints);
-
-        dsDemonCry.setText("DS - Demon Cry (15% IED)");
-        dsDemonCry.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(dsDemonCry, gridBagConstraints);
-
-        mechHEX.setText("Mech - Support Unit: H-EX (10% IED)");
-        mechHEX.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(mechHEX, gridBagConstraints);
-
-        whCall.setText("WH - Call of the Wild (10% Att)");
-        whCall.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(whCall, gridBagConstraints);
-
-        sharpEyes.setText("Sharp Eyes - (15% Crit Damage)");
-        sharpEyes.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(sharpEyes, gridBagConstraints);
-
-        xenonOrbital.setText("Xenon - Orbital Cataclysm (30% IED)");
-        xenonOrbital.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(xenonOrbital, gridBagConstraints);
-
-        xenonHypogram.setText("Xenon - Hypogram Field: Fusion (20% Damage)");
-        xenonHypogram.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(xenonHypogram, gridBagConstraints);
-
-        cadenaDaggers.setText("Cadena - Summon Daggers (30% IED)");
-        cadenaDaggers.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(cadenaDaggers, gridBagConstraints);
-
-        abRibbon.setText("AB - Finale Ribbon (20% Damage)");
-        abRibbon.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(abRibbon, gridBagConstraints);
-
-        arkAbyssal.setText("Ark - Abyssal Charge Drive (30% Boss, 20% IED)");
-        arkAbyssal.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(arkAbyssal, gridBagConstraints);
-
-        illiumBrand.setText("Illium - Umbral Brand III (12% IED)");
-        illiumBrand.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(illiumBrand, gridBagConstraints);
-
-        hayatoStrike.setText("Hayato - Sudden Strike (20% Boss)");
-        hayatoStrike.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(hayatoStrike, gridBagConstraints);
-
-        kannaBubble.setText("Kanna - Bellflower Barrier (20% Damage, 25% Boss)");
-        kannaBubble.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(kannaBubble, gridBagConstraints);
-
-        kinesisQuake1.setText("Kinesis - Mind Quake (13% IED)");
-        kinesisQuake1.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(kinesisQuake1, gridBagConstraints);
-
-        kinesisQuake2.setText("Kinesis - Mind Quake Overwhelm (+3% IED)");
-        kinesisQuake2.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(kinesisQuake2, gridBagConstraints);
-
-        kinesisShot.setText("Kinesis - Psychic Shot (15% IED)");
-        kinesisShot.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(kinesisShot, gridBagConstraints);
-
-        nlCurse.setText("Night Lord - Frailty Curse (30% IED)");
-        nlCurse.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        buffsPanel.add(nlCurse, gridBagConstraints);
-
-        mainPane.addTab("Party Buffs", buffsPanel);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         getContentPane().add(mainPane, gridBagConstraints);
@@ -2762,19 +2539,14 @@ public class OptimizationPieces extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> abLinkComboBox;
     private javax.swing.JLabel abLinkSkill;
-    private javax.swing.JRadioButton abRibbon;
     private javax.swing.JComboBox<String> adeleLinkComboBox;
     private javax.swing.JLabel adeleLinkSkill;
     private javax.swing.JComboBox<String> adelePartyComboBox;
-    private javax.swing.JRadioButton arkAbyssal;
     private javax.swing.JComboBox<String> arkLinkComboBox;
     private javax.swing.JLabel arkLinkSkill;
     private javax.swing.JComboBox<String> arkStacksComboBox;
     private javax.swing.JTextField att;
     private javax.swing.JLabel attLabel;
-    private javax.swing.JRadioButton bamDarkAura1;
-    private javax.swing.JRadioButton bamDarkAura2;
-    private javax.swing.JRadioButton bamWeakeningAura;
     private javax.swing.JLabel baseStats;
     private javax.swing.JPanel baseStatsPanel;
     private javax.swing.JSeparator bonusSeperator;
@@ -2783,9 +2555,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JToggleButton bp;
     private javax.swing.JComboBox<String> btLinkComboBox;
     private javax.swing.JLabel btLinkSkill;
-    private javax.swing.JLabel buffsDebuffs;
-    private javax.swing.JPanel buffsPanel;
-    private javax.swing.JRadioButton cadenaDaggers;
     private javax.swing.JComboBox<String> cadenaLinkComboBox;
     private javax.swing.JLabel cadenaLinkSkill;
     private javax.swing.JToggleButton calculate;
@@ -2794,10 +2563,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JLabel critdmgLabel;
     private javax.swing.JComboBox<String> daLinkComboBox;
     private javax.swing.JLabel daLinkSkill;
-    private javax.swing.JRadioButton daNetherSlice;
     private javax.swing.JTextField dmg;
     private javax.swing.JLabel dmgLabel;
-    private javax.swing.JRadioButton dsDemonCry;
     private javax.swing.JComboBox<String> dsLinkComboBox;
     private javax.swing.JLabel dsLinkSkill;
     private javax.swing.JComboBox<String> emb1ComboBox;
@@ -2844,26 +2611,20 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JLabel guildSkillDmg;
     private javax.swing.JLabel guildSkillIED;
     private javax.swing.JLabel guildSkills;
-    private javax.swing.JRadioButton hayatoStrike;
     private javax.swing.JLabel hyperLabel;
     private javax.swing.JTextField hyperStatsInp;
     private javax.swing.JTextField ied;
     private javax.swing.JLabel iedLabel;
-    private javax.swing.JRadioButton illiumBrand;
     private javax.swing.JComboBox<String> illiumLinkComboBox;
     private javax.swing.JLabel illiumLinkSkill;
     private javax.swing.JComboBox<String> illiumStacksComboBox;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JSeparator inputSeperator;
-    private javax.swing.JRadioButton kannaBubble;
     private javax.swing.JToggleButton kannaClass;
     private javax.swing.JComboBox<String> kannaLinkComboBox;
     private javax.swing.JLabel kannaLinkSkill;
     private javax.swing.JComboBox<String> kinesisLinkComboBox;
     private javax.swing.JLabel kinesisLinkSkill;
-    private javax.swing.JRadioButton kinesisQuake1;
-    private javax.swing.JRadioButton kinesisQuake2;
-    private javax.swing.JRadioButton kinesisShot;
     private javax.swing.JLabel legionLabel;
     private javax.swing.JSeparator linkSeperator;
     private javax.swing.JLabel linkSkills;
@@ -2875,11 +2636,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> mageStacksComboBox;
     private javax.swing.Box.Filler mainFiller;
     private javax.swing.JTabbedPane mainPane;
-    private javax.swing.JRadioButton mechHEX;
-    private javax.swing.JRadioButton mercedesSpikes;
-    private javax.swing.JRadioButton mercedesUnicorn;
     private javax.swing.JTextField monDef;
-    private javax.swing.JRadioButton nlCurse;
     private javax.swing.JToggleButton no_3l;
     private javax.swing.JToggleButton no_3lbp;
     private javax.swing.JTextField numOptions;
@@ -2902,7 +2659,6 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField secbpInp3;
     private javax.swing.JToggleButton secbpSelect;
     private javax.swing.JToggleButton seclvl;
-    private javax.swing.JRadioButton sharpEyes;
     private javax.swing.JComboBox<String> soulComboBox;
     private javax.swing.JTextField soulInp;
     private javax.swing.JToggleButton soulSelect;
@@ -2925,10 +2681,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextField wepbpInp3;
     private javax.swing.JToggleButton wepbpSelect;
     private javax.swing.JToggleButton weplvl;
-    private javax.swing.JRadioButton whCall;
     private javax.swing.JComboBox<String> wseOptions;
-    private javax.swing.JRadioButton xenonHypogram;
-    private javax.swing.JRadioButton xenonOrbital;
     private javax.swing.JToggleButton zeroClass;
     private javax.swing.JComboBox<String> zeroLinkComboBox;
     private javax.swing.JLabel zeroLinkSkill;
