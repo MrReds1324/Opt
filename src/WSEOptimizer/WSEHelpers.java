@@ -124,7 +124,7 @@ public class WSEHelpers {
     
     public static void generateHyperStats(int totalAvailablePoints){
         ArrayList<int[]> hyperStats = new ArrayList();
-        totalAvailablePoints = totalAvailablePoints > 1266 ?  1266 : totalAvailablePoints;
+        totalAvailablePoints = totalAvailablePoints > 1699 ?  1699 : totalAvailablePoints;
         for (int cd = 0; cd <= 15; cd++){
             int cdCost = Constants.hyperStatCosts[cd];
             if (cdCost > totalAvailablePoints){

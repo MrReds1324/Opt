@@ -1372,7 +1372,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         baseStatsPanel.add(legionLabel, gridBagConstraints);
 
-        hyperStatsInp.setText("1266");
+        hyperStatsInp.setText("1699");
         hyperStatsInp.setMaximumSize(new java.awt.Dimension(60, 23));
         hyperStatsInp.setMinimumSize(new java.awt.Dimension(60, 23));
         hyperStatsInp.setPreferredSize(new java.awt.Dimension(60, 23));
