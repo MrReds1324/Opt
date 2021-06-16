@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WSEOptimizer;
+package opt.wseoptimizer;
 
-import WSEOptimizer.Constants.FamiliarTier;
+import opt.wseoptimizer.Constants.FamiliarTier;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;

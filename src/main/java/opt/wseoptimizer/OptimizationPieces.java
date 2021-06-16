@@ -3,22 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WSEOptimizer;
+package opt.wseoptimizer;
 
-import static WSEOptimizer.ComboBoxSupport.buildComboBoxFamiliars;
-import static WSEOptimizer.ComboBoxSupport.buildFamiliarLinesSelectComboBoxMap;
-import static WSEOptimizer.ComboBoxSupport.buildFamiliarSelectComboBoxMap;
-import static WSEOptimizer.ComboBoxSupport.buildSelectComboBoxMap;
-import static WSEOptimizer.ComboBoxSupport.lvlStrToInt;
-import static WSEOptimizer.ComboBoxSupport.stacksToInt;
-import WSEOptimizer.Constants.*;
+import static opt.wseoptimizer.ComboBoxSupport.buildComboBoxFamiliars;
+import static opt.wseoptimizer.ComboBoxSupport.buildFamiliarLinesSelectComboBoxMap;
+import static opt.wseoptimizer.ComboBoxSupport.buildFamiliarSelectComboBoxMap;
+import static opt.wseoptimizer.ComboBoxSupport.buildSelectComboBoxMap;
+import static opt.wseoptimizer.ComboBoxSupport.lvlStrToInt;
+import static opt.wseoptimizer.ComboBoxSupport.stacksToInt;
+import opt.wseoptimizer.Constants.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -121,6 +126,8 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        fileDialog = new javax.swing.JDialog();
+        fileChooser = new javax.swing.JFileChooser();
         mainPane = new javax.swing.JTabbedPane();
         inputPanel = new javax.swing.JPanel();
         optimization = new javax.swing.JLabel();
@@ -269,6 +276,15 @@ public class OptimizationPieces extends javax.swing.JFrame {
         thiefLinkSkill = new javax.swing.JLabel();
         thiefLinkComboBox = new javax.swing.JComboBox<>();
         statsFiller = new javax.swing.Box.Filler(new java.awt.Dimension(1, 250), new java.awt.Dimension(1, 250), new java.awt.Dimension(1, 250));
+        filePanel = new javax.swing.JPanel();
+        saveSettingsButton = new javax.swing.JButton();
+        loadSettingsButton = new javax.swing.JButton();
+
+        fileDialog.setSize(new java.awt.Dimension(600, 400));
+
+        fileChooser.setMinimumSize(new java.awt.Dimension(600, 400));
+        fileChooser.setPreferredSize(new java.awt.Dimension(600, 400));
+        fileDialog.getContentPane().add(fileChooser, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
@@ -1789,6 +1805,31 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         mainPane.addTab("Base Stats, Links, and Guild Skills", baseStatsPanel);
 
+        filePanel.setAlignmentX(0.0F);
+        filePanel.setAlignmentY(0.0F);
+        filePanel.setMaximumSize(new java.awt.Dimension(621, 350));
+        filePanel.setMinimumSize(new java.awt.Dimension(621, 350));
+        filePanel.setPreferredSize(new java.awt.Dimension(621, 350));
+        filePanel.setLayout(new java.awt.GridBagLayout());
+
+        saveSettingsButton.setText("Save Settings");
+        saveSettingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveSettingsButtonActionPerformed(evt);
+            }
+        });
+        filePanel.add(saveSettingsButton, new java.awt.GridBagConstraints());
+
+        loadSettingsButton.setText("Load Settings");
+        loadSettingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadSettingsButtonActionPerformed(evt);
+            }
+        });
+        filePanel.add(loadSettingsButton, new java.awt.GridBagConstraints());
+
+        mainPane.addTab("Save and Load", filePanel);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         getContentPane().add(mainPane, gridBagConstraints);
@@ -2199,6 +2240,36 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_familiarLinesComboBoxItemStateChanged
+
+    private void saveSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSettingsButtonActionPerformed
+        int selectionVal = fileChooser.showSaveDialog(fileDialog);
+        
+        if (selectionVal == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String str = "Hello";
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToSave.getAbsolutePath()))) {
+                writer.write(str);
+            }
+            catch (IOException e){
+                
+            }
+            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+        } else {
+            System.out.print("Save command cancelled by user.");
+        }
+    }//GEN-LAST:event_saveSettingsButtonActionPerformed
+
+    private void loadSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadSettingsButtonActionPerformed
+        int selectionVal = fileChooser.showOpenDialog(fileDialog);
+
+        if (selectionVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            //This is where a real application would open the file.
+            System.out.print("Opening: " + file.getName() + ".");
+        } else {
+            System.out.print("Open command cancelled by user.");
+        }
+    }//GEN-LAST:event_loadSettingsButtonActionPerformed
     
     public void getGuildSkills(){
         //Add the guild skills to the base of each stat
@@ -2600,6 +2671,9 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JSeparator familiarSeperator;
     private javax.swing.JComboBox<String> familiarTierComboBox;
     private javax.swing.JTextArea fd_LegionBP;
+    private javax.swing.JFileChooser fileChooser;
+    private javax.swing.JDialog fileDialog;
+    private javax.swing.JPanel filePanel;
     private javax.swing.JComboBox<String> guildBossComboBox;
     private javax.swing.JComboBox<String> guildCritComboBox;
     private javax.swing.JComboBox<String> guildDmgComboBox;
@@ -2629,6 +2703,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JSeparator linkSeperator;
     private javax.swing.JLabel linkSkills;
     private javax.swing.JPanel linkSkillsPanel;
+    private javax.swing.JButton loadSettingsButton;
     private javax.swing.JComboBox<String> luminousLinkComboBox;
     private javax.swing.JLabel luminousLinkSkill;
     private javax.swing.JComboBox<String> mageLinkComboBox;
@@ -2644,6 +2719,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JLabel optionsLabel;
     private javax.swing.JSeparator outputSeperator;
     private javax.swing.JLabel pdrLabel;
+    private javax.swing.JButton saveSettingsButton;
     private javax.swing.JComboBox<String> sec1ComboBox;
     private javax.swing.JComboBox<String> sec2ComboBox;
     private javax.swing.JComboBox<String> sec3ComboBox;

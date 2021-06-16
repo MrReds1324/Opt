@@ -1,7 +1,7 @@
-package WSEOptimizer;
+package opt.wseoptimizer;
 
 import java.util.ArrayList;
-import WSEOptimizer.Constants.*;
+import opt.wseoptimizer.Constants.*;
 import java.util.concurrent.Callable;
 
 /**

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WSEOptimizer;
+package opt.wseoptimizer;
 
 import java.util.ArrayList;
 import javax.swing.SwingWorker;
-import WSEOptimizer.Constants.*;
+import opt.wseoptimizer.Constants.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
