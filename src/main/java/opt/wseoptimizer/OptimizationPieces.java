@@ -14,16 +14,21 @@ import static opt.wseoptimizer.ComboBoxSupport.stacksToInt;
 import opt.wseoptimizer.Constants.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -108,12 +113,122 @@ public class OptimizationPieces extends javax.swing.JFrame {
             }
         }
     };
+    //Sets up the mapping to use for easily setting and saving settings
+    private HashMap<String, javax.swing.JComboBox> comboBoxMapping = new HashMap();
+    private HashMap<String, javax.swing.JToggleButton> toggleButtonMapping = new HashMap();
+    private HashMap<String, javax.swing.JTextField> textFieldMapping = new HashMap();
+    
 
     /**
      * Creates new form OptimizationPieces
      */
     public OptimizationPieces() {
         initComponents();
+        //Adds the relevant items we want to save to each mapping
+        comboBoxMapping.put("abLinkComboBox", abLinkComboBox);
+        comboBoxMapping.put("adeleLinkComboBox", adeleLinkComboBox);
+        comboBoxMapping.put("adelePartyComboBox", adelePartyComboBox);
+        comboBoxMapping.put("arkLinkComboBox", arkLinkComboBox);
+        comboBoxMapping.put("arkStacksComboBox", arkStacksComboBox);
+        comboBoxMapping.put("btLinkComboBox", btLinkComboBox);
+        comboBoxMapping.put("cadenaLinkComboBox", cadenaLinkComboBox);
+        comboBoxMapping.put("daLinkComboBox", daLinkComboBox);
+        comboBoxMapping.put("dsLinkComboBox", dsLinkComboBox);
+        comboBoxMapping.put("emb1ComboBox", emb1ComboBox);
+        comboBoxMapping.put("emb2ComboBox", emb2ComboBox);
+        comboBoxMapping.put("emb3ComboBox", emb3ComboBox);
+        comboBoxMapping.put("embbp1ComboBox", embbp1ComboBox);
+        comboBoxMapping.put("embbp2ComboBox", embbp2ComboBox);
+        comboBoxMapping.put("embbp3ComboBox", embbp3ComboBox);
+        comboBoxMapping.put("familiar1ComboBox1", familiar1ComboBox1);
+        comboBoxMapping.put("familiar1ComboBox2", familiar1ComboBox2);
+        comboBoxMapping.put("familiar2ComboBox1", familiar2ComboBox1);
+        comboBoxMapping.put("familiar2ComboBox2", familiar2ComboBox2);
+        comboBoxMapping.put("familiar3ComboBox1", familiar3ComboBox1);
+        comboBoxMapping.put("familiar3ComboBox2", familiar3ComboBox2);
+        comboBoxMapping.put("familiarLinesComboBox", familiarLinesComboBox);
+        comboBoxMapping.put("familiarTierComboBox", familiarTierComboBox);
+        comboBoxMapping.put("guildBossComboBox", guildBossComboBox);
+        comboBoxMapping.put("guildCritComboBox", guildCritComboBox);
+        comboBoxMapping.put("guildDmgComboBox", guildDmgComboBox);
+        comboBoxMapping.put("guildIEDComboBox", guildIEDComboBox);
+        comboBoxMapping.put("illiumLinkComboBox", illiumLinkComboBox);
+        comboBoxMapping.put("illiumStacksComboBox", illiumStacksComboBox);
+        comboBoxMapping.put("kannaLinkComboBox", kannaLinkComboBox);
+        comboBoxMapping.put("kinesisLinkComboBox", kinesisLinkComboBox);
+        comboBoxMapping.put("luminousLinkComboBox", luminousLinkComboBox);
+        comboBoxMapping.put("mageLinkComboBox", mageLinkComboBox);
+        comboBoxMapping.put("mageStacksComboBox", mageStacksComboBox);
+        comboBoxMapping.put("sec1ComboBox", sec1ComboBox);
+        comboBoxMapping.put("sec2ComboBox", sec2ComboBox);
+        comboBoxMapping.put("sec3ComboBox", sec3ComboBox);
+        comboBoxMapping.put("secbp1ComboBox", secbp1ComboBox);
+        comboBoxMapping.put("secbp2ComboBox", secbp2ComboBox);
+        comboBoxMapping.put("secbp3ComboBox", secbp3ComboBox);
+        comboBoxMapping.put("soulComboBox", soulComboBox);
+        comboBoxMapping.put("thiefLinkComboBox", thiefLinkComboBox);
+        comboBoxMapping.put("wep1ComboBox", wep1ComboBox);
+        comboBoxMapping.put("wep2ComboBox", wep2ComboBox);
+        comboBoxMapping.put("wep3ComboBox", wep3ComboBox);
+        comboBoxMapping.put("wepbp1ComboBox", wepbp1ComboBox);
+        comboBoxMapping.put("wepbp2ComboBox", wepbp2ComboBox);
+        comboBoxMapping.put("wepbp3ComboBox", wepbp3ComboBox);
+        comboBoxMapping.put("zeroLinkComboBox", zeroLinkComboBox);
+        
+        toggleButtonMapping.put("bp", bp);
+        toggleButtonMapping.put("calculate", calculate);
+        toggleButtonMapping.put("clearInp", clearInp);
+        toggleButtonMapping.put("embSelect", embSelect);
+        toggleButtonMapping.put("embbpSelect", embbpSelect);
+        toggleButtonMapping.put("familiar1Select", familiar1Select);
+        toggleButtonMapping.put("familiar2Select", familiar2Select);
+        toggleButtonMapping.put("familiar3Select", familiar3Select);
+        toggleButtonMapping.put("kannaClass", kannaClass);
+        toggleButtonMapping.put("no_3l", no_3l);
+        toggleButtonMapping.put("no_3lbp", no_3lbp);
+        toggleButtonMapping.put("secSelect", secSelect);
+        toggleButtonMapping.put("secbpSelect", secbpSelect);
+        toggleButtonMapping.put("seclvl", seclvl);
+        toggleButtonMapping.put("soulSelect", soulSelect);
+        toggleButtonMapping.put("wepSelect", wepSelect);
+        toggleButtonMapping.put("wepbpSelect", wepbpSelect);
+        toggleButtonMapping.put("weplvl", weplvl);
+        toggleButtonMapping.put("zeroClass", zeroClass);
+        
+        textFieldMapping.put("att", att);
+        textFieldMapping.put("boss", boss);
+        textFieldMapping.put("critDmgInp", critDmgInp);
+        textFieldMapping.put("dmg", dmg);
+        textFieldMapping.put("embInp1", embInp1);
+        textFieldMapping.put("embInp2", embInp2);
+        textFieldMapping.put("embInp3", embInp3);
+        textFieldMapping.put("embbpInp1", embbpInp1);
+        textFieldMapping.put("embbpInp2", embbpInp2);
+        textFieldMapping.put("embbpInp3", embbpInp3);
+        textFieldMapping.put("familiar1Inp1", familiar1Inp1);
+        textFieldMapping.put("familiar1Inp2", familiar1Inp2);
+        textFieldMapping.put("familiar2Inp1", familiar2Inp1);
+        textFieldMapping.put("familiar2Inp2", familiar2Inp2);
+        textFieldMapping.put("familiar3Inp1", familiar3Inp1);
+        textFieldMapping.put("familiar3Inp2", familiar3Inp2);
+        textFieldMapping.put("hyperStatsInp", hyperStatsInp);
+        textFieldMapping.put("ied", ied);
+        textFieldMapping.put("monDef", monDef);
+        textFieldMapping.put("numOptions", numOptions);
+        textFieldMapping.put("secInp1", secInp1);
+        textFieldMapping.put("secInp2", secInp2);
+        textFieldMapping.put("secInp3", secInp3);
+        textFieldMapping.put("secbpInp1", secbpInp1);
+        textFieldMapping.put("secbpInp2", secbpInp2);
+        textFieldMapping.put("secbpInp3", secbpInp3);
+        textFieldMapping.put("soulInp", soulInp);
+        textFieldMapping.put("union", union);
+        textFieldMapping.put("wepInp1", wepInp1);
+        textFieldMapping.put("wepInp2", wepInp2);
+        textFieldMapping.put("wepInp3", wepInp3);
+        textFieldMapping.put("wepbpInp1", wepbpInp1);
+        textFieldMapping.put("wepbpInp2", wepbpInp2);
+        textFieldMapping.put("wepbpInp3", wepbpInp3);
     }
 
     /**
@@ -276,9 +391,10 @@ public class OptimizationPieces extends javax.swing.JFrame {
         thiefLinkSkill = new javax.swing.JLabel();
         thiefLinkComboBox = new javax.swing.JComboBox<>();
         statsFiller = new javax.swing.Box.Filler(new java.awt.Dimension(1, 250), new java.awt.Dimension(1, 250), new java.awt.Dimension(1, 250));
-        filePanel = new javax.swing.JPanel();
-        saveSettingsButton = new javax.swing.JButton();
-        loadSettingsButton = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        saveSetup = new javax.swing.JMenuItem();
+        loadSetup = new javax.swing.JMenuItem();
 
         fileDialog.setSize(new java.awt.Dimension(600, 400));
 
@@ -288,12 +404,13 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WSE Optimization");
-        setMaximumSize(new java.awt.Dimension(640, 650));
-        setMinimumSize(new java.awt.Dimension(640, 650));
-        setPreferredSize(new java.awt.Dimension(640, 650));
+        setMaximumSize(new java.awt.Dimension(640, 655));
+        setMinimumSize(new java.awt.Dimension(640, 655));
+        setPreferredSize(new java.awt.Dimension(640, 655));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        mainPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 7, 0, 7, new java.awt.Color(153, 153, 153)));
         mainPane.setMaximumSize(new java.awt.Dimension(626, 678));
 
         inputPanel.setMaximumSize(new java.awt.Dimension(621, 650));
@@ -1805,34 +1922,33 @@ public class OptimizationPieces extends javax.swing.JFrame {
 
         mainPane.addTab("Base Stats, Links, and Guild Skills", baseStatsPanel);
 
-        filePanel.setAlignmentX(0.0F);
-        filePanel.setAlignmentY(0.0F);
-        filePanel.setMaximumSize(new java.awt.Dimension(621, 350));
-        filePanel.setMinimumSize(new java.awt.Dimension(621, 350));
-        filePanel.setPreferredSize(new java.awt.Dimension(621, 350));
-        filePanel.setLayout(new java.awt.GridBagLayout());
-
-        saveSettingsButton.setText("Save Settings");
-        saveSettingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveSettingsButtonActionPerformed(evt);
-            }
-        });
-        filePanel.add(saveSettingsButton, new java.awt.GridBagConstraints());
-
-        loadSettingsButton.setText("Load Settings");
-        loadSettingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadSettingsButtonActionPerformed(evt);
-            }
-        });
-        filePanel.add(loadSettingsButton, new java.awt.GridBagConstraints());
-
-        mainPane.addTab("Save and Load", filePanel);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         getContentPane().add(mainPane, gridBagConstraints);
+
+        fileMenu.setText("File");
+
+        saveSetup.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        saveSetup.setText("Save Setup");
+        saveSetup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveSetupActionPerformed(evt);
+            }
+        });
+        fileMenu.add(saveSetup);
+
+        loadSetup.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        loadSetup.setText("Load Setup");
+        loadSetup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadSetupActionPerformed(evt);
+            }
+        });
+        fileMenu.add(loadSetup);
+
+        jMenuBar1.add(fileMenu);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2241,35 +2357,146 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_familiarLinesComboBoxItemStateChanged
 
-    private void saveSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSettingsButtonActionPerformed
+    private void saveSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSetupActionPerformed
         int selectionVal = fileChooser.showSaveDialog(fileDialog);
         
         if (selectionVal == JFileChooser.APPROVE_OPTION) {
             File fileToSave = fileChooser.getSelectedFile();
-            String str = "Hello";
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToSave.getAbsolutePath()))) {
-                writer.write(str);
-            }
-            catch (IOException e){
-                
-            }
-            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+            JSONObject jsonObj = new JSONObject();
+            // using for-each loop for iteration over Map.entrySet()
+            comboBoxMapping.entrySet().forEach(entry -> {
+                jsonObj.put(entry.getKey(), entry.getValue().getSelectedItem().toString());
+            });
+            textFieldMapping.entrySet().forEach(entry -> {
+                String keyVal = entry.getKey();
+                //Special Considerations to be done here - only save the input text fields related to toggles if the toggles are on
+                if (keyVal.contains("wepInp") && !wepSelect.isSelected() ){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("secInp") && !secSelect.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("embInp") && !embSelect.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("wepbpInp") && !wepbpSelect.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("secbpInp") && !secbpSelect.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("embbpInp") && !embbpSelect.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.equals("soulInp") && !soulSelect.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("familiar1Inp") && !familiar1Select.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("familiar2Inp") && !familiar2Select.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else if (keyVal.contains("familiar3Inp") && !familiar3Select.isSelected()){
+                    jsonObj.put(keyVal, "");
+                }
+                else {
+                    jsonObj.put(entry.getKey(), entry.getValue().getText());
+                }
+            });
+            toggleButtonMapping.entrySet().forEach(entry -> {
+                jsonObj.put(entry.getKey(), entry.getValue().isSelected());
+            });
+            saveStringToFile(fileToSave.getAbsolutePath(), jsonObj.toString());
         } else {
-            System.out.print("Save command cancelled by user.");
+            System.out.println("Save command cancelled by user.");
         }
-    }//GEN-LAST:event_saveSettingsButtonActionPerformed
+    }//GEN-LAST:event_saveSetupActionPerformed
 
-    private void loadSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadSettingsButtonActionPerformed
+    private void loadSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadSetupActionPerformed
         int selectionVal = fileChooser.showOpenDialog(fileDialog);
 
         if (selectionVal == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            //This is where a real application would open the file.
-            System.out.print("Opening: " + file.getName() + ".");
+            System.out.println("Opening: " + file.getName() + ".");
+            JSONObject jsonObj = loadFileToJson(file.getAbsolutePath());
+            System.out.println("Finished Loading JSON object. Setting up defaults");
+            // using for-each loop for iteration over Map.entrySet()
+            textFieldMapping.entrySet().forEach(entry -> {
+                try {
+                    entry.getValue().setText(jsonObj.getString(entry.getKey()));
+                }
+                catch (JSONException e){
+                    System.out.println("Failed to load setup " + entry.getKey() + ": " + e.getMessage());
+                }
+            }
+);
+            toggleButtonMapping.entrySet().forEach(entry -> {
+                try {
+                    String keyValue = entry.getKey();
+                    boolean entryValue = jsonObj.getBoolean(keyValue);
+                    entry.getValue().setSelected(entryValue);
+                    // Handle special logic for enabling input values if toggles are on
+                    switch (keyValue) {
+                        case "wepSelect":
+                            setWeaponEnabled(entryValue);
+                            break;
+                        case "secSelect":
+                            setSecondaryEnabled(entryValue);
+                            break;
+                        case "embSelect":
+                            setEmblemEnabled(entryValue);
+                            break;
+                        case "wepbpSelect":
+                            setWeaponBPEnabled(entryValue);
+                            break;
+                        case "secbpSelect":
+                            setSecondaryBPEnabled(entryValue);
+                            break;
+                        case "embbpSelect":
+                            setEmblemBPEnabled(entryValue);
+                            break;
+                        case "soulSelect":
+                            setSoulEnabled(entryValue);
+                            break;
+                        case "familiar1Select":
+                            familiar1SelectActionPerformed(null);
+                            break;
+                        case "familiar2Select":
+                            familiar2SelectActionPerformed(null);
+                            break;
+                        case "familiar3Select":
+                            familiar3SelectActionPerformed(null);
+                            break;
+                        case "kannaClass":
+                            kannaClassActionPerformed(null);
+                            break;
+                        case "zeroClass":
+                            zeroClassActionPerformed(null);
+                            break;
+                        case "bp":
+                            bpActionPerformed(null);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                catch (JSONException e){
+                    System.out.println("Failed to load setup " + entry.getKey() + ": " + e.getMessage());
+                }
+            });
+            comboBoxMapping.entrySet().forEach(entry -> {
+                try{
+                    entry.getValue().setSelectedItem(jsonObj.get(entry.getKey()));
+                }
+                catch (JSONException e){
+                    System.out.println("Failed to load setup " + entry.getKey() + ": " + e.getMessage());
+                }
+            });
         } else {
-            System.out.print("Open command cancelled by user.");
+            System.out.println("Open command cancelled by user.");
         }
-    }//GEN-LAST:event_loadSettingsButtonActionPerformed
+    }//GEN-LAST:event_loadSetupActionPerformed
     
     public void getGuildSkills(){
         //Add the guild skills to the base of each stat
@@ -2579,6 +2806,34 @@ public class OptimizationPieces extends javax.swing.JFrame {
         }
     }
     
+    public void saveStringToFile(String filePath, String stringToSave){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(stringToSave);
+        }
+        catch (IOException e){
+            System.out.println("Save failed due to: " + e.getMessage());
+        }
+        System.out.println("Saved as file: " + filePath);
+    }
+
+    public JSONObject loadFileToJson(String filePath){
+        //This is where a real application would open the file.
+        StringBuilder resultStringBuilder = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                resultStringBuilder.append(line);
+            }
+        }
+        catch (IOException e){
+            System.out.println("Load failed due to: " + e.getMessage());
+            return null;
+        }
+
+        System.out.println("Loading JSON object from " + resultStringBuilder.toString());
+        return new JSONObject(resultStringBuilder.toString());
+    }
+        
     /**
      * @param args the command line arguments
      */
@@ -2673,7 +2928,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JTextArea fd_LegionBP;
     private javax.swing.JFileChooser fileChooser;
     private javax.swing.JDialog fileDialog;
-    private javax.swing.JPanel filePanel;
+    private javax.swing.JMenu fileMenu;
     private javax.swing.JComboBox<String> guildBossComboBox;
     private javax.swing.JComboBox<String> guildCritComboBox;
     private javax.swing.JComboBox<String> guildDmgComboBox;
@@ -2694,6 +2949,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> illiumStacksComboBox;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JSeparator inputSeperator;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToggleButton kannaClass;
     private javax.swing.JComboBox<String> kannaLinkComboBox;
     private javax.swing.JLabel kannaLinkSkill;
@@ -2703,7 +2959,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JSeparator linkSeperator;
     private javax.swing.JLabel linkSkills;
     private javax.swing.JPanel linkSkillsPanel;
-    private javax.swing.JButton loadSettingsButton;
+    private javax.swing.JMenuItem loadSetup;
     private javax.swing.JComboBox<String> luminousLinkComboBox;
     private javax.swing.JLabel luminousLinkSkill;
     private javax.swing.JComboBox<String> mageLinkComboBox;
@@ -2719,7 +2975,7 @@ public class OptimizationPieces extends javax.swing.JFrame {
     private javax.swing.JLabel optionsLabel;
     private javax.swing.JSeparator outputSeperator;
     private javax.swing.JLabel pdrLabel;
-    private javax.swing.JButton saveSettingsButton;
+    private javax.swing.JMenuItem saveSetup;
     private javax.swing.JComboBox<String> sec1ComboBox;
     private javax.swing.JComboBox<String> sec2ComboBox;
     private javax.swing.JComboBox<String> sec3ComboBox;
