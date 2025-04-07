@@ -1,0 +1,27 @@
+{
+  "class_type": "RESISTANCE",
+  "pdr": 3.8,
+  "base_attack": 0.38,
+  "base_boss_damage": 1.86,
+  "base_crit_damage": 0.3,
+  "base_damage": 0.3375,
+  "base_ied": 0.8323,
+  "legion_points": 120,
+  "hyper_points": 1314,
+  "used_familiars": [
+    {"lines":  ["EB", "NA"]},
+    {"lines":  ["EI", "NA"]},
+    {"lines":  ["UB", "NA"]}
+  ],
+  "weapon": {
+    "item_level": 200
+  },
+  "secondary": {
+    "item_level": 140
+  },
+  "emblem": {
+    "item_level": 100
+  },
+  "used_link_skills": ["ANGELIC_BUSTER"],
+  "disabled_link_skills": ["ANGELIC_BUSTER", "ILLIUM", "ADELE", "KHALI", "ZERO"]
+}

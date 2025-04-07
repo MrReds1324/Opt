@@ -1,2 +1,16 @@
-/nbproject/
-/target/
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Pycharm
+.idea
+
+# Ruff
+.ruff_cache
+
+# Virtual environments
+.venv

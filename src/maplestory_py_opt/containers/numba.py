@@ -1,0 +1,6 @@
+import numba
+
+from maplestory_py_opt.containers.numpy import structured_compute_container, structured_result_container
+
+structured_compute_container_numba = numba.from_dtype(structured_compute_container)
+structured_result_container_numba = numba.from_dtype(structured_result_container)
